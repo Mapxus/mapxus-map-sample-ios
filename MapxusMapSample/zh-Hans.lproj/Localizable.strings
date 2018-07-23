@@ -1,0 +1,143 @@
+/* 
+  Localizable.strings
+  MapxusMapSample
+
+  Created by Chenghao Guo on 2018/5/25.
+  Copyright © 2018年 MAPHIVE TECHNOLOGY LIMITED. All rights reserved.
+*/
+
+//==============================================================
+
+"Style" = "外观";
+
+"COMMON" = "默认样式";
+
+"CHRISTMAS" = "圣诞节样式";
+
+"HALLOWMAS" = "万圣节样式";
+
+"MAPPYBEE" = "MAPPYBEE样式";
+
+"OPENMAP" = "OPENSTREET样式";
+
+"Cancel" = "取消";
+
+//==============================================================
+
+"Getting Started" = "开始使用";
+
+"A simple Map View" = "显示地图";
+
+"Show a map in your app using the Mapxus Maps SDK." = "在您的APP中使用Mapxus Maps SDK来显示地图。";
+
+"Build a map view using xib" = "用xib创建地图";
+
+"Add a mapview in xib." = "在xib文件中添加地图。";
+
+//==============================================================
+
+"Styles" = "修改外观";
+
+"Default Styles" = "默认样式";
+
+"Use a variety of professionally designed styles with the Mapxus Maps SDK." = "通过Mapxus Maps SDK使用各种专业设计的样式。";
+
+//==============================================================
+
+"Annotations" = "添加标注";
+
+"Draw a marker" = "绘制标注";
+
+"Create a default marker using the Mapxus Maps SDK." = "通过Mapxus Maps SDK添加默认标注。";
+
+"Draw a custom marker icon" = "绘制自定义标注图标";
+
+"Create a marker with a custom icon using the Mapxus Maps SDK." = "通过Mapxus Maps SDK添加自定义图标标注。";
+
+"Draw a polygon" = "绘制多边形";
+
+"Draw a vector polygon on a map with the Mapxus Maps SDK." = "通过Mapxus Maps SDK绘制多边形。";
+
+"Draw a polygon with holes" = "绘制一个带孔的多边形";
+
+"Draw a vector polygon with holes on a map using the Mapxus Maps SDK." = "通过Mapxus Maps SDK绘制带孔的多边形。";
+
+"Animate marker position" = "移动标注位置";
+
+"Animate the marker to a new position on the map." = "移动标注到新的位置。";
+
+//==============================================================
+
+"Camera" = "修改镜头";
+
+"Animate the map camera" = "移动地图相机";
+
+"Animate the map’s camera position, tile, bearing and the zoom." = "为地图的镜头位置，平铺，方位和缩放设置动画效果。";
+
+"Restrict map panning" = "限制地图平移";
+
+"Prevent a map from being panned to a different place." = "防止地图被移到不同的地方。";
+
+//==============================================================
+
+"Listener" = "监听消息";
+
+"Building and floor change" = "楼层变更";
+
+"Build and floor change." = "楼层变更。";
+
+"POI click listener" = "POI点击事件";
+
+"POI Click Listner." = "POI点击事件。";
+
+"Camera Change" = "地图平移数据";
+
+"Camera Change." = "地图平移数据。";
+
+//==============================================================
+
+"Search Service" = "搜索服务";
+
+"Route Planning" = "点到点路径";
+
+"Route Planning." = "点到点路径。";
+
+"Search Building Nearby" = "搜索附近建筑";
+
+"Search building nearby." = "搜索附近建筑。";
+
+"Search Building in bound" = "按范围搜索建筑";
+
+"Search building in bound." = "按范围搜索建筑。";
+
+"Search Building Detail by ID" = "按ID搜索建筑";
+
+"Search Building detail by ID." = "按ID搜索建筑。";
+
+"Search Building Global" = "全球搜索建筑";
+
+"Search Building Global." = "全球搜索建筑。";
+
+"Search POI nearby" = "搜索附近POI";
+
+"Search POI nearby." = "搜索附近POI。";
+
+"Search POI in bound" = "按范围搜索POI";
+
+"Search POI in bound." = "按范围搜索POI。";
+
+"Search POI detail by ID" = "按ID搜索POI";
+
+"Search POI detail by ID." = "按ID搜索POI。";
+
+"Search POI in building" = "建筑范围内搜索POI";
+
+"Search POI in building." = "建筑范围内搜索POI。";
+
+//==============================================================
+
+"Display location" = "显示当前位置";
+
+"Displaying the users location" = "显示用户当前位置";
+
+"Displaying the users location." = "显示用户当前位置。";

@@ -1,0 +1,151 @@
+/* 
+  Localizable.strings
+  MapxusMapSample
+
+  Created by Chenghao Guo on 2018/5/25.
+  Copyright © 2018年 MAPHIVE TECHNOLOGY LIMITED. All rights reserved.
+*/
+
+//==============================================================
+
+"Style" = "Style";
+
+"COMMON" = "COMMON";
+
+"CHRISTMAS" = "CHRISTMAS";
+
+"HALLOWMAS" = "HALLOWMAS";
+
+"MAPPYBEE" = "MAPPYBEE";
+
+"OPENMAP" = "OPENSTREET";
+
+"Cancel" = "Cancel";
+
+//==============================================================
+
+"Getting Started" = "Getting Started";
+
+"A simple Map View" = "A simple Map View";
+
+"Show a map in your app using the Mapxus Maps SDK." = "Show a map in your app using the Mapxus Maps SDK.";
+
+"Build a map view using xib" = "Build a map view using xib";
+
+"Add a mapview in xib." = "Add a mapview in xib.";
+
+//==============================================================
+
+"Styles" = "Styles";
+
+"Default Styles" = "Default Styles";
+
+"Use a variety of professionally designed styles with the Mapxus Maps SDK." = "Use a variety of professionally designed styles with the Mapxus Maps SDK.";
+
+//==============================================================
+
+"Annotations" = "Annotations";
+
+"Draw a marker" = "Draw a marker";
+
+"Create a default marker using the Mapxus Maps SDK." = "Create a default marker using the Mapxus Maps SDK.";
+
+"Draw a custom marker icon" = "Draw a custom marker icon";
+
+"Create a marker with a custom icon using the Mapxus Maps SDK." = "Create a marker with a custom icon using the Mapxus Maps SDK.";
+
+"Draw a polygon" = "Draw a polygon";
+
+"Draw a vector polygon on a map with the Mapxus Maps SDK." = "Draw a vector polygon on a map with the Mapxus Maps SDK.";
+
+"Draw a polygon with holes" = "Draw a polygon with holes";
+
+"Draw a vector polygon with holes on a map using the Mapxus Maps SDK." = "Draw a vector polygon with holes on a map using the Mapxus Maps SDK.";
+
+"Animate marker position" = "Animate marker position";
+
+"Animate the marker to a new position on the map." = "Animate the marker to a new position on the map.";
+
+//==============================================================
+
+"Camera" = "Camera";
+
+"Animate the map camera" = "Animate the map camera";
+
+"Animate the map’s camera position, tile, bearing and the zoom." = "Animate the map’s camera position, tile, bearing and the zoom.";
+
+"Restrict map panning" = "Restrict map panning";
+
+"Prevent a map from being panned to a different place." = "Prevent a map from being panned to a different place.";
+
+//==============================================================
+
+"Listener" = "Listener";
+
+"Building and floor change" = "Building and floor change";
+
+"Build and floor change." = "Build and floor change.";
+
+"POI click listener" = "POI click listener";
+
+"POI Click Listner." = "POI Click Listner.";
+
+"Camera Change" = "Camera Change";
+
+"Camera Change." = "Camera Change.";
+
+//==============================================================
+
+"Search Service" = "Search Service";
+
+"Route Planning" = "Route Planning";
+
+"Route Planning." = "Route Planning.";
+
+"Search Building Nearby" = "Search Building Nearby";
+
+"Search building nearby." = "Search building nearby.";
+
+"Search Building in bound" = "Search Building in bound";
+
+"Search building in bound." = "Search building in bound.";
+
+"Search Building Detail by ID" = "Search Building Detail by ID";
+
+"Search Building detail by ID." = "Search Building detail by ID.";
+
+"Search Building Global" = "Search Building Global";
+
+"Search Building Global." = "Search Building Global.";
+
+"Search POI nearby" = "Search POI nearby";
+
+"Search POI nearby." = "Search POI nearby.";
+
+"Search POI in bound" = "Search POI in bound";
+
+"Search POI in bound." = "Search POI in bound.";
+
+"Search POI detail by ID" = "Search POI detail by ID";
+
+"Search POI detail by ID." = "Search POI detail by ID.";
+
+"Search POI in building" = "Search POI in building";
+
+"Search POI in building." = "Search POI in building.";
+
+//==============================================================
+
+"Display location" = "Display location";
+
+"Displaying the users location" = "Displaying the users location";
+
+"Displaying the users location." = "Displaying the users location.";
+
+
+
+
+
+
+
+

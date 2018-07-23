@@ -1,0 +1,1158 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C15E72DA8653D29FC9C04174 /* Pods_MapxusMapSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F4ABE352B03EF49E072948 /* Pods_MapxusMapSample.framework */; };
+		CAE3C695D3128BDE5CFD6BCA /* Pods_MapxusMapSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A072C56DB036E61BB8E83A87 /* Pods_MapxusMapSampleTests.framework */; };
+		D684BC6820FED921004E85D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC6720FED921004E85D9 /* AppDelegate.m */; };
+		D684BC7620FED922004E85D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC7520FED922004E85D9 /* main.m */; };
+		D684BC8020FED922004E85D9 /* MapxusMapSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC7F20FED922004E85D9 /* MapxusMapSampleTests.m */; };
+		D684BC8B20FED922004E85D9 /* MapxusMapSampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC8A20FED922004E85D9 /* MapxusMapSampleUITests.m */; };
+		D684BCA220FF4D77004E85D9 /* MapxusMapSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684BC9D20FF4D77004E85D9 /* MapxusMapSDK.framework */; };
+		D684BCA320FF4D77004E85D9 /* MapxusMapSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D684BC9D20FF4D77004E85D9 /* MapxusMapSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D684BD6420FF8A19004E85D9 /* FeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCEF20FF8A16004E85D9 /* FeatureCollectionViewCell.m */; };
+		D684BD6520FF8A19004E85D9 /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCF020FF8A16004E85D9 /* MenuTableViewCell.m */; };
+		D684BD6620FF8A19004E85D9 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCF620FF8A16004E85D9 /* MenuViewController.m */; };
+		D684BD6720FF8A19004E85D9 /* Feature.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCF720FF8A16004E85D9 /* Feature.m */; };
+		D684BD6820FF8A19004E85D9 /* FeaturesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCF820FF8A16004E85D9 /* FeaturesCollectionViewController.m */; };
+		D684BD6920FF8A19004E85D9 /* SimpleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCFA20FF8A17004E85D9 /* SimpleMapViewController.m */; };
+		D684BD6A20FF8A19004E85D9 /* XibBuildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BCFB20FF8A17004E85D9 /* XibBuildViewController.xib */; };
+		D684BD6B20FF8A19004E85D9 /* XibBuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCFC20FF8A17004E85D9 /* XibBuildViewController.m */; };
+		D684BD6D20FF8A19004E85D9 /* RestrictMapPanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD0420FF8A17004E85D9 /* RestrictMapPanningViewController.m */; };
+		D684BD6E20FF8A19004E85D9 /* AnimateMapCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD0520FF8A17004E85D9 /* AnimateMapCameraViewController.xib */; };
+		D684BD6F20FF8A19004E85D9 /* AnimateMapCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD0820FF8A17004E85D9 /* AnimateMapCameraViewController.m */; };
+		D684BD7120FF8A19004E85D9 /* POIClickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD0E20FF8A17004E85D9 /* POIClickViewController.m */; };
+		D684BD7220FF8A19004E85D9 /* BuildingAndFloorChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD1220FF8A17004E85D9 /* BuildingAndFloorChangeViewController.m */; };
+		D684BD7320FF8A19004E85D9 /* CameraChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD1320FF8A17004E85D9 /* CameraChangeViewController.m */; };
+		D684BD7420FF8A19004E85D9 /* DefaultStylesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD1620FF8A17004E85D9 /* DefaultStylesViewController.xib */; };
+		D684BD7520FF8A19004E85D9 /* DefaultStylesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD1720FF8A17004E85D9 /* DefaultStylesViewController.m */; };
+		D684BD7620FF8A19004E85D9 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD1A20FF8A17004E85D9 /* UIImage+Rotate.m */; };
+		D684BD7C20FF8A19004E85D9 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD2920FF8A18004E85D9 /* JRSwizzle.m */; };
+		D684BD7D20FF8A19004E85D9 /* SearchPOIInBuildingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD2D20FF8A18004E85D9 /* SearchPOIInBuildingViewController.xib */; };
+		D684BD7E20FF8A19004E85D9 /* SearchPOIDetailByIdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD2E20FF8A18004E85D9 /* SearchPOIDetailByIdViewController.m */; };
+		D684BD7F20FF8A19004E85D9 /* SearchPOINearbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD2F20FF8A18004E85D9 /* SearchPOINearbyViewController.xib */; };
+		D684BD8020FF8A19004E85D9 /* SearchBuildingInBoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD3220FF8A18004E85D9 /* SearchBuildingInBoundViewController.m */; };
+		D684BD8120FF8A19004E85D9 /* SearchBuildingNearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD3420FF8A18004E85D9 /* SearchBuildingNearbyViewController.m */; };
+		D684BD8220FF8A19004E85D9 /* ArrowPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD3620FF8A18004E85D9 /* ArrowPointAnnotation.m */; };
+		D684BD8320FF8A19004E85D9 /* SearchPOIDetailByIdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD3720FF8A18004E85D9 /* SearchPOIDetailByIdViewController.xib */; };
+		D684BD8420FF8A19004E85D9 /* SearchPOINearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD3820FF8A18004E85D9 /* SearchPOINearbyViewController.m */; };
+		D684BD8520FF8A19004E85D9 /* SearchBuildingGlobalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD3920FF8A18004E85D9 /* SearchBuildingGlobalViewController.m */; };
+		D684BD8620FF8A19004E85D9 /* SearchPOIInBoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD3A20FF8A18004E85D9 /* SearchPOIInBoundViewController.xib */; };
+		D684BD8720FF8A19004E85D9 /* RoutePlanningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD3C20FF8A18004E85D9 /* RoutePlanningViewController.xib */; };
+		D684BD8820FF8A19004E85D9 /* SearchBuildingGlobalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD3D20FF8A18004E85D9 /* SearchBuildingGlobalViewController.xib */; };
+		D684BD8920FF8A19004E85D9 /* SearchBuildingNearbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD3E20FF8A18004E85D9 /* SearchBuildingNearbyViewController.xib */; };
+		D684BD8A20FF8A19004E85D9 /* SearchPOIInBoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD4020FF8A18004E85D9 /* SearchPOIInBoundViewController.m */; };
+		D684BD8B20FF8A19004E85D9 /* SearchPOIInBuildingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD4120FF8A18004E85D9 /* SearchPOIInBuildingViewController.m */; };
+		D684BD8C20FF8A19004E85D9 /* SearchBuildingByIdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD4320FF8A18004E85D9 /* SearchBuildingByIdViewController.xib */; };
+		D684BD8D20FF8A19004E85D9 /* SearchBuildingByIdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD4420FF8A18004E85D9 /* SearchBuildingByIdViewController.m */; };
+		D684BD8E20FF8A19004E85D9 /* RoutePlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD4520FF8A18004E85D9 /* RoutePlanningViewController.m */; };
+		D684BD8F20FF8A19004E85D9 /* SearchBuildingInBoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD4720FF8A18004E85D9 /* SearchBuildingInBoundViewController.xib */; };
+		D684BD9020FF8A19004E85D9 /* UIViewController+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD4920FF8A18004E85D9 /* UIViewController+Swizzle.m */; };
+		D684BD9220FF8A19004E85D9 /* DisplayLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD5020FF8A18004E85D9 /* DisplayLocationViewController.xib */; };
+		D684BD9320FF8A19004E85D9 /* DisplayLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD5320FF8A18004E85D9 /* DisplayLocationViewController.m */; };
+		D684BD9420FF8A19004E85D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D684BD5420FF8A18004E85D9 /* Assets.xcassets */; };
+		D684BD9620FF8A19004E85D9 /* DrawCustomMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD5B20FF8A19004E85D9 /* DrawCustomMarkerViewController.m */; };
+		D684BD9720FF8A19004E85D9 /* DrawPolygonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD5C20FF8A19004E85D9 /* DrawPolygonViewController.m */; };
+		D684BD9E20FF8A69004E85D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D684BD9A20FF8A68004E85D9 /* LaunchScreen.storyboard */; };
+		D684BD9F20FF8A69004E85D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D684BD9C20FF8A69004E85D9 /* Main.storyboard */; };
+		D684BDA220FF8AC5004E85D9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D684BDA020FF8AC5004E85D9 /* Localizable.strings */; };
+		D684BDB221003C74004E85D9 /* DrawCustomMarkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BDB121003C74004E85D9 /* DrawCustomMarkerViewController.xib */; };
+		D684BDBE21007AA3004E85D9 /* RestrictMapPanningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BDBD21007AA3004E85D9 /* RestrictMapPanningViewController.xib */; };
+		D6D287442100EE7700860D20 /* AnimateMarkerPositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D287422100EE7700860D20 /* AnimateMarkerPositionViewController.m */; };
+		D6D287452100EE7700860D20 /* AnimateMarkerPositionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D287432100EE7700860D20 /* AnimateMarkerPositionViewController.xib */; };
+		D6D287492100F32200860D20 /* DrawPolygonWithHolesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D287472100F32200860D20 /* DrawPolygonWithHolesViewController.m */; };
+		D6D2874A2100F32200860D20 /* DrawPolygonWithHolesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D287482100F32200860D20 /* DrawPolygonWithHolesViewController.xib */; };
+		D6D2874E2100F8DB00860D20 /* DrawMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D2874C2100F8DB00860D20 /* DrawMarkerViewController.m */; };
+		D6D2874F2100F8DB00860D20 /* DrawMarkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D2874D2100F8DB00860D20 /* DrawMarkerViewController.xib */; };
+		D6E8909E2100D69F00E5F756 /* DrawPolygonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E8909D2100D69F00E5F756 /* DrawPolygonViewController.xib */; };
+		FE3C2A917D49A09E1FB9219D /* Pods_MapxusMapSampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D48763B44BFA0D490D869B /* Pods_MapxusMapSampleUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D684BC7C20FED922004E85D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D684BC5B20FED921004E85D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D684BC6220FED921004E85D9;
+			remoteInfo = MapxusMapSample;
+		};
+		D684BC8720FED922004E85D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D684BC5B20FED921004E85D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D684BC6220FED921004E85D9;
+			remoteInfo = MapxusMapSample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D684BCA820FF4D77004E85D9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D684BCA320FF4D77004E85D9 /* MapxusMapSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		59F4ABE352B03EF49E072948 /* Pods_MapxusMapSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapxusMapSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6761E476883A8A50EAEF788B /* Pods-MapxusMapSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSample/Pods-MapxusMapSample.debug.xcconfig"; sourceTree = "<group>"; };
+		A072C56DB036E61BB8E83A87 /* Pods_MapxusMapSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapxusMapSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEED814EAD36ACE9D95D5810 /* Pods-MapxusMapSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSampleTests/Pods-MapxusMapSampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		B41AF1415917CC65CC4C0DB8 /* Pods-MapxusMapSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSampleTests/Pods-MapxusMapSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B6D48763B44BFA0D490D869B /* Pods_MapxusMapSampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapxusMapSampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE46F8AF4CD1873D490D0136 /* Pods-MapxusMapSampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSampleUITests/Pods-MapxusMapSampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C749DAAF82861B8635A8323D /* Pods-MapxusMapSampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSampleUITests/Pods-MapxusMapSampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D684BC6320FED921004E85D9 /* MapxusMapSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapxusMapSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D684BC6620FED921004E85D9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D684BC6720FED921004E85D9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D684BC7420FED922004E85D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D684BC7520FED922004E85D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D684BC7B20FED922004E85D9 /* MapxusMapSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapxusMapSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D684BC7F20FED922004E85D9 /* MapxusMapSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapxusMapSampleTests.m; sourceTree = "<group>"; };
+		D684BC8120FED922004E85D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D684BC8620FED922004E85D9 /* MapxusMapSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapxusMapSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D684BC8A20FED922004E85D9 /* MapxusMapSampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapxusMapSampleUITests.m; sourceTree = "<group>"; };
+		D684BC8C20FED922004E85D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D684BC9D20FF4D77004E85D9 /* MapxusMapSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapxusMapSDK.framework; sourceTree = "<group>"; };
+		D684BCEF20FF8A16004E85D9 /* FeatureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureCollectionViewCell.m; sourceTree = "<group>"; };
+		D684BCF020FF8A16004E85D9 /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
+		D684BCF120FF8A16004E85D9 /* FeaturesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesCollectionViewController.h; sourceTree = "<group>"; };
+		D684BCF220FF8A16004E85D9 /* Feature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Feature.h; sourceTree = "<group>"; };
+		D684BCF320FF8A16004E85D9 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		D684BCF420FF8A16004E85D9 /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
+		D684BCF520FF8A16004E85D9 /* FeatureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureCollectionViewCell.h; sourceTree = "<group>"; };
+		D684BCF620FF8A16004E85D9 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		D684BCF720FF8A16004E85D9 /* Feature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feature.m; sourceTree = "<group>"; };
+		D684BCF820FF8A16004E85D9 /* FeaturesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesCollectionViewController.m; sourceTree = "<group>"; };
+		D684BCFA20FF8A17004E85D9 /* SimpleMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleMapViewController.m; sourceTree = "<group>"; };
+		D684BCFB20FF8A17004E85D9 /* XibBuildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XibBuildViewController.xib; sourceTree = "<group>"; };
+		D684BCFC20FF8A17004E85D9 /* XibBuildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XibBuildViewController.m; sourceTree = "<group>"; };
+		D684BCFD20FF8A17004E85D9 /* SimpleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleMapViewController.h; sourceTree = "<group>"; };
+		D684BCFE20FF8A17004E85D9 /* XibBuildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XibBuildViewController.h; sourceTree = "<group>"; };
+		D684BD0320FF8A17004E85D9 /* AnimateMapCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateMapCameraViewController.h; sourceTree = "<group>"; };
+		D684BD0420FF8A17004E85D9 /* RestrictMapPanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestrictMapPanningViewController.m; sourceTree = "<group>"; };
+		D684BD0620FF8A17004E85D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AnimateMapCameraViewController.xib; sourceTree = "<group>"; };
+		D684BD0820FF8A17004E85D9 /* AnimateMapCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimateMapCameraViewController.m; sourceTree = "<group>"; };
+		D684BD0920FF8A17004E85D9 /* RestrictMapPanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestrictMapPanningViewController.h; sourceTree = "<group>"; };
+		D684BD0E20FF8A17004E85D9 /* POIClickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIClickViewController.m; sourceTree = "<group>"; };
+		D684BD0F20FF8A17004E85D9 /* BuildingAndFloorChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingAndFloorChangeViewController.h; sourceTree = "<group>"; };
+		D684BD1020FF8A17004E85D9 /* CameraChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraChangeViewController.h; sourceTree = "<group>"; };
+		D684BD1120FF8A17004E85D9 /* POIClickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIClickViewController.h; sourceTree = "<group>"; };
+		D684BD1220FF8A17004E85D9 /* BuildingAndFloorChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingAndFloorChangeViewController.m; sourceTree = "<group>"; };
+		D684BD1320FF8A17004E85D9 /* CameraChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraChangeViewController.m; sourceTree = "<group>"; };
+		D684BD1520FF8A17004E85D9 /* DefaultStylesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultStylesViewController.h; sourceTree = "<group>"; };
+		D684BD1620FF8A17004E85D9 /* DefaultStylesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultStylesViewController.xib; sourceTree = "<group>"; };
+		D684BD1720FF8A17004E85D9 /* DefaultStylesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultStylesViewController.m; sourceTree = "<group>"; };
+		D684BD1920FF8A17004E85D9 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		D684BD1A20FF8A17004E85D9 /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
+		D684BD2820FF8A18004E85D9 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		D684BD2920FF8A18004E85D9 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		D684BD2B20FF8A18004E85D9 /* SearchBuildingGlobalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBuildingGlobalViewController.h; sourceTree = "<group>"; };
+		D684BD2C20FF8A18004E85D9 /* SearchPOINearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPOINearbyViewController.h; sourceTree = "<group>"; };
+		D684BD2D20FF8A18004E85D9 /* SearchPOIInBuildingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPOIInBuildingViewController.xib; sourceTree = "<group>"; };
+		D684BD2E20FF8A18004E85D9 /* SearchPOIDetailByIdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPOIDetailByIdViewController.m; sourceTree = "<group>"; };
+		D684BD2F20FF8A18004E85D9 /* SearchPOINearbyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPOINearbyViewController.xib; sourceTree = "<group>"; };
+		D684BD3020FF8A18004E85D9 /* SearchPOIInBuildingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPOIInBuildingViewController.h; sourceTree = "<group>"; };
+		D684BD3120FF8A18004E85D9 /* SearchPOIInBoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPOIInBoundViewController.h; sourceTree = "<group>"; };
+		D684BD3220FF8A18004E85D9 /* SearchBuildingInBoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingInBoundViewController.m; sourceTree = "<group>"; };
+		D684BD3320FF8A18004E85D9 /* RoutePlanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutePlanningViewController.h; sourceTree = "<group>"; };
+		D684BD3420FF8A18004E85D9 /* SearchBuildingNearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingNearbyViewController.m; sourceTree = "<group>"; };
+		D684BD3520FF8A18004E85D9 /* SearchBuildingByIdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBuildingByIdViewController.h; sourceTree = "<group>"; };
+		D684BD3620FF8A18004E85D9 /* ArrowPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowPointAnnotation.m; sourceTree = "<group>"; };
+		D684BD3720FF8A18004E85D9 /* SearchPOIDetailByIdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPOIDetailByIdViewController.xib; sourceTree = "<group>"; };
+		D684BD3820FF8A18004E85D9 /* SearchPOINearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPOINearbyViewController.m; sourceTree = "<group>"; };
+		D684BD3920FF8A18004E85D9 /* SearchBuildingGlobalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingGlobalViewController.m; sourceTree = "<group>"; };
+		D684BD3A20FF8A18004E85D9 /* SearchPOIInBoundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPOIInBoundViewController.xib; sourceTree = "<group>"; };
+		D684BD3B20FF8A18004E85D9 /* SearchPOIDetailByIdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPOIDetailByIdViewController.h; sourceTree = "<group>"; };
+		D684BD3C20FF8A18004E85D9 /* RoutePlanningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoutePlanningViewController.xib; sourceTree = "<group>"; };
+		D684BD3D20FF8A18004E85D9 /* SearchBuildingGlobalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBuildingGlobalViewController.xib; sourceTree = "<group>"; };
+		D684BD3E20FF8A18004E85D9 /* SearchBuildingNearbyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBuildingNearbyViewController.xib; sourceTree = "<group>"; };
+		D684BD3F20FF8A18004E85D9 /* SearchBuildingInBoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBuildingInBoundViewController.h; sourceTree = "<group>"; };
+		D684BD4020FF8A18004E85D9 /* SearchPOIInBoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPOIInBoundViewController.m; sourceTree = "<group>"; };
+		D684BD4120FF8A18004E85D9 /* SearchPOIInBuildingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPOIInBuildingViewController.m; sourceTree = "<group>"; };
+		D684BD4220FF8A18004E85D9 /* ArrowPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowPointAnnotation.h; sourceTree = "<group>"; };
+		D684BD4320FF8A18004E85D9 /* SearchBuildingByIdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBuildingByIdViewController.xib; sourceTree = "<group>"; };
+		D684BD4420FF8A18004E85D9 /* SearchBuildingByIdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingByIdViewController.m; sourceTree = "<group>"; };
+		D684BD4520FF8A18004E85D9 /* RoutePlanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutePlanningViewController.m; sourceTree = "<group>"; };
+		D684BD4620FF8A18004E85D9 /* SearchBuildingNearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBuildingNearbyViewController.h; sourceTree = "<group>"; };
+		D684BD4720FF8A18004E85D9 /* SearchBuildingInBoundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBuildingInBoundViewController.xib; sourceTree = "<group>"; };
+		D684BD4920FF8A18004E85D9 /* UIViewController+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Swizzle.m"; sourceTree = "<group>"; };
+		D684BD4A20FF8A18004E85D9 /* UIViewController+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Swizzle.h"; sourceTree = "<group>"; };
+		D684BD4F20FF8A18004E85D9 /* DisplayLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayLocationViewController.h; sourceTree = "<group>"; };
+		D684BD5120FF8A18004E85D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DisplayLocationViewController.xib; sourceTree = "<group>"; };
+		D684BD5320FF8A18004E85D9 /* DisplayLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayLocationViewController.m; sourceTree = "<group>"; };
+		D684BD5420FF8A18004E85D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D684BD5720FF8A19004E85D9 /* DrawPolygonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawPolygonViewController.h; sourceTree = "<group>"; };
+		D684BD5B20FF8A19004E85D9 /* DrawCustomMarkerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawCustomMarkerViewController.m; sourceTree = "<group>"; };
+		D684BD5C20FF8A19004E85D9 /* DrawPolygonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawPolygonViewController.m; sourceTree = "<group>"; };
+		D684BD6020FF8A19004E85D9 /* DrawCustomMarkerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawCustomMarkerViewController.h; sourceTree = "<group>"; };
+		D684BD9B20FF8A68004E85D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D684BD9D20FF8A69004E85D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D684BDA120FF8AC5004E85D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D684BDA320FF8ADF004E85D9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D684BDA420FF8AE3004E85D9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D684BDA720FF8B03004E85D9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D684BDA820FF8B06004E85D9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D684BDA920FF8B21004E85D9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		D684BDAA20FF8B25004E85D9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		D684BDB121003C74004E85D9 /* DrawCustomMarkerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawCustomMarkerViewController.xib; sourceTree = "<group>"; };
+		D684BDB721006674004E85D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AnimateMapCameraViewController.strings; sourceTree = "<group>"; };
+		D684BDB821006677004E85D9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AnimateMapCameraViewController.strings"; sourceTree = "<group>"; };
+		D684BDB92100667A004E85D9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AnimateMapCameraViewController.strings"; sourceTree = "<group>"; };
+		D684BDBA210066B1004E85D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DisplayLocationViewController.strings; sourceTree = "<group>"; };
+		D684BDBB210066B5004E85D9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/DisplayLocationViewController.strings"; sourceTree = "<group>"; };
+		D684BDBC210066B8004E85D9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DisplayLocationViewController.strings"; sourceTree = "<group>"; };
+		D684BDBD21007AA3004E85D9 /* RestrictMapPanningViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestrictMapPanningViewController.xib; sourceTree = "<group>"; };
+		D6D287412100EE7700860D20 /* AnimateMarkerPositionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimateMarkerPositionViewController.h; sourceTree = "<group>"; };
+		D6D287422100EE7700860D20 /* AnimateMarkerPositionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimateMarkerPositionViewController.m; sourceTree = "<group>"; };
+		D6D287432100EE7700860D20 /* AnimateMarkerPositionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimateMarkerPositionViewController.xib; sourceTree = "<group>"; };
+		D6D287462100F32200860D20 /* DrawPolygonWithHolesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawPolygonWithHolesViewController.h; sourceTree = "<group>"; };
+		D6D287472100F32200860D20 /* DrawPolygonWithHolesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawPolygonWithHolesViewController.m; sourceTree = "<group>"; };
+		D6D287482100F32200860D20 /* DrawPolygonWithHolesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawPolygonWithHolesViewController.xib; sourceTree = "<group>"; };
+		D6D2874B2100F8DB00860D20 /* DrawMarkerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawMarkerViewController.h; sourceTree = "<group>"; };
+		D6D2874C2100F8DB00860D20 /* DrawMarkerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawMarkerViewController.m; sourceTree = "<group>"; };
+		D6D2874D2100F8DB00860D20 /* DrawMarkerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawMarkerViewController.xib; sourceTree = "<group>"; };
+		D6E8909D2100D69F00E5F756 /* DrawPolygonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawPolygonViewController.xib; sourceTree = "<group>"; };
+		FBCFA9805C81342EAED3714B /* Pods-MapxusMapSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSample/Pods-MapxusMapSample.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D684BC6020FED921004E85D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D684BCA220FF4D77004E85D9 /* MapxusMapSDK.framework in Frameworks */,
+				C15E72DA8653D29FC9C04174 /* Pods_MapxusMapSample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D684BC7820FED922004E85D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAE3C695D3128BDE5CFD6BCA /* Pods_MapxusMapSampleTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D684BC8320FED922004E85D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE3C2A917D49A09E1FB9219D /* Pods_MapxusMapSampleUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9EF10F73C9FD8B939971BDAB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59F4ABE352B03EF49E072948 /* Pods_MapxusMapSample.framework */,
+				A072C56DB036E61BB8E83A87 /* Pods_MapxusMapSampleTests.framework */,
+				B6D48763B44BFA0D490D869B /* Pods_MapxusMapSampleUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2C89EA6120F5BC4478C79C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6761E476883A8A50EAEF788B /* Pods-MapxusMapSample.debug.xcconfig */,
+				FBCFA9805C81342EAED3714B /* Pods-MapxusMapSample.release.xcconfig */,
+				B41AF1415917CC65CC4C0DB8 /* Pods-MapxusMapSampleTests.debug.xcconfig */,
+				AEED814EAD36ACE9D95D5810 /* Pods-MapxusMapSampleTests.release.xcconfig */,
+				BE46F8AF4CD1873D490D0136 /* Pods-MapxusMapSampleUITests.debug.xcconfig */,
+				C749DAAF82861B8635A8323D /* Pods-MapxusMapSampleUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D684BC5A20FED921004E85D9 = {
+			isa = PBXGroup;
+			children = (
+				D684BC9D20FF4D77004E85D9 /* MapxusMapSDK.framework */,
+				D684BC6520FED921004E85D9 /* MapxusMapSample */,
+				D684BC7E20FED922004E85D9 /* MapxusMapSampleTests */,
+				D684BC8920FED922004E85D9 /* MapxusMapSampleUITests */,
+				D684BC6420FED921004E85D9 /* Products */,
+				B2C89EA6120F5BC4478C79C1 /* Pods */,
+				9EF10F73C9FD8B939971BDAB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D684BC6420FED921004E85D9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D684BC6320FED921004E85D9 /* MapxusMapSample.app */,
+				D684BC7B20FED922004E85D9 /* MapxusMapSampleTests.xctest */,
+				D684BC8620FED922004E85D9 /* MapxusMapSampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D684BC6520FED921004E85D9 /* MapxusMapSample */ = {
+			isa = PBXGroup;
+			children = (
+				D684BDA020FF8AC5004E85D9 /* Localizable.strings */,
+				D684BD9A20FF8A68004E85D9 /* LaunchScreen.storyboard */,
+				D684BD9C20FF8A69004E85D9 /* Main.storyboard */,
+				D684BC6620FED921004E85D9 /* AppDelegate.h */,
+				D684BC6720FED921004E85D9 /* AppDelegate.m */,
+				D684BCEE20FF8A16004E85D9 /* FeaturesList */,
+				D684BD5620FF8A19004E85D9 /* Annotations */,
+				D684BCFF20FF8A17004E85D9 /* Camera */,
+				D684BD4B20FF8A18004E85D9 /* DisplayLocation */,
+				D684BCF920FF8A17004E85D9 /* GettingStarted */,
+				D684BD0D20FF8A17004E85D9 /* Listener */,
+				D684BD2A20FF8A18004E85D9 /* SearchServices */,
+				D684BD1420FF8A17004E85D9 /* Styles */,
+				D684BD2720FF8A18004E85D9 /* JRSwizzle */,
+				D684BD1820FF8A17004E85D9 /* UIImage+Rotate */,
+				D684BD4820FF8A18004E85D9 /* UIViewController+Swizzle */,
+				D684BD5420FF8A18004E85D9 /* Assets.xcassets */,
+				D684BC7420FED922004E85D9 /* Info.plist */,
+				D684BC7520FED922004E85D9 /* main.m */,
+			);
+			path = MapxusMapSample;
+			sourceTree = "<group>";
+		};
+		D684BC7E20FED922004E85D9 /* MapxusMapSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				D684BC7F20FED922004E85D9 /* MapxusMapSampleTests.m */,
+				D684BC8120FED922004E85D9 /* Info.plist */,
+			);
+			path = MapxusMapSampleTests;
+			sourceTree = "<group>";
+		};
+		D684BC8920FED922004E85D9 /* MapxusMapSampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D684BC8A20FED922004E85D9 /* MapxusMapSampleUITests.m */,
+				D684BC8C20FED922004E85D9 /* Info.plist */,
+			);
+			path = MapxusMapSampleUITests;
+			sourceTree = "<group>";
+		};
+		D684BCEE20FF8A16004E85D9 /* FeaturesList */ = {
+			isa = PBXGroup;
+			children = (
+				D684BCEF20FF8A16004E85D9 /* FeatureCollectionViewCell.m */,
+				D684BCF020FF8A16004E85D9 /* MenuTableViewCell.m */,
+				D684BCF120FF8A16004E85D9 /* FeaturesCollectionViewController.h */,
+				D684BCF220FF8A16004E85D9 /* Feature.h */,
+				D684BCF320FF8A16004E85D9 /* MenuViewController.h */,
+				D684BCF420FF8A16004E85D9 /* MenuTableViewCell.h */,
+				D684BCF520FF8A16004E85D9 /* FeatureCollectionViewCell.h */,
+				D684BCF620FF8A16004E85D9 /* MenuViewController.m */,
+				D684BCF720FF8A16004E85D9 /* Feature.m */,
+				D684BCF820FF8A16004E85D9 /* FeaturesCollectionViewController.m */,
+			);
+			path = FeaturesList;
+			sourceTree = "<group>";
+		};
+		D684BCF920FF8A17004E85D9 /* GettingStarted */ = {
+			isa = PBXGroup;
+			children = (
+				D684BCFD20FF8A17004E85D9 /* SimpleMapViewController.h */,
+				D684BCFA20FF8A17004E85D9 /* SimpleMapViewController.m */,
+				D684BCFB20FF8A17004E85D9 /* XibBuildViewController.xib */,
+				D684BCFE20FF8A17004E85D9 /* XibBuildViewController.h */,
+				D684BCFC20FF8A17004E85D9 /* XibBuildViewController.m */,
+			);
+			path = GettingStarted;
+			sourceTree = "<group>";
+		};
+		D684BCFF20FF8A17004E85D9 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				D684BD0320FF8A17004E85D9 /* AnimateMapCameraViewController.h */,
+				D684BD0820FF8A17004E85D9 /* AnimateMapCameraViewController.m */,
+				D684BD0520FF8A17004E85D9 /* AnimateMapCameraViewController.xib */,
+				D684BD0920FF8A17004E85D9 /* RestrictMapPanningViewController.h */,
+				D684BD0420FF8A17004E85D9 /* RestrictMapPanningViewController.m */,
+				D684BDBD21007AA3004E85D9 /* RestrictMapPanningViewController.xib */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		D684BD0D20FF8A17004E85D9 /* Listener */ = {
+			isa = PBXGroup;
+			children = (
+				D684BD1120FF8A17004E85D9 /* POIClickViewController.h */,
+				D684BD0E20FF8A17004E85D9 /* POIClickViewController.m */,
+				D684BD1020FF8A17004E85D9 /* CameraChangeViewController.h */,
+				D684BD1320FF8A17004E85D9 /* CameraChangeViewController.m */,
+				D684BD0F20FF8A17004E85D9 /* BuildingAndFloorChangeViewController.h */,
+				D684BD1220FF8A17004E85D9 /* BuildingAndFloorChangeViewController.m */,
+			);
+			path = Listener;
+			sourceTree = "<group>";
+		};
+		D684BD1420FF8A17004E85D9 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				D684BD1520FF8A17004E85D9 /* DefaultStylesViewController.h */,
+				D684BD1720FF8A17004E85D9 /* DefaultStylesViewController.m */,
+				D684BD1620FF8A17004E85D9 /* DefaultStylesViewController.xib */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		D684BD1820FF8A17004E85D9 /* UIImage+Rotate */ = {
+			isa = PBXGroup;
+			children = (
+				D684BD1920FF8A17004E85D9 /* UIImage+Rotate.h */,
+				D684BD1A20FF8A17004E85D9 /* UIImage+Rotate.m */,
+			);
+			path = "UIImage+Rotate";
+			sourceTree = "<group>";
+		};
+		D684BD2720FF8A18004E85D9 /* JRSwizzle */ = {
+			isa = PBXGroup;
+			children = (
+				D684BD2820FF8A18004E85D9 /* JRSwizzle.h */,
+				D684BD2920FF8A18004E85D9 /* JRSwizzle.m */,
+			);
+			path = JRSwizzle;
+			sourceTree = "<group>";
+		};
+		D684BD2A20FF8A18004E85D9 /* SearchServices */ = {
+			isa = PBXGroup;
+			children = (
+				D684BD4220FF8A18004E85D9 /* ArrowPointAnnotation.h */,
+				D684BD3620FF8A18004E85D9 /* ArrowPointAnnotation.m */,
+				D684BD3320FF8A18004E85D9 /* RoutePlanningViewController.h */,
+				D684BD4520FF8A18004E85D9 /* RoutePlanningViewController.m */,
+				D684BD3C20FF8A18004E85D9 /* RoutePlanningViewController.xib */,
+				D684BD2B20FF8A18004E85D9 /* SearchBuildingGlobalViewController.h */,
+				D684BD3920FF8A18004E85D9 /* SearchBuildingGlobalViewController.m */,
+				D684BD3D20FF8A18004E85D9 /* SearchBuildingGlobalViewController.xib */,
+				D684BD2C20FF8A18004E85D9 /* SearchPOINearbyViewController.h */,
+				D684BD3820FF8A18004E85D9 /* SearchPOINearbyViewController.m */,
+				D684BD2F20FF8A18004E85D9 /* SearchPOINearbyViewController.xib */,
+				D684BD3020FF8A18004E85D9 /* SearchPOIInBuildingViewController.h */,
+				D684BD4120FF8A18004E85D9 /* SearchPOIInBuildingViewController.m */,
+				D684BD2D20FF8A18004E85D9 /* SearchPOIInBuildingViewController.xib */,
+				D684BD3B20FF8A18004E85D9 /* SearchPOIDetailByIdViewController.h */,
+				D684BD2E20FF8A18004E85D9 /* SearchPOIDetailByIdViewController.m */,
+				D684BD3720FF8A18004E85D9 /* SearchPOIDetailByIdViewController.xib */,
+				D684BD3120FF8A18004E85D9 /* SearchPOIInBoundViewController.h */,
+				D684BD4020FF8A18004E85D9 /* SearchPOIInBoundViewController.m */,
+				D684BD3A20FF8A18004E85D9 /* SearchPOIInBoundViewController.xib */,
+				D684BD3F20FF8A18004E85D9 /* SearchBuildingInBoundViewController.h */,
+				D684BD3220FF8A18004E85D9 /* SearchBuildingInBoundViewController.m */,
+				D684BD4720FF8A18004E85D9 /* SearchBuildingInBoundViewController.xib */,
+				D684BD3520FF8A18004E85D9 /* SearchBuildingByIdViewController.h */,
+				D684BD4420FF8A18004E85D9 /* SearchBuildingByIdViewController.m */,
+				D684BD4320FF8A18004E85D9 /* SearchBuildingByIdViewController.xib */,
+				D684BD4620FF8A18004E85D9 /* SearchBuildingNearbyViewController.h */,
+				D684BD3420FF8A18004E85D9 /* SearchBuildingNearbyViewController.m */,
+				D684BD3E20FF8A18004E85D9 /* SearchBuildingNearbyViewController.xib */,
+			);
+			path = SearchServices;
+			sourceTree = "<group>";
+		};
+		D684BD4820FF8A18004E85D9 /* UIViewController+Swizzle */ = {
+			isa = PBXGroup;
+			children = (
+				D684BD4920FF8A18004E85D9 /* UIViewController+Swizzle.m */,
+				D684BD4A20FF8A18004E85D9 /* UIViewController+Swizzle.h */,
+			);
+			path = "UIViewController+Swizzle";
+			sourceTree = "<group>";
+		};
+		D684BD4B20FF8A18004E85D9 /* DisplayLocation */ = {
+			isa = PBXGroup;
+			children = (
+				D684BD5020FF8A18004E85D9 /* DisplayLocationViewController.xib */,
+				D684BD4F20FF8A18004E85D9 /* DisplayLocationViewController.h */,
+				D684BD5320FF8A18004E85D9 /* DisplayLocationViewController.m */,
+			);
+			path = DisplayLocation;
+			sourceTree = "<group>";
+		};
+		D684BD5620FF8A19004E85D9 /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				D6D287412100EE7700860D20 /* AnimateMarkerPositionViewController.h */,
+				D6D287422100EE7700860D20 /* AnimateMarkerPositionViewController.m */,
+				D6D287432100EE7700860D20 /* AnimateMarkerPositionViewController.xib */,
+				D6D287462100F32200860D20 /* DrawPolygonWithHolesViewController.h */,
+				D6D287472100F32200860D20 /* DrawPolygonWithHolesViewController.m */,
+				D6D287482100F32200860D20 /* DrawPolygonWithHolesViewController.xib */,
+				D684BD6020FF8A19004E85D9 /* DrawCustomMarkerViewController.h */,
+				D684BD5B20FF8A19004E85D9 /* DrawCustomMarkerViewController.m */,
+				D684BDB121003C74004E85D9 /* DrawCustomMarkerViewController.xib */,
+				D684BD5720FF8A19004E85D9 /* DrawPolygonViewController.h */,
+				D684BD5C20FF8A19004E85D9 /* DrawPolygonViewController.m */,
+				D6E8909D2100D69F00E5F756 /* DrawPolygonViewController.xib */,
+				D6D2874B2100F8DB00860D20 /* DrawMarkerViewController.h */,
+				D6D2874C2100F8DB00860D20 /* DrawMarkerViewController.m */,
+				D6D2874D2100F8DB00860D20 /* DrawMarkerViewController.xib */,
+			);
+			path = Annotations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D684BC6220FED921004E85D9 /* MapxusMapSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D684BC8F20FED922004E85D9 /* Build configuration list for PBXNativeTarget "MapxusMapSample" */;
+			buildPhases = (
+				F36E316371E98338AC27290B /* [CP] Check Pods Manifest.lock */,
+				D684BC5F20FED921004E85D9 /* Sources */,
+				D684BC6020FED921004E85D9 /* Frameworks */,
+				D684BC6120FED921004E85D9 /* Resources */,
+				D684BCA820FF4D77004E85D9 /* Embed Frameworks */,
+				03C8EAF72A28A5276E7C3069 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MapxusMapSample;
+			productName = MapxusMapSample;
+			productReference = D684BC6320FED921004E85D9 /* MapxusMapSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D684BC7A20FED922004E85D9 /* MapxusMapSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D684BC9220FED922004E85D9 /* Build configuration list for PBXNativeTarget "MapxusMapSampleTests" */;
+			buildPhases = (
+				8D691D7A865FA2E2A4936199 /* [CP] Check Pods Manifest.lock */,
+				D684BC7720FED922004E85D9 /* Sources */,
+				D684BC7820FED922004E85D9 /* Frameworks */,
+				D684BC7920FED922004E85D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D684BC7D20FED922004E85D9 /* PBXTargetDependency */,
+			);
+			name = MapxusMapSampleTests;
+			productName = MapxusMapSampleTests;
+			productReference = D684BC7B20FED922004E85D9 /* MapxusMapSampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D684BC8520FED922004E85D9 /* MapxusMapSampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D684BC9520FED922004E85D9 /* Build configuration list for PBXNativeTarget "MapxusMapSampleUITests" */;
+			buildPhases = (
+				1018C9DCC3B66159ED036E70 /* [CP] Check Pods Manifest.lock */,
+				D684BC8220FED922004E85D9 /* Sources */,
+				D684BC8320FED922004E85D9 /* Frameworks */,
+				D684BC8420FED922004E85D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D684BC8820FED922004E85D9 /* PBXTargetDependency */,
+			);
+			name = MapxusMapSampleUITests;
+			productName = MapxusMapSampleUITests;
+			productReference = D684BC8620FED922004E85D9 /* MapxusMapSampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D684BC5B20FED921004E85D9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "MAPHIVE TECHNOLOGY LIMITED";
+				TargetAttributes = {
+					D684BC6220FED921004E85D9 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					D684BC7A20FED922004E85D9 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = D684BC6220FED921004E85D9;
+					};
+					D684BC8520FED922004E85D9 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = D684BC6220FED921004E85D9;
+					};
+				};
+			};
+			buildConfigurationList = D684BC5E20FED921004E85D9 /* Build configuration list for PBXProject "MapxusMapSample" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hant",
+				"zh-Hans",
+			);
+			mainGroup = D684BC5A20FED921004E85D9;
+			productRefGroup = D684BC6420FED921004E85D9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D684BC6220FED921004E85D9 /* MapxusMapSample */,
+				D684BC7A20FED922004E85D9 /* MapxusMapSampleTests */,
+				D684BC8520FED922004E85D9 /* MapxusMapSampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D684BC6120FED921004E85D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D684BD7D20FF8A19004E85D9 /* SearchPOIInBuildingViewController.xib in Resources */,
+				D684BD8820FF8A19004E85D9 /* SearchBuildingGlobalViewController.xib in Resources */,
+				D684BDB221003C74004E85D9 /* DrawCustomMarkerViewController.xib in Resources */,
+				D684BDBE21007AA3004E85D9 /* RestrictMapPanningViewController.xib in Resources */,
+				D6D2874F2100F8DB00860D20 /* DrawMarkerViewController.xib in Resources */,
+				D684BD7420FF8A19004E85D9 /* DefaultStylesViewController.xib in Resources */,
+				D684BD6E20FF8A19004E85D9 /* AnimateMapCameraViewController.xib in Resources */,
+				D684BD8920FF8A19004E85D9 /* SearchBuildingNearbyViewController.xib in Resources */,
+				D684BD8620FF8A19004E85D9 /* SearchPOIInBoundViewController.xib in Resources */,
+				D684BD6A20FF8A19004E85D9 /* XibBuildViewController.xib in Resources */,
+				D684BD9E20FF8A69004E85D9 /* LaunchScreen.storyboard in Resources */,
+				D6E8909E2100D69F00E5F756 /* DrawPolygonViewController.xib in Resources */,
+				D6D287452100EE7700860D20 /* AnimateMarkerPositionViewController.xib in Resources */,
+				D684BD7F20FF8A19004E85D9 /* SearchPOINearbyViewController.xib in Resources */,
+				D684BD9220FF8A19004E85D9 /* DisplayLocationViewController.xib in Resources */,
+				D684BD8C20FF8A19004E85D9 /* SearchBuildingByIdViewController.xib in Resources */,
+				D684BD8F20FF8A19004E85D9 /* SearchBuildingInBoundViewController.xib in Resources */,
+				D684BD8320FF8A19004E85D9 /* SearchPOIDetailByIdViewController.xib in Resources */,
+				D684BD9F20FF8A69004E85D9 /* Main.storyboard in Resources */,
+				D6D2874A2100F32200860D20 /* DrawPolygonWithHolesViewController.xib in Resources */,
+				D684BDA220FF8AC5004E85D9 /* Localizable.strings in Resources */,
+				D684BD8720FF8A19004E85D9 /* RoutePlanningViewController.xib in Resources */,
+				D684BD9420FF8A19004E85D9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D684BC7920FED922004E85D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D684BC8420FED922004E85D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03C8EAF72A28A5276E7C3069 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MapxusMapSample/Pods-MapxusMapSample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/HandyFrame/HandyFrame.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyFrame.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapxusMapSample/Pods-MapxusMapSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1018C9DCC3B66159ED036E70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MapxusMapSampleUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D691D7A865FA2E2A4936199 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MapxusMapSampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F36E316371E98338AC27290B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MapxusMapSample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D684BC5F20FED921004E85D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D684BD7120FF8A19004E85D9 /* POIClickViewController.m in Sources */,
+				D684BD6420FF8A19004E85D9 /* FeatureCollectionViewCell.m in Sources */,
+				D684BD7520FF8A19004E85D9 /* DefaultStylesViewController.m in Sources */,
+				D684BD6820FF8A19004E85D9 /* FeaturesCollectionViewController.m in Sources */,
+				D6D2874E2100F8DB00860D20 /* DrawMarkerViewController.m in Sources */,
+				D684BD9620FF8A19004E85D9 /* DrawCustomMarkerViewController.m in Sources */,
+				D684BD8020FF8A19004E85D9 /* SearchBuildingInBoundViewController.m in Sources */,
+				D684BC7620FED922004E85D9 /* main.m in Sources */,
+				D684BD6D20FF8A19004E85D9 /* RestrictMapPanningViewController.m in Sources */,
+				D684BD7620FF8A19004E85D9 /* UIImage+Rotate.m in Sources */,
+				D6D287492100F32200860D20 /* DrawPolygonWithHolesViewController.m in Sources */,
+				D684BD7C20FF8A19004E85D9 /* JRSwizzle.m in Sources */,
+				D684BD7320FF8A19004E85D9 /* CameraChangeViewController.m in Sources */,
+				D684BD9720FF8A19004E85D9 /* DrawPolygonViewController.m in Sources */,
+				D684BD8D20FF8A19004E85D9 /* SearchBuildingByIdViewController.m in Sources */,
+				D684BD8520FF8A19004E85D9 /* SearchBuildingGlobalViewController.m in Sources */,
+				D684BD6920FF8A19004E85D9 /* SimpleMapViewController.m in Sources */,
+				D684BD9020FF8A19004E85D9 /* UIViewController+Swizzle.m in Sources */,
+				D684BD6520FF8A19004E85D9 /* MenuTableViewCell.m in Sources */,
+				D684BD8B20FF8A19004E85D9 /* SearchPOIInBuildingViewController.m in Sources */,
+				D684BC6820FED921004E85D9 /* AppDelegate.m in Sources */,
+				D684BD6B20FF8A19004E85D9 /* XibBuildViewController.m in Sources */,
+				D684BD8E20FF8A19004E85D9 /* RoutePlanningViewController.m in Sources */,
+				D6D287442100EE7700860D20 /* AnimateMarkerPositionViewController.m in Sources */,
+				D684BD8220FF8A19004E85D9 /* ArrowPointAnnotation.m in Sources */,
+				D684BD6720FF8A19004E85D9 /* Feature.m in Sources */,
+				D684BD7E20FF8A19004E85D9 /* SearchPOIDetailByIdViewController.m in Sources */,
+				D684BD6620FF8A19004E85D9 /* MenuViewController.m in Sources */,
+				D684BD7220FF8A19004E85D9 /* BuildingAndFloorChangeViewController.m in Sources */,
+				D684BD6F20FF8A19004E85D9 /* AnimateMapCameraViewController.m in Sources */,
+				D684BD8420FF8A19004E85D9 /* SearchPOINearbyViewController.m in Sources */,
+				D684BD8A20FF8A19004E85D9 /* SearchPOIInBoundViewController.m in Sources */,
+				D684BD9320FF8A19004E85D9 /* DisplayLocationViewController.m in Sources */,
+				D684BD8120FF8A19004E85D9 /* SearchBuildingNearbyViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D684BC7720FED922004E85D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D684BC8020FED922004E85D9 /* MapxusMapSampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D684BC8220FED922004E85D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D684BC8B20FED922004E85D9 /* MapxusMapSampleUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D684BC7D20FED922004E85D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D684BC6220FED921004E85D9 /* MapxusMapSample */;
+			targetProxy = D684BC7C20FED922004E85D9 /* PBXContainerItemProxy */;
+		};
+		D684BC8820FED922004E85D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D684BC6220FED921004E85D9 /* MapxusMapSample */;
+			targetProxy = D684BC8720FED922004E85D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D684BD0520FF8A17004E85D9 /* AnimateMapCameraViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D684BD0620FF8A17004E85D9 /* Base */,
+				D684BDB721006674004E85D9 /* en */,
+				D684BDB821006677004E85D9 /* zh-Hant */,
+				D684BDB92100667A004E85D9 /* zh-Hans */,
+			);
+			name = AnimateMapCameraViewController.xib;
+			sourceTree = "<group>";
+		};
+		D684BD5020FF8A18004E85D9 /* DisplayLocationViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D684BD5120FF8A18004E85D9 /* Base */,
+				D684BDBA210066B1004E85D9 /* en */,
+				D684BDBB210066B5004E85D9 /* zh-Hant */,
+				D684BDBC210066B8004E85D9 /* zh-Hans */,
+			);
+			name = DisplayLocationViewController.xib;
+			sourceTree = "<group>";
+		};
+		D684BD9A20FF8A68004E85D9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D684BD9B20FF8A68004E85D9 /* Base */,
+				D684BDA720FF8B03004E85D9 /* zh-Hant */,
+				D684BDA820FF8B06004E85D9 /* zh-Hans */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D684BD9C20FF8A69004E85D9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D684BD9D20FF8A69004E85D9 /* Base */,
+				D684BDA920FF8B21004E85D9 /* zh-Hant */,
+				D684BDAA20FF8B25004E85D9 /* zh-Hans */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D684BDA020FF8AC5004E85D9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D684BDA120FF8AC5004E85D9 /* en */,
+				D684BDA320FF8ADF004E85D9 /* zh-Hant */,
+				D684BDA420FF8AE3004E85D9 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D684BC8D20FED922004E85D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D684BC8E20FED922004E85D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D684BC9020FED922004E85D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6761E476883A8A50EAEF788B /* Pods-MapxusMapSample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = ZNBZ7BZAKZ;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = MapxusMapSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mapxus.mapSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "89e10f6c-6fbe-4abb-a4af-c9fb0493419b";
+				PROVISIONING_PROFILE_SPECIFIER = MapxusMapSampleDev;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D684BC9120FED922004E85D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBCFA9805C81342EAED3714B /* Pods-MapxusMapSample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = ZNBZ7BZAKZ;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = MapxusMapSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mapxus.mapSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d633439a-b01c-4813-a8da-ad738584499a";
+				PROVISIONING_PROFILE_SPECIFIER = MapxusMapSampleAOC;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D684BC9320FED922004E85D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B41AF1415917CC65CC4C0DB8 /* Pods-MapxusMapSampleTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZNBZ7BZAKZ;
+				INFOPLIST_FILE = MapxusMapSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mapxus.MapxusMapSampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MapxusMapSample.app/MapxusMapSample";
+			};
+			name = Debug;
+		};
+		D684BC9420FED922004E85D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEED814EAD36ACE9D95D5810 /* Pods-MapxusMapSampleTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZNBZ7BZAKZ;
+				INFOPLIST_FILE = MapxusMapSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mapxus.MapxusMapSampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MapxusMapSample.app/MapxusMapSample";
+			};
+			name = Release;
+		};
+		D684BC9620FED922004E85D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE46F8AF4CD1873D490D0136 /* Pods-MapxusMapSampleUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZNBZ7BZAKZ;
+				INFOPLIST_FILE = MapxusMapSampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mapxus.MapxusMapSampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MapxusMapSample;
+			};
+			name = Debug;
+		};
+		D684BC9720FED922004E85D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C749DAAF82861B8635A8323D /* Pods-MapxusMapSampleUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZNBZ7BZAKZ;
+				INFOPLIST_FILE = MapxusMapSampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mapxus.MapxusMapSampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MapxusMapSample;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D684BC5E20FED921004E85D9 /* Build configuration list for PBXProject "MapxusMapSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D684BC8D20FED922004E85D9 /* Debug */,
+				D684BC8E20FED922004E85D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D684BC8F20FED922004E85D9 /* Build configuration list for PBXNativeTarget "MapxusMapSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D684BC9020FED922004E85D9 /* Debug */,
+				D684BC9120FED922004E85D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D684BC9220FED922004E85D9 /* Build configuration list for PBXNativeTarget "MapxusMapSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D684BC9320FED922004E85D9 /* Debug */,
+				D684BC9420FED922004E85D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D684BC9520FED922004E85D9 /* Build configuration list for PBXNativeTarget "MapxusMapSampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D684BC9620FED922004E85D9 /* Debug */,
+				D684BC9720FED922004E85D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D684BC5B20FED921004E85D9 /* Project object */;
+}
