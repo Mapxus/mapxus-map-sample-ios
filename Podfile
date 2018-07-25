@@ -3,14 +3,12 @@
 
 target 'MapxusMapSample' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-   use_frameworks!
+  use_frameworks!
 
   # Pods for MapxusMapSample
   pod 'ProgressHUD'
   pod 'HandyFrame'
-  pod 'AFNetworking'
-  pod 'YYModel'
-  pod 'Mapbox-iOS-SDK'
+  pod 'MapxusMapSDK', ~> 2.0.0
 
   target 'MapxusMapSampleTests' do
     inherit! :search_paths

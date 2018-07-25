@@ -13,8 +13,6 @@
 		D684BC7620FED922004E85D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC7520FED922004E85D9 /* main.m */; };
 		D684BC8020FED922004E85D9 /* MapxusMapSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC7F20FED922004E85D9 /* MapxusMapSampleTests.m */; };
 		D684BC8B20FED922004E85D9 /* MapxusMapSampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC8A20FED922004E85D9 /* MapxusMapSampleUITests.m */; };
-		D684BCA220FF4D77004E85D9 /* MapxusMapSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684BC9D20FF4D77004E85D9 /* MapxusMapSDK.framework */; };
-		D684BCA320FF4D77004E85D9 /* MapxusMapSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D684BC9D20FF4D77004E85D9 /* MapxusMapSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D684BD6420FF8A19004E85D9 /* FeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCEF20FF8A16004E85D9 /* FeatureCollectionViewCell.m */; };
 		D684BD6520FF8A19004E85D9 /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCF020FF8A16004E85D9 /* MenuTableViewCell.m */; };
 		D684BD6620FF8A19004E85D9 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCF620FF8A16004E85D9 /* MenuViewController.m */; };
@@ -97,7 +95,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D684BCA320FF4D77004E85D9 /* MapxusMapSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,7 +121,6 @@
 		D684BC8620FED922004E85D9 /* MapxusMapSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapxusMapSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D684BC8A20FED922004E85D9 /* MapxusMapSampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapxusMapSampleUITests.m; sourceTree = "<group>"; };
 		D684BC8C20FED922004E85D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D684BC9D20FF4D77004E85D9 /* MapxusMapSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapxusMapSDK.framework; sourceTree = "<group>"; };
 		D684BCEF20FF8A16004E85D9 /* FeatureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureCollectionViewCell.m; sourceTree = "<group>"; };
 		D684BCF020FF8A16004E85D9 /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
 		D684BCF120FF8A16004E85D9 /* FeaturesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesCollectionViewController.h; sourceTree = "<group>"; };
@@ -232,7 +228,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D684BCA220FF4D77004E85D9 /* MapxusMapSDK.framework in Frameworks */,
 				C15E72DA8653D29FC9C04174 /* Pods_MapxusMapSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,7 +277,6 @@
 		D684BC5A20FED921004E85D9 = {
 			isa = PBXGroup;
 			children = (
-				D684BC9D20FF4D77004E85D9 /* MapxusMapSDK.framework */,
 				D684BC6520FED921004E85D9 /* MapxusMapSample */,
 				D684BC7E20FED922004E85D9 /* MapxusMapSampleTests */,
 				D684BC8920FED922004E85D9 /* MapxusMapSampleUITests */,
@@ -670,6 +664,7 @@
 				"${BUILT_PRODUCTS_DIR}/HandyFrame/HandyFrame.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${PODS_ROOT}/MapxusMapSDK/MapxusMapSDK/MapxusMapSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
@@ -679,6 +674,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyFrame.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapxusMapSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
