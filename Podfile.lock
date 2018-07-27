@@ -25,7 +25,7 @@ PODS:
 
 DEPENDENCIES:
   - HandyFrame
-  - MapxusMapSDK
+  - MapxusMapSDK (~> 2.0.0)
   - ProgressHUD
 
 SPEC REPOS:
@@ -45,6 +45,6 @@ SPEC CHECKSUMS:
   ProgressHUD: 54b4c2fa202bf3da7dddc1c698ae4e6376333bd9
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 895ec046dbcd98c7d0fb60ce195ba731eef414a7
+PODFILE CHECKSUM: 47c7e3e53ca6c9e02256203b4fd5c4ee99cbcc64
 
 COCOAPODS: 1.5.3

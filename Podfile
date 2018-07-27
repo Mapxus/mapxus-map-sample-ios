@@ -8,7 +8,7 @@ target 'MapxusMapSample' do
   # Pods for MapxusMapSample
   pod 'ProgressHUD'
   pod 'HandyFrame'
-  pod 'MapxusMapSDK', ~> 2.0.0
+  pod 'MapxusMapSDK', '~> 2.0.0'
 
   target 'MapxusMapSampleTests' do
     inherit! :search_paths
