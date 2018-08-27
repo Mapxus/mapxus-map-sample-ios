@@ -18,9 +18,21 @@
 
 "MAPPYBEE" = "MAPPYBEE样式";
 
-"OPENMAP" = "OPENSTREET样式";
+"MAPXUS" = "MAPXUS样式";
 
 "Cancel" = "取消";
+
+//==============================================================
+
+"Controllers" = "地图控件";
+
+"Indoor Map Controllers Position" = "室内地图控件位置";
+
+"Place the indoor map controller where you want." = "把室内地图控件放置在你想要的位置。";
+
+"Indoor Map Controllers Hidden" = "隐藏室内地图控件";
+
+"Set the indoor map controllers always hidden." = "把室内地图控件设置为总是隐藏。";
 
 //==============================================================
 

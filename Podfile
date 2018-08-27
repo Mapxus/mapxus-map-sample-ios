@@ -8,6 +8,7 @@ target 'MapxusMapSample' do
   # Pods for MapxusMapSample
   pod 'ProgressHUD'
   pod 'HandyFrame'
+  pod 'MyLayout'
   pod 'MapxusMapSDK'
 
   target 'MapxusMapSampleTests' do

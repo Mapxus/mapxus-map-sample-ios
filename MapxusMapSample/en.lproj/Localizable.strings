@@ -18,9 +18,21 @@
 
 "MAPPYBEE" = "MAPPYBEE";
 
-"OPENMAP" = "OPENSTREET";
+"MAPXUS" = "MAPXUS";
 
 "Cancel" = "Cancel";
+
+//==============================================================
+
+"Controllers" = "Controllers";
+
+"Indoor Map Controllers Position" = "Indoor Map Controllers Position";
+
+"Place the indoor map controller where you want." = "Place the indoor map controllers as you need.";
+
+"Indoor Map Controllers Hidden" = "Indoor Map Controllers Hidden";
+
+"Set the indoor map controllers always hidden." = "Set the indoor map controllers always hidden.";
 
 //==============================================================
 

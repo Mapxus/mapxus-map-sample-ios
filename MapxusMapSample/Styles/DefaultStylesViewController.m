@@ -45,12 +45,16 @@
     UIAlertAction *mappybee = [UIAlertAction actionWithTitle:NSLocalizedString(@"MAPPYBEE", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         [weakSelf.map setMapSytle:(MXMStyleMAPPYBEE)];
     }];
+    UIAlertAction *mapxus = [UIAlertAction actionWithTitle:NSLocalizedString(@"MAPXUS", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf.map setMapSytle:(MXMStyleMAPXUS)];
+    }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:(UIAlertActionStyleCancel) handler:nil];
     
     [alert addAction:common];
     [alert addAction:christmas];
     [alert addAction:hallowmas];
     [alert addAction:mappybee];
+    [alert addAction:mapxus];
     [alert addAction:cancel];
     
     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C15E72DA8653D29FC9C04174 /* Pods_MapxusMapSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F4ABE352B03EF49E072948 /* Pods_MapxusMapSample.framework */; };
 		CAE3C695D3128BDE5CFD6BCA /* Pods_MapxusMapSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A072C56DB036E61BB8E83A87 /* Pods_MapxusMapSampleTests.framework */; };
+		D6408DA6212FF85300582558 /* ControllerHiddenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6408DA4212FF85300582558 /* ControllerHiddenViewController.m */; };
+		D6408DAB212FF88300582558 /* ControllerPositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6408DA9212FF88300582558 /* ControllerPositionViewController.m */; };
 		D684BC6820FED921004E85D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC6720FED921004E85D9 /* AppDelegate.m */; };
 		D684BC7620FED922004E85D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC7520FED922004E85D9 /* main.m */; };
 		D684BC8020FED922004E85D9 /* MapxusMapSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC7F20FED922004E85D9 /* MapxusMapSampleTests.m */; };
@@ -110,6 +112,10 @@
 		B6D48763B44BFA0D490D869B /* Pods_MapxusMapSampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapxusMapSampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE46F8AF4CD1873D490D0136 /* Pods-MapxusMapSampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSampleUITests/Pods-MapxusMapSampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C749DAAF82861B8635A8323D /* Pods-MapxusMapSampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSampleUITests/Pods-MapxusMapSampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D6408DA3212FF85300582558 /* ControllerHiddenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControllerHiddenViewController.h; sourceTree = "<group>"; };
+		D6408DA4212FF85300582558 /* ControllerHiddenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControllerHiddenViewController.m; sourceTree = "<group>"; };
+		D6408DA8212FF88300582558 /* ControllerPositionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControllerPositionViewController.h; sourceTree = "<group>"; };
+		D6408DA9212FF88300582558 /* ControllerPositionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControllerPositionViewController.m; sourceTree = "<group>"; };
 		D684BC6320FED921004E85D9 /* MapxusMapSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapxusMapSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D684BC6620FED921004E85D9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D684BC6720FED921004E85D9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -274,6 +280,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D6408DA2212FF7A200582558 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D6408DA3212FF85300582558 /* ControllerHiddenViewController.h */,
+				D6408DA4212FF85300582558 /* ControllerHiddenViewController.m */,
+				D6408DA8212FF88300582558 /* ControllerPositionViewController.h */,
+				D6408DA9212FF88300582558 /* ControllerPositionViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		D684BC5A20FED921004E85D9 = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +328,7 @@
 				D684BCF920FF8A17004E85D9 /* GettingStarted */,
 				D684BD0D20FF8A17004E85D9 /* Listener */,
 				D684BD2A20FF8A18004E85D9 /* SearchServices */,
+				D6408DA2212FF7A200582558 /* Controllers */,
 				D684BD1420FF8A17004E85D9 /* Styles */,
 				D684BD2720FF8A18004E85D9 /* JRSwizzle */,
 				D684BD1820FF8A17004E85D9 /* UIImage+Rotate */,
@@ -343,16 +361,16 @@
 		D684BCEE20FF8A16004E85D9 /* FeaturesList */ = {
 			isa = PBXGroup;
 			children = (
-				D684BCEF20FF8A16004E85D9 /* FeatureCollectionViewCell.m */,
-				D684BCF020FF8A16004E85D9 /* MenuTableViewCell.m */,
-				D684BCF120FF8A16004E85D9 /* FeaturesCollectionViewController.h */,
 				D684BCF220FF8A16004E85D9 /* Feature.h */,
-				D684BCF320FF8A16004E85D9 /* MenuViewController.h */,
-				D684BCF420FF8A16004E85D9 /* MenuTableViewCell.h */,
-				D684BCF520FF8A16004E85D9 /* FeatureCollectionViewCell.h */,
-				D684BCF620FF8A16004E85D9 /* MenuViewController.m */,
 				D684BCF720FF8A16004E85D9 /* Feature.m */,
+				D684BCF520FF8A16004E85D9 /* FeatureCollectionViewCell.h */,
+				D684BCEF20FF8A16004E85D9 /* FeatureCollectionViewCell.m */,
+				D684BCF120FF8A16004E85D9 /* FeaturesCollectionViewController.h */,
 				D684BCF820FF8A16004E85D9 /* FeaturesCollectionViewController.m */,
+				D684BCF420FF8A16004E85D9 /* MenuTableViewCell.h */,
+				D684BCF020FF8A16004E85D9 /* MenuTableViewCell.m */,
+				D684BCF320FF8A16004E85D9 /* MenuViewController.h */,
+				D684BCF620FF8A16004E85D9 /* MenuViewController.m */,
 			);
 			path = FeaturesList;
 			sourceTree = "<group>";
@@ -462,8 +480,8 @@
 		D684BD4820FF8A18004E85D9 /* UIViewController+Swizzle */ = {
 			isa = PBXGroup;
 			children = (
-				D684BD4920FF8A18004E85D9 /* UIViewController+Swizzle.m */,
 				D684BD4A20FF8A18004E85D9 /* UIViewController+Swizzle.h */,
+				D684BD4920FF8A18004E85D9 /* UIViewController+Swizzle.m */,
 			);
 			path = "UIViewController+Swizzle";
 			sourceTree = "<group>";
@@ -665,6 +683,7 @@
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${PODS_ROOT}/MapxusMapSDK/MapxusMapSDK/MapxusMapSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/MyLayout/MyLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
@@ -675,6 +694,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapxusMapSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MyLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
@@ -749,6 +769,7 @@
 				D684BD7520FF8A19004E85D9 /* DefaultStylesViewController.m in Sources */,
 				D684BD6820FF8A19004E85D9 /* FeaturesCollectionViewController.m in Sources */,
 				D6D2874E2100F8DB00860D20 /* DrawMarkerViewController.m in Sources */,
+				D6408DAB212FF88300582558 /* ControllerPositionViewController.m in Sources */,
 				D684BD9620FF8A19004E85D9 /* DrawCustomMarkerViewController.m in Sources */,
 				D684BD8020FF8A19004E85D9 /* SearchBuildingInBoundViewController.m in Sources */,
 				D684BC7620FED922004E85D9 /* main.m in Sources */,
@@ -761,6 +782,7 @@
 				D684BD8D20FF8A19004E85D9 /* SearchBuildingByIdViewController.m in Sources */,
 				D684BD8520FF8A19004E85D9 /* SearchBuildingGlobalViewController.m in Sources */,
 				D684BD6920FF8A19004E85D9 /* SimpleMapViewController.m in Sources */,
+				D6408DA6212FF85300582558 /* ControllerHiddenViewController.m in Sources */,
 				D684BD9020FF8A19004E85D9 /* UIViewController+Swizzle.m in Sources */,
 				D684BD6520FF8A19004E85D9 /* MenuTableViewCell.m in Sources */,
 				D684BD8B20FF8A19004E85D9 /* SearchPOIInBuildingViewController.m in Sources */,

@@ -33,6 +33,8 @@ typedef NS_ENUM(NSUInteger, FeatureType) {
     FeatureTypeSearchPOIDetailById,
     FeatureTypeSearchPOIInBuilding,
     FeatureTypeShowLocation,
+    FeatureTypeControllerHidden,
+    FeatureTypeControllerPosition,
 };
 
 @interface Feature : NSObject
@@ -45,6 +47,7 @@ typedef NS_ENUM(NSUInteger, FeatureType) {
 - (instancetype)initWithIdentifie:(FeatureType)identifie imageName:(NSString *)imageName title:(NSString *)title subTitle:(NSString *)subTitle;
 
 + (NSArray *)gettingStartedList;
++ (NSArray *)controllersList;
 + (NSArray *)stylesList;
 + (NSArray *)annotationsList;
 + (NSArray *)cameraList;

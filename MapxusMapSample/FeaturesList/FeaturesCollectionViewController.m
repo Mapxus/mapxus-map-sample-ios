@@ -34,6 +34,8 @@
 #import "SearchPOIInBuildingViewController.h"
 #import "DefaultStylesViewController.h"
 #import "DisplayLocationViewController.h"
+#import "ControllerHiddenViewController.h"
+#import "ControllerPositionViewController.h"
 
 
 @interface FeaturesCollectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MenuViewControllerDelegate, UIScrollViewDelegate>
@@ -62,6 +64,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.navigationItem.leftBarButtonItem = leftItem;
     
     self.titleList = @[NSLocalizedString(@"Getting Started", nil),
+                       NSLocalizedString(@"Controllers", nil),
                        NSLocalizedString(@"Styles", nil),
                        NSLocalizedString(@"Annotations", nil),
                        NSLocalizedString(@"Camera", nil),
@@ -107,21 +110,24 @@ static NSString * const reuseIdentifier = @"Cell";
             self.dataList = [Feature gettingStartedList];
             break;
         case 1:
-            self.dataList = [Feature stylesList];
+            self.dataList = [Feature controllersList];
             break;
         case 2:
-            self.dataList = [Feature annotationsList];
+            self.dataList = [Feature stylesList];
             break;
         case 3:
-            self.dataList = [Feature cameraList];
+            self.dataList = [Feature annotationsList];
             break;
         case 4:
-            self.dataList = [Feature listenerList];
+            self.dataList = [Feature cameraList];
             break;
         case 5:
-            self.dataList = [Feature searchServicesList];
+            self.dataList = [Feature listenerList];
             break;
         case 6:
+            self.dataList = [Feature searchServicesList];
+            break;
+        case 7:
             self.dataList = [Feature locationList];
             break;
         default:
@@ -330,6 +336,20 @@ static NSString * const reuseIdentifier = @"Cell";
         case FeatureTypeShowLocation:
         {
             DisplayLocationViewController *vc = [[DisplayLocationViewController alloc] init];
+            vc.nameStr = m.title;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case FeatureTypeControllerHidden:
+        {
+            ControllerHiddenViewController *vc = [[ControllerHiddenViewController alloc] init];
+            vc.nameStr = m.title;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case FeatureTypeControllerPosition:
+        {
+            ControllerPositionViewController *vc = [[ControllerPositionViewController alloc] init];
             vc.nameStr = m.title;
             [self.navigationController pushViewController:vc animated:YES];
         }

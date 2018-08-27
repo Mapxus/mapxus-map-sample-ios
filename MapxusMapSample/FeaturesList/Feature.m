@@ -39,6 +39,21 @@
 }
 
 
++ (NSArray *)controllersList
+{
+    Feature *feature1 = [[Feature alloc] initWithIdentifie:FeatureTypeControllerPosition
+                                                 imageName:@"controller1"
+                                                     title:NSLocalizedString(@"Indoor Map Controllers Position", nil)
+                                                  subTitle:NSLocalizedString(@"Place the indoor map controller where you want.", nil)];
+    Feature *feature2 = [[Feature alloc] initWithIdentifie:FeatureTypeControllerHidden
+                                                 imageName:@"controller2"
+                                                     title:NSLocalizedString(@"Indoor Map Controllers Hidden", nil)
+                                                  subTitle:NSLocalizedString(@"Set the indoor map controllers always hidden.", nil)];
+    
+    return @[feature1, feature2];
+}
+
+
 + (NSArray *)stylesList
 {
     Feature *feature1 = [[Feature alloc] initWithIdentifie:FeatureTypeDefaultStyles
