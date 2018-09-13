@@ -53,7 +53,7 @@
     [api MXMBuildingSearch:re];
 }
 
-- (void)BEMSearchRequest:(id)request didFailWithError:(NSError *)error
+- (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error
 {
     [ProgressHUD showError:NSLocalizedString(@"No buildings were found", nil)];
 }

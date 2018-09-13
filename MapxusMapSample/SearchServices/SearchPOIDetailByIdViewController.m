@@ -51,7 +51,7 @@
     [api MXMPOISearch:re];
 }
 
-- (void)BEMSearchRequest:(id)request didFailWithError:(NSError *)error
+- (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error
 {
     [ProgressHUD showError:NSLocalizedString(@"No POI were found", nil)];
 }
