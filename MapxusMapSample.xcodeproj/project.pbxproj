@@ -38,12 +38,10 @@
 		D684BD7F20FF8A19004E85D9 /* SearchPOINearbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD2F20FF8A18004E85D9 /* SearchPOINearbyViewController.xib */; };
 		D684BD8020FF8A19004E85D9 /* SearchBuildingInBoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD3220FF8A18004E85D9 /* SearchBuildingInBoundViewController.m */; };
 		D684BD8120FF8A19004E85D9 /* SearchBuildingNearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD3420FF8A18004E85D9 /* SearchBuildingNearbyViewController.m */; };
-		D684BD8220FF8A19004E85D9 /* ArrowPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD3620FF8A18004E85D9 /* ArrowPointAnnotation.m */; };
 		D684BD8320FF8A19004E85D9 /* SearchPOIDetailByIdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD3720FF8A18004E85D9 /* SearchPOIDetailByIdViewController.xib */; };
 		D684BD8420FF8A19004E85D9 /* SearchPOINearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD3820FF8A18004E85D9 /* SearchPOINearbyViewController.m */; };
 		D684BD8520FF8A19004E85D9 /* SearchBuildingGlobalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD3920FF8A18004E85D9 /* SearchBuildingGlobalViewController.m */; };
 		D684BD8620FF8A19004E85D9 /* SearchPOIInBoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD3A20FF8A18004E85D9 /* SearchPOIInBoundViewController.xib */; };
-		D684BD8720FF8A19004E85D9 /* RoutePlanningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD3C20FF8A18004E85D9 /* RoutePlanningViewController.xib */; };
 		D684BD8820FF8A19004E85D9 /* SearchBuildingGlobalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD3D20FF8A18004E85D9 /* SearchBuildingGlobalViewController.xib */; };
 		D684BD8920FF8A19004E85D9 /* SearchBuildingNearbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD3E20FF8A18004E85D9 /* SearchBuildingNearbyViewController.xib */; };
 		D684BD8A20FF8A19004E85D9 /* SearchPOIInBoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD4020FF8A18004E85D9 /* SearchPOIInBoundViewController.m */; };
@@ -171,19 +169,16 @@
 		D684BD3320FF8A18004E85D9 /* RoutePlanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutePlanningViewController.h; sourceTree = "<group>"; };
 		D684BD3420FF8A18004E85D9 /* SearchBuildingNearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingNearbyViewController.m; sourceTree = "<group>"; };
 		D684BD3520FF8A18004E85D9 /* SearchBuildingByIdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBuildingByIdViewController.h; sourceTree = "<group>"; };
-		D684BD3620FF8A18004E85D9 /* ArrowPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowPointAnnotation.m; sourceTree = "<group>"; };
 		D684BD3720FF8A18004E85D9 /* SearchPOIDetailByIdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPOIDetailByIdViewController.xib; sourceTree = "<group>"; };
 		D684BD3820FF8A18004E85D9 /* SearchPOINearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPOINearbyViewController.m; sourceTree = "<group>"; };
 		D684BD3920FF8A18004E85D9 /* SearchBuildingGlobalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingGlobalViewController.m; sourceTree = "<group>"; };
 		D684BD3A20FF8A18004E85D9 /* SearchPOIInBoundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPOIInBoundViewController.xib; sourceTree = "<group>"; };
 		D684BD3B20FF8A18004E85D9 /* SearchPOIDetailByIdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPOIDetailByIdViewController.h; sourceTree = "<group>"; };
-		D684BD3C20FF8A18004E85D9 /* RoutePlanningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoutePlanningViewController.xib; sourceTree = "<group>"; };
 		D684BD3D20FF8A18004E85D9 /* SearchBuildingGlobalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBuildingGlobalViewController.xib; sourceTree = "<group>"; };
 		D684BD3E20FF8A18004E85D9 /* SearchBuildingNearbyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBuildingNearbyViewController.xib; sourceTree = "<group>"; };
 		D684BD3F20FF8A18004E85D9 /* SearchBuildingInBoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBuildingInBoundViewController.h; sourceTree = "<group>"; };
 		D684BD4020FF8A18004E85D9 /* SearchPOIInBoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPOIInBoundViewController.m; sourceTree = "<group>"; };
 		D684BD4120FF8A18004E85D9 /* SearchPOIInBuildingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPOIInBuildingViewController.m; sourceTree = "<group>"; };
-		D684BD4220FF8A18004E85D9 /* ArrowPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowPointAnnotation.h; sourceTree = "<group>"; };
 		D684BD4320FF8A18004E85D9 /* SearchBuildingByIdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBuildingByIdViewController.xib; sourceTree = "<group>"; };
 		D684BD4420FF8A18004E85D9 /* SearchBuildingByIdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingByIdViewController.m; sourceTree = "<group>"; };
 		D684BD4520FF8A18004E85D9 /* RoutePlanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutePlanningViewController.m; sourceTree = "<group>"; };
@@ -444,11 +439,8 @@
 		D684BD2A20FF8A18004E85D9 /* SearchServices */ = {
 			isa = PBXGroup;
 			children = (
-				D684BD4220FF8A18004E85D9 /* ArrowPointAnnotation.h */,
-				D684BD3620FF8A18004E85D9 /* ArrowPointAnnotation.m */,
 				D684BD3320FF8A18004E85D9 /* RoutePlanningViewController.h */,
 				D684BD4520FF8A18004E85D9 /* RoutePlanningViewController.m */,
-				D684BD3C20FF8A18004E85D9 /* RoutePlanningViewController.xib */,
 				D684BD2B20FF8A18004E85D9 /* SearchBuildingGlobalViewController.h */,
 				D684BD3920FF8A18004E85D9 /* SearchBuildingGlobalViewController.m */,
 				D684BD3D20FF8A18004E85D9 /* SearchBuildingGlobalViewController.xib */,
@@ -649,7 +641,6 @@
 				D684BD9F20FF8A69004E85D9 /* Main.storyboard in Resources */,
 				D6D2874A2100F32200860D20 /* DrawPolygonWithHolesViewController.xib in Resources */,
 				D684BDA220FF8AC5004E85D9 /* Localizable.strings in Resources */,
-				D684BD8720FF8A19004E85D9 /* RoutePlanningViewController.xib in Resources */,
 				D684BD9420FF8A19004E85D9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,9 +671,10 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MapxusMapSample/Pods-MapxusMapSample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyFrame/HandyFrame.framework",
+				"${PODS_ROOT}/../../mxm-component-kit-ios/MXMComponentKit/MXMComponentKit.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
-				"${PODS_ROOT}/MapxusMapSDK/MapxusMapSDK/MapxusMapSDK.framework",
+				"${PODS_ROOT}/../../mapxus-map-sdk-ios/MapxusMapSDK/MapxusMapSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/MyLayout/MyLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
@@ -691,6 +683,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyFrame.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXMComponentKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapxusMapSDK.framework",
@@ -790,7 +783,6 @@
 				D684BD6B20FF8A19004E85D9 /* XibBuildViewController.m in Sources */,
 				D684BD8E20FF8A19004E85D9 /* RoutePlanningViewController.m in Sources */,
 				D6D287442100EE7700860D20 /* AnimateMarkerPositionViewController.m in Sources */,
-				D684BD8220FF8A19004E85D9 /* ArrowPointAnnotation.m in Sources */,
 				D684BD6720FF8A19004E85D9 /* Feature.m in Sources */,
 				D684BD7E20FF8A19004E85D9 /* SearchPOIDetailByIdViewController.m in Sources */,
 				D684BD6620FF8A19004E85D9 /* MenuViewController.m in Sources */,

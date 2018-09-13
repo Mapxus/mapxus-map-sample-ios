@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface RoutePlanningViewController : UIViewController
+
 @property (nonatomic, strong) NSString *nameStr;
 
 @end

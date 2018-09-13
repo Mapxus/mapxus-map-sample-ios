@@ -22,8 +22,6 @@
 	<string>14</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
-	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Show your Location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
