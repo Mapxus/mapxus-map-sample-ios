@@ -15,12 +15,12 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - HandyFrame (1.2.0)
-  - Mapbox-iOS-SDK (4.2.0)
-  - MapxusMapSDK (2.2.1):
+  - Mapbox-iOS-SDK (4.4.1)
+  - MapxusMapSDK (2.2.2):
     - AFNetworking (~> 3.2.1)
-    - Mapbox-iOS-SDK (~> 4.2.0)
+    - Mapbox-iOS-SDK (~> 4.4.1)
     - YYModel (~> 1.0.4)
-  - MyLayout (1.6.0)
+  - MyLayout (1.6.1)
   - ProgressHUD (2.51)
   - YYModel (1.0.4)
 
@@ -43,9 +43,9 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   HandyFrame: 437df83ba7563c56cd55b9bd0128561995463110
-  Mapbox-iOS-SDK: 706d52e3ad095e16944d9643f37d5a97627f6c19
-  MapxusMapSDK: 45462eeb0d239afc3feb3d721f7b801240f2d73e
-  MyLayout: 271b9209342e98bce2f5a2f2004047c32aaaf1ed
+  Mapbox-iOS-SDK: e6a4f236c77f914ca2e19b929c6cc6b077ba1c4c
+  MapxusMapSDK: f54b3b1ebcfcb2c4d64870049cbbbeec478ef201
+  MyLayout: 833c4b24a69a1e3fd33abe827eeb2fdf19193408
   ProgressHUD: 54b4c2fa202bf3da7dddc1c698ae4e6376333bd9
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
