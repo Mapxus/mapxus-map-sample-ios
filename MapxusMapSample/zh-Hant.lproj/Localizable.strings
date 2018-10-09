@@ -46,6 +46,14 @@
 
 "Add a mapview in xib." = "在xib文件中添加地图。";
 
+"Initialize map with building directly" = "指定建築初始化地圖";
+
+"Create the map with particular building directly." = "直接創建定位在特定建築的地圖。";
+
+"Initialize map with poi directly" = "用poi初始化地圖";
+
+"Create the map with particular poi directly." = "直接創建定位在特定poi的地圖。";
+
 //==============================================================
 
 "Styles" = "修改外观";

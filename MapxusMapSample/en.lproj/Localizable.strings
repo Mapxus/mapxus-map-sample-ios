@@ -46,6 +46,14 @@
 
 "Add a mapview in xib." = "Add a mapview in xib.";
 
+"Initialize map with building directly" = "Initialize map with building directly";
+
+"Create the map with particular building directly." = "Create the map with particular building directly.";
+
+"Initialize map with poi directly" = "Initialize map with poi directly";
+
+"Create the map with particular poi directly." = "Create the map with particular poi directly.";
+
 //==============================================================
 
 "Styles" = "Styles";
