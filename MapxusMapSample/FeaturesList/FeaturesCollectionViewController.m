@@ -36,6 +36,8 @@
 #import "DisplayLocationViewController.h"
 #import "ControllerHiddenViewController.h"
 #import "ControllerPositionViewController.h"
+#import "BuildingInitializeViewController.h"
+#import "POIInitializeViewController.h"
 
 
 @interface FeaturesCollectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MenuViewControllerDelegate, UIScrollViewDelegate>
@@ -350,6 +352,20 @@ static NSString * const reuseIdentifier = @"Cell";
         case FeatureTypeControllerPosition:
         {
             ControllerPositionViewController *vc = [[ControllerPositionViewController alloc] init];
+            vc.nameStr = m.title;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case FeatureTypeBuildingInitialize:
+        {
+            BuildingInitializeViewController *vc = [[BuildingInitializeViewController alloc] init];
+            vc.nameStr = m.title;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case FeatureTypePOIInitialize:
+        {
+            POIInitializeViewController *vc = [[POIInitializeViewController alloc] init];
             vc.nameStr = m.title;
             [self.navigationController pushViewController:vc animated:YES];
         }

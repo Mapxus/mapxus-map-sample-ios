@@ -70,6 +70,8 @@
 		D6D2874E2100F8DB00860D20 /* DrawMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D2874C2100F8DB00860D20 /* DrawMarkerViewController.m */; };
 		D6D2874F2100F8DB00860D20 /* DrawMarkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D2874D2100F8DB00860D20 /* DrawMarkerViewController.xib */; };
 		D6E8909E2100D69F00E5F756 /* DrawPolygonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E8909D2100D69F00E5F756 /* DrawPolygonViewController.xib */; };
+		D6EC1C76216AFA8000C77374 /* BuildingInitializeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EC1C75216AFA8000C77374 /* BuildingInitializeViewController.m */; };
+		D6EC1C79216AFA9400C77374 /* POIInitializeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EC1C78216AFA9400C77374 /* POIInitializeViewController.m */; };
 		FE3C2A917D49A09E1FB9219D /* Pods_MapxusMapSampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D48763B44BFA0D490D869B /* Pods_MapxusMapSampleUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -226,6 +228,10 @@
 		D6D2874C2100F8DB00860D20 /* DrawMarkerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawMarkerViewController.m; sourceTree = "<group>"; };
 		D6D2874D2100F8DB00860D20 /* DrawMarkerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawMarkerViewController.xib; sourceTree = "<group>"; };
 		D6E8909D2100D69F00E5F756 /* DrawPolygonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawPolygonViewController.xib; sourceTree = "<group>"; };
+		D6EC1C74216AFA8000C77374 /* BuildingInitializeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildingInitializeViewController.h; sourceTree = "<group>"; };
+		D6EC1C75216AFA8000C77374 /* BuildingInitializeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildingInitializeViewController.m; sourceTree = "<group>"; };
+		D6EC1C77216AFA9400C77374 /* POIInitializeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = POIInitializeViewController.h; sourceTree = "<group>"; };
+		D6EC1C78216AFA9400C77374 /* POIInitializeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POIInitializeViewController.m; sourceTree = "<group>"; };
 		FBCFA9805C81342EAED3714B /* Pods-MapxusMapSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSample/Pods-MapxusMapSample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -322,10 +328,10 @@
 				D684BC6620FED921004E85D9 /* AppDelegate.h */,
 				D684BC6720FED921004E85D9 /* AppDelegate.m */,
 				D684BCEE20FF8A16004E85D9 /* FeaturesList */,
+				D684BCF920FF8A17004E85D9 /* GettingStarted */,
 				D684BD5620FF8A19004E85D9 /* Annotations */,
 				D684BCFF20FF8A17004E85D9 /* Camera */,
 				D684BD4B20FF8A18004E85D9 /* DisplayLocation */,
-				D684BCF920FF8A17004E85D9 /* GettingStarted */,
 				D684BD0D20FF8A17004E85D9 /* Listener */,
 				D684BD2A20FF8A18004E85D9 /* SearchServices */,
 				D6408DA2212FF7A200582558 /* Controllers */,
@@ -383,6 +389,10 @@
 				D684BCFB20FF8A17004E85D9 /* XibBuildViewController.xib */,
 				D684BCFE20FF8A17004E85D9 /* XibBuildViewController.h */,
 				D684BCFC20FF8A17004E85D9 /* XibBuildViewController.m */,
+				D6EC1C74216AFA8000C77374 /* BuildingInitializeViewController.h */,
+				D6EC1C75216AFA8000C77374 /* BuildingInitializeViewController.m */,
+				D6EC1C77216AFA9400C77374 /* POIInitializeViewController.h */,
+				D6EC1C78216AFA9400C77374 /* POIInitializeViewController.m */,
 			);
 			path = GettingStarted;
 			sourceTree = "<group>";
@@ -769,6 +779,7 @@
 				D684BD7520FF8A19004E85D9 /* DefaultStylesViewController.m in Sources */,
 				D684BD6820FF8A19004E85D9 /* FeaturesCollectionViewController.m in Sources */,
 				D6D2874E2100F8DB00860D20 /* DrawMarkerViewController.m in Sources */,
+				D6EC1C79216AFA9400C77374 /* POIInitializeViewController.m in Sources */,
 				D6408DAB212FF88300582558 /* ControllerPositionViewController.m in Sources */,
 				D684BD9620FF8A19004E85D9 /* DrawCustomMarkerViewController.m in Sources */,
 				D684BD8020FF8A19004E85D9 /* SearchBuildingInBoundViewController.m in Sources */,
@@ -791,6 +802,7 @@
 				D684BD8E20FF8A19004E85D9 /* RoutePlanningViewController.m in Sources */,
 				D6D287442100EE7700860D20 /* AnimateMarkerPositionViewController.m in Sources */,
 				D684BD8220FF8A19004E85D9 /* ArrowPointAnnotation.m in Sources */,
+				D6EC1C76216AFA8000C77374 /* BuildingInitializeViewController.m in Sources */,
 				D684BD6720FF8A19004E85D9 /* Feature.m in Sources */,
 				D684BD7E20FF8A19004E85D9 /* SearchPOIDetailByIdViewController.m in Sources */,
 				D684BD6620FF8A19004E85D9 /* MenuViewController.m in Sources */,

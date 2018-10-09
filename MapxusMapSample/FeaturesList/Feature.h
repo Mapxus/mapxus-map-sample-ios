@@ -10,8 +10,9 @@
 
 typedef NS_ENUM(NSUInteger, FeatureType) {
     FeatureTypeSimpleMapView,
-    FeatureTypeMapFragment,
     FeatureTypeDynamicallyBuild,
+    FeatureTypeBuildingInitialize,
+    FeatureTypePOIInitialize,
     FeatureTypeDefaultStyles,
     FeatureTypeDrawMarker,
     FeatureTypeDrawCustomMarkerIcon,

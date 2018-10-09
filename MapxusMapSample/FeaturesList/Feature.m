@@ -34,8 +34,16 @@
                                                  imageName:@"0_1-3"
                                                      title:NSLocalizedString(@"Build a map view using xib", nil)
                                                   subTitle:NSLocalizedString(@"Add a mapview in xib.", nil)];
+    Feature *feature4 = [[Feature alloc] initWithIdentifie:FeatureTypeBuildingInitialize
+                                                 imageName:@"building"
+                                                     title:NSLocalizedString(@"Initialize map with building directly", nil)
+                                                  subTitle:NSLocalizedString(@"Create the map with particular building directly.", nil)];
+    Feature *feature5 = [[Feature alloc] initWithIdentifie:FeatureTypePOIInitialize
+                                                 imageName:@"POI"
+                                                     title:NSLocalizedString(@"Initialize map with poi directly", nil)
+                                                  subTitle:NSLocalizedString(@"Create the map with particular poi directly.", nil)];
     
-    return @[feature1, feature3];
+    return @[feature1, feature3, feature4, feature5];
 }
 
 
