@@ -10,6 +10,7 @@ target 'MapxusMapSample' do
   pod 'HandyFrame'
   pod 'MyLayout'
   pod 'MapxusMapSDK'#, :path => '../mapxus-map-sdk-ios'
+  pod 'MapxusComponentKit'#, :path => '../mapxus-component-kit-ios'
 
   target 'MapxusMapSampleTests' do
     inherit! :search_paths
