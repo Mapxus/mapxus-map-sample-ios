@@ -34,8 +34,8 @@
     [self.view addSubview:self.mapView];
     // 配置初始化项目
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
-    configuration.buildingId = @"admiraltystation_hk_mqx5mp";
-    configuration.floor = @"L4";
+    configuration.buildingId = @"pacificplace_hk_4d1f10";
+    configuration.floor = @"L3";
     // 初始化定内地图
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }

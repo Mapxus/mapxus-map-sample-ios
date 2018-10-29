@@ -44,7 +44,12 @@
     self.title = self.nameStr;
     self.view.backgroundColor = [UIColor whiteColor];
     // 创建室内地图处理对象
-    self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
+    // 配置初始化项目
+    MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
+    configuration.buildingId = @"harbourcity_hk_8b580b";
+    configuration.floor = @"L2";
+    // 初始化定内地图
+    self.map = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
     self.map.delegate = self;
     self.map.selectorPosition = MXMSelectorPositionCenterRight;
     // 创建路线绘制与控制对象
@@ -231,8 +236,6 @@
     if (!_mapView) {
         _mapView = [[MGLMapView alloc] init];
         _mapView.delegate = self;
-        _mapView.zoomLevel = 18;
-        _mapView.centerCoordinate = CLLocationCoordinate2DMake(22.304636500000001, 114.16299189999999);
     }
     return _mapView;
 }
