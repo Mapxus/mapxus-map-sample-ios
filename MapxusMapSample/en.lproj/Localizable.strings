@@ -94,7 +94,7 @@
 
 "Animate the map’s camera position, tile, bearing and the zoom." = "Animate the map’s camera position, tile, bearing and the zoom.";
 
-"Restrict map panning" = "Restrict map panning";
+"Restrict map panning" = "Restrict map planning";
 
 "Prevent a map from being panned to a different place." = "Prevent a map from being panned to a different place.";
 
