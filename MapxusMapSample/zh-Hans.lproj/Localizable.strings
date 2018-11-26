@@ -10,7 +10,7 @@
 
 "Style" = "外观";
 
-"COMMON" = "默认样式";
+"COMMON" = "通用样式";
 
 "CHRISTMAS" = "圣诞节样式";
 
@@ -61,6 +61,10 @@
 "Default Styles" = "默认样式";
 
 "Use a variety of professionally designed styles with the Mapxus Maps SDK." = "通过Mapxus Maps SDK使用各种专业设计的样式。";
+
+"Hide Outdoor Map" = "隐藏室外地图";
+
+"hide the outdoor map and only show the indoor map." = "隐藏室外地图，只显示室内地图。";
 
 //==============================================================
 

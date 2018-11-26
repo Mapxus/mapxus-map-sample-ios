@@ -38,6 +38,7 @@
 #import "ControllerPositionViewController.h"
 #import "BuildingInitializeViewController.h"
 #import "POIInitializeViewController.h"
+#import "OutdoorHiddenViewController.h"
 
 
 @interface FeaturesCollectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MenuViewControllerDelegate, UIScrollViewDelegate>
@@ -366,6 +367,13 @@ static NSString * const reuseIdentifier = @"Cell";
         case FeatureTypePOIInitialize:
         {
             POIInitializeViewController *vc = [[POIInitializeViewController alloc] init];
+            vc.nameStr = m.title;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case FeatureTypeOutdoorHidden:
+        {
+            OutdoorHiddenViewController *vc = [[OutdoorHiddenViewController alloc] init];
             vc.nameStr = m.title;
             [self.navigationController pushViewController:vc animated:YES];
         }

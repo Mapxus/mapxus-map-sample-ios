@@ -8,17 +8,17 @@
 
 //==============================================================
 
-"Style" = "外观";
+"Style" = "外觀";
 
-"COMMON" = "默认样式";
+"COMMON" = "通用樣式";
 
-"CHRISTMAS" = "聖誕節样式";
+"CHRISTMAS" = "聖誕節樣式";
 
-"HALLOWMAS" = "萬聖節样式";
+"HALLOWMAS" = "萬聖節樣式";
 
-"MAPPYBEE" = "MAPPYBEE样式";
+"MAPPYBEE" = "MAPPYBEE樣式";
 
-"MAPXUS" = "MAPXUS样式";
+"MAPXUS" = "MAPXUS樣式";
 
 "Cancel" = "取消";
 
@@ -36,15 +36,15 @@
 
 //==============================================================
 
-"Getting Started" = "开始使用";
+"Getting Started" = "開始使用";
 
-"A simple Map View" = "顯示地图";
+"A simple Map View" = "顯示地圖";
 
-"Show a map in your app using the Mapxus Maps SDK." = "在您的APP中使用Mapxus Maps SDK來显示地图。";
+"Show a map in your app using the Mapxus Maps SDK." = "在您的APP中使用Mapxus Maps SDK來顯示地圖。";
 
-"Build a map view using xib" = "用xib創建地图";
+"Build a map view using xib" = "用xib創建地圖";
 
-"Add a mapview in xib." = "在xib文件中添加地图。";
+"Add a mapview in xib." = "在xib文件中添加地圖。";
 
 "Initialize map with building directly" = "指定建築初始化地圖";
 
@@ -56,103 +56,107 @@
 
 //==============================================================
 
-"Styles" = "修改外观";
+"Styles" = "修改外觀";
 
-"Default Styles" = "默认样式";
+"Default Styles" = "默認樣式";
 
-"Use a variety of professionally designed styles with the Mapxus Maps SDK." = "通过Mapxus Maps SDK使用各种专业设计的样式。";
+"Use a variety of professionally designed styles with the Mapxus Maps SDK." = "通過Mapxus Maps SDK使用各鍾專業設計的樣式。";
+
+"Hide Outdoor Map" = "隱藏室外地圖";
+
+"hide the outdoor map and only show the indoor map." = "隱藏室外地圖，只顯示室內地圖。";
 
 //==============================================================
 
-"Annotations" = "添加标注";
+"Annotations" = "添加標注";
 
-"Draw a marker" = "绘制标注";
+"Draw a marker" = "繪製標注";
 
 "Create a default marker using the Mapxus Maps SDK." = "通過Mapxus Maps SDK添加默認標注。";
 
-"Draw a custom marker icon" = "绘制自定义标注图标";
+"Draw a custom marker icon" = "繪制自定義標注圖標";
 
 "Create a marker with a custom icon using the Mapxus Maps SDK." = "通過Mapxus Maps SDK添加自定義圖標標注。";
 
-"Draw a polygon" = "绘制多边形";
+"Draw a polygon" = "繪製多邊形";
 
 "Draw a vector polygon on a map with the Mapxus Maps SDK." = "通過Mapxus Maps SDK繪制多邊形。";
 
-"Draw a polygon with holes" = "绘制一个带孔的多边形";
+"Draw a polygon with holes" = "繪製一個帶孔多邊形";
 
 "Draw a vector polygon with holes on a map using the Mapxus Maps SDK." = "通過Mapxus Maps SDK繪制帶孔的多邊形。";
 
-"Animate marker position" = "移动标注位置";
+"Animate marker position" = "移動標注位置";
 
 "Animate the marker to a new position on the map." = "移動標注到新的位置。";
 
 //==============================================================
 
-"Camera" = "修改镜头";
+"Camera" = "修改鏡頭";
 
-"Animate the map camera" = "移动地图相机";
+"Animate the map camera" = "移動地圖相機";
 
-"Animate the map’s camera position, tile, bearing and the zoom." = "为地图的镜头位置，平铺，方位和缩放设置动画效果。";
+"Animate the map’s camera position, tile, bearing and the zoom." = "为地图的鏡頭位置，平鋪，方位和縮放设置动画效果。";
 
-"Restrict map panning" = "限制地图平移";
+"Restrict map panning" = "限制地圖平移";
 
-"Prevent a map from being panned to a different place." = "防止地图被移到不同的地方。";
-
-//==============================================================
-
-"Listener" = "监听消息";
-
-"Building and floor change" = "楼层变更";
-
-"Build and floor change." = "楼层变更。";
-
-"POI click listener" = "POI点击事件";
-
-"POI Click Listner." = "POI点击事件。";
-
-"Camera Change" = "地图平移数据";
-
-"Camera Change." = "地图平移数据。";
+"Prevent a map from being panned to a different place." = "防止地圖被移到不同的地方。";
 
 //==============================================================
 
-"Search Service" = "搜索服务";
+"Listener" = "監聽消息";
+
+"Building and floor change" = "樓層變更";
+
+"Build and floor change." = "樓層變更。";
+
+"POI click listener" = "POI點擊事件";
+
+"POI Click Listner." = "POI點擊事件。";
+
+"Camera Change" = "地圖平移数据";
+
+"Camera Change." = "地圖平移数据。";
+
+//==============================================================
+
+"Search Service" = "搜索服務";
 
 "Route Planning" = "點到點路徑";
 
 "Route Planning." = "點到點路徑。";
 
-"Search Building Nearby" = "搜索附近建筑";
+"Search Building Nearby" = "搜索附近建築";
 
-"Search building nearby." = "搜索附近建筑。";
+"Search building nearby." = "搜索附近建築。";
 
-"Search Building in bound" = "按范围搜索建筑";
+"Search Building in bound" = "按範圍搜索建築";
 
-"Search building in bound." = "按范围搜索建筑。";
+"Search building in bound." = "按範圍搜索建築。";
 
-"Search Building Detail by ID" = "按ID搜索建筑";
+"Search Building Detail by ID" = "按ID搜索建築";
 
-"Search Building detail by ID." = "按ID搜索建筑。";
+"Search Building detail by ID." = "按ID搜索建築。";
 
-"Search Building Global" = "全球搜索建筑";
+"Search Building Global" = "全球搜索建築";
 
-"Search Building Global." = "全球搜索建筑。";
+"Search Building Global." = "全球搜索建築。";
 
 "Search POI nearby" = "搜索附近POI";
 
 "Search POI nearby." = "搜索附近POI。";
 
-"Search POI in bound" = "按范围搜索POI";
+"Search POI in bound" = "按範圍搜索POI";
 
-"Search POI in bound." = "按范围搜索POI。";
+"Search POI in bound." = "按範圍搜索POI。";
 
 "Search POI detail by ID" = "按ID搜索POI";
 
 "Search POI detail by ID." = "按ID搜索POI。";
 
-"Search POI in building" = "建筑范围內搜索POI";
+"Search POI in building" = "建築範圍內搜索POI";
 
-"Search POI in building." = "建筑范围內搜索POI。";
+"Search POI in building." = "建築範圍內搜索POI。";
 
 //==============================================================
 

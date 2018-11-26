@@ -62,6 +62,10 @@
 
 "Use a variety of professionally designed styles with the Mapxus Maps SDK." = "Use a variety of professionally designed styles with the Mapxus Maps SDK.";
 
+"Hide Outdoor Map" = "Hide Outdoor Map";
+
+"hide the outdoor map and only show the indoor map." = "hide the outdoor map and only show the indoor map.";
+
 //==============================================================
 
 "Annotations" = "Annotations";

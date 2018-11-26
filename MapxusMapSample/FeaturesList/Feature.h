@@ -36,6 +36,7 @@ typedef NS_ENUM(NSUInteger, FeatureType) {
     FeatureTypeShowLocation,
     FeatureTypeControllerHidden,
     FeatureTypeControllerPosition,
+    FeatureTypeOutdoorHidden,
 };
 
 @interface Feature : NSObject

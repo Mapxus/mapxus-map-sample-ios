@@ -11,6 +11,7 @@
 		CAE3C695D3128BDE5CFD6BCA /* Pods_MapxusMapSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A072C56DB036E61BB8E83A87 /* Pods_MapxusMapSampleTests.framework */; };
 		D6408DA6212FF85300582558 /* ControllerHiddenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6408DA4212FF85300582558 /* ControllerHiddenViewController.m */; };
 		D6408DAB212FF88300582558 /* ControllerPositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6408DA9212FF88300582558 /* ControllerPositionViewController.m */; };
+		D646765421A7F93800018634 /* OutdoorHiddenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D646765321A7F93800018634 /* OutdoorHiddenViewController.m */; };
 		D67F7CE821856EA500D84CEB /* BuildingInitializeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67F7CE721856EA500D84CEB /* BuildingInitializeViewController.m */; };
 		D684BC6820FED921004E85D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC6720FED921004E85D9 /* AppDelegate.m */; };
 		D684BC7620FED922004E85D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC7520FED922004E85D9 /* main.m */; };
@@ -116,6 +117,8 @@
 		D6408DA4212FF85300582558 /* ControllerHiddenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControllerHiddenViewController.m; sourceTree = "<group>"; };
 		D6408DA8212FF88300582558 /* ControllerPositionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControllerPositionViewController.h; sourceTree = "<group>"; };
 		D6408DA9212FF88300582558 /* ControllerPositionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControllerPositionViewController.m; sourceTree = "<group>"; };
+		D646765221A7F93800018634 /* OutdoorHiddenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OutdoorHiddenViewController.h; sourceTree = "<group>"; };
+		D646765321A7F93800018634 /* OutdoorHiddenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OutdoorHiddenViewController.m; sourceTree = "<group>"; };
 		D67F7CE621856EA500D84CEB /* BuildingInitializeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingInitializeViewController.h; sourceTree = "<group>"; };
 		D67F7CE721856EA500D84CEB /* BuildingInitializeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingInitializeViewController.m; sourceTree = "<group>"; };
 		D684BC6320FED921004E85D9 /* MapxusMapSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapxusMapSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -424,6 +427,8 @@
 				D684BD1520FF8A17004E85D9 /* DefaultStylesViewController.h */,
 				D684BD1720FF8A17004E85D9 /* DefaultStylesViewController.m */,
 				D684BD1620FF8A17004E85D9 /* DefaultStylesViewController.xib */,
+				D646765221A7F93800018634 /* OutdoorHiddenViewController.h */,
+				D646765321A7F93800018634 /* OutdoorHiddenViewController.m */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -790,6 +795,7 @@
 				D684BD9020FF8A19004E85D9 /* UIViewController+Swizzle.m in Sources */,
 				D684BD6520FF8A19004E85D9 /* MenuTableViewCell.m in Sources */,
 				D684BD8B20FF8A19004E85D9 /* SearchPOIInBuildingViewController.m in Sources */,
+				D646765421A7F93800018634 /* OutdoorHiddenViewController.m in Sources */,
 				D684BC6820FED921004E85D9 /* AppDelegate.m in Sources */,
 				D684BD6B20FF8A19004E85D9 /* XibBuildViewController.m in Sources */,
 				D684BD8E20FF8A19004E85D9 /* RoutePlanningViewController.m in Sources */,

@@ -68,7 +68,11 @@
                                                  imageName:@"0_2-1"
                                                      title:NSLocalizedString(@"Default Styles", nil)
                                                   subTitle:NSLocalizedString(@"Use a variety of professionally designed styles with the Mapxus Maps SDK.", nil)];
-    return @[feature1];
+    Feature *feature2 = [[Feature alloc] initWithIdentifie:FeatureTypeOutdoorHidden
+                                                 imageName:@"0_2-2"
+                                                     title:NSLocalizedString(@"Hide Outdoor Map", nil)
+                                                  subTitle:NSLocalizedString(@"hide the outdoor map and only show the indoor map.", nil)];
+    return @[feature1, feature2];
 }
 
 
