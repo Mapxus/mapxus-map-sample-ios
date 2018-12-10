@@ -191,6 +191,7 @@
     MXMGeoPoint *toP = self.toDic[@"point"];
     re.toLat = toP.latitude;
     re.toLon = toP.longitude;
+    re.locale = @"zh-cn";
     
     MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
     api.delegate = self;

@@ -44,7 +44,6 @@
     [ProgressHUD show];
     MXMBuildingSearchRequest *re = [[MXMBuildingSearchRequest alloc] init];
     re.keywords = self.keyTF.text;
-    re.searchGlobal = YES;
     re.offset = 100;
     re.page = 1;
     
