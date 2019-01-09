@@ -158,6 +158,10 @@
 
 "Search POI in building." = "Search POI in building.";
 
+"Search POI with orientation" = "Search POI with orientation";
+
+"Search POI with orientation." = "Search POI with orientation.";
+
 //==============================================================
 
 "Display location" = "Display location";
@@ -166,10 +170,12 @@
 
 "Displaying the users location." = "Displaying the users location.";
 
+//==============================================================
 
+"360 view" = "360 view";
 
+"Visual map" = "360 view";
 
-
-
+"Displaying the visual map." = "Display 360 view.";
 
 

@@ -158,6 +158,10 @@
 
 "Search POI in building." = "建築範圍內搜索POI。";
 
+"Search POI with orientation" = "按角度查詢POI";
+
+"Search POI with orientation." = "按角度查詢POI。";
+
 //==============================================================
 
 "Display location" = "顯示當前位置";
@@ -165,3 +169,11 @@
 "Displaying the users location" = "顯示用戶當前位置";
 
 "Displaying the users location." = "顯示用戶當前位置。";
+
+//==============================================================
+
+"360 view" = "360全景";
+
+"Visual map" = "360全景視覺";
+
+"Displaying the visual map." = "展示360全景視覺。";

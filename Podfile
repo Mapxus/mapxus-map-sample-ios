@@ -9,8 +9,11 @@ target 'MapxusMapSample' do
   pod 'ProgressHUD'
   pod 'HandyFrame'
   pod 'MyLayout'
+  pod 'MapxusBaseSDK'#, :path => '../mapxus-base-sdk-ios'
   pod 'MapxusMapSDK'#, :path => '../mapxus-map-sdk-ios'
+  pod 'MapxusVisualSDK'#, :path => '../mapxus-visual-sdk-ios'
   pod 'MapxusComponentKit'#, :path => '../mapxus-component-kit-ios'
+#  pod 'MLeaksFinder'
 
   target 'MapxusMapSampleTests' do
     inherit! :search_paths

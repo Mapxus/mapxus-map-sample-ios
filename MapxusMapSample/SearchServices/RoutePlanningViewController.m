@@ -19,6 +19,10 @@
 @property (nonatomic, strong) MGLMapView *mapView;
 // 负责室内地图处理
 @property (nonatomic, strong) MapxusMap *map;
+// 导航方式切换
+@property (nonatomic, strong) UISwitch *travelWaySwitch;
+// 到达问口切换
+@property (nonatomic, strong) UISwitch *toDoorSwitch;
 // 负责路线绘制与控制
 @property (nonatomic, strong) MXMRoutePainter *painter;
 // 起点按钮
@@ -53,7 +57,7 @@
     self.map.delegate = self;
     self.map.selectorPosition = MXMSelectorPositionCenterRight;
     // 创建路线绘制与控制对象
-    self.painter = [[MXMRoutePainter alloc] initWithMapView:self.mapView map:self.map];
+    self.painter = [[MXMRoutePainter alloc] initWithMapView:self.mapView];
     // 布局页面内容
     [self _layoutViews];
 }
@@ -131,7 +135,19 @@
 
 - (void)onRouteSearchDone:(MXMRouteSearchRequest *)request response:(MXMRouteSearchResponse *)response
 {
-    [self.painter paintRouteUsingRequest:request Result:response];
+    self.fromAnnotation = nil;
+    self.toAnnotation = nil;
+    [self.map removeMXMPointAnnotaions:self.map.MXMAnnotations];
+    
+    [self.painter paintRouteUsingResult:response];
+    for (NSString *key in self.painter.dto.keys) {
+        if (![key containsString:@"outdoor"]) {
+            MXMParagraph *paph = self.painter.dto.paragraphs[key];
+            [self.map selectBuilding:paph.buildingId floor:paph.floor zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
+            [self.painter focusOnKeys:@[key] edgePadding:UIEdgeInsetsMake(130, 30, 110, 80)];
+            break;
+        }
+    }
     [ProgressHUD dismiss];
 }
 
@@ -191,7 +207,9 @@
     MXMGeoPoint *toP = self.toDic[@"point"];
     re.toLat = toP.latitude;
     re.toLon = toP.longitude;
-    re.locale = @"zh-cn";
+    re.locale = @"zh-CN";
+    re.toDoor = self.toDoorSwitch.isOn ? YES : NO;
+    re.vehicle = self.travelWaySwitch.isOn ? @"wheelchair" : @"foot";
     
     MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
     api.delegate = self;
@@ -202,6 +220,7 @@
 
 - (void)_layoutViews
 {
+    // 上部分搜索栏
     MyRelativeLayout *rootLayout = [[MyRelativeLayout alloc] init];
     rootLayout.backgroundColor = [UIColor clearColor];
     rootLayout.frame = self.view.bounds;
@@ -230,6 +249,49 @@
     showBtn.centerYPos.equalTo(self.fromBtn.bottomPos).offset(2.5);
     showBtn.mySize = CGSizeMake(44, 44);
     [rootLayout addSubview:showBtn];
+    
+    // 下部分属性配置
+    MyLinearLayout *boxView = [MyLinearLayout linearLayoutWithOrientation:MyOrientation_Vert];
+    boxView.myHorzMargin = 0;
+    boxView.wrapContentHeight = YES;
+    boxView.subviewVSpace = 10;
+    boxView.padding = UIEdgeInsetsMake(5, 0, 5, 0);
+    boxView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.7];
+    boxView.bottomPos.equalTo(rootLayout.bottomPos);
+    [rootLayout addSubview:boxView];
+
+    MyLinearLayout *box1 = [MyLinearLayout linearLayoutWithOrientation:MyOrientation_Horz];
+    box1.subviewHSpace = 5;
+    box1.wrapContentHeight = YES;
+    box1.gravity = MyGravity_Vert_Center;
+    [boxView addSubview:box1];
+    
+    UILabel *footLabel = [[UILabel alloc] init];
+    footLabel.text = @"foot";
+    footLabel.textAlignment = NSTextAlignmentRight;
+    footLabel.mySize = CGSizeMake(70, 20);
+    
+    UILabel *wheelchairLabel = [[UILabel alloc] init];
+    wheelchairLabel.text = @"wheelchair";
+    wheelchairLabel.mySize = CGSizeMake(100, 20);
+
+    [box1 addSubview:footLabel];
+    [box1 addSubview:self.travelWaySwitch];
+    [box1 addSubview:wheelchairLabel];
+
+    MyLinearLayout *box2 = [MyLinearLayout linearLayoutWithOrientation:MyOrientation_Horz];
+    box2.subviewHSpace = 5;
+    box2.wrapContentHeight = YES;
+    box2.gravity = MyGravity_Vert_Center;
+    [boxView addSubview:box2];
+    
+    UILabel *toDoorLabel = [[UILabel alloc] init];
+    toDoorLabel.text = @"toDoor";
+    toDoorLabel.textAlignment = NSTextAlignmentRight;
+    toDoorLabel.mySize = CGSizeMake(70, 20);
+    
+    [box2 addSubview:toDoorLabel];
+    [box2 addSubview:self.toDoorSwitch];
 }
 
 - (MGLMapView *)mapView
@@ -273,6 +335,22 @@
     return _toBtn;
 }
 
+- (UISwitch *)travelWaySwitch
+{
+    if (!_travelWaySwitch) {
+        _travelWaySwitch = [[UISwitch alloc] init];
+    }
+    return _travelWaySwitch;
+}
+
+- (UISwitch *)toDoorSwitch
+{
+    if (!_toDoorSwitch) {
+        _toDoorSwitch = [[UISwitch alloc] init];
+    }
+    return _toDoorSwitch;
+}
+
 - (NSMutableDictionary *)fromDic
 {
     if (!_fromDic) {
@@ -293,15 +371,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

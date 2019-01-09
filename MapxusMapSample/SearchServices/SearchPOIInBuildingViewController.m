@@ -61,8 +61,8 @@
 
 - (void)onPOISearchDone:(MXMPOISearchRequest *)request response:(MXMPOISearchResponse *)response
 {
-    if (self.mapView.annotations.count) {
-        [self.mapView removeAnnotations:self.mapView.annotations];
+    if (self.map.MXMAnnotations.count) {
+        [self.map removeMXMPointAnnotaions:self.map.MXMAnnotations];
     }
 
     NSMutableArray *anns = [NSMutableArray array];

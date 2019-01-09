@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UILabel *buildingNameLabel;
 @property (nonatomic, strong) UILabel *floorNameLabel;
+@property (nonatomic, strong) UILabel *indoorLabel;
 @property (nonatomic, strong) MapxusMap *map;
 @property (nonatomic, strong) MGLMapView *mapView;
 
@@ -31,6 +32,7 @@
     [self.view addSubview:self.topView];
     [self.topView addSubview:self.buildingNameLabel];
     [self.topView addSubview:self.floorNameLabel];
+    [self.topView addSubview:self.indoorLabel];
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
     self.map.delegate = self;
 }
@@ -39,10 +41,26 @@
 {
     [super viewDidLayoutSubviews];
     self.mapView.frame = self.view.bounds;
-    self.topView.frame = CGRectMake(0, 0, self.view.frame.size.width, 65);
+    self.topView.frame = CGRectMake(0, 0, self.view.frame.size.width, 90);
     self.buildingNameLabel.frame = CGRectMake(10, 10, self.view.frame.size.width-20, 20);
     self.floorNameLabel.frame = CGRectMake(10, 35, self.view.frame.size.width-20, 20);
+    self.indoorLabel.frame = CGRectMake(10, 60, self.view.frame.size.width-20, 20);
 }
+
+#pragma mark - MapxusMapDelegate
+- (void)mapView:(MapxusMap *)mapView didChangeFloor:(NSString *)floorName atBuilding:(MXMGeoBuilding *)building
+{
+    self.buildingNameLabel.text = [NSString stringWithFormat:@"BuildingName:%@", building.name];
+    self.floorNameLabel.text = [NSString stringWithFormat:@"Floor:%@", floorName];
+}
+
+- (void)mapView:(MapxusMap *)mapView indoorMapWithIn:(BOOL)flag building:(NSString *)buildingId floor:(NSString *)floor
+{
+    self.indoorLabel.text = flag ? @"Indoor now" : @"Outdoor now";
+}
+
+
+#pragma mark - access
 
 - (UIView *)topView
 {
@@ -72,6 +90,15 @@
     return _floorNameLabel;
 }
 
+- (UILabel *)indoorLabel
+{
+    if (!_indoorLabel) {
+        _indoorLabel = [[UILabel alloc] init];
+        _indoorLabel.textColor = [UIColor yellowColor];
+    }
+    return _indoorLabel;
+}
+
 - (MGLMapView *)mapView
 {
     if (!_mapView) {
@@ -82,13 +109,6 @@
     }
     return _mapView;
 }
-
-- (void)mapView:(MapxusMap *)mapView didChangeFloor:(NSString *)floorName atBuilding:(MXMGeoBuilding *)building
-{
-    self.buildingNameLabel.text = [NSString stringWithFormat:@"BuildingName:%@", building.name];
-    self.floorNameLabel.text = [NSString stringWithFormat:@"Floor:%@", floorName];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

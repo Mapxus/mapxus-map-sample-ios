@@ -15,31 +15,39 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - HandyFrame (1.2.0)
-  - Mapbox-iOS-SDK (4.6.0)
-  - MapxusComponentKit (0.2.0):
-    - MapxusMapSDK (>= 2.7.0)
-  - MapxusMapSDK (2.7.0):
+  - Mapbox-iOS-SDK (5.4.0)
+  - MapxusBaseSDK (3.7.0):
     - AFNetworking (~> 3.2.1)
-    - Mapbox-iOS-SDK (~> 4.6.0)
     - YYModel (~> 1.0.4)
-  - MyLayout (1.6.1)
+  - MapxusComponentKit (3.7.0):
+    - MapxusMapSDK (= 3.7.0)
+  - MapxusMapSDK (3.7.0):
+    - Mapbox-iOS-SDK (~> 5.4.0)
+    - MapxusBaseSDK (= 3.7.0)
+  - MapxusVisualSDK (3.7.0):
+    - MapxusBaseSDK (= 3.7.0)
+  - MyLayout (1.8.0)
   - ProgressHUD (2.51)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - HandyFrame
+  - MapxusBaseSDK
   - MapxusComponentKit
   - MapxusMapSDK
+  - MapxusVisualSDK
   - MyLayout
   - ProgressHUD
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - AFNetworking
     - HandyFrame
     - Mapbox-iOS-SDK
+    - MapxusBaseSDK
     - MapxusComponentKit
     - MapxusMapSDK
+    - MapxusVisualSDK
     - MyLayout
     - ProgressHUD
     - YYModel
@@ -47,13 +55,15 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   HandyFrame: 437df83ba7563c56cd55b9bd0128561995463110
-  Mapbox-iOS-SDK: 204c04713477cf2a88c52c5a8eed1790eb75a02a
-  MapxusComponentKit: d3f1db816c335a17509b5f57a3c64b6036533879
-  MapxusMapSDK: 2037a3c16639b8bda8d5e66cf3d5ea68b87b055c
-  MyLayout: 833c4b24a69a1e3fd33abe827eeb2fdf19193408
+  Mapbox-iOS-SDK: 2b58f752d94e57e95b8e54f3b52569199f6efdba
+  MapxusBaseSDK: 251991e5145acb4b8397ca4ae63a34306661d216
+  MapxusComponentKit: 05092cf2572897ca2ca411949e1845db53d3949c
+  MapxusMapSDK: cf80927258ae65a590aa59a47e403a1264593508
+  MapxusVisualSDK: 1e59c274682203eeb57cbe2650494ad335ee3d09
+  MyLayout: eb96a486df5c34d126ef016c6390eb377ad064bb
   ProgressHUD: 54b4c2fa202bf3da7dddc1c698ae4e6376333bd9
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 1c5fde98c90da6e6c9eec40c9ccd95ae54c8ecb2
+PODFILE CHECKSUM: cbd34459f12d58e7a55b29fe2643cf46a304488c
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.8.3

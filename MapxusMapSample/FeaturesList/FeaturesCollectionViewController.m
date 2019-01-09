@@ -39,6 +39,8 @@
 #import "BuildingInitializeViewController.h"
 #import "POIInitializeViewController.h"
 #import "OutdoorHiddenViewController.h"
+#import "ShowVisualViewController.h"
+#import "OrientationPOISearchViewController.h"
 
 
 @interface FeaturesCollectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MenuViewControllerDelegate, UIScrollViewDelegate>
@@ -73,7 +75,8 @@ static NSString * const reuseIdentifier = @"Cell";
                        NSLocalizedString(@"Camera", nil),
                        NSLocalizedString(@"Listener", nil),
                        NSLocalizedString(@"Search Service", nil),
-                       NSLocalizedString(@"Display location", nil)];
+                       NSLocalizedString(@"Display location", nil),
+                       NSLocalizedString(@"360 view", nil)];
     // 默认选择第一项
     [self selectedMenuOnIndex:0];
 }
@@ -132,6 +135,9 @@ static NSString * const reuseIdentifier = @"Cell";
             break;
         case 7:
             self.dataList = [Feature locationList];
+            break;
+        case 8:
+            self.dataList = [Feature visualList];
             break;
         default:
             break;
@@ -374,6 +380,20 @@ static NSString * const reuseIdentifier = @"Cell";
         case FeatureTypeOutdoorHidden:
         {
             OutdoorHiddenViewController *vc = [[OutdoorHiddenViewController alloc] init];
+            vc.nameStr = m.title;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case FeatureTypeVisual:
+        {
+            ShowVisualViewController *vc = [[ShowVisualViewController alloc] init];
+            vc.nameStr = m.title;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case FeatureTypeSearchPOIWithOrientation:
+        {
+            OrientationPOISearchViewController *vc = [[OrientationPOISearchViewController alloc] init];
             vc.nameStr = m.title;
             [self.navigationController pushViewController:vc animated:YES];
         }

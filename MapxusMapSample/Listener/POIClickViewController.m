@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UILabel *poiNameLabel;
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic, strong) MapxusMap *map;
+@property (nonatomic, strong) MXMPointAnnotation *ann;
 
 @end
 
@@ -41,6 +42,60 @@
     self.poiNameLabel.frame = CGRectMake(10, 0, self.view.frame.size.width-20, 40);
 }
 
+#pragma mark - MGLMapViewDelegate
+
+- (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation
+{
+    return YES;
+}
+
+- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id<MGLAnnotation>)annotation
+{
+    MGLAnnotationImage *annImg = [mapView dequeueReusableAnnotationImageWithIdentifier:@"ic_start_point"];
+    if (annImg == nil) {
+        UIImage *image = [UIImage imageNamed:@"ic_start_point"];
+        image = [image imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, image.size.height/2, 0)];
+        annImg = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"ic_start_point"];
+    }
+    return annImg;
+}
+
+#pragma mark - MapxusMapDelegate
+
+- (void)mapView:(MapxusMap *)mapView didTappedOnPOI:(MXMGeoPOI *)poi
+{
+    if (self.ann == nil) {
+        MXMPointAnnotation *p = [[MXMPointAnnotation alloc] init];
+        p.coordinate = poi.coordinate;
+        p.title = poi.name;
+        p.floor = poi.floor;
+        p.buildingId = poi.buildingId;
+        
+        [self.map addMXMPointAnnotations:@[p]];
+        self.ann = p;
+    } else {
+        self.ann.coordinate = poi.coordinate;
+        self.ann.title = poi.name;
+        self.ann.floor = poi.floor;
+        self.ann.buildingId = poi.buildingId;
+    }
+}
+    
+- (void)mapView:(MapxusMap *)mapView didTappedOnMapBlank:(CLLocationCoordinate2D)coordinate
+{
+    [self cleanMapAnnotations];
+}
+
+- (void)cleanMapAnnotations
+{
+    if (self.map.MXMAnnotations.count) {
+        [self.map removeMXMPointAnnotaions:self.map.MXMAnnotations];
+        self.ann = nil;
+    }
+}
+
+#pragma mark - access
+
 - (UIView *)topView
 {
     if (!_topView) {
@@ -56,6 +111,7 @@
     if (!_poiNameLabel) {
         _poiNameLabel = [[UILabel alloc] init];
         _poiNameLabel.textColor = [UIColor whiteColor];
+        _poiNameLabel.text = @"Click the map blank area and the POI.";
     }
     return _poiNameLabel;
 }
@@ -71,26 +127,9 @@
     return _mapView;
 }
 
-- (void)mapView:(MapxusMap *)mapView didTappedOnPOI:(MXMGeoPOI *)poi
-{
-    if (poi) {
-        self.poiNameLabel.text = [NSString stringWithFormat:@"Click POI:%@", poi.name];
-    }
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

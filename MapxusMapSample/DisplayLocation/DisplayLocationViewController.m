@@ -32,12 +32,36 @@
     self.title = self.nameStr;
     self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
     self.mapView.zoomLevel = 16;
+    self.mapView.showsUserHeadingIndicator = YES;
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
     self.mapView.showsUserLocation = YES;
 }
 
 - (IBAction)changeTrack:(UIButton *)sender {
     self.times = (self.times+1)%3;
+    if (self.times) {
+        CLAuthorizationStatus s = [CLLocationManager authorizationStatus];
+        if (s != kCLAuthorizationStatusAuthorizedAlways &&
+            s != kCLAuthorizationStatusAuthorizedWhenInUse) {
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Open location service" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                NSURL *url = [[NSURL alloc] initWithString:UIApplicationOpenSettingsURLString];
+                if([[UIApplication sharedApplication] canOpenURL:url]) {
+                    [[UIApplication sharedApplication] openURL:url];
+                }
+            }];
+            
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+            
+            [alert addAction:cancelAction];
+            [alert addAction:okAction];
+            [self presentViewController:alert animated:YES completion:nil];
+
+        }
+    }
+    
     switch (self.times) {
         case 0:
         {

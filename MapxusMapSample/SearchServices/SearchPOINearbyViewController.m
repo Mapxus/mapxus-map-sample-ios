@@ -34,14 +34,17 @@
 - (void)requestData:(NSString *)key
 {
     [ProgressHUD show];
+    
+    CLLocationCoordinate2D coor = [self.mapView convertPoint:self.mapView.center toCoordinateFromView:self.mapView];
+    
     MXMGeoPoint *point = [[MXMGeoPoint alloc] init];
-    point.latitude = 22.304716516178253;
-    point.longitude = 114.16186609400843;
+    point.latitude = coor.latitude;
+    point.longitude = coor.longitude;
     
     MXMPOISearchRequest *re = [[MXMPOISearchRequest alloc] init];
     re.keywords = key;
     re.center = point;
-    re.distance = 7;
+    re.meterDistance = 700;
     re.offset = 100;
     re.page = 1;
     
@@ -64,8 +67,8 @@
 
 - (void)onPOISearchDone:(MXMPOISearchRequest *)request response:(MXMPOISearchResponse *)response
 {
-    if (self.mapView.annotations.count) {
-        [self.mapView removeAnnotations:self.mapView.annotations];
+    if (self.map.MXMAnnotations.count) {
+        [self.map removeMXMPointAnnotaions:self.map.MXMAnnotations];
     }
 
     NSMutableArray *anns = [NSMutableArray array];

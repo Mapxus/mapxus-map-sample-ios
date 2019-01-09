@@ -35,14 +35,17 @@
 - (void)requestData
 {
     [ProgressHUD show];
+    
+    CLLocationCoordinate2D coor = [self.mapView convertPoint:self.mapView.center toCoordinateFromView:self.mapView];
+
     MXMGeoPoint *point = [[MXMGeoPoint alloc] init];
-    point.latitude = 22.304716516178253;
-    point.longitude = 114.16186609400843;
+    point.latitude = coor.latitude;
+    point.longitude = coor.longitude;
     
     MXMBuildingSearchRequest *re = [[MXMBuildingSearchRequest alloc] init];
     re.keywords = self.keyTF.text;
     re.center = point;
-    re.distance = 100;
+    re.distance = 10;
     re.offset = 100;
     re.page = 1;
     

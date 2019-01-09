@@ -9,6 +9,7 @@
 #import "ControllerHiddenViewController.h"
 #import <Mapbox/Mapbox.h>
 #import <MapxusMapSDK/MapxusMapSDK.h>
+#import <MyLayout/MyLayout.h>
 
 @interface ControllerHiddenViewController () <MGLMapViewDelegate>
 
@@ -33,14 +34,54 @@
     
     self.map = [[MapxusMap alloc] initWithMapView:self.mapview];
     
+    MyLinearLayout *boxView = [MyLinearLayout linearLayoutWithOrientation:MyOrientation_Vert];
+    boxView.myHorzMargin = 0;
+    boxView.wrapContentHeight = YES;
+    boxView.subviewVSpace = 10;
+    boxView.padding = UIEdgeInsetsMake(5, 0, 5, 0);
+    boxView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.7];
+    boxView.topPos.equalTo(self.view.topPos);
+    [self.view addSubview:boxView];
     
-    UISwitch *switchView = [[UISwitch alloc] init];
-    switchView.backgroundColor = [UIColor whiteColor];
-    switchView.on = YES;
-    switchView.center = CGPointMake(30, 30);
-    switchView.layer.cornerRadius = switchView.frame.size.height/2;
-    [switchView addTarget:self action:@selector(switchChange:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:switchView];
+    MyLinearLayout *box1 = [MyLinearLayout linearLayoutWithOrientation:MyOrientation_Horz];
+    box1.subviewHSpace = 5;
+    box1.wrapContentHeight = YES;
+    box1.gravity = MyGravity_Vert_Center;
+    [boxView addSubview:box1];
+    
+    UILabel *ctrlHiddenLabel = [[UILabel alloc] init];
+    ctrlHiddenLabel.text = @"Controller Hidden";
+    ctrlHiddenLabel.textAlignment = NSTextAlignmentRight;
+    ctrlHiddenLabel.mySize = CGSizeMake(150, 20);
+    
+    UISwitch *ctrlHiddenSwitch = [[UISwitch alloc] init];
+    ctrlHiddenSwitch.on = YES;
+    [ctrlHiddenSwitch addTarget:self
+                         action:@selector(switchChange:)
+               forControlEvents:UIControlEventValueChanged];
+    
+    [box1 addSubview:ctrlHiddenLabel];
+    [box1 addSubview:ctrlHiddenSwitch];
+    
+    MyLinearLayout *box2 = [MyLinearLayout linearLayoutWithOrientation:MyOrientation_Horz];
+    box2.subviewHSpace = 5;
+    box2.wrapContentHeight = YES;
+    box2.gravity = MyGravity_Vert_Center;
+    [boxView addSubview:box2];
+    
+    UILabel *gestureSwitchingBuildingLabel = [[UILabel alloc] init];
+    gestureSwitchingBuildingLabel.text = @"Gesture Switching";
+    gestureSwitchingBuildingLabel.textAlignment = NSTextAlignmentRight;
+    gestureSwitchingBuildingLabel.mySize = CGSizeMake(150, 20);
+    
+    UISwitch *gestureSwitchingBuildingSwitch = [[UISwitch alloc] init];
+    gestureSwitchingBuildingSwitch.on = YES;
+    [gestureSwitchingBuildingSwitch addTarget:self
+                                       action:@selector(gestureSwitchingBuildingChange:)
+                             forControlEvents:UIControlEventValueChanged];
+    
+    [box2 addSubview:gestureSwitchingBuildingLabel];
+    [box2 addSubview:gestureSwitchingBuildingSwitch];
 }
 
 - (void)viewDidLayoutSubviews
@@ -52,6 +93,11 @@
 - (void)switchChange:(UISwitch *)sender
 {
     self.map.indoorControllerAlwaysHidden = !sender.isOn;
+}
+
+- (void)gestureSwitchingBuildingChange:(UISwitch *)sender
+{
+    self.map.gestureSwitchingBuilding = sender.isOn;
 }
 
 - (void)didReceiveMemoryWarning {

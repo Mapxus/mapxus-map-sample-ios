@@ -157,23 +157,28 @@
                                                  imageName:@"06-5"
                                                      title:NSLocalizedString(@"Search Building Global", nil)
                                                   subTitle:NSLocalizedString(@"Search Building Global.", nil)];
-    Feature *feature6 = [[Feature alloc] initWithIdentifie:FeatureTypeSearchPOINearby
-                                                 imageName:@"06-6"
-                                                     title:NSLocalizedString(@"Search POI nearby", nil)
-                                                  subTitle:NSLocalizedString(@"Search POI nearby.", nil)];
-    Feature *feature7 = [[Feature alloc] initWithIdentifie:FeatureTypeSearchPOIInBound
-                                                 imageName:@"06-7"
-                                                     title:NSLocalizedString(@"Search POI in bound", nil)
-                                                  subTitle:NSLocalizedString(@"Search POI in bound.", nil)];
-    Feature *feature8 = [[Feature alloc] initWithIdentifie:FeatureTypeSearchPOIDetailById
+    Feature *feature6 = [[Feature alloc] initWithIdentifie:FeatureTypeSearchPOIDetailById
                                                  imageName:@"06-8"
                                                      title:NSLocalizedString(@"Search POI detail by ID", nil)
                                                   subTitle:NSLocalizedString(@"Search POI detail by ID.", nil)];
+    Feature *feature7 = [[Feature alloc] initWithIdentifie:FeatureTypeSearchPOINearby
+                                                 imageName:@"06-6"
+                                                     title:NSLocalizedString(@"Search POI nearby", nil)
+                                                  subTitle:NSLocalizedString(@"Search POI nearby.", nil)];
+    Feature *feature8 = [[Feature alloc] initWithIdentifie:FeatureTypeSearchPOIInBound
+                                                 imageName:@"06-7"
+                                                     title:NSLocalizedString(@"Search POI in bound", nil)
+                                                  subTitle:NSLocalizedString(@"Search POI in bound.", nil)];
+    
     Feature *feature9 = [[Feature alloc] initWithIdentifie:FeatureTypeSearchPOIInBuilding
                                                  imageName:@"06-9"
                                                      title:NSLocalizedString(@"Search POI in building", nil)
                                                   subTitle:NSLocalizedString(@"Search POI in building.", nil)];
-    return @[feature1, feature2, feature3, feature4, feature5, feature6, feature7, feature8, feature9];
+    Feature *feature10 = [[Feature alloc] initWithIdentifie:FeatureTypeSearchPOIWithOrientation
+                                                 imageName:@"06-6"
+                                                     title:NSLocalizedString(@"Search POI with orientation", nil)
+                                                  subTitle:NSLocalizedString(@"Search POI with orientation.", nil)];
+    return @[feature1, feature2, feature3, feature4, feature5, feature6, feature7, feature8, feature9, feature10];
 }
 
 + (NSArray *)locationList
@@ -184,6 +189,16 @@
                                                   subTitle:NSLocalizedString(@"Displaying the users location.", nil)];
     return @[feature1];
 }
+
++ (NSArray *)visualList
+{
+    Feature *feature1 = [[Feature alloc] initWithIdentifie:FeatureTypeVisual
+                                                 imageName:@"visualMapBanner"
+                                                     title:NSLocalizedString(@"Visual map", nil)
+                                                  subTitle:NSLocalizedString(@"Displaying the visual map.", nil)];
+    return @[feature1];
+}
+
 
 
 @end

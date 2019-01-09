@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <MapxusMapSDK/MapxusMapSDK.h>
+#import <MapxusBaseSDK/MapxusBaseSDK.h>
 
 @interface AppDelegate ()
 
@@ -19,6 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[MXMMapServices sharedServices] registerWithApiKey:@"your apiKey" secret:@"your secret"];
+
     return YES;
 }
 

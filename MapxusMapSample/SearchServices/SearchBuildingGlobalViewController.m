@@ -69,8 +69,7 @@
     for (MXMBuilding *building in response.buildings) {
         // 只有一个结果，缩放到建筑
         if (response.total == 1) {
-            MGLCoordinateBounds bounds = MGLCoordinateBoundsMake(CLLocationCoordinate2DMake(building.bbox.min_latitude, building.bbox.min_longitude), CLLocationCoordinate2DMake(building.bbox.max_latitude, building.bbox.max_longitude));
-            self.mapView.visibleCoordinateBounds = bounds;
+            [self.map selectBuilding:building.buildingId shouldZoomTo:YES];
         }
         MGLPointAnnotation *ann = [[MGLPointAnnotation alloc] init];
         ann.coordinate = CLLocationCoordinate2DMake(building.labelCenter.latitude, building.labelCenter.longitude);

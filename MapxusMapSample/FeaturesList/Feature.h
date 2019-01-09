@@ -33,10 +33,12 @@ typedef NS_ENUM(NSUInteger, FeatureType) {
     FeatureTypeSearchPOIInBound,
     FeatureTypeSearchPOIDetailById,
     FeatureTypeSearchPOIInBuilding,
+    FeatureTypeSearchPOIWithOrientation,
     FeatureTypeShowLocation,
     FeatureTypeControllerHidden,
     FeatureTypeControllerPosition,
     FeatureTypeOutdoorHidden,
+    FeatureTypeVisual,
 };
 
 @interface Feature : NSObject
@@ -56,5 +58,6 @@ typedef NS_ENUM(NSUInteger, FeatureType) {
 + (NSArray *)listenerList;
 + (NSArray *)searchServicesList;
 + (NSArray *)locationList;
++ (NSArray *)visualList;
 
 @end
