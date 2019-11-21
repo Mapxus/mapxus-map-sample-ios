@@ -30,7 +30,7 @@
     // Do any additional setup after loading the view from its nib.
     self.times = 0;
     self.title = self.nameStr;
-    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
+    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
     self.mapView.zoomLevel = 16;
     self.mapView.showsUserHeadingIndicator = YES;
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
@@ -65,17 +65,17 @@
     switch (self.times) {
         case 0:
         {
-            [self.mapView setUserTrackingMode:MGLUserTrackingModeNone animated:YES];
+            [self.mapView setUserTrackingMode:MGLUserTrackingModeNone animated:YES completionHandler:nil];
         }
             break;
         case 1:
         {
-            [self.mapView setUserTrackingMode:MGLUserTrackingModeFollow animated:YES];
+            [self.mapView setUserTrackingMode:MGLUserTrackingModeFollow animated:YES completionHandler:nil];
         }
             break;
         case 2:
         {
-            [self.mapView setUserTrackingMode:MGLUserTrackingModeFollowWithHeading animated:YES];
+            [self.mapView setUserTrackingMode:MGLUserTrackingModeFollowWithHeading animated:YES completionHandler:nil];
         }
             break;
         default:

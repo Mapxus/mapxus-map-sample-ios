@@ -27,8 +27,8 @@
     // Do any additional setup after loading the view.
     self.title = self.nameStr;
     self.mapView.compassView.hidden = YES;
-    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
-    self.mapView.zoomLevel = 16;
+    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
+    self.mapView.zoomLevel = 18;
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
 }
 
@@ -69,7 +69,7 @@
     for (MXMBuilding *building in response.buildings) {
         // 只有一个结果，缩放到建筑
         if (response.total == 1) {
-            [self.map selectBuilding:building.buildingId shouldZoomTo:YES];
+            [self.map selectBuilding:building.buildingId zoomMode:MXMZoomAnimated edgePadding:UIEdgeInsetsZero];
         }
         MGLPointAnnotation *ann = [[MGLPointAnnotation alloc] init];
         ann.coordinate = CLLocationCoordinate2DMake(building.labelCenter.latitude, building.labelCenter.longitude);

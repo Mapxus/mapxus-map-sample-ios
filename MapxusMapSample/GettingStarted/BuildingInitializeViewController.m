@@ -34,20 +34,10 @@
     [self.view addSubview:self.mapView];
     // 配置初始化项目
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
-    configuration.buildingId = @"pacificplace_hk_4d1f10";
+    configuration.buildingId = @"tsuenwanplaza_hk_369d01";
     configuration.floor = @"L3";
     // 初始化定内地图
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

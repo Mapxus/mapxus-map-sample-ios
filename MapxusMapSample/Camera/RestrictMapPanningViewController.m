@@ -25,11 +25,11 @@
     // Do any additional setup after loading the view.
     self.title = self.nameStr;
     
-    CLLocationCoordinate2D ne = CLLocationCoordinate2DMake(22.308716516178253, 114.16586609400843);
-    CLLocationCoordinate2D sw = CLLocationCoordinate2DMake(22.300716516178253, 114.15786609400843);
+    CLLocationCoordinate2D ne = CLLocationCoordinate2DMake(22.372203, 114.112391);
+    CLLocationCoordinate2D sw = CLLocationCoordinate2DMake(22.369272, 114.110006);
     self.colorado = MGLCoordinateBoundsMake(sw, ne);
     
-    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
+    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
     self.mapView.zoomLevel = 18;
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
 }

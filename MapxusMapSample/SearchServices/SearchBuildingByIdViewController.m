@@ -26,10 +26,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = self.nameStr;
-    [self requestData:@"elements_hk_dc005f"];
+    [self requestData:@"tsuenwanplaza_hk_369d01"];
     
     self.mapView.compassView.hidden = YES;
-    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
+    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
     self.mapView.zoomLevel = 16;
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
 }
@@ -66,14 +66,11 @@
     }
 
     MXMBuilding *building = response.buildings.firstObject;
-    
-    MGLCoordinateBounds bounds = MGLCoordinateBoundsMake(CLLocationCoordinate2DMake(building.bbox.min_latitude, building.bbox.min_longitude), CLLocationCoordinate2DMake(building.bbox.max_latitude, building.bbox.max_longitude));
-    self.mapView.visibleCoordinateBounds = bounds;
+    [self.map selectBuilding:building.buildingId zoomMode:MXMZoomAnimated edgePadding:UIEdgeInsetsZero];
     
     MGLPointAnnotation *ann = [[MGLPointAnnotation alloc] init];
     ann.coordinate = CLLocationCoordinate2DMake(building.labelCenter.latitude, building.labelCenter.longitude);
     ann.title = building.name_default;
-    
     [self.mapView addAnnotation:ann];
     
     self.nameLabel.text = building.name_default;

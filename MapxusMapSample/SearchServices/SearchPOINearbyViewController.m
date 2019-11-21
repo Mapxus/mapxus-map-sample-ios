@@ -26,8 +26,9 @@
     // Do any additional setup after loading the view.
     self.title = self.nameStr;
     self.mapView.compassView.hidden = YES;
-    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
-    self.mapView.zoomLevel = 16;
+    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
+
+    self.mapView.zoomLevel = 18;
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
 }
 
@@ -44,7 +45,7 @@
     MXMPOISearchRequest *re = [[MXMPOISearchRequest alloc] init];
     re.keywords = key;
     re.center = point;
-    re.meterDistance = 700;
+    re.meterDistance = 500;
     re.offset = 100;
     re.page = 1;
     

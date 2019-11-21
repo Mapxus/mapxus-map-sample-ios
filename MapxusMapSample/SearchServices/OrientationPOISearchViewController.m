@@ -24,12 +24,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
     self.title = self.nameStr;
     
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.delegate = self;
-    self.mapView.zoomLevel = 16;
-    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
+    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
+    self.mapView.zoomLevel = 18.5;
     [self.view addSubview:self.mapView];
     
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
@@ -103,7 +104,6 @@
     [anns addObject:ann];
     
     [self.map addMXMPointAnnotations:anns];
-//    [self.mapView showAnnotations:anns animated:YES];
     
     [ProgressHUD dismiss];
 }

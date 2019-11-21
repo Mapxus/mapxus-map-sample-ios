@@ -53,8 +53,8 @@
     
     MGLMapView *mapview = [[MGLMapView alloc] init];
     mapview.delegate = self;
-    mapview.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
-    mapview.zoomLevel = 16;
+    mapview.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
+    mapview.zoomLevel = 18;
     mapview.weight = 1;
     [rootLayout addSubview:mapview];
     

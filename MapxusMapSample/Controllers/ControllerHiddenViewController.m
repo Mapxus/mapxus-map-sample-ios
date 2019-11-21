@@ -28,8 +28,8 @@
     
     self.mapview = [[MGLMapView alloc] init];
     self.mapview.delegate = self;
-    self.mapview.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
-    self.mapview.zoomLevel = 16;
+    self.mapview.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
+    self.mapview.zoomLevel = 18;
     [self.view addSubview:self.mapview];
     
     self.map = [[MapxusMap alloc] initWithMapView:self.mapview];
@@ -63,6 +63,7 @@
     [box1 addSubview:ctrlHiddenLabel];
     [box1 addSubview:ctrlHiddenSwitch];
     
+    
     MyLinearLayout *box2 = [MyLinearLayout linearLayoutWithOrientation:MyOrientation_Horz];
     box2.subviewHSpace = 5;
     box2.wrapContentHeight = YES;
@@ -82,22 +83,44 @@
     
     [box2 addSubview:gestureSwitchingBuildingLabel];
     [box2 addSubview:gestureSwitchingBuildingSwitch];
+    
+    
+    MyLinearLayout *box3 = [MyLinearLayout linearLayoutWithOrientation:MyOrientation_Horz];
+    box3.subviewHSpace = 5;
+    box3.wrapContentHeight = YES;
+    box3.gravity = MyGravity_Vert_Center;
+    [boxView addSubview:box3];
+    
+    UILabel *autoSwitchingBuildingLabel = [[UILabel alloc] init];
+    autoSwitchingBuildingLabel.text = @"Auto Switching";
+    autoSwitchingBuildingLabel.textAlignment = NSTextAlignmentRight;
+    autoSwitchingBuildingLabel.mySize = CGSizeMake(150, 20);
+    
+    UISwitch *autoSwitchingBuildingSwitch = [[UISwitch alloc] init];
+    autoSwitchingBuildingSwitch.on = YES;
+    [autoSwitchingBuildingSwitch addTarget:self
+                                       action:@selector(autoSwitchingBuildingChange:)
+                             forControlEvents:UIControlEventValueChanged];
+    
+    [box3 addSubview:autoSwitchingBuildingLabel];
+    [box3 addSubview:autoSwitchingBuildingSwitch];
 }
 
-- (void)viewDidLayoutSubviews
-{
+- (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.mapview.frame = self.view.bounds;
 }
 
-- (void)switchChange:(UISwitch *)sender
-{
+- (void)switchChange:(UISwitch *)sender {
     self.map.indoorControllerAlwaysHidden = !sender.isOn;
 }
 
-- (void)gestureSwitchingBuildingChange:(UISwitch *)sender
-{
+- (void)gestureSwitchingBuildingChange:(UISwitch *)sender {
     self.map.gestureSwitchingBuilding = sender.isOn;
+}
+
+- (void)autoSwitchingBuildingChange:(UISwitch *)sender {
+    self.map.autoChangeBuilding = sender.isOn;
 }
 
 - (void)didReceiveMemoryWarning {

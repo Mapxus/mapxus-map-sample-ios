@@ -23,8 +23,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = self.nameStr;
-    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
-    self.mapView.zoomLevel = 16;
+    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
+    self.mapView.zoomLevel = 18;
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
 }
 
@@ -32,15 +32,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

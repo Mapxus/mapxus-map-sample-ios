@@ -24,42 +24,42 @@
     // Do any additional setup after loading the view.
     self.title = self.nameStr;
     
-    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
-    self.mapView.zoomLevel = 16;
+    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
+    self.mapView.zoomLevel = 18;
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
     
     MGLPointAnnotation *ann = [[MGLPointAnnotation alloc] init];
-    ann.coordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
-    ann.title = @"测试点";
-    ann.subtitle = @"lat:22.304716516178253,lon:114.16186609400843";
+    ann.coordinate = CLLocationCoordinate2DMake(22.370779, 114.111341);
+    ann.title = @"室外测试点";
+    ann.subtitle = @"lat:22.370779,lon:114.111341";
     [self.mapView addAnnotation:ann];
     
     MXMPointAnnotation *mxmAnn = [[MXMPointAnnotation alloc] init];
-    mxmAnn.coordinate = CLLocationCoordinate2DMake(22.304816516178253, 114.16226609400843);
-    mxmAnn.title = @"测试点";
-    mxmAnn.subtitle = @"G层";
-    mxmAnn.buildingId = @"elements_hk_dc005f";
-    mxmAnn.floor = @"G";
+    mxmAnn.coordinate = CLLocationCoordinate2DMake(22.371147, 114.111073);
+    mxmAnn.title = @"室内测试点";
+    mxmAnn.subtitle = @"L1层";
+    mxmAnn.buildingId = @"tsuenwanplaza_hk_369d01";
+    mxmAnn.floor = @"L1";
     
     MXMPointAnnotation *mxmAnn1 = [[MXMPointAnnotation alloc] init];
-    mxmAnn1.coordinate = CLLocationCoordinate2DMake(22.305316516178253, 114.16186609400843);
-    mxmAnn1.title = @"测试点";
-    mxmAnn1.subtitle = @"L1层";
-    mxmAnn1.buildingId = @"elements_hk_dc005f";
-    mxmAnn1.floor = @"L1";
+    mxmAnn1.coordinate = CLLocationCoordinate2DMake(22.370561, 114.111290);
+    mxmAnn1.title = @"室内测试点";
+    mxmAnn1.subtitle = @"L2层";
+    mxmAnn1.buildingId = @"tsuenwanplaza_hk_369d01";
+    mxmAnn1.floor = @"L2";
     
     MXMPointAnnotation *mxmAnn2 = [[MXMPointAnnotation alloc] init];
-    mxmAnn2.coordinate = CLLocationCoordinate2DMake(22.303316516178253, 114.16016609400843);
-    mxmAnn2.title = @"测试点";
+    mxmAnn2.coordinate = CLLocationCoordinate2DMake(22.371006, 114.111675);
+    mxmAnn2.title = @"室内测试点";
     mxmAnn2.subtitle = @"L2层";
-    mxmAnn2.buildingId = @"elements_hk_dc005f";
+    mxmAnn2.buildingId = @"tsuenwanplaza_hk_369d01";
     mxmAnn2.floor = @"L2";
     
     MXMPointAnnotation *mxmAnn3 = [[MXMPointAnnotation alloc] init];
-    mxmAnn3.coordinate = CLLocationCoordinate2DMake(22.304816516178253, 114.16326609400843);
-    mxmAnn3.title = @"测试点";
+    mxmAnn3.coordinate = CLLocationCoordinate2DMake(22.370606, 114.111830);
+    mxmAnn3.title = @"室内测试点";
     mxmAnn3.subtitle = @"L3层";
-    mxmAnn3.buildingId = @"elements_hk_dc005f";
+    mxmAnn3.buildingId = @"tsuenwanplaza_hk_369d01";
     mxmAnn3.floor = @"L3";
     
     [self.map addMXMPointAnnotations:@[mxmAnn, mxmAnn1, mxmAnn2, mxmAnn3]];

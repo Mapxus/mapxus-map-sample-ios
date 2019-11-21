@@ -25,13 +25,13 @@
     self.title = self.nameStr;
     
     MGLPointAnnotation *ann = [[MGLPointAnnotation alloc] init];
-    ann.coordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
+    ann.coordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
     ann.title = @"测试点";
     ann.subtitle = @"测试点副标题";
     
     [self.mapView addAnnotation:ann];
-    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
-    self.mapView.zoomLevel = 16;
+    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
+    self.mapView.zoomLevel = 18;
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
 }
 

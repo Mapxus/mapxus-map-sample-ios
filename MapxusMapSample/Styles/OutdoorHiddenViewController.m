@@ -33,7 +33,8 @@
     [self.view addSubview:self.mapView];
     // 配置初始化项目
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
-    configuration.poiId = @"75656";
+    configuration.poiId = @"12586";
+    configuration.zoomLevel = 18;
     configuration.outdoorHidden = YES;
     // 初始化定内地图
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];

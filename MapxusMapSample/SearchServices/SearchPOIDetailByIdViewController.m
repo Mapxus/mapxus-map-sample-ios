@@ -27,10 +27,10 @@
     // Do any additional setup after loading the view from its nib.
     self.title = self.nameStr;
     self.mapView.compassView.hidden = YES;
-    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
-    self.mapView.zoomLevel = 16;
+    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
+    self.mapView.zoomLevel = 18;
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
-    [self requestData:@"74216"];
+    [self requestData:@"12586"];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -72,6 +72,7 @@
     
     [self.map addMXMPointAnnotations:@[ann]];
     self.mapView.centerCoordinate = ann.coordinate;
+    [self.map selectBuilding:poi.buildingId floor:poi.floor zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
     
     self.nameLabel.text = poi.name_default;
     self.detailLabel.text = poi.buildingId;

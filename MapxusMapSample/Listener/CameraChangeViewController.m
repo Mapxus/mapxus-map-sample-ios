@@ -76,8 +76,8 @@
 {
     if (!_mapView) {
         _mapView = [[MGLMapView alloc] init];
-        _mapView.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
-        _mapView.zoomLevel = 16;
+        _mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
+        _mapView.zoomLevel = 18;
         _mapView.delegate = self; // 无论是否调用代理，都要设置
     }
     return _mapView;

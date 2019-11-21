@@ -27,11 +27,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = self.nameStr;
-    self.Element = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
-    self.admiraltystation = CLLocationCoordinate2DMake(22.278943368979931,114.16572680966898);
+    self.Element = CLLocationCoordinate2DMake(22.297696, 114.168397);
+    self.admiraltystation = CLLocationCoordinate2DMake(22.283109, 114.173036);
     self.isElement = YES;
     
-    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.304716516178253, 114.16186609400843);
+    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.297696, 114.168397);
     self.mapView.zoomLevel = 16;
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
     self.map.delegate = self;
@@ -46,7 +46,7 @@
         changeCoordinate = self.Element;
     }
     self.isElement = !self.isElement;
-    MGLMapCamera *camera = [MGLMapCamera cameraLookingAtCenterCoordinate:changeCoordinate fromDistance:1000 pitch:15 heading:0];
+    MGLMapCamera *camera = [MGLMapCamera cameraLookingAtCenterCoordinate:changeCoordinate acrossDistance:1000 pitch:15 heading:0];
     [self.mapView setCamera:camera withDuration:2 animationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
 }
 
