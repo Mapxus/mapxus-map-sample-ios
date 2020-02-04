@@ -87,7 +87,11 @@
 {
     self.latLabel.text = [NSString stringWithFormat:@"lat:%f", userLocation.location.coordinate.latitude];
     self.lonLabel.text = [NSString stringWithFormat:@"lon:%f", userLocation.location.coordinate.longitude];
-    self.floorLabel.text = [NSString stringWithFormat:@"floor:%ld", userLocation.location.floor.level];
+    if (userLocation.location.floor) {
+        self.floorLabel.text = [NSString stringWithFormat:@"floor:%ld", (long)userLocation.location.floor.level];
+    } else {
+        self.floorLabel.text = @"floor:N/A";
+    }
     self.accuracyLabel.text = [NSString stringWithFormat:@"accuracy:%f", userLocation.location.horizontalAccuracy];
 }
 

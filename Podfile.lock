@@ -1,10 +1,4 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
   - AFNetworking/NSURLSession (3.2.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -12,21 +6,24 @@ PODS:
   - AFNetworking/Reachability (3.2.1)
   - AFNetworking/Security (3.2.1)
   - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
-    - AFNetworking/NSURLSession
   - HandyFrame (1.2.0)
-  - Mapbox-iOS-SDK (5.5.0)
-  - MapxusBaseSDK (3.8.0):
-    - AFNetworking (~> 3.2.1)
+  - Mapbox-iOS-SDK (5.6.1):
+    - MapboxMobileEvents (= 0.10.2)
+  - MapboxMobileEvents (0.10.2)
+  - MapxusBaseSDK (3.10.0):
+    - AFNetworking/NSURLSession (~> 3.2)
+    - AFNetworking/Reachability (~> 3.2)
+    - AFNetworking/Security (~> 3.2)
+    - AFNetworking/Serialization (~> 3.2)
     - YYModel (~> 1.0.4)
-  - MapxusComponentKit (3.8.0):
-    - MapxusMapSDK (= 3.8.0)
-  - MapxusMapSDK (3.8.0):
-    - Mapbox-iOS-SDK (~> 5.5.0)
-    - MapxusBaseSDK (= 3.8.0)
-  - MapxusVisualSDK (3.8.0):
-    - MapxusBaseSDK (= 3.8.0)
-  - MyLayout (1.9.0)
+  - MapxusComponentKit (3.10.0):
+    - MapxusMapSDK (= 3.10.0)
+  - MapxusMapSDK (3.10.0):
+    - Mapbox-iOS-SDK (~> 5.6.0)
+    - MapxusBaseSDK (= 3.10.0)
+  - MapxusVisualSDK (3.10.0):
+    - MapxusBaseSDK (= 3.10.0)
+  - MyLayout (1.9.1)
   - ProgressHUD (2.51)
   - YYModel (1.0.4)
 
@@ -44,6 +41,7 @@ SPEC REPOS:
     - AFNetworking
     - HandyFrame
     - Mapbox-iOS-SDK
+    - MapboxMobileEvents
     - MapxusBaseSDK
     - MapxusComponentKit
     - MapxusMapSDK
@@ -55,12 +53,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   HandyFrame: 437df83ba7563c56cd55b9bd0128561995463110
-  Mapbox-iOS-SDK: 7fa66a27e586acb14c7f32ec5a487343e3994451
-  MapxusBaseSDK: 302bc12528fee360c131a335a33a008f1c5af5f7
-  MapxusComponentKit: 648329a4fb92ac175a9fc4cd6f47920d86e37ac9
-  MapxusMapSDK: c731060a3c7f02d59ba51c0a6e3bfa5119a03304
-  MapxusVisualSDK: d7fc83b72f2af968f9c3c2162b208e9dfbd03681
-  MyLayout: 6a17ff3a67287af6a9d7bfa302fd275cacbf7236
+  Mapbox-iOS-SDK: b31bd62a5dd5b7e688eab787acd3d093a122f4d6
+  MapboxMobileEvents: 2bc0ca2eedb627b73cf403258dce2b2fa98074a6
+  MapxusBaseSDK: db34028c742c78424d09ab4c4ef9cf3b86b419e5
+  MapxusComponentKit: 7d3440d20c4af152bba8496695d74d7f01f09009
+  MapxusMapSDK: 3fc1144f6cebbf26ddc6dbd594ea99958e3004c7
+  MapxusVisualSDK: b642a00f44afb0e9663b74a8d5e2c82214f9a007
+  MyLayout: 6e44860ef5a857cf50178c68e01099c0926cd7c7
   ProgressHUD: 54b4c2fa202bf3da7dddc1c698ae4e6376333bd9
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 

@@ -207,7 +207,7 @@
     MXMGeoPoint *toP = self.toDic[@"point"];
     re.toLat = toP.latitude;
     re.toLon = toP.longitude;
-    re.locale = @"zh-CN";
+    re.locale = @"zh-Hans";
     re.toDoor = self.toDoorSwitch.isOn ? YES : NO;
     re.vehicle = self.travelWaySwitch.isOn ? @"wheelchair" : @"foot";
     
