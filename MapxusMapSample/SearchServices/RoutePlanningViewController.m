@@ -139,11 +139,13 @@
     self.toAnnotation = nil;
     [self.map removeMXMPointAnnotaions:self.map.MXMAnnotations];
     
-    [self.painter paintRouteUsingResult:response];
+    MXMPath *selectedPath = response.paths.firstObject;
+    [self.painter paintRouteUsingPath:selectedPath wayPoints:response.wayPointList];
     for (NSString *key in self.painter.dto.keys) {
         if (![key containsString:@"outdoor"]) {
             MXMParagraph *paph = self.painter.dto.paragraphs[key];
             [self.map selectBuilding:paph.buildingId floor:paph.floor zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
+            [self.painter changeOnBuilding:paph.buildingId floor:paph.floor];
             [self.painter focusOnKeys:@[key] edgePadding:UIEdgeInsetsMake(130, 30, 110, 80)];
             break;
         }

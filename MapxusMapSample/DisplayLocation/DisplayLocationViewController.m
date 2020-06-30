@@ -6,9 +6,11 @@
 //  Copyright © 2018年 MAPHIVE TECHNOLOGY LIMITED. All rights reserved.
 //
 
-#import "DisplayLocationViewController.h"
 @import Mapbox;
 @import MapxusMapSDK;
+
+#import "DisplayLocationViewController.h"
+#import "MBXCustomLocationManager.h"
 
 @interface DisplayLocationViewController () <MGLMapViewDelegate>
 
@@ -32,8 +34,9 @@
     self.title = self.nameStr;
     self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
     self.mapView.zoomLevel = 16;
-    self.mapView.showsUserHeadingIndicator = YES;
+    self.mapView.locationManager = [[MBXCustomLocationManager alloc] init];
     self.map = [[MapxusMap alloc] initWithMapView:self.mapView];
+    self.mapView.showsUserHeadingIndicator = YES;
     self.mapView.showsUserLocation = YES;
 }
 

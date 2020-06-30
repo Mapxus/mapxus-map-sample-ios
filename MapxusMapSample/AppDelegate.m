@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <MapxusBaseSDK/MapxusBaseSDK.h>
+#import <AFNetworking/AFNetworkReachabilityManager.h>
 
 @interface AppDelegate ()
 
@@ -20,6 +21,23 @@
     // Override point for customization after application launch.
     [[MXMMapServices sharedServices] registerWithApiKey:@"your apiKey" secret:@"your secret"];
 
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (status == AFNetworkReachabilityStatusNotReachable) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Networking Error" message:@"Go to open the network." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *openAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                NSURL *url = [[NSURL alloc] initWithString:UIApplicationOpenSettingsURLString];
+                if([[UIApplication sharedApplication] canOpenURL:url]) {
+                    [[UIApplication sharedApplication] openURL:url];
+                }
+            }];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+            [alert addAction:openAction];
+            [alert addAction:action];
+            [application.delegate.window.rootViewController presentViewController:alert animated:YES completion:nil];
+        }
+    }];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
     return YES;
 }
 
