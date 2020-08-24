@@ -8,172 +8,114 @@
 
 //==============================================================
 
+"Map Creation" = "创建地图";
+"Map Interaction" = "地图交互";
+"Map Editing" = "在地图上绘制";
+"Indoor Positioning" = "室内定位效果展示";
+"Search Service" = "地图数据检索";
+"Integration Cases" = "集成案例";
+
+//==============================================================
+
+"Create map with code" = "创建地图（代码）";
+"Create map with code." = "通过代码创建地图。";
+
+"Create map with xib" = "创建地图（xib）";
+"Create map with Interface Builder." = "使用Interface Builder文件创建地图。";
+
+"Create map (Specify the initial building, floor and building adaptive margin)" = "创建地图（指定初始建筑，楼层及建筑自适应边距）";
+"To Maximize the specified building indoor map by the setting margin range and switch to the setting floor." = "创建地图时在设置的边距范围内最大化显示指定的建筑并切换到设置楼层。";
+
+"Create map (Specify the initial POI and zoom level)" = "创建地图（指定初始POI及地图缩放等级）";
+"To show the specified POI in the centre of the map and show the map by the setting zoom level when creating map." = "创建地图时在地图中心显示指定的POI，并设置地图缩放等级。";
+
+//==============================================================
+
+"Interaction of indoor map controller" = "室内地图控件交互";
+"Location of indoor map controllers." = "室内地图控件的位置。";
+
+"Map style setting" = "修改地图外观";
+"Modify map style, mark language and control outdoor map hiding." = "修改地图配色，标注语言及控制室外地图隐藏。";
+
+"Gesture interaction for switching buildings" = "切换建筑的手势交互";
+"Setting gestures for switching buildings." = "设置切换建筑手势。";
+
+"Method interaction (Switching indoor scenes)" = "方法交互（切换室内场景）";
+"Use code settings to focus on indoor scenes." = "代码设置聚焦的室内场景。";
+
+"Click event listener" = "事件交互（监听点击）";
+"Listener for click or long on the map, and click POI event." = "监听单击、长按地图事件，单击POI事件。";
+
+"Indoor scene switching event listener" = "事件交互（监听室内场景切换）";
+"Listener for indoor scene switching events." = "监听室内场景切换事件。";
+
+"Get in or leave indoor scene event listener" = "事件交互（监听进出室内场景）";
+"Listener for get in indoor or leave indoor scene." = "监听进出室内场景事件。";
+
+//==============================================================
+
+"Drawing markers by floor" = "按楼层绘制标注";
+"Only display the markers on current floor." = "当前场景只显示对应楼层的标注。";
+
+"Drawing polygons by floor" = "按楼层绘制多边形";
+"Only display the polygon on current floor." = "当前场景只显示对应楼层的绘制多边形。";
+
+//==============================================================
+
+"Indoor positioning" = "室内定位效果展示";
+"Show the positioning location and different following mode." = "展示室内定位及地图跟随的效果。";
+
+//==============================================================
+
+"Search building globally" = "全球范围内搜索建筑";
+"Search building globally." = "在全球范围内搜索建筑。";
+
+"Search building in the specified area" = "指定矩形区域内搜索建筑";
+"Search building in the specified rectangular area." = "在指定的矩形区域内搜索建筑。";
+
+"Search building nearby" = "在附近搜索建筑";
+"Search building in the specified circular area." = "在指定的圆形区域内搜索建筑。";
+
+"Search building by building ID" = "指定建筑ID搜索建筑";
+"Search building by building ID." = "按ID搜索建筑。";
+
+"Get the POI categories by building or floor" = "获取指定场景内包含的POI分类";
+"Get all the POI categories of the specified building or floor." = "获取指定建筑或楼层内所有包含的分类。";
+
+"Search POI in the specified scene" = "指定场景内POI搜索";
+"Search POI in the specified scene." = "在指定场景内搜索POI。";
+
+"Search POI in the specified area" = "指定矩形区域内POI搜索";
+"Search POI in the specified retangular area." = "在指定的矩形区域内搜索POI。";
+
+"Search POI nearby" = "周边POI搜索";
+"Search POI in the specified circular area." = "在指定圆形区域内搜索POI。";
+
+"Search POI by POI ID" = "指定POI ID搜索";
+"Search POI by POI ID." = "按ID搜索POI。";
+
+//==============================================================
+
+"Surrounding environment recognition" = "周边环境识别";
+"Make a virtual location and identify POI information around the location." = "制作虚拟定位并识别定位周边POI信息。";
+
+"Route planning and navigation" = "路线规划与路线吸附";
+"Search the route between the starting point and end point, and show the road adsorption." = "检索起始点间的路线并实现路网吸附、缩短功能。";
+
+"Visual map" = "Visual map";
+"Integration of Visual map." = "介绍Visual的集成。";
+
+"Explore building" = "Explore搜索";
+"Common case of POI search in the building." = "介绍建筑内POI常见搜索的集成。";
+
+//==============================================================
+
 "Style" = "外观";
-
 "COMMON" = "通用样式";
-
 "CHRISTMAS" = "圣诞节样式";
-
 "HALLOWMAS" = "万圣节样式";
-
 "MAPPYBEE" = "MAPPYBEE样式";
-
 "MAPXUS" = "MAPXUS样式";
-
 "Cancel" = "取消";
 
 //==============================================================
-
-"Controllers" = "地图控件";
-
-"Indoor Map Controllers Position" = "室内地图控件位置";
-
-"Place the indoor map controller where you want." = "把室内地图控件放置在你想要的位置。";
-
-"Indoor Map Controllers Hidden" = "隐藏室内地图控件";
-
-"Set the indoor map controllers always hidden." = "把室内地图控件设置为总是隐藏。";
-
-//==============================================================
-
-"Getting Started" = "开始使用";
-
-"A simple Map View" = "显示地图";
-
-"Show a map in your app using the Mapxus Maps SDK." = "在您的APP中使用Mapxus Maps SDK来显示地图。";
-
-"Build a map view using xib" = "用xib创建地图";
-
-"Add a mapview in xib." = "在xib文件中添加地图。";
-
-"Initialize map with building directly" = "指定建筑初始化地图";
-
-"Create the map with particular building directly." = "直接创建定位在特定建筑的地图。";
-
-"Initialize map with poi directly" = "用poi初始化地图";
-
-"Create the map with particular poi directly." = "直接创建定位在特定poi的地图。";
-
-//==============================================================
-
-"Styles" = "修改外观";
-
-"Default Styles" = "默认样式";
-
-"Use a variety of professionally designed styles with the Mapxus Maps SDK." = "通过Mapxus Maps SDK使用各种专业设计的样式。";
-
-"Hide Outdoor Map" = "隐藏室外地图";
-
-"hide the outdoor map and only show the indoor map." = "隐藏室外地图，只显示室内地图。";
-
-//==============================================================
-
-"Annotations" = "添加标注";
-
-"Draw a marker" = "绘制标注";
-
-"Create a default marker using the Mapxus Maps SDK." = "通过Mapxus Maps SDK添加默认标注。";
-
-"Draw a custom marker icon" = "绘制自定义标注图标";
-
-"Create a marker with a custom icon using the Mapxus Maps SDK." = "通过Mapxus Maps SDK添加自定义图标标注。";
-
-"Draw a polygon" = "绘制多边形";
-
-"Draw a vector polygon on a map with the Mapxus Maps SDK." = "通过Mapxus Maps SDK绘制多边形。";
-
-"Draw a polygon with holes" = "绘制一个带孔的多边形";
-
-"Draw a vector polygon with holes on a map using the Mapxus Maps SDK." = "通过Mapxus Maps SDK绘制带孔的多边形。";
-
-"Animate marker position" = "移动标注位置";
-
-"Animate the marker to a new position on the map." = "移动标注到新的位置。";
-
-//==============================================================
-
-"Camera" = "修改镜头";
-
-"Animate the map camera" = "移动地图相机";
-
-"Animate the map’s camera position, tile, bearing and the zoom." = "为地图的镜头位置，平铺，方位和缩放设置动画效果。";
-
-"Restrict map panning" = "限制地图平移";
-
-"Prevent a map from being panned to a different place." = "防止地图被移到不同的地方。";
-
-//==============================================================
-
-"Listener" = "监听消息";
-
-"Building and floor change" = "楼层变更";
-
-"Build and floor change." = "楼层变更。";
-
-"POI click listener" = "POI点击事件";
-
-"POI Click Listner." = "POI点击事件。";
-
-"Camera Change" = "地图平移数据";
-
-"Camera Change." = "地图平移数据。";
-
-//==============================================================
-
-"Search Service" = "搜索服务";
-
-"Route Planning" = "点到点路径";
-
-"Route Planning." = "点到点路径。";
-
-"Search Building Nearby" = "搜索附近建筑";
-
-"Search building nearby." = "搜索附近建筑。";
-
-"Search Building in bound" = "按范围搜索建筑";
-
-"Search building in bound." = "按范围搜索建筑。";
-
-"Search Building Detail by ID" = "按ID搜索建筑";
-
-"Search Building detail by ID." = "按ID搜索建筑。";
-
-"Search Building Global" = "全球搜索建筑";
-
-"Search Building Global." = "全球搜索建筑。";
-
-"Search POI nearby" = "搜索附近POI";
-
-"Search POI nearby." = "搜索附近POI。";
-
-"Search POI in bound" = "按范围搜索POI";
-
-"Search POI in bound." = "按范围搜索POI。";
-
-"Search POI detail by ID" = "按ID搜索POI";
-
-"Search POI detail by ID." = "按ID搜索POI。";
-
-"Search POI in building" = "建筑范围内搜索POI";
-
-"Search POI in building." = "建筑范围内搜索POI。";
-
-"Search POI with orientation" = "按角度查询POI";
-
-"Search POI with orientation." = "按角度查询POI。";
-
-//==============================================================
-
-"Display location" = "显示当前位置";
-
-"Displaying the users location" = "显示用户当前位置";
-
-"Displaying the users location." = "显示用户当前位置。";
-
-//==============================================================
-
-"360 view" = "360全景";
-
-"Visual map" = "360全景视觉";
-
-"Displaying the visual map." = "展示360全景视觉。";

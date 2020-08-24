@@ -8,9 +8,11 @@
 
 #import "MenuTableViewCell.h"
 
+
 @interface MenuTableViewCell ()
 @property (nonatomic, strong) UILabel *nameLabel;
 @end
+
 
 @implementation MenuTableViewCell
 
@@ -19,15 +21,12 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self.contentView addSubview:self.nameLabel];
+        [self.nameLabel.topAnchor constraintEqualToAnchor:self.contentView.topAnchor].active = YES;
+        [self.nameLabel.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:19].active = YES;
+        [self.nameLabel.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor].active = YES;
+        [self.nameLabel.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-10].active = YES;
     }
     return self;
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    self.nameLabel.frame = CGRectMake(19, 0, 200, 56);
-    
 }
 
 - (void)refreshData:(NSString *)data
@@ -44,10 +43,12 @@
     }
 }
 
+#pragma mark - Lazy loading
 - (UILabel *)nameLabel
 {
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
+        _nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _nameLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size:16];
         _nameLabel.textColor = [UIColor colorWithRed:88/255.0 green:88/255.0 blue:88/255.0 alpha:1/1.0];
     }

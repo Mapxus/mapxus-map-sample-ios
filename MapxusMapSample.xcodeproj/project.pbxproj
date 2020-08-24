@@ -10,12 +10,29 @@
 		C15E72DA8653D29FC9C04174 /* Pods_MapxusMapSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F4ABE352B03EF49E072948 /* Pods_MapxusMapSample.framework */; };
 		CAE3C695D3128BDE5CFD6BCA /* Pods_MapxusMapSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A072C56DB036E61BB8E83A87 /* Pods_MapxusMapSampleTests.framework */; };
 		D6061AD724AB154A0065FBA2 /* MBXCustomLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6061AD524AB154A0065FBA2 /* MBXCustomLocationManager.m */; };
-		D6408DA6212FF85300582558 /* ControllerHiddenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6408DA4212FF85300582558 /* ControllerHiddenViewController.m */; };
-		D6408DAB212FF88300582558 /* ControllerPositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6408DA9212FF88300582558 /* ControllerPositionViewController.m */; };
-		D646765421A7F93800018634 /* OutdoorHiddenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D646765321A7F93800018634 /* OutdoorHiddenViewController.m */; };
 		D65B573721CB2D4200142732 /* ShowVisualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65B573621CB2D4200142732 /* ShowVisualViewController.m */; };
 		D65B573A21CB949900142732 /* VisualDirectionAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D65B573921CB949900142732 /* VisualDirectionAnnotationView.m */; };
-		D67F7CE821856EA500D84CEB /* BuildingInitializeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67F7CE721856EA500D84CEB /* BuildingInitializeViewController.m */; };
+		D66421EA24CC055B0078404B /* SearchIntegrateCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66421E924CC055B0078404B /* SearchIntegrateCategoryViewController.m */; };
+		D66421EE24CC059F0078404B /* SearchIntegratePOIsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66421ED24CC059F0078404B /* SearchIntegratePOIsViewController.m */; };
+		D66421F124CC05B70078404B /* SearchIntegratePOIDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66421F024CC05B70078404B /* SearchIntegratePOIDetailViewController.m */; };
+		D66421F424CC0A440078404B /* SearchIntegrateCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D66421F324CC0A440078404B /* SearchIntegrateCategoryCell.m */; };
+		D66421F724CC227D0078404B /* SearchIntegratePOICell.m in Sources */ = {isa = PBXBuildFile; fileRef = D66421F624CC227D0078404B /* SearchIntegratePOICell.m */; };
+		D66421FA24CC328F0078404B /* SearchIntegratePOIDetailBuildingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D66421F924CC328F0078404B /* SearchIntegratePOIDetailBuildingCell.m */; };
+		D66421FD24CC32AE0078404B /* SearchIntegratePOIDetailBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D66421FC24CC32AE0078404B /* SearchIntegratePOIDetailBaseCell.m */; };
+		D664220E24CFCAE40078404B /* MXMPrimaryContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D664220D24CFCAE40078404B /* MXMPrimaryContentViewController.m */; };
+		D664221124CFCB0D0078404B /* MXMDrawerContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D664221024CFCB0D0078404B /* MXMDrawerContentViewController.m */; };
+		D664221424CFCE710078404B /* MXMPulleyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D664221324CFCE710078404B /* MXMPulleyViewController.m */; };
+		D664221724CFCF300078404B /* MXMPassThroughScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D664221624CFCF300078404B /* MXMPassThroughScrollView.m */; };
+		D664222424D1270A0078404B /* ExplorerButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D664222324D1270A0078404B /* ExplorerButtonViewController.m */; };
+		D672A1E424D27732005777A7 /* UIViewController+Pulley.m in Sources */ = {isa = PBXBuildFile; fileRef = D672A1E324D27732005777A7 /* UIViewController+Pulley.m */; };
+		D672A1E724D2BBFA005777A7 /* UIImage+icon.m in Sources */ = {isa = PBXBuildFile; fileRef = D672A1E624D2BBFA005777A7 /* UIImage+icon.m */; };
+		D672A1EA24D407EA005777A7 /* MXMGeoBuilding+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = D672A1E924D407EA005777A7 /* MXMGeoBuilding+Language.m */; };
+		D672A1ED24D40907005777A7 /* MXMCategory+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = D672A1EC24D40907005777A7 /* MXMCategory+Language.m */; };
+		D672A1F024D4098F005777A7 /* MXMPOI+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = D672A1EF24D4098F005777A7 /* MXMPOI+Language.m */; };
+		D672A1F324D409B2005777A7 /* MXMBuilding+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = D672A1F224D409B2005777A7 /* MXMBuilding+Language.m */; };
+		D67F00DF24C983EC003D40BA /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67F00DE24C983EC003D40BA /* RouteViewController.m */; };
+		D67F00E224C9841B003D40BA /* SearchIntegrateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67F00E124C9841B003D40BA /* SearchIntegrateViewController.m */; };
+		D67F00E524C98780003D40BA /* MXMRouteLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D67F00E424C98780003D40BA /* MXMRouteLocationManager.m */; };
 		D684BC6820FED921004E85D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC6720FED921004E85D9 /* AppDelegate.m */; };
 		D684BC7620FED922004E85D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC7520FED922004E85D9 /* main.m */; };
 		D684BC8020FED922004E85D9 /* MapxusMapSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BC7F20FED922004E85D9 /* MapxusMapSampleTests.m */; };
@@ -25,56 +42,54 @@
 		D684BD6620FF8A19004E85D9 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCF620FF8A16004E85D9 /* MenuViewController.m */; };
 		D684BD6720FF8A19004E85D9 /* Feature.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCF720FF8A16004E85D9 /* Feature.m */; };
 		D684BD6820FF8A19004E85D9 /* FeaturesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCF820FF8A16004E85D9 /* FeaturesCollectionViewController.m */; };
-		D684BD6920FF8A19004E85D9 /* SimpleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCFA20FF8A17004E85D9 /* SimpleMapViewController.m */; };
-		D684BD6A20FF8A19004E85D9 /* XibBuildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BCFB20FF8A17004E85D9 /* XibBuildViewController.xib */; };
-		D684BD6B20FF8A19004E85D9 /* XibBuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BCFC20FF8A17004E85D9 /* XibBuildViewController.m */; };
-		D684BD6D20FF8A19004E85D9 /* RestrictMapPanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD0420FF8A17004E85D9 /* RestrictMapPanningViewController.m */; };
-		D684BD6E20FF8A19004E85D9 /* AnimateMapCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD0520FF8A17004E85D9 /* AnimateMapCameraViewController.xib */; };
-		D684BD6F20FF8A19004E85D9 /* AnimateMapCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD0820FF8A17004E85D9 /* AnimateMapCameraViewController.m */; };
-		D684BD7120FF8A19004E85D9 /* POIClickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD0E20FF8A17004E85D9 /* POIClickViewController.m */; };
-		D684BD7220FF8A19004E85D9 /* BuildingAndFloorChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD1220FF8A17004E85D9 /* BuildingAndFloorChangeViewController.m */; };
-		D684BD7320FF8A19004E85D9 /* CameraChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD1320FF8A17004E85D9 /* CameraChangeViewController.m */; };
-		D684BD7420FF8A19004E85D9 /* DefaultStylesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD1620FF8A17004E85D9 /* DefaultStylesViewController.xib */; };
-		D684BD7520FF8A19004E85D9 /* DefaultStylesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD1720FF8A17004E85D9 /* DefaultStylesViewController.m */; };
-		D684BD7620FF8A19004E85D9 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD1A20FF8A17004E85D9 /* UIImage+Rotate.m */; };
 		D684BD7C20FF8A19004E85D9 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD2920FF8A18004E85D9 /* JRSwizzle.m */; };
-		D684BD7D20FF8A19004E85D9 /* SearchPOIInBuildingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD2D20FF8A18004E85D9 /* SearchPOIInBuildingViewController.xib */; };
-		D684BD7E20FF8A19004E85D9 /* SearchPOIDetailByIdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD2E20FF8A18004E85D9 /* SearchPOIDetailByIdViewController.m */; };
-		D684BD7F20FF8A19004E85D9 /* SearchPOINearbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD2F20FF8A18004E85D9 /* SearchPOINearbyViewController.xib */; };
 		D684BD8020FF8A19004E85D9 /* SearchBuildingInBoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD3220FF8A18004E85D9 /* SearchBuildingInBoundViewController.m */; };
 		D684BD8120FF8A19004E85D9 /* SearchBuildingNearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD3420FF8A18004E85D9 /* SearchBuildingNearbyViewController.m */; };
-		D684BD8320FF8A19004E85D9 /* SearchPOIDetailByIdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD3720FF8A18004E85D9 /* SearchPOIDetailByIdViewController.xib */; };
 		D684BD8420FF8A19004E85D9 /* SearchPOINearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD3820FF8A18004E85D9 /* SearchPOINearbyViewController.m */; };
 		D684BD8520FF8A19004E85D9 /* SearchBuildingGlobalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD3920FF8A18004E85D9 /* SearchBuildingGlobalViewController.m */; };
-		D684BD8620FF8A19004E85D9 /* SearchPOIInBoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD3A20FF8A18004E85D9 /* SearchPOIInBoundViewController.xib */; };
-		D684BD8820FF8A19004E85D9 /* SearchBuildingGlobalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD3D20FF8A18004E85D9 /* SearchBuildingGlobalViewController.xib */; };
-		D684BD8920FF8A19004E85D9 /* SearchBuildingNearbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD3E20FF8A18004E85D9 /* SearchBuildingNearbyViewController.xib */; };
 		D684BD8A20FF8A19004E85D9 /* SearchPOIInBoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD4020FF8A18004E85D9 /* SearchPOIInBoundViewController.m */; };
-		D684BD8B20FF8A19004E85D9 /* SearchPOIInBuildingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD4120FF8A18004E85D9 /* SearchPOIInBuildingViewController.m */; };
-		D684BD8C20FF8A19004E85D9 /* SearchBuildingByIdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD4320FF8A18004E85D9 /* SearchBuildingByIdViewController.xib */; };
-		D684BD8D20FF8A19004E85D9 /* SearchBuildingByIdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD4420FF8A18004E85D9 /* SearchBuildingByIdViewController.m */; };
-		D684BD8E20FF8A19004E85D9 /* RoutePlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD4520FF8A18004E85D9 /* RoutePlanningViewController.m */; };
-		D684BD8F20FF8A19004E85D9 /* SearchBuildingInBoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD4720FF8A18004E85D9 /* SearchBuildingInBoundViewController.xib */; };
 		D684BD9020FF8A19004E85D9 /* UIViewController+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD4920FF8A18004E85D9 /* UIViewController+Swizzle.m */; };
-		D684BD9220FF8A19004E85D9 /* DisplayLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BD5020FF8A18004E85D9 /* DisplayLocationViewController.xib */; };
 		D684BD9320FF8A19004E85D9 /* DisplayLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD5320FF8A18004E85D9 /* DisplayLocationViewController.m */; };
 		D684BD9420FF8A19004E85D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D684BD5420FF8A18004E85D9 /* Assets.xcassets */; };
-		D684BD9620FF8A19004E85D9 /* DrawCustomMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD5B20FF8A19004E85D9 /* DrawCustomMarkerViewController.m */; };
-		D684BD9720FF8A19004E85D9 /* DrawPolygonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684BD5C20FF8A19004E85D9 /* DrawPolygonViewController.m */; };
 		D684BD9E20FF8A69004E85D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D684BD9A20FF8A68004E85D9 /* LaunchScreen.storyboard */; };
 		D684BD9F20FF8A69004E85D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D684BD9C20FF8A69004E85D9 /* Main.storyboard */; };
 		D684BDA220FF8AC5004E85D9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D684BDA020FF8AC5004E85D9 /* Localizable.strings */; };
-		D684BDB221003C74004E85D9 /* DrawCustomMarkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BDB121003C74004E85D9 /* DrawCustomMarkerViewController.xib */; };
-		D684BDBE21007AA3004E85D9 /* RestrictMapPanningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D684BDBD21007AA3004E85D9 /* RestrictMapPanningViewController.xib */; };
-		D6BF087A22BB67D800BBC675 /* OrientationPOISearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BF087922BB67D800BBC675 /* OrientationPOISearchViewController.m */; };
-		D6D287442100EE7700860D20 /* AnimateMarkerPositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D287422100EE7700860D20 /* AnimateMarkerPositionViewController.m */; };
-		D6D287452100EE7700860D20 /* AnimateMarkerPositionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D287432100EE7700860D20 /* AnimateMarkerPositionViewController.xib */; };
-		D6D287492100F32200860D20 /* DrawPolygonWithHolesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D287472100F32200860D20 /* DrawPolygonWithHolesViewController.m */; };
-		D6D2874A2100F32200860D20 /* DrawPolygonWithHolesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D287482100F32200860D20 /* DrawPolygonWithHolesViewController.xib */; };
-		D6D2874E2100F8DB00860D20 /* DrawMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D2874C2100F8DB00860D20 /* DrawMarkerViewController.m */; };
-		D6D2874F2100F8DB00860D20 /* DrawMarkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D2874D2100F8DB00860D20 /* DrawMarkerViewController.xib */; };
-		D6E8909E2100D69F00E5F756 /* DrawPolygonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E8909D2100D69F00E5F756 /* DrawPolygonViewController.xib */; };
-		D6EC1C79216AFA9400C77374 /* POIInitializeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EC1C78216AFA9400C77374 /* POIInitializeViewController.m */; };
+		D695841E24C6D2DD00466372 /* SearchBuildingInBoundParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695841D24C6D2DD00466372 /* SearchBuildingInBoundParamViewController.m */; };
+		D695842124C6ECB300466372 /* SearchBuildingNearbyParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695842024C6ECB300466372 /* SearchBuildingNearbyParamViewController.m */; };
+		D695842424C7CF6C00466372 /* SearchBuildingByIDParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695842324C7CF6C00466372 /* SearchBuildingByIDParamViewController.m */; };
+		D695842724C7D0AE00466372 /* SearchBuildingByIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695842624C7D0AE00466372 /* SearchBuildingByIDViewController.m */; };
+		D695842A24C7D6F000466372 /* BuildingIDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D695842924C7D6F000466372 /* BuildingIDCell.m */; };
+		D695842E24C7F97800466372 /* CategoryIncludeInSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695842D24C7F97800466372 /* CategoryIncludeInSceneViewController.m */; };
+		D695843124C8059100466372 /* SearchPOIInSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695843024C8059100466372 /* SearchPOIInSceneViewController.m */; };
+		D695843424C805AE00466372 /* SearchPOIInSceneParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695843324C805AE00466372 /* SearchPOIInSceneParamViewController.m */; };
+		D695843724C805DB00466372 /* SearchPOIInBoundParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695843624C805DB00466372 /* SearchPOIInBoundParamViewController.m */; };
+		D695843A24C8061F00466372 /* SearchPOINearbyParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695843924C8061F00466372 /* SearchPOINearbyParamViewController.m */; };
+		D695843D24C8066900466372 /* SearchPOIByIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695843C24C8066900466372 /* SearchPOIByIDViewController.m */; };
+		D695844024C8068A00466372 /* SearchPOIByIDParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695843F24C8068A00466372 /* SearchPOIByIDParamViewController.m */; };
+		D695844324C806AD00466372 /* SurroundingIdentificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695844224C806AD00466372 /* SurroundingIdentificationViewController.m */; };
+		D695844924C8368D00466372 /* POIIDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D695844824C8368D00466372 /* POIIDCell.m */; };
+		D695844C24C83BC000466372 /* MXMSimulateLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D695844B24C83BC000466372 /* MXMSimulateLocationManager.m */; };
+		D695844F24C845FC00466372 /* SurroundingIdentificationParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695844E24C845FC00466372 /* SurroundingIdentificationParamViewController.m */; };
+		D695845224C8B0B700466372 /* CategoryIncludeInSceneResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695845124C8B0B700466372 /* CategoryIncludeInSceneResultViewController.m */; };
+		D695845524C8B6AE00466372 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D695845424C8B6AE00466372 /* CategoryCell.m */; };
+		D6B5109C24C00CDB0084D813 /* CreateMapByCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5109B24C00CDB0084D813 /* CreateMapByCodeViewController.m */; };
+		D6B510A324C00E050084D813 /* CreateMapByXibViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510A124C00E050084D813 /* CreateMapByXibViewController.m */; };
+		D6B510A424C00E050084D813 /* CreateMapByXibViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B510A224C00E050084D813 /* CreateMapByXibViewController.xib */; };
+		D6B510A724C00E2C0084D813 /* CreateMapWithSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510A624C00E2C0084D813 /* CreateMapWithSceneViewController.m */; };
+		D6B510AA24C00E480084D813 /* CreateMapWithPOIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510A924C00E480084D813 /* CreateMapWithPOIViewController.m */; };
+		D6B510AD24C040380084D813 /* CreateMapWithSceneReaultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510AC24C040380084D813 /* CreateMapWithSceneReaultViewController.m */; };
+		D6B510B024C040B00084D813 /* CreateMapWithPOIResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510AF24C040B00084D813 /* CreateMapWithPOIResultViewController.m */; };
+		D6B510B324C155CE0084D813 /* IndoorControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510B224C155CE0084D813 /* IndoorControlsViewController.m */; };
+		D6B510B624C155EA0084D813 /* MapAppearanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510B524C155EA0084D813 /* MapAppearanceViewController.m */; };
+		D6B510B924C155FD0084D813 /* SwitchingBuildingGesturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510B824C155FD0084D813 /* SwitchingBuildingGesturesViewController.m */; };
+		D6B510BC24C1560D0084D813 /* FocusOnIndoorSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510BB24C1560D0084D813 /* FocusOnIndoorSceneViewController.m */; };
+		D6B510BF24C156210084D813 /* ClickEventListeningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510BE24C156210084D813 /* ClickEventListeningViewController.m */; };
+		D6B510C224C1563B0084D813 /* SceneChangedEventListeningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510C124C1563B0084D813 /* SceneChangedEventListeningViewController.m */; };
+		D6B510C524C1564B0084D813 /* IndoorSceneInAndOutListeningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510C424C1564B0084D813 /* IndoorSceneInAndOutListeningViewController.m */; };
+		D6B510C824C52C840084D813 /* FocusOnIndoorSceneParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510C724C52C840084D813 /* FocusOnIndoorSceneParamViewController.m */; };
+		D6B510CC24C58D8C0084D813 /* IndoorMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510CB24C58D8C0084D813 /* IndoorMarkerViewController.m */; };
+		D6B510CF24C58DA00084D813 /* IndoorPolygonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510CE24C58DA00084D813 /* IndoorPolygonViewController.m */; };
+		D6B510D824C690E00084D813 /* SearchBuildingGlobalParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B510D724C690E00084D813 /* SearchBuildingGlobalParamViewController.m */; };
 		FE3C2A917D49A09E1FB9219D /* Pods_MapxusMapSampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D48763B44BFA0D490D869B /* Pods_MapxusMapSampleUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,18 +134,53 @@
 		C749DAAF82861B8635A8323D /* Pods-MapxusMapSampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSampleUITests/Pods-MapxusMapSampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D6061AD524AB154A0065FBA2 /* MBXCustomLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBXCustomLocationManager.m; sourceTree = "<group>"; };
 		D6061AD624AB154A0065FBA2 /* MBXCustomLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBXCustomLocationManager.h; sourceTree = "<group>"; };
-		D6408DA3212FF85300582558 /* ControllerHiddenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControllerHiddenViewController.h; sourceTree = "<group>"; };
-		D6408DA4212FF85300582558 /* ControllerHiddenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControllerHiddenViewController.m; sourceTree = "<group>"; };
-		D6408DA8212FF88300582558 /* ControllerPositionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControllerPositionViewController.h; sourceTree = "<group>"; };
-		D6408DA9212FF88300582558 /* ControllerPositionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControllerPositionViewController.m; sourceTree = "<group>"; };
-		D646765221A7F93800018634 /* OutdoorHiddenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OutdoorHiddenViewController.h; sourceTree = "<group>"; };
-		D646765321A7F93800018634 /* OutdoorHiddenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OutdoorHiddenViewController.m; sourceTree = "<group>"; };
 		D65B573521CB2D4200142732 /* ShowVisualViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowVisualViewController.h; sourceTree = "<group>"; };
 		D65B573621CB2D4200142732 /* ShowVisualViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowVisualViewController.m; sourceTree = "<group>"; };
 		D65B573821CB949900142732 /* VisualDirectionAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisualDirectionAnnotationView.h; sourceTree = "<group>"; };
 		D65B573921CB949900142732 /* VisualDirectionAnnotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisualDirectionAnnotationView.m; sourceTree = "<group>"; };
-		D67F7CE621856EA500D84CEB /* BuildingInitializeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingInitializeViewController.h; sourceTree = "<group>"; };
-		D67F7CE721856EA500D84CEB /* BuildingInitializeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingInitializeViewController.m; sourceTree = "<group>"; };
+		D66421E824CC055B0078404B /* SearchIntegrateCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchIntegrateCategoryViewController.h; sourceTree = "<group>"; };
+		D66421E924CC055B0078404B /* SearchIntegrateCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchIntegrateCategoryViewController.m; sourceTree = "<group>"; };
+		D66421EC24CC059F0078404B /* SearchIntegratePOIsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchIntegratePOIsViewController.h; sourceTree = "<group>"; };
+		D66421ED24CC059F0078404B /* SearchIntegratePOIsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchIntegratePOIsViewController.m; sourceTree = "<group>"; };
+		D66421EF24CC05B70078404B /* SearchIntegratePOIDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchIntegratePOIDetailViewController.h; sourceTree = "<group>"; };
+		D66421F024CC05B70078404B /* SearchIntegratePOIDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchIntegratePOIDetailViewController.m; sourceTree = "<group>"; };
+		D66421F224CC0A440078404B /* SearchIntegrateCategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchIntegrateCategoryCell.h; sourceTree = "<group>"; };
+		D66421F324CC0A440078404B /* SearchIntegrateCategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchIntegrateCategoryCell.m; sourceTree = "<group>"; };
+		D66421F524CC227D0078404B /* SearchIntegratePOICell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchIntegratePOICell.h; sourceTree = "<group>"; };
+		D66421F624CC227D0078404B /* SearchIntegratePOICell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchIntegratePOICell.m; sourceTree = "<group>"; };
+		D66421F824CC328F0078404B /* SearchIntegratePOIDetailBuildingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchIntegratePOIDetailBuildingCell.h; sourceTree = "<group>"; };
+		D66421F924CC328F0078404B /* SearchIntegratePOIDetailBuildingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchIntegratePOIDetailBuildingCell.m; sourceTree = "<group>"; };
+		D66421FB24CC32AE0078404B /* SearchIntegratePOIDetailBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchIntegratePOIDetailBaseCell.h; sourceTree = "<group>"; };
+		D66421FC24CC32AE0078404B /* SearchIntegratePOIDetailBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchIntegratePOIDetailBaseCell.m; sourceTree = "<group>"; };
+		D664220C24CFCAE40078404B /* MXMPrimaryContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXMPrimaryContentViewController.h; sourceTree = "<group>"; };
+		D664220D24CFCAE40078404B /* MXMPrimaryContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXMPrimaryContentViewController.m; sourceTree = "<group>"; };
+		D664220F24CFCB0D0078404B /* MXMDrawerContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXMDrawerContentViewController.h; sourceTree = "<group>"; };
+		D664221024CFCB0D0078404B /* MXMDrawerContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXMDrawerContentViewController.m; sourceTree = "<group>"; };
+		D664221224CFCE710078404B /* MXMPulleyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXMPulleyViewController.h; sourceTree = "<group>"; };
+		D664221324CFCE710078404B /* MXMPulleyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXMPulleyViewController.m; sourceTree = "<group>"; };
+		D664221524CFCF300078404B /* MXMPassThroughScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXMPassThroughScrollView.h; sourceTree = "<group>"; };
+		D664221624CFCF300078404B /* MXMPassThroughScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXMPassThroughScrollView.m; sourceTree = "<group>"; };
+		D664221E24D02B3B0078404B /* MXMPulleyProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXMPulleyProtocols.h; sourceTree = "<group>"; };
+		D664222224D1270A0078404B /* ExplorerButtonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExplorerButtonViewController.h; sourceTree = "<group>"; };
+		D664222324D1270A0078404B /* ExplorerButtonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExplorerButtonViewController.m; sourceTree = "<group>"; };
+		D672A1E224D27732005777A7 /* UIViewController+Pulley.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Pulley.h"; sourceTree = "<group>"; };
+		D672A1E324D27732005777A7 /* UIViewController+Pulley.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Pulley.m"; sourceTree = "<group>"; };
+		D672A1E524D2BBFA005777A7 /* UIImage+icon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+icon.h"; sourceTree = "<group>"; };
+		D672A1E624D2BBFA005777A7 /* UIImage+icon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+icon.m"; sourceTree = "<group>"; };
+		D672A1E824D407EA005777A7 /* MXMGeoBuilding+Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MXMGeoBuilding+Language.h"; sourceTree = "<group>"; };
+		D672A1E924D407EA005777A7 /* MXMGeoBuilding+Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MXMGeoBuilding+Language.m"; sourceTree = "<group>"; };
+		D672A1EB24D40907005777A7 /* MXMCategory+Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MXMCategory+Language.h"; sourceTree = "<group>"; };
+		D672A1EC24D40907005777A7 /* MXMCategory+Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MXMCategory+Language.m"; sourceTree = "<group>"; };
+		D672A1EE24D4098F005777A7 /* MXMPOI+Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MXMPOI+Language.h"; sourceTree = "<group>"; };
+		D672A1EF24D4098F005777A7 /* MXMPOI+Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MXMPOI+Language.m"; sourceTree = "<group>"; };
+		D672A1F124D409B2005777A7 /* MXMBuilding+Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MXMBuilding+Language.h"; sourceTree = "<group>"; };
+		D672A1F224D409B2005777A7 /* MXMBuilding+Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MXMBuilding+Language.m"; sourceTree = "<group>"; };
+		D67F00DD24C983EC003D40BA /* RouteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouteViewController.h; sourceTree = "<group>"; };
+		D67F00DE24C983EC003D40BA /* RouteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouteViewController.m; sourceTree = "<group>"; };
+		D67F00E024C9841B003D40BA /* SearchIntegrateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchIntegrateViewController.h; sourceTree = "<group>"; };
+		D67F00E124C9841B003D40BA /* SearchIntegrateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchIntegrateViewController.m; sourceTree = "<group>"; };
+		D67F00E324C98780003D40BA /* MXMRouteLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXMRouteLocationManager.h; sourceTree = "<group>"; };
+		D67F00E424C98780003D40BA /* MXMRouteLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXMRouteLocationManager.m; sourceTree = "<group>"; };
 		D684BC6320FED921004E85D9 /* MapxusMapSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapxusMapSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D684BC6620FED921004E85D9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D684BC6720FED921004E85D9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -152,65 +202,23 @@
 		D684BCF620FF8A16004E85D9 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		D684BCF720FF8A16004E85D9 /* Feature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feature.m; sourceTree = "<group>"; };
 		D684BCF820FF8A16004E85D9 /* FeaturesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesCollectionViewController.m; sourceTree = "<group>"; };
-		D684BCFA20FF8A17004E85D9 /* SimpleMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleMapViewController.m; sourceTree = "<group>"; };
-		D684BCFB20FF8A17004E85D9 /* XibBuildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XibBuildViewController.xib; sourceTree = "<group>"; };
-		D684BCFC20FF8A17004E85D9 /* XibBuildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XibBuildViewController.m; sourceTree = "<group>"; };
-		D684BCFD20FF8A17004E85D9 /* SimpleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleMapViewController.h; sourceTree = "<group>"; };
-		D684BCFE20FF8A17004E85D9 /* XibBuildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XibBuildViewController.h; sourceTree = "<group>"; };
-		D684BD0320FF8A17004E85D9 /* AnimateMapCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateMapCameraViewController.h; sourceTree = "<group>"; };
-		D684BD0420FF8A17004E85D9 /* RestrictMapPanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestrictMapPanningViewController.m; sourceTree = "<group>"; };
-		D684BD0620FF8A17004E85D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AnimateMapCameraViewController.xib; sourceTree = "<group>"; };
-		D684BD0820FF8A17004E85D9 /* AnimateMapCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimateMapCameraViewController.m; sourceTree = "<group>"; };
-		D684BD0920FF8A17004E85D9 /* RestrictMapPanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestrictMapPanningViewController.h; sourceTree = "<group>"; };
-		D684BD0E20FF8A17004E85D9 /* POIClickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIClickViewController.m; sourceTree = "<group>"; };
-		D684BD0F20FF8A17004E85D9 /* BuildingAndFloorChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingAndFloorChangeViewController.h; sourceTree = "<group>"; };
-		D684BD1020FF8A17004E85D9 /* CameraChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraChangeViewController.h; sourceTree = "<group>"; };
-		D684BD1120FF8A17004E85D9 /* POIClickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIClickViewController.h; sourceTree = "<group>"; };
-		D684BD1220FF8A17004E85D9 /* BuildingAndFloorChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingAndFloorChangeViewController.m; sourceTree = "<group>"; };
-		D684BD1320FF8A17004E85D9 /* CameraChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraChangeViewController.m; sourceTree = "<group>"; };
-		D684BD1520FF8A17004E85D9 /* DefaultStylesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultStylesViewController.h; sourceTree = "<group>"; };
-		D684BD1620FF8A17004E85D9 /* DefaultStylesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultStylesViewController.xib; sourceTree = "<group>"; };
-		D684BD1720FF8A17004E85D9 /* DefaultStylesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultStylesViewController.m; sourceTree = "<group>"; };
-		D684BD1920FF8A17004E85D9 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
-		D684BD1A20FF8A17004E85D9 /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
 		D684BD2820FF8A18004E85D9 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		D684BD2920FF8A18004E85D9 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		D684BD2B20FF8A18004E85D9 /* SearchBuildingGlobalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBuildingGlobalViewController.h; sourceTree = "<group>"; };
 		D684BD2C20FF8A18004E85D9 /* SearchPOINearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPOINearbyViewController.h; sourceTree = "<group>"; };
-		D684BD2D20FF8A18004E85D9 /* SearchPOIInBuildingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPOIInBuildingViewController.xib; sourceTree = "<group>"; };
-		D684BD2E20FF8A18004E85D9 /* SearchPOIDetailByIdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPOIDetailByIdViewController.m; sourceTree = "<group>"; };
-		D684BD2F20FF8A18004E85D9 /* SearchPOINearbyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPOINearbyViewController.xib; sourceTree = "<group>"; };
-		D684BD3020FF8A18004E85D9 /* SearchPOIInBuildingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPOIInBuildingViewController.h; sourceTree = "<group>"; };
 		D684BD3120FF8A18004E85D9 /* SearchPOIInBoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPOIInBoundViewController.h; sourceTree = "<group>"; };
 		D684BD3220FF8A18004E85D9 /* SearchBuildingInBoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingInBoundViewController.m; sourceTree = "<group>"; };
-		D684BD3320FF8A18004E85D9 /* RoutePlanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutePlanningViewController.h; sourceTree = "<group>"; };
 		D684BD3420FF8A18004E85D9 /* SearchBuildingNearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingNearbyViewController.m; sourceTree = "<group>"; };
-		D684BD3520FF8A18004E85D9 /* SearchBuildingByIdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBuildingByIdViewController.h; sourceTree = "<group>"; };
-		D684BD3720FF8A18004E85D9 /* SearchPOIDetailByIdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPOIDetailByIdViewController.xib; sourceTree = "<group>"; };
 		D684BD3820FF8A18004E85D9 /* SearchPOINearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPOINearbyViewController.m; sourceTree = "<group>"; };
 		D684BD3920FF8A18004E85D9 /* SearchBuildingGlobalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingGlobalViewController.m; sourceTree = "<group>"; };
-		D684BD3A20FF8A18004E85D9 /* SearchPOIInBoundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPOIInBoundViewController.xib; sourceTree = "<group>"; };
-		D684BD3B20FF8A18004E85D9 /* SearchPOIDetailByIdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPOIDetailByIdViewController.h; sourceTree = "<group>"; };
-		D684BD3D20FF8A18004E85D9 /* SearchBuildingGlobalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBuildingGlobalViewController.xib; sourceTree = "<group>"; };
-		D684BD3E20FF8A18004E85D9 /* SearchBuildingNearbyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBuildingNearbyViewController.xib; sourceTree = "<group>"; };
 		D684BD3F20FF8A18004E85D9 /* SearchBuildingInBoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBuildingInBoundViewController.h; sourceTree = "<group>"; };
 		D684BD4020FF8A18004E85D9 /* SearchPOIInBoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPOIInBoundViewController.m; sourceTree = "<group>"; };
-		D684BD4120FF8A18004E85D9 /* SearchPOIInBuildingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPOIInBuildingViewController.m; sourceTree = "<group>"; };
-		D684BD4320FF8A18004E85D9 /* SearchBuildingByIdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBuildingByIdViewController.xib; sourceTree = "<group>"; };
-		D684BD4420FF8A18004E85D9 /* SearchBuildingByIdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingByIdViewController.m; sourceTree = "<group>"; };
-		D684BD4520FF8A18004E85D9 /* RoutePlanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutePlanningViewController.m; sourceTree = "<group>"; };
 		D684BD4620FF8A18004E85D9 /* SearchBuildingNearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBuildingNearbyViewController.h; sourceTree = "<group>"; };
-		D684BD4720FF8A18004E85D9 /* SearchBuildingInBoundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBuildingInBoundViewController.xib; sourceTree = "<group>"; };
 		D684BD4920FF8A18004E85D9 /* UIViewController+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Swizzle.m"; sourceTree = "<group>"; };
 		D684BD4A20FF8A18004E85D9 /* UIViewController+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Swizzle.h"; sourceTree = "<group>"; };
 		D684BD4F20FF8A18004E85D9 /* DisplayLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayLocationViewController.h; sourceTree = "<group>"; };
-		D684BD5120FF8A18004E85D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DisplayLocationViewController.xib; sourceTree = "<group>"; };
 		D684BD5320FF8A18004E85D9 /* DisplayLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayLocationViewController.m; sourceTree = "<group>"; };
 		D684BD5420FF8A18004E85D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D684BD5720FF8A19004E85D9 /* DrawPolygonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawPolygonViewController.h; sourceTree = "<group>"; };
-		D684BD5B20FF8A19004E85D9 /* DrawCustomMarkerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawCustomMarkerViewController.m; sourceTree = "<group>"; };
-		D684BD5C20FF8A19004E85D9 /* DrawPolygonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawPolygonViewController.m; sourceTree = "<group>"; };
-		D684BD6020FF8A19004E85D9 /* DrawCustomMarkerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawCustomMarkerViewController.h; sourceTree = "<group>"; };
 		D684BD9B20FF8A68004E85D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D684BD9D20FF8A69004E85D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D684BDA120FF8AC5004E85D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -220,28 +228,79 @@
 		D684BDA820FF8B06004E85D9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D684BDA920FF8B21004E85D9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		D684BDAA20FF8B25004E85D9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		D684BDB121003C74004E85D9 /* DrawCustomMarkerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawCustomMarkerViewController.xib; sourceTree = "<group>"; };
-		D684BDB721006674004E85D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AnimateMapCameraViewController.strings; sourceTree = "<group>"; };
-		D684BDB821006677004E85D9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AnimateMapCameraViewController.strings"; sourceTree = "<group>"; };
-		D684BDB92100667A004E85D9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AnimateMapCameraViewController.strings"; sourceTree = "<group>"; };
-		D684BDBA210066B1004E85D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DisplayLocationViewController.strings; sourceTree = "<group>"; };
-		D684BDBB210066B5004E85D9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/DisplayLocationViewController.strings"; sourceTree = "<group>"; };
-		D684BDBC210066B8004E85D9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DisplayLocationViewController.strings"; sourceTree = "<group>"; };
-		D684BDBD21007AA3004E85D9 /* RestrictMapPanningViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestrictMapPanningViewController.xib; sourceTree = "<group>"; };
-		D6BF087822BB67D800BBC675 /* OrientationPOISearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrientationPOISearchViewController.h; sourceTree = "<group>"; };
-		D6BF087922BB67D800BBC675 /* OrientationPOISearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrientationPOISearchViewController.m; sourceTree = "<group>"; };
-		D6D287412100EE7700860D20 /* AnimateMarkerPositionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimateMarkerPositionViewController.h; sourceTree = "<group>"; };
-		D6D287422100EE7700860D20 /* AnimateMarkerPositionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimateMarkerPositionViewController.m; sourceTree = "<group>"; };
-		D6D287432100EE7700860D20 /* AnimateMarkerPositionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimateMarkerPositionViewController.xib; sourceTree = "<group>"; };
-		D6D287462100F32200860D20 /* DrawPolygonWithHolesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawPolygonWithHolesViewController.h; sourceTree = "<group>"; };
-		D6D287472100F32200860D20 /* DrawPolygonWithHolesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawPolygonWithHolesViewController.m; sourceTree = "<group>"; };
-		D6D287482100F32200860D20 /* DrawPolygonWithHolesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawPolygonWithHolesViewController.xib; sourceTree = "<group>"; };
-		D6D2874B2100F8DB00860D20 /* DrawMarkerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawMarkerViewController.h; sourceTree = "<group>"; };
-		D6D2874C2100F8DB00860D20 /* DrawMarkerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawMarkerViewController.m; sourceTree = "<group>"; };
-		D6D2874D2100F8DB00860D20 /* DrawMarkerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawMarkerViewController.xib; sourceTree = "<group>"; };
-		D6E8909D2100D69F00E5F756 /* DrawPolygonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawPolygonViewController.xib; sourceTree = "<group>"; };
-		D6EC1C77216AFA9400C77374 /* POIInitializeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = POIInitializeViewController.h; sourceTree = "<group>"; };
-		D6EC1C78216AFA9400C77374 /* POIInitializeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POIInitializeViewController.m; sourceTree = "<group>"; };
+		D695841C24C6D2DD00466372 /* SearchBuildingInBoundParamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchBuildingInBoundParamViewController.h; sourceTree = "<group>"; };
+		D695841D24C6D2DD00466372 /* SearchBuildingInBoundParamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingInBoundParamViewController.m; sourceTree = "<group>"; };
+		D695841F24C6ECB300466372 /* SearchBuildingNearbyParamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchBuildingNearbyParamViewController.h; sourceTree = "<group>"; };
+		D695842024C6ECB300466372 /* SearchBuildingNearbyParamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingNearbyParamViewController.m; sourceTree = "<group>"; };
+		D695842224C7CF6C00466372 /* SearchBuildingByIDParamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchBuildingByIDParamViewController.h; sourceTree = "<group>"; };
+		D695842324C7CF6C00466372 /* SearchBuildingByIDParamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingByIDParamViewController.m; sourceTree = "<group>"; };
+		D695842524C7D0AE00466372 /* SearchBuildingByIDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchBuildingByIDViewController.h; sourceTree = "<group>"; };
+		D695842624C7D0AE00466372 /* SearchBuildingByIDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingByIDViewController.m; sourceTree = "<group>"; };
+		D695842824C7D6F000466372 /* BuildingIDCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildingIDCell.h; sourceTree = "<group>"; };
+		D695842924C7D6F000466372 /* BuildingIDCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildingIDCell.m; sourceTree = "<group>"; };
+		D695842B24C7E07D00466372 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		D695842C24C7F97800466372 /* CategoryIncludeInSceneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryIncludeInSceneViewController.h; sourceTree = "<group>"; };
+		D695842D24C7F97800466372 /* CategoryIncludeInSceneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryIncludeInSceneViewController.m; sourceTree = "<group>"; };
+		D695842F24C8059100466372 /* SearchPOIInSceneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPOIInSceneViewController.h; sourceTree = "<group>"; };
+		D695843024C8059100466372 /* SearchPOIInSceneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPOIInSceneViewController.m; sourceTree = "<group>"; };
+		D695843224C805AE00466372 /* SearchPOIInSceneParamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPOIInSceneParamViewController.h; sourceTree = "<group>"; };
+		D695843324C805AE00466372 /* SearchPOIInSceneParamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPOIInSceneParamViewController.m; sourceTree = "<group>"; };
+		D695843524C805DB00466372 /* SearchPOIInBoundParamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPOIInBoundParamViewController.h; sourceTree = "<group>"; };
+		D695843624C805DB00466372 /* SearchPOIInBoundParamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPOIInBoundParamViewController.m; sourceTree = "<group>"; };
+		D695843824C8061F00466372 /* SearchPOINearbyParamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPOINearbyParamViewController.h; sourceTree = "<group>"; };
+		D695843924C8061F00466372 /* SearchPOINearbyParamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPOINearbyParamViewController.m; sourceTree = "<group>"; };
+		D695843B24C8066900466372 /* SearchPOIByIDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPOIByIDViewController.h; sourceTree = "<group>"; };
+		D695843C24C8066900466372 /* SearchPOIByIDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPOIByIDViewController.m; sourceTree = "<group>"; };
+		D695843E24C8068A00466372 /* SearchPOIByIDParamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPOIByIDParamViewController.h; sourceTree = "<group>"; };
+		D695843F24C8068A00466372 /* SearchPOIByIDParamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPOIByIDParamViewController.m; sourceTree = "<group>"; };
+		D695844124C806AD00466372 /* SurroundingIdentificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurroundingIdentificationViewController.h; sourceTree = "<group>"; };
+		D695844224C806AD00466372 /* SurroundingIdentificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurroundingIdentificationViewController.m; sourceTree = "<group>"; };
+		D695844724C8368D00466372 /* POIIDCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = POIIDCell.h; sourceTree = "<group>"; };
+		D695844824C8368D00466372 /* POIIDCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POIIDCell.m; sourceTree = "<group>"; };
+		D695844A24C83BC000466372 /* MXMSimulateLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXMSimulateLocationManager.h; sourceTree = "<group>"; };
+		D695844B24C83BC000466372 /* MXMSimulateLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXMSimulateLocationManager.m; sourceTree = "<group>"; };
+		D695844D24C845FC00466372 /* SurroundingIdentificationParamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurroundingIdentificationParamViewController.h; sourceTree = "<group>"; };
+		D695844E24C845FC00466372 /* SurroundingIdentificationParamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurroundingIdentificationParamViewController.m; sourceTree = "<group>"; };
+		D695845024C8B0B700466372 /* CategoryIncludeInSceneResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryIncludeInSceneResultViewController.h; sourceTree = "<group>"; };
+		D695845124C8B0B700466372 /* CategoryIncludeInSceneResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryIncludeInSceneResultViewController.m; sourceTree = "<group>"; };
+		D695845324C8B6AE00466372 /* CategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
+		D695845424C8B6AE00466372 /* CategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
+		D6B5109A24C00CDB0084D813 /* CreateMapByCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateMapByCodeViewController.h; sourceTree = "<group>"; };
+		D6B5109B24C00CDB0084D813 /* CreateMapByCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateMapByCodeViewController.m; sourceTree = "<group>"; };
+		D6B510A024C00E050084D813 /* CreateMapByXibViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateMapByXibViewController.h; sourceTree = "<group>"; };
+		D6B510A124C00E050084D813 /* CreateMapByXibViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateMapByXibViewController.m; sourceTree = "<group>"; };
+		D6B510A224C00E050084D813 /* CreateMapByXibViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateMapByXibViewController.xib; sourceTree = "<group>"; };
+		D6B510A524C00E2C0084D813 /* CreateMapWithSceneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateMapWithSceneViewController.h; sourceTree = "<group>"; };
+		D6B510A624C00E2C0084D813 /* CreateMapWithSceneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateMapWithSceneViewController.m; sourceTree = "<group>"; };
+		D6B510A824C00E480084D813 /* CreateMapWithPOIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateMapWithPOIViewController.h; sourceTree = "<group>"; };
+		D6B510A924C00E480084D813 /* CreateMapWithPOIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateMapWithPOIViewController.m; sourceTree = "<group>"; };
+		D6B510AB24C040380084D813 /* CreateMapWithSceneReaultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateMapWithSceneReaultViewController.h; sourceTree = "<group>"; };
+		D6B510AC24C040380084D813 /* CreateMapWithSceneReaultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateMapWithSceneReaultViewController.m; sourceTree = "<group>"; };
+		D6B510AE24C040B00084D813 /* CreateMapWithPOIResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateMapWithPOIResultViewController.h; sourceTree = "<group>"; };
+		D6B510AF24C040B00084D813 /* CreateMapWithPOIResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateMapWithPOIResultViewController.m; sourceTree = "<group>"; };
+		D6B510B124C155CE0084D813 /* IndoorControlsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndoorControlsViewController.h; sourceTree = "<group>"; };
+		D6B510B224C155CE0084D813 /* IndoorControlsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndoorControlsViewController.m; sourceTree = "<group>"; };
+		D6B510B424C155EA0084D813 /* MapAppearanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapAppearanceViewController.h; sourceTree = "<group>"; };
+		D6B510B524C155EA0084D813 /* MapAppearanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapAppearanceViewController.m; sourceTree = "<group>"; };
+		D6B510B724C155FD0084D813 /* SwitchingBuildingGesturesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchingBuildingGesturesViewController.h; sourceTree = "<group>"; };
+		D6B510B824C155FD0084D813 /* SwitchingBuildingGesturesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchingBuildingGesturesViewController.m; sourceTree = "<group>"; };
+		D6B510BA24C1560D0084D813 /* FocusOnIndoorSceneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FocusOnIndoorSceneViewController.h; sourceTree = "<group>"; };
+		D6B510BB24C1560D0084D813 /* FocusOnIndoorSceneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FocusOnIndoorSceneViewController.m; sourceTree = "<group>"; };
+		D6B510BD24C156210084D813 /* ClickEventListeningViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClickEventListeningViewController.h; sourceTree = "<group>"; };
+		D6B510BE24C156210084D813 /* ClickEventListeningViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClickEventListeningViewController.m; sourceTree = "<group>"; };
+		D6B510C024C1563B0084D813 /* SceneChangedEventListeningViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneChangedEventListeningViewController.h; sourceTree = "<group>"; };
+		D6B510C124C1563B0084D813 /* SceneChangedEventListeningViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneChangedEventListeningViewController.m; sourceTree = "<group>"; };
+		D6B510C324C1564B0084D813 /* IndoorSceneInAndOutListeningViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndoorSceneInAndOutListeningViewController.h; sourceTree = "<group>"; };
+		D6B510C424C1564B0084D813 /* IndoorSceneInAndOutListeningViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndoorSceneInAndOutListeningViewController.m; sourceTree = "<group>"; };
+		D6B510C624C52C840084D813 /* FocusOnIndoorSceneParamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FocusOnIndoorSceneParamViewController.h; sourceTree = "<group>"; };
+		D6B510C724C52C840084D813 /* FocusOnIndoorSceneParamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FocusOnIndoorSceneParamViewController.m; sourceTree = "<group>"; };
+		D6B510C924C533BF0084D813 /* Param.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Param.h; sourceTree = "<group>"; };
+		D6B510CA24C58D8C0084D813 /* IndoorMarkerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndoorMarkerViewController.h; sourceTree = "<group>"; };
+		D6B510CB24C58D8C0084D813 /* IndoorMarkerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndoorMarkerViewController.m; sourceTree = "<group>"; };
+		D6B510CD24C58DA00084D813 /* IndoorPolygonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndoorPolygonViewController.h; sourceTree = "<group>"; };
+		D6B510CE24C58DA00084D813 /* IndoorPolygonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndoorPolygonViewController.m; sourceTree = "<group>"; };
+		D6B510D624C690E00084D813 /* SearchBuildingGlobalParamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchBuildingGlobalParamViewController.h; sourceTree = "<group>"; };
+		D6B510D724C690E00084D813 /* SearchBuildingGlobalParamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBuildingGlobalParamViewController.m; sourceTree = "<group>"; };
 		FBCFA9805C81342EAED3714B /* Pods-MapxusMapSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSample/Pods-MapxusMapSample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -296,18 +355,77 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		D6408DA2212FF7A200582558 /* Controllers */ = {
+		D6408DA2212FF7A200582558 /* MapInteraction */ = {
 			isa = PBXGroup;
 			children = (
-				D6408DA3212FF85300582558 /* ControllerHiddenViewController.h */,
-				D6408DA4212FF85300582558 /* ControllerHiddenViewController.m */,
-				D6408DA8212FF88300582558 /* ControllerPositionViewController.h */,
-				D6408DA9212FF88300582558 /* ControllerPositionViewController.m */,
+				D6B510B124C155CE0084D813 /* IndoorControlsViewController.h */,
+				D6B510B224C155CE0084D813 /* IndoorControlsViewController.m */,
+				D6B510B424C155EA0084D813 /* MapAppearanceViewController.h */,
+				D6B510B524C155EA0084D813 /* MapAppearanceViewController.m */,
+				D6B510B724C155FD0084D813 /* SwitchingBuildingGesturesViewController.h */,
+				D6B510B824C155FD0084D813 /* SwitchingBuildingGesturesViewController.m */,
+				D6B510BA24C1560D0084D813 /* FocusOnIndoorSceneViewController.h */,
+				D6B510BB24C1560D0084D813 /* FocusOnIndoorSceneViewController.m */,
+				D6B510C624C52C840084D813 /* FocusOnIndoorSceneParamViewController.h */,
+				D6B510C724C52C840084D813 /* FocusOnIndoorSceneParamViewController.m */,
+				D6B510BD24C156210084D813 /* ClickEventListeningViewController.h */,
+				D6B510BE24C156210084D813 /* ClickEventListeningViewController.m */,
+				D6B510C024C1563B0084D813 /* SceneChangedEventListeningViewController.h */,
+				D6B510C124C1563B0084D813 /* SceneChangedEventListeningViewController.m */,
+				D6B510C324C1564B0084D813 /* IndoorSceneInAndOutListeningViewController.h */,
+				D6B510C424C1564B0084D813 /* IndoorSceneInAndOutListeningViewController.m */,
 			);
-			path = Controllers;
+			path = MapInteraction;
 			sourceTree = "<group>";
 		};
-		D65B573421CB2D1D00142732 /* Visual */ = {
+		D65B573421CB2D1D00142732 /* IntegrationCases */ = {
+			isa = PBXGroup;
+			children = (
+				D66421FE24CE6E8C0078404B /* SurroundingIdentification */,
+				D66421FF24CE6EAE0078404B /* Route */,
+				D664220024CE6ECD0078404B /* ShowVisual */,
+				D66421EB24CC05630078404B /* SearchIntegrate */,
+			);
+			path = IntegrationCases;
+			sourceTree = "<group>";
+		};
+		D66421EB24CC05630078404B /* SearchIntegrate */ = {
+			isa = PBXGroup;
+			children = (
+				D67F00E024C9841B003D40BA /* SearchIntegrateViewController.h */,
+				D67F00E124C9841B003D40BA /* SearchIntegrateViewController.m */,
+				D664220B24CFCA550078404B /* MXMPulley */,
+				D672A1D824D25BDB005777A7 /* Primary */,
+				D672A1E024D269F2005777A7 /* Drawer */,
+			);
+			path = SearchIntegrate;
+			sourceTree = "<group>";
+		};
+		D66421FE24CE6E8C0078404B /* SurroundingIdentification */ = {
+			isa = PBXGroup;
+			children = (
+				D695844124C806AD00466372 /* SurroundingIdentificationViewController.h */,
+				D695844224C806AD00466372 /* SurroundingIdentificationViewController.m */,
+				D695844D24C845FC00466372 /* SurroundingIdentificationParamViewController.h */,
+				D695844E24C845FC00466372 /* SurroundingIdentificationParamViewController.m */,
+				D695844A24C83BC000466372 /* MXMSimulateLocationManager.h */,
+				D695844B24C83BC000466372 /* MXMSimulateLocationManager.m */,
+			);
+			path = SurroundingIdentification;
+			sourceTree = "<group>";
+		};
+		D66421FF24CE6EAE0078404B /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				D67F00DD24C983EC003D40BA /* RouteViewController.h */,
+				D67F00DE24C983EC003D40BA /* RouteViewController.m */,
+				D67F00E324C98780003D40BA /* MXMRouteLocationManager.h */,
+				D67F00E424C98780003D40BA /* MXMRouteLocationManager.m */,
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
+		D664220024CE6ECD0078404B /* ShowVisual */ = {
 			isa = PBXGroup;
 			children = (
 				D65B573521CB2D4200142732 /* ShowVisualViewController.h */,
@@ -315,7 +433,65 @@
 				D65B573821CB949900142732 /* VisualDirectionAnnotationView.h */,
 				D65B573921CB949900142732 /* VisualDirectionAnnotationView.m */,
 			);
-			path = Visual;
+			path = ShowVisual;
+			sourceTree = "<group>";
+		};
+		D664220B24CFCA550078404B /* MXMPulley */ = {
+			isa = PBXGroup;
+			children = (
+				D664221E24D02B3B0078404B /* MXMPulleyProtocols.h */,
+				D664221224CFCE710078404B /* MXMPulleyViewController.h */,
+				D664221324CFCE710078404B /* MXMPulleyViewController.m */,
+				D664221524CFCF300078404B /* MXMPassThroughScrollView.h */,
+				D664221624CFCF300078404B /* MXMPassThroughScrollView.m */,
+				D672A1E224D27732005777A7 /* UIViewController+Pulley.h */,
+				D672A1E324D27732005777A7 /* UIViewController+Pulley.m */,
+			);
+			path = MXMPulley;
+			sourceTree = "<group>";
+		};
+		D672A1D824D25BDB005777A7 /* Primary */ = {
+			isa = PBXGroup;
+			children = (
+				D664220C24CFCAE40078404B /* MXMPrimaryContentViewController.h */,
+				D664220D24CFCAE40078404B /* MXMPrimaryContentViewController.m */,
+			);
+			path = Primary;
+			sourceTree = "<group>";
+		};
+		D672A1E024D269F2005777A7 /* Drawer */ = {
+			isa = PBXGroup;
+			children = (
+				D664220F24CFCB0D0078404B /* MXMDrawerContentViewController.h */,
+				D664221024CFCB0D0078404B /* MXMDrawerContentViewController.m */,
+				D664222224D1270A0078404B /* ExplorerButtonViewController.h */,
+				D664222324D1270A0078404B /* ExplorerButtonViewController.m */,
+				D66421E824CC055B0078404B /* SearchIntegrateCategoryViewController.h */,
+				D66421E924CC055B0078404B /* SearchIntegrateCategoryViewController.m */,
+				D66421F224CC0A440078404B /* SearchIntegrateCategoryCell.h */,
+				D66421F324CC0A440078404B /* SearchIntegrateCategoryCell.m */,
+				D66421EC24CC059F0078404B /* SearchIntegratePOIsViewController.h */,
+				D66421ED24CC059F0078404B /* SearchIntegratePOIsViewController.m */,
+				D66421F524CC227D0078404B /* SearchIntegratePOICell.h */,
+				D66421F624CC227D0078404B /* SearchIntegratePOICell.m */,
+				D66421EF24CC05B70078404B /* SearchIntegratePOIDetailViewController.h */,
+				D66421F024CC05B70078404B /* SearchIntegratePOIDetailViewController.m */,
+				D66421F824CC328F0078404B /* SearchIntegratePOIDetailBuildingCell.h */,
+				D66421F924CC328F0078404B /* SearchIntegratePOIDetailBuildingCell.m */,
+				D66421FB24CC32AE0078404B /* SearchIntegratePOIDetailBaseCell.h */,
+				D66421FC24CC32AE0078404B /* SearchIntegratePOIDetailBaseCell.m */,
+				D672A1E524D2BBFA005777A7 /* UIImage+icon.h */,
+				D672A1E624D2BBFA005777A7 /* UIImage+icon.m */,
+				D672A1E824D407EA005777A7 /* MXMGeoBuilding+Language.h */,
+				D672A1E924D407EA005777A7 /* MXMGeoBuilding+Language.m */,
+				D672A1EB24D40907005777A7 /* MXMCategory+Language.h */,
+				D672A1EC24D40907005777A7 /* MXMCategory+Language.m */,
+				D672A1EE24D4098F005777A7 /* MXMPOI+Language.h */,
+				D672A1EF24D4098F005777A7 /* MXMPOI+Language.m */,
+				D672A1F124D409B2005777A7 /* MXMBuilding+Language.h */,
+				D672A1F224D409B2005777A7 /* MXMBuilding+Language.m */,
+			);
+			path = Drawer;
 			sourceTree = "<group>";
 		};
 		D684BC5A20FED921004E85D9 = {
@@ -348,18 +524,16 @@
 				D684BD9C20FF8A69004E85D9 /* Main.storyboard */,
 				D684BC6620FED921004E85D9 /* AppDelegate.h */,
 				D684BC6720FED921004E85D9 /* AppDelegate.m */,
+				D6B510C924C533BF0084D813 /* Param.h */,
+				D695842B24C7E07D00466372 /* Macro.h */,
 				D684BCEE20FF8A16004E85D9 /* FeaturesList */,
-				D684BCF920FF8A17004E85D9 /* GettingStarted */,
-				D6408DA2212FF7A200582558 /* Controllers */,
-				D684BD1420FF8A17004E85D9 /* Styles */,
-				D684BD5620FF8A19004E85D9 /* Annotations */,
-				D684BCFF20FF8A17004E85D9 /* Camera */,
-				D684BD0D20FF8A17004E85D9 /* Listener */,
-				D684BD2A20FF8A18004E85D9 /* SearchServices */,
+				D684BCF920FF8A17004E85D9 /* CreateMap */,
+				D6408DA2212FF7A200582558 /* MapInteraction */,
+				D684BD5620FF8A19004E85D9 /* DrawOnMap */,
 				D684BD4B20FF8A18004E85D9 /* DisplayLocation */,
-				D65B573421CB2D1D00142732 /* Visual */,
+				D684BD2A20FF8A18004E85D9 /* MapDataSearch */,
+				D65B573421CB2D1D00142732 /* IntegrationCases */,
 				D684BD2720FF8A18004E85D9 /* JRSwizzle */,
-				D684BD1820FF8A17004E85D9 /* UIImage+Rotate */,
 				D684BD4820FF8A18004E85D9 /* UIViewController+Swizzle */,
 				D684BD5420FF8A18004E85D9 /* Assets.xcassets */,
 				D684BC7420FED922004E85D9 /* Info.plist */,
@@ -403,67 +577,24 @@
 			path = FeaturesList;
 			sourceTree = "<group>";
 		};
-		D684BCF920FF8A17004E85D9 /* GettingStarted */ = {
+		D684BCF920FF8A17004E85D9 /* CreateMap */ = {
 			isa = PBXGroup;
 			children = (
-				D684BCFD20FF8A17004E85D9 /* SimpleMapViewController.h */,
-				D684BCFA20FF8A17004E85D9 /* SimpleMapViewController.m */,
-				D684BCFB20FF8A17004E85D9 /* XibBuildViewController.xib */,
-				D684BCFE20FF8A17004E85D9 /* XibBuildViewController.h */,
-				D684BCFC20FF8A17004E85D9 /* XibBuildViewController.m */,
-				D67F7CE621856EA500D84CEB /* BuildingInitializeViewController.h */,
-				D67F7CE721856EA500D84CEB /* BuildingInitializeViewController.m */,
-				D6EC1C77216AFA9400C77374 /* POIInitializeViewController.h */,
-				D6EC1C78216AFA9400C77374 /* POIInitializeViewController.m */,
+				D6B5109A24C00CDB0084D813 /* CreateMapByCodeViewController.h */,
+				D6B5109B24C00CDB0084D813 /* CreateMapByCodeViewController.m */,
+				D6B510A024C00E050084D813 /* CreateMapByXibViewController.h */,
+				D6B510A124C00E050084D813 /* CreateMapByXibViewController.m */,
+				D6B510A224C00E050084D813 /* CreateMapByXibViewController.xib */,
+				D6B510A524C00E2C0084D813 /* CreateMapWithSceneViewController.h */,
+				D6B510A624C00E2C0084D813 /* CreateMapWithSceneViewController.m */,
+				D6B510AB24C040380084D813 /* CreateMapWithSceneReaultViewController.h */,
+				D6B510AC24C040380084D813 /* CreateMapWithSceneReaultViewController.m */,
+				D6B510A824C00E480084D813 /* CreateMapWithPOIViewController.h */,
+				D6B510A924C00E480084D813 /* CreateMapWithPOIViewController.m */,
+				D6B510AE24C040B00084D813 /* CreateMapWithPOIResultViewController.h */,
+				D6B510AF24C040B00084D813 /* CreateMapWithPOIResultViewController.m */,
 			);
-			path = GettingStarted;
-			sourceTree = "<group>";
-		};
-		D684BCFF20FF8A17004E85D9 /* Camera */ = {
-			isa = PBXGroup;
-			children = (
-				D684BD0320FF8A17004E85D9 /* AnimateMapCameraViewController.h */,
-				D684BD0820FF8A17004E85D9 /* AnimateMapCameraViewController.m */,
-				D684BD0520FF8A17004E85D9 /* AnimateMapCameraViewController.xib */,
-				D684BD0920FF8A17004E85D9 /* RestrictMapPanningViewController.h */,
-				D684BD0420FF8A17004E85D9 /* RestrictMapPanningViewController.m */,
-				D684BDBD21007AA3004E85D9 /* RestrictMapPanningViewController.xib */,
-			);
-			path = Camera;
-			sourceTree = "<group>";
-		};
-		D684BD0D20FF8A17004E85D9 /* Listener */ = {
-			isa = PBXGroup;
-			children = (
-				D684BD1120FF8A17004E85D9 /* POIClickViewController.h */,
-				D684BD0E20FF8A17004E85D9 /* POIClickViewController.m */,
-				D684BD1020FF8A17004E85D9 /* CameraChangeViewController.h */,
-				D684BD1320FF8A17004E85D9 /* CameraChangeViewController.m */,
-				D684BD0F20FF8A17004E85D9 /* BuildingAndFloorChangeViewController.h */,
-				D684BD1220FF8A17004E85D9 /* BuildingAndFloorChangeViewController.m */,
-			);
-			path = Listener;
-			sourceTree = "<group>";
-		};
-		D684BD1420FF8A17004E85D9 /* Styles */ = {
-			isa = PBXGroup;
-			children = (
-				D684BD1520FF8A17004E85D9 /* DefaultStylesViewController.h */,
-				D684BD1720FF8A17004E85D9 /* DefaultStylesViewController.m */,
-				D684BD1620FF8A17004E85D9 /* DefaultStylesViewController.xib */,
-				D646765221A7F93800018634 /* OutdoorHiddenViewController.h */,
-				D646765321A7F93800018634 /* OutdoorHiddenViewController.m */,
-			);
-			path = Styles;
-			sourceTree = "<group>";
-		};
-		D684BD1820FF8A17004E85D9 /* UIImage+Rotate */ = {
-			isa = PBXGroup;
-			children = (
-				D684BD1920FF8A17004E85D9 /* UIImage+Rotate.h */,
-				D684BD1A20FF8A17004E85D9 /* UIImage+Rotate.m */,
-			);
-			path = "UIImage+Rotate";
+			path = CreateMap;
 			sourceTree = "<group>";
 		};
 		D684BD2720FF8A18004E85D9 /* JRSwizzle */ = {
@@ -475,39 +606,53 @@
 			path = JRSwizzle;
 			sourceTree = "<group>";
 		};
-		D684BD2A20FF8A18004E85D9 /* SearchServices */ = {
+		D684BD2A20FF8A18004E85D9 /* MapDataSearch */ = {
 			isa = PBXGroup;
 			children = (
-				D684BD3320FF8A18004E85D9 /* RoutePlanningViewController.h */,
-				D684BD4520FF8A18004E85D9 /* RoutePlanningViewController.m */,
 				D684BD2B20FF8A18004E85D9 /* SearchBuildingGlobalViewController.h */,
 				D684BD3920FF8A18004E85D9 /* SearchBuildingGlobalViewController.m */,
-				D684BD3D20FF8A18004E85D9 /* SearchBuildingGlobalViewController.xib */,
-				D684BD2C20FF8A18004E85D9 /* SearchPOINearbyViewController.h */,
-				D684BD3820FF8A18004E85D9 /* SearchPOINearbyViewController.m */,
-				D684BD2F20FF8A18004E85D9 /* SearchPOINearbyViewController.xib */,
-				D684BD3020FF8A18004E85D9 /* SearchPOIInBuildingViewController.h */,
-				D684BD4120FF8A18004E85D9 /* SearchPOIInBuildingViewController.m */,
-				D684BD2D20FF8A18004E85D9 /* SearchPOIInBuildingViewController.xib */,
-				D684BD3B20FF8A18004E85D9 /* SearchPOIDetailByIdViewController.h */,
-				D684BD2E20FF8A18004E85D9 /* SearchPOIDetailByIdViewController.m */,
-				D684BD3720FF8A18004E85D9 /* SearchPOIDetailByIdViewController.xib */,
-				D684BD3120FF8A18004E85D9 /* SearchPOIInBoundViewController.h */,
-				D684BD4020FF8A18004E85D9 /* SearchPOIInBoundViewController.m */,
-				D684BD3A20FF8A18004E85D9 /* SearchPOIInBoundViewController.xib */,
+				D6B510D624C690E00084D813 /* SearchBuildingGlobalParamViewController.h */,
+				D6B510D724C690E00084D813 /* SearchBuildingGlobalParamViewController.m */,
 				D684BD3F20FF8A18004E85D9 /* SearchBuildingInBoundViewController.h */,
 				D684BD3220FF8A18004E85D9 /* SearchBuildingInBoundViewController.m */,
-				D684BD4720FF8A18004E85D9 /* SearchBuildingInBoundViewController.xib */,
-				D684BD3520FF8A18004E85D9 /* SearchBuildingByIdViewController.h */,
-				D684BD4420FF8A18004E85D9 /* SearchBuildingByIdViewController.m */,
-				D684BD4320FF8A18004E85D9 /* SearchBuildingByIdViewController.xib */,
+				D695841C24C6D2DD00466372 /* SearchBuildingInBoundParamViewController.h */,
+				D695841D24C6D2DD00466372 /* SearchBuildingInBoundParamViewController.m */,
 				D684BD4620FF8A18004E85D9 /* SearchBuildingNearbyViewController.h */,
 				D684BD3420FF8A18004E85D9 /* SearchBuildingNearbyViewController.m */,
-				D684BD3E20FF8A18004E85D9 /* SearchBuildingNearbyViewController.xib */,
-				D6BF087822BB67D800BBC675 /* OrientationPOISearchViewController.h */,
-				D6BF087922BB67D800BBC675 /* OrientationPOISearchViewController.m */,
+				D695841F24C6ECB300466372 /* SearchBuildingNearbyParamViewController.h */,
+				D695842024C6ECB300466372 /* SearchBuildingNearbyParamViewController.m */,
+				D695842524C7D0AE00466372 /* SearchBuildingByIDViewController.h */,
+				D695842624C7D0AE00466372 /* SearchBuildingByIDViewController.m */,
+				D695842224C7CF6C00466372 /* SearchBuildingByIDParamViewController.h */,
+				D695842324C7CF6C00466372 /* SearchBuildingByIDParamViewController.m */,
+				D695842824C7D6F000466372 /* BuildingIDCell.h */,
+				D695842924C7D6F000466372 /* BuildingIDCell.m */,
+				D695842C24C7F97800466372 /* CategoryIncludeInSceneViewController.h */,
+				D695842D24C7F97800466372 /* CategoryIncludeInSceneViewController.m */,
+				D695845024C8B0B700466372 /* CategoryIncludeInSceneResultViewController.h */,
+				D695845124C8B0B700466372 /* CategoryIncludeInSceneResultViewController.m */,
+				D695845324C8B6AE00466372 /* CategoryCell.h */,
+				D695845424C8B6AE00466372 /* CategoryCell.m */,
+				D695842F24C8059100466372 /* SearchPOIInSceneViewController.h */,
+				D695843024C8059100466372 /* SearchPOIInSceneViewController.m */,
+				D695843224C805AE00466372 /* SearchPOIInSceneParamViewController.h */,
+				D695843324C805AE00466372 /* SearchPOIInSceneParamViewController.m */,
+				D684BD3120FF8A18004E85D9 /* SearchPOIInBoundViewController.h */,
+				D684BD4020FF8A18004E85D9 /* SearchPOIInBoundViewController.m */,
+				D695843524C805DB00466372 /* SearchPOIInBoundParamViewController.h */,
+				D695843624C805DB00466372 /* SearchPOIInBoundParamViewController.m */,
+				D684BD2C20FF8A18004E85D9 /* SearchPOINearbyViewController.h */,
+				D684BD3820FF8A18004E85D9 /* SearchPOINearbyViewController.m */,
+				D695843824C8061F00466372 /* SearchPOINearbyParamViewController.h */,
+				D695843924C8061F00466372 /* SearchPOINearbyParamViewController.m */,
+				D695843B24C8066900466372 /* SearchPOIByIDViewController.h */,
+				D695843C24C8066900466372 /* SearchPOIByIDViewController.m */,
+				D695843E24C8068A00466372 /* SearchPOIByIDParamViewController.h */,
+				D695843F24C8068A00466372 /* SearchPOIByIDParamViewController.m */,
+				D695844724C8368D00466372 /* POIIDCell.h */,
+				D695844824C8368D00466372 /* POIIDCell.m */,
 			);
-			path = SearchServices;
+			path = MapDataSearch;
 			sourceTree = "<group>";
 		};
 		D684BD4820FF8A18004E85D9 /* UIViewController+Swizzle */ = {
@@ -524,33 +669,21 @@
 			children = (
 				D6061AD624AB154A0065FBA2 /* MBXCustomLocationManager.h */,
 				D6061AD524AB154A0065FBA2 /* MBXCustomLocationManager.m */,
-				D684BD5020FF8A18004E85D9 /* DisplayLocationViewController.xib */,
 				D684BD4F20FF8A18004E85D9 /* DisplayLocationViewController.h */,
 				D684BD5320FF8A18004E85D9 /* DisplayLocationViewController.m */,
 			);
 			path = DisplayLocation;
 			sourceTree = "<group>";
 		};
-		D684BD5620FF8A19004E85D9 /* Annotations */ = {
+		D684BD5620FF8A19004E85D9 /* DrawOnMap */ = {
 			isa = PBXGroup;
 			children = (
-				D6D287412100EE7700860D20 /* AnimateMarkerPositionViewController.h */,
-				D6D287422100EE7700860D20 /* AnimateMarkerPositionViewController.m */,
-				D6D287432100EE7700860D20 /* AnimateMarkerPositionViewController.xib */,
-				D6D287462100F32200860D20 /* DrawPolygonWithHolesViewController.h */,
-				D6D287472100F32200860D20 /* DrawPolygonWithHolesViewController.m */,
-				D6D287482100F32200860D20 /* DrawPolygonWithHolesViewController.xib */,
-				D684BD6020FF8A19004E85D9 /* DrawCustomMarkerViewController.h */,
-				D684BD5B20FF8A19004E85D9 /* DrawCustomMarkerViewController.m */,
-				D684BDB121003C74004E85D9 /* DrawCustomMarkerViewController.xib */,
-				D684BD5720FF8A19004E85D9 /* DrawPolygonViewController.h */,
-				D684BD5C20FF8A19004E85D9 /* DrawPolygonViewController.m */,
-				D6E8909D2100D69F00E5F756 /* DrawPolygonViewController.xib */,
-				D6D2874B2100F8DB00860D20 /* DrawMarkerViewController.h */,
-				D6D2874C2100F8DB00860D20 /* DrawMarkerViewController.m */,
-				D6D2874D2100F8DB00860D20 /* DrawMarkerViewController.xib */,
+				D6B510CA24C58D8C0084D813 /* IndoorMarkerViewController.h */,
+				D6B510CB24C58D8C0084D813 /* IndoorMarkerViewController.m */,
+				D6B510CD24C58DA00084D813 /* IndoorPolygonViewController.h */,
+				D6B510CE24C58DA00084D813 /* IndoorPolygonViewController.m */,
 			);
-			path = Annotations;
+			path = DrawOnMap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -625,6 +758,7 @@
 				TargetAttributes = {
 					D684BC6220FED921004E85D9 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1160;
 					};
 					D684BC7A20FED922004E85D9 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -663,26 +797,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D684BD7D20FF8A19004E85D9 /* SearchPOIInBuildingViewController.xib in Resources */,
-				D684BD8820FF8A19004E85D9 /* SearchBuildingGlobalViewController.xib in Resources */,
-				D684BDB221003C74004E85D9 /* DrawCustomMarkerViewController.xib in Resources */,
-				D684BDBE21007AA3004E85D9 /* RestrictMapPanningViewController.xib in Resources */,
-				D6D2874F2100F8DB00860D20 /* DrawMarkerViewController.xib in Resources */,
-				D684BD7420FF8A19004E85D9 /* DefaultStylesViewController.xib in Resources */,
-				D684BD6E20FF8A19004E85D9 /* AnimateMapCameraViewController.xib in Resources */,
-				D684BD8920FF8A19004E85D9 /* SearchBuildingNearbyViewController.xib in Resources */,
-				D684BD8620FF8A19004E85D9 /* SearchPOIInBoundViewController.xib in Resources */,
-				D684BD6A20FF8A19004E85D9 /* XibBuildViewController.xib in Resources */,
 				D684BD9E20FF8A69004E85D9 /* LaunchScreen.storyboard in Resources */,
-				D6E8909E2100D69F00E5F756 /* DrawPolygonViewController.xib in Resources */,
-				D6D287452100EE7700860D20 /* AnimateMarkerPositionViewController.xib in Resources */,
-				D684BD7F20FF8A19004E85D9 /* SearchPOINearbyViewController.xib in Resources */,
-				D684BD9220FF8A19004E85D9 /* DisplayLocationViewController.xib in Resources */,
-				D684BD8C20FF8A19004E85D9 /* SearchBuildingByIdViewController.xib in Resources */,
-				D684BD8F20FF8A19004E85D9 /* SearchBuildingInBoundViewController.xib in Resources */,
-				D684BD8320FF8A19004E85D9 /* SearchPOIDetailByIdViewController.xib in Resources */,
 				D684BD9F20FF8A69004E85D9 /* Main.storyboard in Resources */,
-				D6D2874A2100F32200860D20 /* DrawPolygonWithHolesViewController.xib in Resources */,
+				D6B510A424C00E050084D813 /* CreateMapByXibViewController.xib in Resources */,
 				D684BDA220FF8AC5004E85D9 /* Localizable.strings in Resources */,
 				D684BD9420FF8A19004E85D9 /* Assets.xcassets in Resources */,
 			);
@@ -783,46 +900,78 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D684BD7120FF8A19004E85D9 /* POIClickViewController.m in Sources */,
+				D6B510AD24C040380084D813 /* CreateMapWithSceneReaultViewController.m in Sources */,
+				D66421EA24CC055B0078404B /* SearchIntegrateCategoryViewController.m in Sources */,
+				D695845524C8B6AE00466372 /* CategoryCell.m in Sources */,
+				D6B510D824C690E00084D813 /* SearchBuildingGlobalParamViewController.m in Sources */,
+				D695845224C8B0B700466372 /* CategoryIncludeInSceneResultViewController.m in Sources */,
+				D6B510B024C040B00084D813 /* CreateMapWithPOIResultViewController.m in Sources */,
 				D684BD6420FF8A19004E85D9 /* FeatureCollectionViewCell.m in Sources */,
-				D684BD7520FF8A19004E85D9 /* DefaultStylesViewController.m in Sources */,
 				D65B573721CB2D4200142732 /* ShowVisualViewController.m in Sources */,
+				D695844C24C83BC000466372 /* MXMSimulateLocationManager.m in Sources */,
 				D684BD6820FF8A19004E85D9 /* FeaturesCollectionViewController.m in Sources */,
-				D6D2874E2100F8DB00860D20 /* DrawMarkerViewController.m in Sources */,
-				D6EC1C79216AFA9400C77374 /* POIInitializeViewController.m in Sources */,
-				D6408DAB212FF88300582558 /* ControllerPositionViewController.m in Sources */,
-				D684BD9620FF8A19004E85D9 /* DrawCustomMarkerViewController.m in Sources */,
+				D695842A24C7D6F000466372 /* BuildingIDCell.m in Sources */,
+				D66421F424CC0A440078404B /* SearchIntegrateCategoryCell.m in Sources */,
+				D672A1F324D409B2005777A7 /* MXMBuilding+Language.m in Sources */,
+				D672A1E724D2BBFA005777A7 /* UIImage+icon.m in Sources */,
+				D6B510B624C155EA0084D813 /* MapAppearanceViewController.m in Sources */,
+				D66421F724CC227D0078404B /* SearchIntegratePOICell.m in Sources */,
+				D695844024C8068A00466372 /* SearchPOIByIDParamViewController.m in Sources */,
+				D695844924C8368D00466372 /* POIIDCell.m in Sources */,
+				D664221424CFCE710078404B /* MXMPulleyViewController.m in Sources */,
+				D67F00E524C98780003D40BA /* MXMRouteLocationManager.m in Sources */,
+				D664221124CFCB0D0078404B /* MXMDrawerContentViewController.m in Sources */,
+				D672A1F024D4098F005777A7 /* MXMPOI+Language.m in Sources */,
+				D672A1EA24D407EA005777A7 /* MXMGeoBuilding+Language.m in Sources */,
+				D695842124C6ECB300466372 /* SearchBuildingNearbyParamViewController.m in Sources */,
+				D6B510CF24C58DA00084D813 /* IndoorPolygonViewController.m in Sources */,
+				D6B510BC24C1560D0084D813 /* FocusOnIndoorSceneViewController.m in Sources */,
+				D672A1E424D27732005777A7 /* UIViewController+Pulley.m in Sources */,
+				D664220E24CFCAE40078404B /* MXMPrimaryContentViewController.m in Sources */,
+				D6B510C524C1564B0084D813 /* IndoorSceneInAndOutListeningViewController.m in Sources */,
 				D684BD8020FF8A19004E85D9 /* SearchBuildingInBoundViewController.m in Sources */,
+				D695843D24C8066900466372 /* SearchPOIByIDViewController.m in Sources */,
+				D664222424D1270A0078404B /* ExplorerButtonViewController.m in Sources */,
+				D695843A24C8061F00466372 /* SearchPOINearbyParamViewController.m in Sources */,
 				D684BC7620FED922004E85D9 /* main.m in Sources */,
-				D684BD6D20FF8A19004E85D9 /* RestrictMapPanningViewController.m in Sources */,
-				D684BD7620FF8A19004E85D9 /* UIImage+Rotate.m in Sources */,
-				D6D287492100F32200860D20 /* DrawPolygonWithHolesViewController.m in Sources */,
-				D6BF087A22BB67D800BBC675 /* OrientationPOISearchViewController.m in Sources */,
+				D66421EE24CC059F0078404B /* SearchIntegratePOIsViewController.m in Sources */,
+				D695844324C806AD00466372 /* SurroundingIdentificationViewController.m in Sources */,
+				D66421FA24CC328F0078404B /* SearchIntegratePOIDetailBuildingCell.m in Sources */,
+				D6B5109C24C00CDB0084D813 /* CreateMapByCodeViewController.m in Sources */,
+				D695842E24C7F97800466372 /* CategoryIncludeInSceneViewController.m in Sources */,
+				D695843424C805AE00466372 /* SearchPOIInSceneParamViewController.m in Sources */,
 				D684BD7C20FF8A19004E85D9 /* JRSwizzle.m in Sources */,
-				D684BD7320FF8A19004E85D9 /* CameraChangeViewController.m in Sources */,
-				D684BD9720FF8A19004E85D9 /* DrawPolygonViewController.m in Sources */,
-				D684BD8D20FF8A19004E85D9 /* SearchBuildingByIdViewController.m in Sources */,
+				D67F00E224C9841B003D40BA /* SearchIntegrateViewController.m in Sources */,
+				D672A1ED24D40907005777A7 /* MXMCategory+Language.m in Sources */,
+				D695842724C7D0AE00466372 /* SearchBuildingByIDViewController.m in Sources */,
 				D684BD8520FF8A19004E85D9 /* SearchBuildingGlobalViewController.m in Sources */,
-				D684BD6920FF8A19004E85D9 /* SimpleMapViewController.m in Sources */,
-				D6408DA6212FF85300582558 /* ControllerHiddenViewController.m in Sources */,
+				D6B510C224C1563B0084D813 /* SceneChangedEventListeningViewController.m in Sources */,
 				D684BD9020FF8A19004E85D9 /* UIViewController+Swizzle.m in Sources */,
+				D695842424C7CF6C00466372 /* SearchBuildingByIDParamViewController.m in Sources */,
 				D684BD6520FF8A19004E85D9 /* MenuTableViewCell.m in Sources */,
-				D684BD8B20FF8A19004E85D9 /* SearchPOIInBuildingViewController.m in Sources */,
-				D646765421A7F93800018634 /* OutdoorHiddenViewController.m in Sources */,
 				D684BC6820FED921004E85D9 /* AppDelegate.m in Sources */,
+				D695844F24C845FC00466372 /* SurroundingIdentificationParamViewController.m in Sources */,
+				D6B510AA24C00E480084D813 /* CreateMapWithPOIViewController.m in Sources */,
+				D66421F124CC05B70078404B /* SearchIntegratePOIDetailViewController.m in Sources */,
+				D6B510A324C00E050084D813 /* CreateMapByXibViewController.m in Sources */,
+				D695843724C805DB00466372 /* SearchPOIInBoundParamViewController.m in Sources */,
+				D664221724CFCF300078404B /* MXMPassThroughScrollView.m in Sources */,
+				D67F00DF24C983EC003D40BA /* RouteViewController.m in Sources */,
+				D6B510B924C155FD0084D813 /* SwitchingBuildingGesturesViewController.m in Sources */,
 				D6061AD724AB154A0065FBA2 /* MBXCustomLocationManager.m in Sources */,
-				D684BD6B20FF8A19004E85D9 /* XibBuildViewController.m in Sources */,
-				D684BD8E20FF8A19004E85D9 /* RoutePlanningViewController.m in Sources */,
-				D6D287442100EE7700860D20 /* AnimateMarkerPositionViewController.m in Sources */,
-				D67F7CE821856EA500D84CEB /* BuildingInitializeViewController.m in Sources */,
+				D6B510CC24C58D8C0084D813 /* IndoorMarkerViewController.m in Sources */,
+				D695843124C8059100466372 /* SearchPOIInSceneViewController.m in Sources */,
+				D6B510B324C155CE0084D813 /* IndoorControlsViewController.m in Sources */,
+				D6B510A724C00E2C0084D813 /* CreateMapWithSceneViewController.m in Sources */,
+				D6B510C824C52C840084D813 /* FocusOnIndoorSceneParamViewController.m in Sources */,
 				D684BD6720FF8A19004E85D9 /* Feature.m in Sources */,
-				D684BD7E20FF8A19004E85D9 /* SearchPOIDetailByIdViewController.m in Sources */,
 				D684BD6620FF8A19004E85D9 /* MenuViewController.m in Sources */,
-				D684BD7220FF8A19004E85D9 /* BuildingAndFloorChangeViewController.m in Sources */,
-				D684BD6F20FF8A19004E85D9 /* AnimateMapCameraViewController.m in Sources */,
+				D6B510BF24C156210084D813 /* ClickEventListeningViewController.m in Sources */,
+				D66421FD24CC32AE0078404B /* SearchIntegratePOIDetailBaseCell.m in Sources */,
 				D684BD8420FF8A19004E85D9 /* SearchPOINearbyViewController.m in Sources */,
 				D684BD8A20FF8A19004E85D9 /* SearchPOIInBoundViewController.m in Sources */,
 				D65B573A21CB949900142732 /* VisualDirectionAnnotationView.m in Sources */,
+				D695841E24C6D2DD00466372 /* SearchBuildingInBoundParamViewController.m in Sources */,
 				D684BD9320FF8A19004E85D9 /* DisplayLocationViewController.m in Sources */,
 				D684BD8120FF8A19004E85D9 /* SearchBuildingNearbyViewController.m in Sources */,
 			);
@@ -860,28 +1009,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D684BD0520FF8A17004E85D9 /* AnimateMapCameraViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D684BD0620FF8A17004E85D9 /* Base */,
-				D684BDB721006674004E85D9 /* en */,
-				D684BDB821006677004E85D9 /* zh-Hant */,
-				D684BDB92100667A004E85D9 /* zh-Hans */,
-			);
-			name = AnimateMapCameraViewController.xib;
-			sourceTree = "<group>";
-		};
-		D684BD5020FF8A18004E85D9 /* DisplayLocationViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D684BD5120FF8A18004E85D9 /* Base */,
-				D684BDBA210066B1004E85D9 /* en */,
-				D684BDBB210066B5004E85D9 /* zh-Hant */,
-				D684BDBC210066B8004E85D9 /* zh-Hans */,
-			);
-			name = DisplayLocationViewController.xib;
-			sourceTree = "<group>";
-		};
 		D684BD9A20FF8A68004E85D9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1032,9 +1159,11 @@
 			baseConfigurationReference = 6761E476883A8A50EAEF788B /* Pods-MapxusMapSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 50;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = ZNBZ7BZAKZ;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1047,11 +1176,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.3.4;
+				MACOSX_DEPLOYMENT_TARGET = 9.0;
+				MARKETING_VERSION = 4.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapxus.mapSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "89e10f6c-6fbe-4abb-a4af-c9fb0493419b";
 				PROVISIONING_PROFILE_SPECIFIER = MapxusMapSampleDev;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1061,9 +1194,11 @@
 			baseConfigurationReference = FBCFA9805C81342EAED3714B /* Pods-MapxusMapSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 50;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = ZNBZ7BZAKZ;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1076,11 +1211,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.3.4;
+				MACOSX_DEPLOYMENT_TARGET = 9.0;
+				MARKETING_VERSION = 4.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapxus.mapSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "91a51255-aa6d-400d-ae92-580d31582709";
 				PROVISIONING_PROFILE_SPECIFIER = MapxusMapSampleAOC;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

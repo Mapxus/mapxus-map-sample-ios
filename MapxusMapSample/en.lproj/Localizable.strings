@@ -8,174 +8,117 @@
 
 //==============================================================
 
+"Map Creation" = "Map Creation";
+"Map Interaction" = "Map Interaction";
+"Map Editing" = "Map Editing";
+"Indoor Positioning" = "Indoor Positioning";
+"Search Service" = "Search Service";
+"Integration Cases" = "Integration Cases";
+
+//==============================================================
+
+"Create map with code" = "Create map with code";
+"Create map with code." = "Create map with code.";
+
+"Create map with xib" = "Create map with xib";
+"Create map with Interface Builder." = "Create map with Interface Builder.";
+
+"Create map (Specify the initial building, floor and building adaptive margin)" = "Create map (Specify the initial building, floor and building adaptive margin)";
+"To Maximize the specified building indoor map by the setting margin range and switch to the setting floor." = "To Maximize the specified building indoor map by the setting margin range and switch to the setting floor.";
+
+"Create map (Specify the initial POI and zoom level)" = "Create map (Specify the initial POI and zoom level)";
+"To show the specified POI in the centre of the map and show the map by the setting zoom level when creating map." = "To show the specified POI in the centre of the map and show the map by the setting zoom level when creating map.";
+
+//==============================================================
+
+"Interaction of indoor map controller" = "Interaction of indoor map controller";
+"Location of indoor map controllers." = "Location of indoor map controllers.";
+
+"Map style setting" = "Map style setting";
+"Modify map style, mark language and control outdoor map hiding." = "Modify map style, mark language and control outdoor map hiding.";
+
+"Gesture interaction for switching buildings" = "Gesture interaction for switching buildings";
+"Setting gestures for switching buildings." = "Setting gestures for switching buildings.";
+
+"Method interaction (Switching indoor scenes)" = "Method interaction (Switching indoor scenes)";
+"Use code settings to focus on indoor scenes." = "Use code settings to focus on indoor scenes.";
+
+"Click event listener" = "Click event listener";
+"Listener for click or long on the map, and click POI event." = "Listener for click or long on the map, and click POI event.";
+
+"Indoor scene switching event listener" = "Indoor scene switching event listener";
+"Listener for indoor scene switching events." = "Listener for indoor scene switching events.";
+
+"Get in or leave indoor scene event listener" = "Get in or leave indoor scene event listener";
+"Listener for get in indoor or leave indoor scene." = "Listener for get in indoor or leave indoor scene.";
+
+//==============================================================
+
+"Drawing markers by floor" = "Drawing markers by floor";
+"Only display the markers on current floor." = "Only display the markers on current floor.";
+
+"Drawing polygons by floor" = "Drawing polygons by floor";
+"Only display the polygon on current floor." = "Only display the polygon on current floor.";
+
+//==============================================================
+
+"Indoor positioning" = "Indoor positioning";
+"Show the positioning location and different following mode." = "Show the positioning location and different following mode.";
+
+//==============================================================
+
+"Search building globally" = "Search building globally";
+"Search building globally." = "Search building globally.";
+
+"Search building in the specified area" = "Search building in the specified area";
+"Search building in the specified rectangular area." = "Search building in the specified rectangular area.";
+
+"Search building nearby" = "Search building nearby";
+"Search building in the specified circular area." = "Search building in the specified circular area.";
+
+"Search building by building ID" = "Search building by building ID";
+"Search building by building ID." = "Search building by building ID.";
+
+"Get the POI categories by building or floor" = "Get the POI categories by building or floor";
+"Get all the POI categories of the specified building or floor." = "Get all the POI categories of the specified building or floor.";
+
+"Search POI in the specified scene" = "Search POI in the specified scene";
+"Search POI in the specified scene." = "Search POI in the specified scene.";
+
+"Search POI in the specified area" = "Search POI in the specified area";
+"Search POI in the specified retangular area." = "Search POI in the specified retangular area.";
+
+"Search POI nearby" = "Search POI nearby";
+"Search POI in the specified circular area." = "Search POI in the specified circular area.";
+
+"Search POI by POI ID" = "Search POI by POI ID";
+"Search POI by POI ID." = "Search POI by POI ID.";
+
+//==============================================================
+
+"Surrounding environment recognition" = "Surrounding environment recognition";
+"Make a virtual location and identify POI information around the location." = "Make a virtual location and identify POI information around the location.";
+
+"Route planning and navigation" = "Route planning and navigation";
+"Search the route between the starting point and end point, and show the road adsorption." = "Search the route between the starting point and end point, and show the road adsorption.";
+
+"Visual map" = "Visual map";
+"Integration of Visual map." = "Integration of Visual map.";
+
+"Explore building" = "Explore building";
+"Common case of POI search in the building." = "Common case of POI search in the building.";
+
+//==============================================================
+
 "Style" = "Style";
-
 "COMMON" = "COMMON";
-
 "CHRISTMAS" = "CHRISTMAS";
-
 "HALLOWMAS" = "HALLOWMAS";
-
 "MAPPYBEE" = "MAPPYBEE";
-
 "MAPXUS" = "MAPXUS";
-
 "Cancel" = "Cancel";
 
 //==============================================================
 
-"Controllers" = "Controllers";
-
-"Indoor Map Controllers Position" = "Indoor Map Controllers Position";
-
-"Place the indoor map controller where you want." = "Place the indoor map controllers as you need.";
-
-"Indoor Map Controllers Hidden" = "Indoor Map Controllers Hidden";
-
-"Set the indoor map controllers always hidden." = "Set the indoor map controllers always hidden.";
-
-//==============================================================
-
-"Getting Started" = "Getting Started";
-
-"A simple Map View" = "A simple Map View";
-
-"Show a map in your app using the Mapxus Maps SDK." = "Show a map in your app using the Mapxus Maps SDK.";
-
-"Build a map view using xib" = "Build a map view using xib";
-
-"Add a mapview in xib." = "Add a mapview in xib.";
-
-"Initialize map with building directly" = "Initialize map with building directly";
-
-"Create the map with particular building directly." = "Create the map with particular building directly.";
-
-"Initialize map with poi directly" = "Initialize map with poi directly";
-
-"Create the map with particular poi directly." = "Create the map with particular poi directly.";
-
-//==============================================================
-
-"Styles" = "Styles";
-
-"Default Styles" = "Default Styles";
-
-"Use a variety of professionally designed styles with the Mapxus Maps SDK." = "Use a variety of professionally designed styles with the Mapxus Maps SDK.";
-
-"Hide Outdoor Map" = "Hide Outdoor Map";
-
-"hide the outdoor map and only show the indoor map." = "hide the outdoor map and only show the indoor map.";
-
-//==============================================================
-
-"Annotations" = "Annotations";
-
-"Draw a marker" = "Draw a marker";
-
-"Create a default marker using the Mapxus Maps SDK." = "Create a default marker using the Mapxus Maps SDK.";
-
-"Draw a custom marker icon" = "Draw a custom marker icon";
-
-"Create a marker with a custom icon using the Mapxus Maps SDK." = "Create a marker with a custom icon using the Mapxus Maps SDK.";
-
-"Draw a polygon" = "Draw a polygon";
-
-"Draw a vector polygon on a map with the Mapxus Maps SDK." = "Draw a vector polygon on a map with the Mapxus Maps SDK.";
-
-"Draw a polygon with holes" = "Draw a polygon with holes";
-
-"Draw a vector polygon with holes on a map using the Mapxus Maps SDK." = "Draw a vector polygon with holes on a map using the Mapxus Maps SDK.";
-
-"Animate marker position" = "Animate marker position";
-
-"Animate the marker to a new position on the map." = "Animate the marker to a new position on the map.";
-
-//==============================================================
-
-"Camera" = "Camera";
-
-"Animate the map camera" = "Animate the map camera";
-
-"Animate the map’s camera position, tile, bearing and the zoom." = "Animate the map’s camera position, tile, bearing and the zoom.";
-
-"Restrict map panning" = "Restrict map planning";
-
-"Prevent a map from being panned to a different place." = "Prevent a map from being panned to a different place.";
-
-//==============================================================
-
-"Listener" = "Listener";
-
-"Building and floor change" = "Building and floor change";
-
-"Build and floor change." = "Build and floor change.";
-
-"POI click listener" = "POI click listener";
-
-"POI Click Listner." = "POI Click Listner.";
-
-"Camera Change" = "Camera Change";
-
-"Camera Change." = "Camera Change.";
-
-//==============================================================
-
-"Search Service" = "Search Service";
-
-"Route Planning" = "Route Planning";
-
-"Route Planning." = "Route Planning.";
-
-"Search Building Nearby" = "Search Building Nearby";
-
-"Search building nearby." = "Search building nearby.";
-
-"Search Building in bound" = "Search Building in bound";
-
-"Search building in bound." = "Search building in bound.";
-
-"Search Building Detail by ID" = "Search Building Detail by ID";
-
-"Search Building detail by ID." = "Search Building detail by ID.";
-
-"Search Building Global" = "Search Building Global";
-
-"Search Building Global." = "Search Building Global.";
-
-"Search POI nearby" = "Search POI nearby";
-
-"Search POI nearby." = "Search POI nearby.";
-
-"Search POI in bound" = "Search POI in bound";
-
-"Search POI in bound." = "Search POI in bound.";
-
-"Search POI detail by ID" = "Search POI detail by ID";
-
-"Search POI detail by ID." = "Search POI detail by ID.";
-
-"Search POI in building" = "Search POI in building";
-
-"Search POI in building." = "Search POI in building.";
-
-"Search POI with orientation" = "Search POI with orientation";
-
-"Search POI with orientation." = "Search POI with orientation.";
-
-//==============================================================
-
-"Display location" = "Display location";
-
-"Displaying the users location" = "Displaying the users location";
-
-"Displaying the users location." = "Displaying the users location.";
-
-//==============================================================
-
-"360 view" = "360 view";
-
-"Visual map" = "360 view";
-
-"Displaying the visual map." = "Display 360 view.";
 
 

@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 @class Feature;
 
+
 @interface FeatureCollectionViewCell : UICollectionViewCell
-
 - (void)refreshData:(Feature *)data;
-
 @end

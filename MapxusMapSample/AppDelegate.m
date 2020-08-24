@@ -8,9 +8,10 @@
 
 #import "AppDelegate.h"
 #import <MapxusBaseSDK/MapxusBaseSDK.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
 #import <AFNetworking/AFNetworkReachabilityManager.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <MXMServiceDelegate>
 
 @end
 
@@ -19,8 +20,31 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [[MXMMapServices sharedServices] registerWithApiKey:@"your apiKey" secret:@"your secret"];
+    [IQKeyboardManager sharedManager].enable = YES;
+    // Creating a Mapxus Core Service shared instance
+    MXMMapServices *services = [MXMMapServices sharedServices];
+    // Setting up Mapxus Core Service delegate
+    services.delegate = self;
+    // Sign up for Mapxus mapping service
+    [services registerWithApiKey:@"your apiKey" secret:@"your secret"];
 
+    [self monitorNetwork];
+    
+    return YES;
+}
+
+
+/// Mapxus Map Service authentication results successful callback
+- (void)registerMXMServiceSuccess {
+    NSLog(@"Authorization Success");
+}
+
+/// Mapxus Map Service authentication results failure callback
+- (void)registerMXMServiceFailWithError:(NSError *)error {
+    NSLog(@"Authorization failure：%@", error);
+}
+
+- (void)monitorNetwork {
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status == AFNetworkReachabilityStatusNotReachable) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Networking Error" message:@"Go to open the network." preferredStyle:UIAlertControllerStyleAlert];
@@ -30,17 +54,14 @@
                     [[UIApplication sharedApplication] openURL:url];
                 }
             }];
-            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
             [alert addAction:openAction];
-            [alert addAction:action];
-            [application.delegate.window.rootViewController presentViewController:alert animated:YES completion:nil];
+            [alert addAction:cancelAction];
+            [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
         }
     }];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    
-    return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

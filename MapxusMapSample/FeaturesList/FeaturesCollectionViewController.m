@@ -6,53 +6,21 @@
 //  Copyright © 2018年 MAPHIVE TECHNOLOGY LIMITED. All rights reserved.
 //
 
-@import HandyFrame;
 #import "FeaturesCollectionViewController.h"
 #import "FeatureCollectionViewCell.h"
 #import "MenuViewController.h"
 #import "Feature.h"
-#import "SimpleMapViewController.h"
-#import "XibBuildViewController.h"
-#import "BuildingAndFloorChangeViewController.h"
-#import "POIClickViewController.h"
-#import "CameraChangeViewController.h"
-#import "RestrictMapPanningViewController.h"
-#import "DrawMarkerViewController.h"
-#import "DrawCustomMarkerViewController.h"
-#import "AnimateMapCameraViewController.h"
-#import "DrawPolygonViewController.h"
-#import "DrawPolygonWithHolesViewController.h"
-#import "AnimateMarkerPositionViewController.h"
-#import "RoutePlanningViewController.h"
-#import "SearchBuildingNearbyViewController.h"
-#import "SearchBuildingInBoundViewController.h"
-#import "SearchBuildingByIdViewController.h"
-#import "SearchBuildingGlobalViewController.h"
-#import "SearchPOINearbyViewController.h"
-#import "SearchPOIInBoundViewController.h"
-#import "SearchPOIDetailByIdViewController.h"
-#import "SearchPOIInBuildingViewController.h"
-#import "DefaultStylesViewController.h"
-#import "DisplayLocationViewController.h"
-#import "ControllerHiddenViewController.h"
-#import "ControllerPositionViewController.h"
-#import "BuildingInitializeViewController.h"
-#import "POIInitializeViewController.h"
-#import "OutdoorHiddenViewController.h"
-#import "ShowVisualViewController.h"
-#import "OrientationPOISearchViewController.h"
 
 
 @interface FeaturesCollectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MenuViewControllerDelegate, UIScrollViewDelegate>
-
-
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, strong) NSArray *dataList;
 @property (nonatomic, strong) NSArray *titleList;
+@property (nonatomic, strong) NSArray *subList;
 @property (nonatomic, assign) NSUInteger currentTitleIndex;
-@property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
-
 @end
+
 
 @implementation FeaturesCollectionViewController
 
@@ -68,22 +36,134 @@ static NSString * const reuseIdentifier = @"Cell";
     leftItem.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = leftItem;
     
-    self.titleList = @[NSLocalizedString(@"Getting Started", nil),
-                       NSLocalizedString(@"Controllers", nil),
-                       NSLocalizedString(@"Styles", nil),
-                       NSLocalizedString(@"Annotations", nil),
-                       NSLocalizedString(@"Camera", nil),
-                       NSLocalizedString(@"Listener", nil),
+    self.titleList = @[NSLocalizedString(@"Map Creation", nil),
+                       NSLocalizedString(@"Map Interaction", nil),
+                       NSLocalizedString(@"Map Editing", nil),
+                       NSLocalizedString(@"Indoor Positioning", nil),
                        NSLocalizedString(@"Search Service", nil),
-                       NSLocalizedString(@"Display location", nil),
-                       NSLocalizedString(@"360 view", nil)];
-    // 默认选择第一项
+                       NSLocalizedString(@"Integration Cases", nil),];
+ 
+    self.subList = @[@[[Feature createWithPageClassName:@"CreateMapByCodeViewController"
+                                              imageName:@"CreateMapByCode"
+                                                  title:NSLocalizedString(@"Create map with code", nil)
+                                               subTitle:NSLocalizedString(@"Create map with code.", nil)],
+                       [Feature createWithPageClassName:@"CreateMapByXibViewController"
+                                              imageName:@"CreateMapByXib"
+                                                  title:NSLocalizedString(@"Create map with xib", nil)
+                                               subTitle:NSLocalizedString(@"Create map with Interface Builder.", nil)],
+                       [Feature createWithPageClassName:@"CreateMapWithSceneViewController"
+                                              imageName:@"CreateMapWithScene"
+                                                  title:NSLocalizedString(@"Create map (Specify the initial building, floor and building adaptive margin)", nil)
+                                               subTitle:NSLocalizedString(@"To Maximize the specified building indoor map by the setting margin range and switch to the setting floor.", nil)],
+                       [Feature createWithPageClassName:@"CreateMapWithPOIViewController"
+                                              imageName:@"CreateMapWithPOI"
+                                                  title:NSLocalizedString(@"Create map (Specify the initial POI and zoom level)", nil)
+                                               subTitle:NSLocalizedString(@"To show the specified POI in the centre of the map and show the map by the setting zoom level when creating map.", nil)],
+                     ],
+                     @[[Feature createWithPageClassName:@"IndoorControlsViewController"
+                                              imageName:@"IndoorControls"
+                                                  title:NSLocalizedString(@"Interaction of indoor map controller", nil)
+                                               subTitle:NSLocalizedString(@"Location of indoor map controllers.", nil)],
+                       [Feature createWithPageClassName:@"MapAppearanceViewController"
+                                              imageName:@"MapAppearance"
+                                                  title:NSLocalizedString(@"Map style setting", nil)
+                                               subTitle:NSLocalizedString(@"Modify map style, mark language and control outdoor map hiding.", nil)],
+                       [Feature createWithPageClassName:@"SwitchingBuildingGesturesViewController"
+                                              imageName:@"SwitchingBuildingGestures"
+                                                  title:NSLocalizedString(@"Gesture interaction for switching buildings", nil)
+                                               subTitle:NSLocalizedString(@"Setting gestures for switching buildings.", nil)],
+                       [Feature createWithPageClassName:@"FocusOnIndoorSceneViewController"
+                                              imageName:@"FocusOnIndoorScene"
+                                                  title:NSLocalizedString(@"Method interaction (Switching indoor scenes)", nil)
+                                               subTitle:NSLocalizedString(@"Use code settings to focus on indoor scenes.", nil)],
+                       [Feature createWithPageClassName:@"ClickEventListeningViewController"
+                                              imageName:@"ClickEventListening"
+                                                  title:NSLocalizedString(@"Click event listener", nil)
+                                               subTitle:NSLocalizedString(@"Listener for click or long on the map, and click POI event.", nil)],
+                       [Feature createWithPageClassName:@"SceneChangedEventListeningViewController"
+                                              imageName:@"SceneChangedEventListening"
+                                                  title:NSLocalizedString(@"Indoor scene switching event listener", nil)
+                                               subTitle:NSLocalizedString(@"Listener for indoor scene switching events.", nil)],
+                       [Feature createWithPageClassName:@"IndoorSceneInAndOutListeningViewController"
+                                              imageName:@"IndoorSceneInAndOutListening"
+                                                  title:NSLocalizedString(@"Get in or leave indoor scene event listener", nil)
+                                               subTitle:NSLocalizedString(@"Listener for get in indoor or leave indoor scene.", nil)],
+                     ],
+                     @[[Feature createWithPageClassName:@"IndoorMarkerViewController"
+                                              imageName:@"IndoorMarker"
+                                                  title:NSLocalizedString(@"Drawing markers by floor", nil)
+                                               subTitle:NSLocalizedString(@"Only display the markers on current floor.", nil)],
+                       [Feature createWithPageClassName:@"IndoorPolygonViewController"
+                                              imageName:@"IndoorPolygon"
+                                                  title:NSLocalizedString(@"Drawing polygons by floor", nil)
+                                               subTitle:NSLocalizedString(@"Only display the polygon on current floor.", nil)],
+                     ],
+                     @[[Feature createWithPageClassName:@"DisplayLocationViewController"
+                                              imageName:@"DisplayLocation"
+                                                  title:NSLocalizedString(@"Indoor positioning", nil)
+                                               subTitle:NSLocalizedString(@"Show the positioning location and different following mode.", nil)],
+                     ],
+                     @[[Feature createWithPageClassName:@"SearchBuildingGlobalViewController"
+                                              imageName:@"SearchBuildingGlobal"
+                                                  title:NSLocalizedString(@"Search building globally", nil)
+                                               subTitle:NSLocalizedString(@"Search building globally.", nil)],
+                       [Feature createWithPageClassName:@"SearchBuildingInBoundViewController"
+                                              imageName:@"SearchBuildingInBound"
+                                                  title:NSLocalizedString(@"Search building in the specified area", nil)
+                                               subTitle:NSLocalizedString(@"Search building in the specified rectangular area.", nil)],
+                       [Feature createWithPageClassName:@"SearchBuildingNearbyViewController"
+                                              imageName:@"SearchBuildingNearby"
+                                                  title:NSLocalizedString(@"Search building nearby", nil)
+                                               subTitle:NSLocalizedString(@"Search building in the specified circular area.", nil)],
+                       [Feature createWithPageClassName:@"SearchBuildingByIDViewController"
+                                              imageName:@"SearchBuildingByID"
+                                                  title:NSLocalizedString(@"Search building by building ID", nil)
+                                               subTitle:NSLocalizedString(@"Search building by building ID.", nil)],
+                       [Feature createWithPageClassName:@"CategoryIncludeInSceneViewController"
+                                              imageName:@"CategoryIncludeInScene"
+                                                  title:NSLocalizedString(@"Get the POI categories by building or floor", nil)
+                                               subTitle:NSLocalizedString(@"Get all the POI categories of the specified building or floor.", nil)],
+                       [Feature createWithPageClassName:@"SearchPOIInSceneViewController"
+                                              imageName:@"SearchPOIInScene"
+                                                  title:NSLocalizedString(@"Search POI in the specified scene", nil)
+                                               subTitle:NSLocalizedString(@"Search POI in the specified scene.", nil)],
+                       [Feature createWithPageClassName:@"SearchPOIInBoundViewController"
+                                              imageName:@"SearchPOIInBound"
+                                                  title:NSLocalizedString(@"Search POI in the specified area", nil)
+                                               subTitle:NSLocalizedString(@"Search POI in the specified retangular area.", nil)],
+                       [Feature createWithPageClassName:@"SearchPOINearbyViewController"
+                                              imageName:@"SearchPOINearby"
+                                                  title:NSLocalizedString(@"Search POI nearby", nil)
+                                               subTitle:NSLocalizedString(@"Search POI in the specified circular area.", nil)],
+                       [Feature createWithPageClassName:@"SearchPOIByIDViewController"
+                                              imageName:@"SearchPOIByID"
+                                                  title:NSLocalizedString(@"Search POI by POI ID", nil)
+                                               subTitle:NSLocalizedString(@"Search POI by POI ID.", nil)],
+                     ],
+                     @[[Feature createWithPageClassName:@"SurroundingIdentificationViewController"
+                                              imageName:@"SurroundingIdentification"
+                                                  title:NSLocalizedString(@"Surrounding environment recognition", nil)
+                                               subTitle:NSLocalizedString(@"Make a virtual location and identify POI information around the location.", nil)],
+                       [Feature createWithPageClassName:@"RouteViewController"
+                                              imageName:@"Route"
+                                                  title:NSLocalizedString(@"Route planning and navigation", nil)
+                                               subTitle:NSLocalizedString(@"Search the route between the starting point and end point, and show the road adsorption.", nil)],
+                       [Feature createWithPageClassName:@"ShowVisualViewController"
+                                              imageName:@"ShowVisual"
+                                                  title:NSLocalizedString(@"Visual map", nil)
+                                               subTitle:NSLocalizedString(@"Integration of Visual map.", nil)],
+                       [Feature createWithPageClassName:@"SearchIntegrateViewController"
+                                              imageName:@"SearchIntegrate"
+                                                  title:NSLocalizedString(@"Explore building", nil)
+                                               subTitle:NSLocalizedString(@"Common case of POI search in the building.", nil)],
+                     ],
+                   ];
+    // Default to Select 0
     [self selectedMenuOnIndex:0];
 }
 
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
+    
     if (scrollView == self.collectionView) {
         if (self.dataList.count > 1) {
             NSInteger page = self.collectionView.contentOffset.x / self.view.bounds.size.width;
@@ -93,55 +173,17 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 
-
-
 #pragma mark - event respond
 - (void)showMenu
 {
     [MenuViewController presentMenuViewControllerOnViewController:self withDelegate:self andTitles:self.titleList defaultSelect:self.currentTitleIndex];
 }
-#pragma mark end
-
-
-
-
 
 #pragma mark - MenuViewControllerDelegate
 - (void)selectedMenuOnIndex:(NSInteger)index
 {
     self.currentTitleIndex = index;
-    
-    switch (index) {
-        case 0:
-            self.dataList = [Feature gettingStartedList];
-            break;
-        case 1:
-            self.dataList = [Feature controllersList];
-            break;
-        case 2:
-            self.dataList = [Feature stylesList];
-            break;
-        case 3:
-            self.dataList = [Feature annotationsList];
-            break;
-        case 4:
-            self.dataList = [Feature cameraList];
-            break;
-        case 5:
-            self.dataList = [Feature listenerList];
-            break;
-        case 6:
-            self.dataList = [Feature searchServicesList];
-            break;
-        case 7:
-            self.dataList = [Feature locationList];
-            break;
-        case 8:
-            self.dataList = [Feature visualList];
-            break;
-        default:
-            break;
-    }
+    self.dataList = self.subList[index];
     self.pageControl.numberOfPages = self.dataList.count;
     [self.collectionView reloadData];
 }
@@ -150,17 +192,12 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     [self.collectionView setContentOffset:CGPointZero animated:YES];
 }
-#pragma mark end
 
-
-
-
-
-#pragma mark <UICollectionViewDataSource>
+#pragma mark - UICollectionViewDataSource
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.view.bounds.size;
+    return collectionView.bounds.size;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -181,228 +218,14 @@ static NSString * const reuseIdentifier = @"Cell";
     return cell;
 }
 
-
-#pragma mark <UICollectionViewDelegate>
-
+#pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     Feature *m = self.dataList[indexPath.row];
-    switch (m.identifie) {
-        case FeatureTypeSimpleMapView:
-        {
-            SimpleMapViewController *vc = [[SimpleMapViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeDynamicallyBuild:
-        {
-            XibBuildViewController *vc = [[XibBuildViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeBuildingAndFloorChange:
-        {
-            BuildingAndFloorChangeViewController *vc = [[BuildingAndFloorChangeViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypePOIClickListener:
-        {
-            POIClickViewController *vc = [[POIClickViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeCameraChange:
-        {
-            CameraChangeViewController *vc = [[CameraChangeViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeDrawMarker:
-        {
-            DrawMarkerViewController *vc = [[DrawMarkerViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeDrawCustomMarkerIcon:
-        {
-            DrawCustomMarkerViewController *vc = [[DrawCustomMarkerViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeAnimateTheMapCamera:
-        {
-            AnimateMapCameraViewController *vc = [[AnimateMapCameraViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeRestrictMapPanning:
-        {
-            RestrictMapPanningViewController *vc = [[RestrictMapPanningViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeDrawPolygon:
-        {
-            DrawPolygonViewController *vc = [[DrawPolygonViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeDrawPolygonWithHoles:
-        {
-            DrawPolygonWithHolesViewController *vc = [[DrawPolygonWithHolesViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeAnimateMarkerPosition:
-        {
-            AnimateMarkerPositionViewController *vc = [[AnimateMarkerPositionViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeRoutePlanning:
-        {
-            RoutePlanningViewController *vc = [[RoutePlanningViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeSearchBuildingNearby:
-        {
-            SearchBuildingNearbyViewController *vc = [[SearchBuildingNearbyViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeSearchBuildingInBound:
-        {
-            SearchBuildingInBoundViewController *vc = [[SearchBuildingInBoundViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeSearchBuildingDetailById:
-        {
-            SearchBuildingByIdViewController *vc = [[SearchBuildingByIdViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeSearchBuildingGlobal:
-        {
-            SearchBuildingGlobalViewController *vc = [[SearchBuildingGlobalViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeSearchPOINearby:
-        {
-            SearchPOINearbyViewController *vc = [[SearchPOINearbyViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeSearchPOIInBound:
-        {
-            SearchPOIInBoundViewController *vc = [[SearchPOIInBoundViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeSearchPOIDetailById:
-        {
-            SearchPOIDetailByIdViewController *vc = [[SearchPOIDetailByIdViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeSearchPOIInBuilding:
-        {
-            SearchPOIInBuildingViewController *vc = [[SearchPOIInBuildingViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeDefaultStyles:
-        {
-            DefaultStylesViewController *vc = [[DefaultStylesViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeShowLocation:
-        {
-            DisplayLocationViewController *vc = [[DisplayLocationViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeControllerHidden:
-        {
-            ControllerHiddenViewController *vc = [[ControllerHiddenViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeControllerPosition:
-        {
-            ControllerPositionViewController *vc = [[ControllerPositionViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeBuildingInitialize:
-        {
-            BuildingInitializeViewController *vc = [[BuildingInitializeViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypePOIInitialize:
-        {
-            POIInitializeViewController *vc = [[POIInitializeViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeOutdoorHidden:
-        {
-            OutdoorHiddenViewController *vc = [[OutdoorHiddenViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeVisual:
-        {
-            ShowVisualViewController *vc = [[ShowVisualViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case FeatureTypeSearchPOIWithOrientation:
-        {
-            OrientationPOISearchViewController *vc = [[OrientationPOISearchViewController alloc] init];
-            vc.nameStr = m.title;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        default:
-            break;
-    }
+    UIViewController *page = (UIViewController *)[[NSClassFromString(m.pageClassName) alloc] init];
+    [page setTitle:m.title];
+    [self.navigationController pushViewController:page animated:YES];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

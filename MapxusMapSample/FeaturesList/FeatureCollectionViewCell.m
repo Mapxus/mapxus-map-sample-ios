@@ -9,14 +9,14 @@
 #import "FeatureCollectionViewCell.h"
 #import "Feature.h"
 
-@interface FeatureCollectionViewCell ()
 
+@interface FeatureCollectionViewCell ()
 @property (nonatomic, weak) IBOutlet UIView *boxView;
 @property (nonatomic, weak) IBOutlet UIImageView *imgView;
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *subTextLabel;
-
 @end
+
 
 @implementation FeatureCollectionViewCell
 
@@ -31,6 +31,5 @@
     self.nameLabel.text = data.title;
     self.subTextLabel.text = data.subTitle;
 }
-
 
 @end

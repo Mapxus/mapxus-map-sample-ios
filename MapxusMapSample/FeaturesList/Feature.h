@@ -8,56 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, FeatureType) {
-    FeatureTypeSimpleMapView,
-    FeatureTypeDynamicallyBuild,
-    FeatureTypeBuildingInitialize,
-    FeatureTypePOIInitialize,
-    FeatureTypeDefaultStyles,
-    FeatureTypeDrawMarker,
-    FeatureTypeDrawCustomMarkerIcon,
-    FeatureTypeDrawPolygon,
-    FeatureTypeDrawPolygonWithHoles,
-    FeatureTypeAnimateMarkerPosition,
-    FeatureTypeAnimateTheMapCamera,
-    FeatureTypeRestrictMapPanning,
-    FeatureTypeBuildingAndFloorChange,
-    FeatureTypePOIClickListener,
-    FeatureTypeCameraChange,
-    FeatureTypeRoutePlanning,
-    FeatureTypeSearchBuildingNearby,
-    FeatureTypeSearchBuildingInBound,
-    FeatureTypeSearchBuildingDetailById,
-    FeatureTypeSearchBuildingGlobal,
-    FeatureTypeSearchPOINearby,
-    FeatureTypeSearchPOIInBound,
-    FeatureTypeSearchPOIDetailById,
-    FeatureTypeSearchPOIInBuilding,
-    FeatureTypeSearchPOIWithOrientation,
-    FeatureTypeShowLocation,
-    FeatureTypeControllerHidden,
-    FeatureTypeControllerPosition,
-    FeatureTypeOutdoorHidden,
-    FeatureTypeVisual,
-};
 
 @interface Feature : NSObject
-
-@property (nonatomic, assign) FeatureType identifie;
+@property (nonatomic, strong) NSString *pageClassName;
 @property (nonatomic, strong) NSString *imageName;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *subTitle;
-
-- (instancetype)initWithIdentifie:(FeatureType)identifie imageName:(NSString *)imageName title:(NSString *)title subTitle:(NSString *)subTitle;
-
-+ (NSArray *)gettingStartedList;
-+ (NSArray *)controllersList;
-+ (NSArray *)stylesList;
-+ (NSArray *)annotationsList;
-+ (NSArray *)cameraList;
-+ (NSArray *)listenerList;
-+ (NSArray *)searchServicesList;
-+ (NSArray *)locationList;
-+ (NSArray *)visualList;
-
++ (instancetype)createWithPageClassName:(NSString *)className
+                              imageName:(NSString *)imageName
+                                  title:(NSString *)title
+                               subTitle:(NSString *)subTitle;
 @end

@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface MenuTableViewCell : UITableViewCell
-
 - (void)refreshData:(NSString *)data;
-
 @end

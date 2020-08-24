@@ -9,9 +9,7 @@
 #import "MBXCustomLocationManager.h"
 
 @interface MBXCustomLocationManager() <CLLocationManagerDelegate>
-
 @property (nonatomic) CLLocationManager *locationManager;
-
 @end
 
 @implementation MBXCustomLocationManager
