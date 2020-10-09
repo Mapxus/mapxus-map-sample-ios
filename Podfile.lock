@@ -28,10 +28,10 @@ PODS:
 
 DEPENDENCIES:
   - IQKeyboardManager
-  - MapxusBaseSDK
-  - MapxusComponentKit
-  - MapxusMapSDK
-  - MapxusVisualSDK
+  - MapxusBaseSDK (from `../mapxus-base-sdk-ios`)
+  - MapxusComponentKit (from `../mapxus-component-kit-ios`)
+  - MapxusMapSDK (from `../mapxus-map-sdk-ios`)
+  - MapxusVisualSDK (from `../mapxus-visual-sdk-ios`)
   - ProgressHUD
 
 SPEC REPOS:
@@ -40,12 +40,18 @@ SPEC REPOS:
     - IQKeyboardManager
     - Mapbox-iOS-SDK
     - MapboxMobileEvents
-    - MapxusBaseSDK
-    - MapxusComponentKit
-    - MapxusMapSDK
-    - MapxusVisualSDK
     - ProgressHUD
     - YYModel
+
+EXTERNAL SOURCES:
+  MapxusBaseSDK:
+    :path: "../mapxus-base-sdk-ios"
+  MapxusComponentKit:
+    :path: "../mapxus-component-kit-ios"
+  MapxusMapSDK:
+    :path: "../mapxus-map-sdk-ios"
+  MapxusVisualSDK:
+    :path: "../mapxus-visual-sdk-ios"
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
@@ -59,6 +65,6 @@ SPEC CHECKSUMS:
   ProgressHUD: 54b4c2fa202bf3da7dddc1c698ae4e6376333bd9
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 7e16e06d3c3034de75d617b4c27dbb5026caf45c
+PODFILE CHECKSUM: e05185c4951f9b5dc0f9274e8ae31900b21a4492
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

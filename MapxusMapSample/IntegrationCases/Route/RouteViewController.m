@@ -30,6 +30,8 @@
 @property (nonatomic, strong) MXMRoutePainter *painter;
 @property (nonatomic, strong) MXMRouteLocationManager *locationManager;
 @property (nonatomic, strong) MXMRouteSearchResponse *currentResponse;
+@property (nonatomic, assign) BOOL isEndOfNavigation;
+@property (nonatomic, assign) NSTimeInterval lastLocationTime;
 @end
 
 @implementation RouteViewController
@@ -104,7 +106,8 @@
 // Search a route with params
 - (void)searchRouteAction:(UIButton *)sender {
     [self.painter cleanRoute];
-
+    self.isEndOfNavigation = NO;
+    
     MXMRouteSearchRequest *re = [[MXMRouteSearchRequest alloc] init];
     re.fromBuilding = self.fromDictionary[@"building"];
     re.fromFloor = self.fromDictionary[@"floor"];
@@ -138,6 +141,7 @@
     }
     // If there are no navigation routes, send an alert.
     if (self.currentResponse == nil) {
+        sender.selected = !sender.isSelected;
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Please search the route first." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:action];
@@ -234,15 +238,33 @@
 }
 
 - (void)refreshTheAdsorptionLocation:(CLLocation *)location heading:(CLLocationDirection)heading buildingId:(NSString *)buildingId floor:(NSString *)floor state:(MXMAdsorptionState)state fromActual:(CLLocation *)actual {
-    [self setCamera:location.coordinate heading:heading buildingID:buildingId floor:floor zoomLevel:self.mapView.zoomLevel];
+    NSTimeInterval time = [location.timestamp timeIntervalSince1970];
+    if (self.lastLocationTime <= time) {
+        self.lastLocationTime = time;
+        [self setCamera:location.coordinate heading:heading buildingID:buildingId floor:floor zoomLevel:self.mapView.zoomLevel];
+    }
 }
 
 #pragma mark - MXMRouteShortenerDelegate
 - (void)routeShortener:(MXMRouteShortener *)shortener redrawingNewPath:(MXMPath *)path fromInstructionIndex:(NSUInteger)index {
-    // repaint
-    [self.painter cleanRoute];
-    [self.painter paintRouteUsingPath:path wayPoints:shortener.originalWayPoints];
-    [self.painter changeOnBuilding:self.mapPlugin.building.identifier floor:self.mapPlugin.floor];
+    double distance = 0.0;
+    for (MXMInstruction *inst in path.instructions) {
+        distance += inst.distance;
+    }
+    if (!self.isEndOfNavigation) {
+        MXMIndoorPoint *endpoint = shortener.originalWayPoints.lastObject;
+        if (distance < 3 && [self.mapPlugin.building.identifier isEqualToString:endpoint.buildingId] && [self.mapPlugin.floor isEqualToString:endpoint.floor]) {
+            self.isEndOfNavigation = YES;
+            self.currentResponse = nil;
+            [self.painter cleanRoute];
+            [self navigationAction:self.goButton]; // 模拟按下
+        } else {
+            // repaint
+            [self.painter cleanRoute];
+            [self.painter paintRouteUsingPath:path wayPoints:shortener.originalWayPoints];
+            [self.painter changeOnBuilding:self.mapPlugin.building.identifier floor:self.mapPlugin.floor];
+        }
+    }
 }
 
 #pragma mark - MGLMapViewDelegate
