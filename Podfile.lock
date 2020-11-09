@@ -10,19 +10,19 @@ PODS:
   - Mapbox-iOS-SDK (5.9.0):
     - MapboxMobileEvents (= 0.10.2)
   - MapboxMobileEvents (0.10.2)
-  - MapxusBaseSDK (3.15.0):
+  - MapxusBaseSDK (3.16.0):
     - AFNetworking/NSURLSession (~> 4.0)
     - AFNetworking/Reachability (~> 4.0)
     - AFNetworking/Security (~> 4.0)
     - AFNetworking/Serialization (~> 4.0)
     - YYModel (~> 1.0.4)
-  - MapxusComponentKit (3.15.0):
-    - MapxusMapSDK (= 3.15.0)
-  - MapxusMapSDK (3.15.0):
+  - MapxusComponentKit (3.16.0):
+    - MapxusMapSDK (= 3.16.0)
+  - MapxusMapSDK (3.16.0):
     - Mapbox-iOS-SDK (~> 5.9.0)
-    - MapxusBaseSDK (= 3.15.0)
-  - MapxusVisualSDK (3.15.0):
-    - MapxusBaseSDK (= 3.15.0)
+    - MapxusBaseSDK (= 3.16.0)
+  - MapxusVisualSDK (3.16.0):
+    - MapxusBaseSDK (= 3.16.0)
   - ProgressHUD (2.70)
   - YYModel (1.0.4)
 
@@ -52,13 +52,13 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   Mapbox-iOS-SDK: a5915700ec84bc1a7f8b3e746d474789e35b7956
   MapboxMobileEvents: 2bc0ca2eedb627b73cf403258dce2b2fa98074a6
-  MapxusBaseSDK: 2c440c9b02df52d1e3befc68f6938e9fc73a4c35
-  MapxusComponentKit: b920f4e08bfb655d2ec177bdd8462296ca8ec144
-  MapxusMapSDK: e1dedf105dd1788bdac9bd6375358fedf11b341f
-  MapxusVisualSDK: 5ad6b0794d45c86a8f507e74d0130c70949fbfbc
+  MapxusBaseSDK: 7b848ded5f12109e1d5032c4959ea0d6e60cc762
+  MapxusComponentKit: 635a0626bd135ed1f930fa28158011ea2e4eb8f7
+  MapxusMapSDK: 3b24e76e9d39935dee92d0c2fcb0857a78798d50
+  MapxusVisualSDK: e465fd5a19cb343b0b1f19af5395bc0eed06d814
   ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
 PODFILE CHECKSUM: d25b09b7b40cdf1512a61ef519d9da828ce50c23
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

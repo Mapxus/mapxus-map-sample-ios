@@ -27,8 +27,10 @@
     [self.mapView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
     [self.mapView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
 
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView];
-    
+    MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
+    configuration.defaultStyle = MXMStyleMAPXUS_V2;
+    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+
     // Add outdoor reference points
     MGLPointAnnotation *ann = [[MGLPointAnnotation alloc] init];
     ann.coordinate = CLLocationCoordinate2DMake(22.370779, 114.111341);

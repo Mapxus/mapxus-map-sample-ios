@@ -33,7 +33,9 @@
     self.mapView.locationManager = self.locationManager;
     self.mapView.showsUserLocation = YES;
     self.mapView.showsUserHeadingIndicator = YES;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView];
+    MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
+    configuration.defaultStyle = MXMStyleMAPXUS_V2;
+    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 - (void)openParam {

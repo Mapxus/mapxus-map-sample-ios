@@ -16,7 +16,7 @@
 
 @interface ShowVisualViewController () <MGLMapViewDelegate, MapxusMapDelegate, MXMVisualSearchDelegate, MXMVisualDelegate>
 
-@property (nonatomic, strong) MapxusMap *mxmMap;
+@property (nonatomic, strong) MapxusMap *mapPlugin;
 
 @property (nonatomic, strong) MGLMapView *mglMapView;
 @property (nonatomic, strong) UIButton *shrinkBtn;
@@ -43,15 +43,16 @@
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.buildingId = @"tsuenwanplaza_hk_369d01";
     configuration.floor = @"L1";
-    self.mxmMap = [[MapxusMap alloc] initWithMapView:self.mglMapView configuration:configuration];
-    self.mxmMap.delegate = self;
+    configuration.defaultStyle = MXMStyleMAPXUS_V2;
+    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mglMapView configuration:configuration];
+    self.mapPlugin.delegate = self;
 
-    [self.mxmMap.floorBar removeFromSuperview];
-    [self.mxmMap.buildingSelectButton removeFromSuperview];
+    [self.mapPlugin.floorBar removeFromSuperview];
+    [self.mapPlugin.buildingSelectButton removeFromSuperview];
     
     [self.view addSubview:self.mglMapView];
-    [self.view addSubview:self.mxmMap.floorBar];
-    [self.view addSubview:self.mxmMap.buildingSelectButton];
+    [self.view addSubview:self.mapPlugin.floorBar];
+    [self.view addSubview:self.mapPlugin.buildingSelectButton];
     [self.view addSubview:self.openBtn];
     [self.view addSubview:self.visualView];
     [self.visualView addSubview:self.shrinkBtn];
@@ -62,7 +63,7 @@
     self.painter.circleOnClickBlock = ^(NSDictionary * _Nonnull node) {
         if (weakSelf.ann == nil) {
             weakSelf.ann = [[MXMPointAnnotation alloc] init];
-            [weakSelf.mxmMap addMXMPointAnnotations:@[weakSelf.ann]];
+            [weakSelf.mapPlugin addMXMPointAnnotations:@[weakSelf.ann]];
         }
         weakSelf.ann.buildingId = node[@"buildingId"];
         weakSelf.ann.floor = node[@"floor"];
@@ -92,16 +93,16 @@
 {
     sender.selected = !sender.isSelected;
     if (sender.isSelected) {
-        self.currentVisualBuildingId = self.mxmMap.building.identifier;
+        self.currentVisualBuildingId = self.mapPlugin.building.identifier;
         MXMVisualBuildingSearchOption *option = [[MXMVisualBuildingSearchOption alloc] init];
-        option.buildingId = self.mxmMap.building.identifier;
+        option.buildingId = self.mapPlugin.building.identifier;
         option.scope = MXMVisualSearchScopeDetail;
         [self.searchApi searchVisualDataInBuilding:option];
     } else {
         self.currentVisualBuildingId = nil;
         [self.painter cleanLayer];
         if (self.ann) {
-            [self.mxmMap removeMXMPointAnnotaions:@[self.ann]];
+            [self.mapPlugin removeMXMPointAnnotaions:@[self.ann]];
             self.ann = nil;
             self.annView = nil;
         }
@@ -126,7 +127,7 @@
         } completion:^(BOOL finished) {
             [self.view bringSubviewToFront:self.mglMapView];
             [self.mglMapView addSubview:self.shrinkBtn];
-            self.mxmMap.indoorControllerAlwaysHidden = YES;
+            self.mapPlugin.indoorControllerAlwaysHidden = YES;
             self.mglMapView.zoomLevel = 17;
         }];
     } else {
@@ -141,11 +142,11 @@
             self.visualView.frame = buttonRect;
         } completion:^(BOOL finished) {
             [self.view bringSubviewToFront:self.openBtn];
-            [self.view bringSubviewToFront:self.mxmMap.floorBar];
-            [self.view bringSubviewToFront:self.mxmMap.buildingSelectButton];
+            [self.view bringSubviewToFront:self.mapPlugin.floorBar];
+            [self.view bringSubviewToFront:self.mapPlugin.buildingSelectButton];
             [self.view bringSubviewToFront:self.visualView];
             [self.visualView addSubview:self.shrinkBtn];
-            self.mxmMap.indoorControllerAlwaysHidden = NO;
+            self.mapPlugin.indoorControllerAlwaysHidden = NO;
             [self.visualView resize];
         }];
     }
@@ -199,7 +200,7 @@
     }
     [self.painter renderFlagUsingNodes:arr];
     // Filter the current floor data
-    [self.painter changeOnBuilding:self.mxmMap.building.identifier floor:self.mxmMap.floor];
+    [self.painter changeOnBuilding:self.mapPlugin.building.identifier floor:self.mapPlugin.floor];
 }
 
 
@@ -227,15 +228,15 @@
     self.visualView.frame = CGRectMake(10, self.view.frame.size.height-180, 105, 105);
     self.shrinkBtn.frame = self.visualView.bounds;
     
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.mxmMap.floorBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:200]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.mxmMap.floorBar attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:10]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.mxmMap.buildingSelectButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.mxmMap.floorBar attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.mxmMap.buildingSelectButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.mxmMap.floorBar attribute:NSLayoutAttributeTop multiplier:1.0 constant:-20]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.mapPlugin.floorBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:200]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.mapPlugin.floorBar attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:10]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.mapPlugin.buildingSelectButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.mapPlugin.floorBar attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.mapPlugin.buildingSelectButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.mapPlugin.floorBar attribute:NSLayoutAttributeTop multiplier:1.0 constant:-20]];
     
     [self.openBtn addConstraint:[NSLayoutConstraint constraintWithItem:self.openBtn attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:kNilOptions multiplier:1.0 constant:48]];
     [self.openBtn addConstraint:[NSLayoutConstraint constraintWithItem:self.openBtn attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:kNilOptions multiplier:1.0 constant:48]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.openBtn attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.mxmMap.floorBar attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.openBtn attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.mxmMap.buildingSelectButton attribute:NSLayoutAttributeTop multiplier:1.0 constant:-20]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.openBtn attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.mapPlugin.floorBar attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.openBtn attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.mapPlugin.buildingSelectButton attribute:NSLayoutAttributeTop multiplier:1.0 constant:-20]];
 }
 
 #pragma mark - getter and setter
