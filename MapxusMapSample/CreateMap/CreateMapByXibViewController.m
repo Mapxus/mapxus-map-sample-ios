@@ -23,7 +23,9 @@
     self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
     // Set the map scale level
     self.mapView.zoomLevel = 18;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView];
+    MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
+    configuration.defaultStyle = MXMStyleMAPXUS_V2;
+    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 @end

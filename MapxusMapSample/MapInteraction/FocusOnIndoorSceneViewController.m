@@ -24,7 +24,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Params" style:UIBarButtonItemStylePlain target:self action:@selector(openParam)];
     [self layoutUI];
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView];
+    MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
+    configuration.defaultStyle = MXMStyleMAPXUS_V2;
+    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 - (void)openParam {

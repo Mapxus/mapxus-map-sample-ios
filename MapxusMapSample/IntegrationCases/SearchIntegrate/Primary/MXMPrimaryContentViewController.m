@@ -23,7 +23,7 @@
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.buildingId = @"harbourcity_hk_8b580b";
     configuration.floor = @"L2";
-
+    configuration.defaultStyle = MXMStyleMAPXUS_V2;
     self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
     self.mapPlugin.selectorPosition = MXMSelectorPositionTopRight;
     self.mapPlugin.delegate = self;

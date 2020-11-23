@@ -26,7 +26,9 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     [self layoutUI];
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView];
+    MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
+    configuration.defaultStyle = MXMStyleMAPXUS_V2;
+    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
     self.mapPlugin.delegate = self;
 }
 

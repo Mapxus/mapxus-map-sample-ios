@@ -31,8 +31,10 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self layoutUI];
     self.times = 0;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView];
-    
+    MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
+    configuration.defaultStyle = MXMStyleMAPXUS_V2;
+    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+
     // Use Custom Location Manager to limit positioning delays caused by frequent angle changes
     self.mapView.locationManager = [[MBXCustomLocationManager alloc] init];
     self.mapView.showsUserHeadingIndicator = YES;
