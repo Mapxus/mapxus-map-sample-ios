@@ -224,8 +224,12 @@
 {
     self.mglMapView.frame = self.view.bounds;
     self.mglMapView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    
-    self.visualView.frame = CGRectMake(10, self.view.frame.size.height-180, 105, 105);
+    CGFloat height = 0;
+    if (@available(iOS 11.0, *)) {
+        UIEdgeInsets safeArea = [[UIApplication sharedApplication] keyWindow].safeAreaInsets;
+        height = safeArea.bottom;
+    }
+    self.visualView.frame = CGRectMake(10, self.view.frame.size.height-height-200, 105, 105);
     self.shrinkBtn.frame = self.visualView.bounds;
     
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.mapPlugin.floorBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:200]];

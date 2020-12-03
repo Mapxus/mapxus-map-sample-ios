@@ -31,7 +31,6 @@
 @property (nonatomic, strong) MXMRouteLocationManager *locationManager;
 @property (nonatomic, strong) MXMRouteSearchResponse *currentResponse;
 @property (nonatomic, assign) BOOL isEndOfNavigation;
-@property (nonatomic, assign) NSTimeInterval lastLocationTime;
 @end
 
 @implementation RouteViewController
@@ -239,22 +238,13 @@
 }
 
 - (void)refreshTheAdsorptionLocation:(CLLocation *)location heading:(CLLocationDirection)heading buildingId:(NSString *)buildingId floor:(NSString *)floor state:(MXMAdsorptionState)state fromActual:(CLLocation *)actual {
-    NSTimeInterval time = [location.timestamp timeIntervalSince1970];
-    if (self.lastLocationTime <= time) {
-        self.lastLocationTime = time;
-        [self setCamera:location.coordinate heading:heading buildingID:buildingId floor:floor zoomLevel:self.mapView.zoomLevel];
-    }
+    [self setCamera:location.coordinate heading:heading buildingID:buildingId floor:floor zoomLevel:self.mapView.zoomLevel];
 }
 
 #pragma mark - MXMRouteShortenerDelegate
 - (void)routeShortener:(MXMRouteShortener *)shortener redrawingNewPath:(MXMPath *)path fromInstructionIndex:(NSUInteger)index {
-    double distance = 0.0;
-    for (MXMInstruction *inst in path.instructions) {
-        distance += inst.distance;
-    }
     if (!self.isEndOfNavigation) {
-        MXMIndoorPoint *endpoint = shortener.originalWayPoints.lastObject;
-        if (distance < 3 && [self.mapPlugin.building.identifier isEqualToString:endpoint.buildingId] && [self.mapPlugin.floor isEqualToString:endpoint.floor]) {
+        if (path.distance < 3) {
             self.isEndOfNavigation = YES;
             self.currentResponse = nil;
             [self.painter cleanRoute];

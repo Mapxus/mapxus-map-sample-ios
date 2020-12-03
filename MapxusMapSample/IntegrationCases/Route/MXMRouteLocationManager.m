@@ -16,11 +16,7 @@
 //@property (nonatomic, strong) NSArray *acoordinates;
 /** Virtual positioning function */
 
-@property (nonatomic, strong) CLLocation *lastAbsorptionLocation;
 @property (nonatomic, strong) CLLocation *lastActualLocation;
-@property (nonatomic, strong) NSString *lastBuildingId;
-@property (nonatomic, strong) NSString *lastFloor;
-@property (nonatomic, assign) MXMAdsorptionState lastState;
 
 @property (nonatomic, strong) CLLocationManager *innerLocationManager;
 @property (nonatomic, strong) MXMRouteAdsorber *adsorber;
@@ -143,7 +139,7 @@
 //    NSNumber *longitube = loc[0];
 //    NSNumber *f = loc[2];
 //    CLFloor *floor = [CLFloor createFloorWihtLevel:f.integerValue];
-//    CLLocation *location = [[CLLocation alloc] initWithLatitude:latitube.doubleValue longitude:longitube.doubleValue];
+//    CLLocation *location = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(latitube.doubleValue, longitube.doubleValue) altitude:50 horizontalAccuracy:0.0 verticalAccuracy:0.0 timestamp:[NSDate date]];
 //    location.myFloor = floor;
 //    self.index++;
 //    [self locationManager:self.innerLocationManager didUpdateLocations:@[location]];
@@ -152,6 +148,10 @@
 
 #pragma mark - MXMRouteAdsorberDelegate
 - (void)refreshTheAdsorptionLocation:(CLLocation *)location buildingID:(NSString *)buildingID floor:(NSString *)floor state:(MXMAdsorptionState)state fromActual:(CLLocation *)actual {
+    // Discard obsolete data
+    if (actual.timestamp.timeIntervalSince1970 < self.lastActualLocation.timestamp.timeIntervalSince1970) {
+        return;
+    }
     switch (state) {
         case MXMAdsorptionStateDefault:
         case MXMAdsorptionStateDrifting:
@@ -169,12 +169,8 @@
         default:
             break;
     }
-    // Cache for use when `- locationManager:didUpdateHeading:` callbacks
-    self.lastAbsorptionLocation = location;
     self.lastActualLocation = actual;
-    self.lastBuildingId = buildingID;
-    self.lastFloor = floor;
-    self.lastState = state;
+
     // Provide UI to show follow
     if (self.trackDelegate && [self.trackDelegate respondsToSelector:@selector(refreshTheAdsorptionLocation:heading:buildingId:floor:state:fromActual:)]) {
         [self.trackDelegate refreshTheAdsorptionLocation:location heading:self.innerLocationManager.heading.trueHeading buildingId:buildingID floor:floor state:state fromActual:actual];
@@ -253,12 +249,6 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
     [self.delegate locationManager:self didUpdateHeading:newHeading];
-    if (self.isNavigation) {
-        // Provide UI to show follow
-        if (self.trackDelegate && [self.trackDelegate respondsToSelector:@selector(refreshTheAdsorptionLocation:heading:buildingId:floor:state:fromActual:)]) {
-            [self.trackDelegate refreshTheAdsorptionLocation:self.lastAbsorptionLocation heading:newHeading.trueHeading buildingId:self.lastBuildingId floor:self.lastFloor state:self.lastState fromActual:self.lastActualLocation];
-        }
-    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
