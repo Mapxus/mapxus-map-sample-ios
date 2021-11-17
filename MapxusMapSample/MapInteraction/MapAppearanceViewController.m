@@ -30,7 +30,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self layoutUI];
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
-    configuration.defaultStyle = MXMStyleMAPXUS_V2;
+    configuration.defaultStyle = MXMStyleMAPXUS;
     self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
@@ -67,10 +67,6 @@
         // Use MAPXUS map style
         [weakSelf.mapPlugin setMapSytle:(MXMStyleMAPXUS)];
     }];
-    UIAlertAction *mapxus_v2 = [UIAlertAction actionWithTitle:NSLocalizedString(@"MAPXUS_V2", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-        // Use MAPXUS map style
-        [weakSelf.mapPlugin setMapSytle:(MXMStyleMAPXUS_V2)];
-    }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:(UIAlertActionStyleCancel) handler:nil];
     
     [alert addAction:common];
@@ -78,7 +74,6 @@
     [alert addAction:hallowmas];
     [alert addAction:mappybee];
     [alert addAction:mapxus];
-    [alert addAction:mapxus_v2];
     [alert addAction:cancel];
     
     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {

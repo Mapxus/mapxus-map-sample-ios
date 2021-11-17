@@ -3,6 +3,44 @@
 
 [中文说明](./README_CN.md)
 
+
+## How to run
+
+To create a build configuration file, select the "File > New File…" menu item (⌘n), scroll down to the section labeled "Other", and select the Configuration Settings File template. Next, save it somewhere in your project directory, making sure to add it to your desired targets.
+
+![](./readme_img/WX20211117-101553.png)
+
+Customizing App information like below.
+
+```
+// your.xcconfig
+
+BUNDLE_ID = your.bundle.id
+
+APP_NAME = Mapxus Map Sample
+
+MAPXUS_KEY = @"your apiKey"
+
+MAPXUS_SECRET = @"your secret"
+
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) MAPXUS_KEY='$(MAPXUS_KEY)' MAPXUS_SECRET='$(MAPXUS_SECRET)'
+```
+
+Once you’ve created an xcconfig file, you can assign it to one or more build configurations for its associated targets.
+
+![](./readme_img/WX20211116-181657.png)
+
+Finally, run the following command in the project root directory in the terminal to install the dependency packages.
+
+```
+pod install
+```
+
+Now, you can start experiencing mapxus map.
+
+
+## About this App
+
 * Map Creation
 
   1. Create map with code
@@ -230,7 +268,7 @@
 
   6. Search POI in the specified scene
 
-     文件件名：SearchPOIInSceneViewController
+     file name：SearchPOIInSceneViewController
 
      summary：Search POI in the specified scene.
 
@@ -276,7 +314,7 @@
      * Create an instance of the search class MXMSearchAPI.
      * Get the search result by using the `-onPOISearchDone:response:` callback method.
 
-* 集成案例
+* Integration Cases
 
   1. Surrounding environment recognition
 

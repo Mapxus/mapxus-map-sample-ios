@@ -1,0 +1,141 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+
+# 指定项目的scheme名称
+scheme = "MapxusMapSample"
+icon_path = './MapxusMapSample/Assets.xcassets/AppIcon.appiconset/1024.png'
+ipa_dir = "./fastlane_build"
+ipa_name = "#{scheme}.ipa"
+
+default_platform(:ios)
+
+platform :ios do
+
+  #######################################################################################################################################
+  #######################################################################################################################################
+  #######################################################################################################################################
+
+  before_all do |lane|
+
+    # 清理编译文件
+    clear_derived_data
+
+    # 安装第三方库
+    cocoapods(use_bundle_exec: true, repo_update: true)
+
+  end
+
+  #######################################################################################################################################
+  #######################################################################################################################################
+  #######################################################################################################################################
+
+  # 传入参数file为配置文件路路径
+
+  desc "Upload the package to fir.im"
+  lane :fir do |options|
+
+    # 配置获取
+    config_file = options[:file]
+
+    bundle_id = get_xcconfig_value(
+      path: config_file,
+      name: 'BUNDLE_ID'
+    )
+
+    # development证书也要一起请求，否则Xcode的自动签名功能会自动生成开发证书，导致证书过多
+    match(type: "development", app_identifier: bundle_id)
+    match(type: "adhoc", app_identifier: bundle_id) 
+
+    # gym用来编译 打包 签名
+    gym(
+      output_directory: ipa_dir,
+      output_name: ipa_name,
+      clean: true,
+      workspace: scheme + ".xcworkspace",
+      scheme: scheme,
+      xcconfig: config_file,
+      export_method: 'ad-hoc',
+      xcargs: "-allowProvisioningUpdates"
+    )
+
+    change_log = changelog_from_git_commits(merge_commit_filtering: "exclude_merges")
+
+    # upload app
+    fir_cli(
+      specify_file_path: "#{ipa_dir}/#{ipa_name}",
+      skip_update_icon: false,
+      specify_icon_file: icon_path,
+      api_token: ENV['fir_api_token'],  
+      changelog: change_log
+    )
+
+  end
+
+
+  #######################################################################################################################################
+  #######################################################################################################################################
+  #######################################################################################################################################
+
+  # 传入参数file为配置文件路路径
+
+  desc "Upload the package to App Store"
+  lane :app_store do |options|
+
+    # 配置获取
+    config_file = options[:file]
+    
+    bundle_id = get_xcconfig_value(
+      path: config_file,
+      name: 'BUNDLE_ID'
+    )
+
+    # development证书也要一起请求，否则Xcode的自动签名功能会自动生成开发证书，导致证书过多
+    match(type: "development", app_identifier: bundle_id)
+    match(type: "appstore", app_identifier: bundle_id)
+
+    # gym用来编译 打包 签名
+    gym(
+      output_directory: ipa_dir,
+      output_name: ipa_name,
+      clean: true,
+      workspace: scheme + ".xcworkspace",
+      scheme: scheme,
+      xcconfig: config_file,
+      include_bitcode: true,
+      include_symbols: true,
+      export_method: 'app-store',
+      xcargs: "-allowProvisioningUpdates"
+    )
+
+    change_log = File.read("../CHANGELOG.md")
+
+    api_key = app_store_connect_api_key(
+      key_id: ENV['APP_STORE_CONNECT_API_KEY_KEY_ID'],
+      issuer_id: ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID'],
+      key_filepath: ENV['APP_STORE_CONNECT_API_KEY_KEY_FILE_PATH'],
+      duration: 1200, # optional (maximum 1200)
+      in_house: false # optional but may be required if using match/sigh
+    )
+
+    # upload app
+    upload_to_testflight(
+      ipa: "#{ipa_dir}/#{ipa_name}",
+      api_key: api_key,
+      team_id: ENV['team_id'],
+      changelog: change_log,
+      wait_processing_timeout_duration: 1800
+    )
+
+  end
+
+end

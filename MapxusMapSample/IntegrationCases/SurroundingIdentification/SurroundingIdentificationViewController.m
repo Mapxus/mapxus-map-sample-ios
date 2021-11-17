@@ -34,7 +34,7 @@
     self.mapView.showsUserLocation = YES;
     self.mapView.showsUserHeadingIndicator = YES;
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
-    configuration.defaultStyle = MXMStyleMAPXUS_V2;
+    configuration.defaultStyle = MXMStyleMAPXUS;
     self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
@@ -141,7 +141,7 @@
             ann.subtitle = @"On the left";
         }
         ann.buildingId = poi.buildingId;
-        ann.floor = poi.floor;
+        ann.floor = poi.floor.code;
         [anns addObject:ann];
     }
     

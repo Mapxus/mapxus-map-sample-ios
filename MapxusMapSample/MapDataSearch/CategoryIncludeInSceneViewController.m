@@ -30,7 +30,7 @@
     [self layoutUI];
     
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
-    configuration.defaultStyle = MXMStyleMAPXUS_V2;
+    configuration.defaultStyle = MXMStyleMAPXUS;
     self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
@@ -102,7 +102,7 @@
 
 #pragma mark - MXMSearchDelegate
 - (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error {
-    [ProgressHUD showError:NSLocalizedString(@"No categorys could be found", nil)];
+    [ProgressHUD showError:NSLocalizedString(@"No categories could be found", nil)];
 }
 
 - (void)onPOICategorySearchDone:(MXMPOICategorySearchRequest *)request response:(MXMPOICategorySearchResponse *)response {

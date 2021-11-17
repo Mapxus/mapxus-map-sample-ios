@@ -25,7 +25,7 @@
     [self layoutUI];
 
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
-    configuration.defaultStyle = MXMStyleMAPXUS_V2;
+    configuration.defaultStyle = MXMStyleMAPXUS;
     self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
@@ -62,15 +62,15 @@
         MXMPointAnnotation *ann = [[MXMPointAnnotation alloc] init];
         ann.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
         ann.title = poi.name_default;
-        ann.subtitle = [poi.floor stringByAppendingString:@"层"];
+        ann.subtitle = [poi.floor.code stringByAppendingString:@"层"];
         ann.buildingId = poi.buildingId;
-        ann.floor = poi.floor;
+        ann.floor = poi.floor.code;
         [anns addObject:ann];
     }
     [self.mapPlugin addMXMPointAnnotations:anns];
     if (response.pois.count) {
         MXMPOI *first = response.pois.firstObject;
-        [self.mapPlugin selectBuilding:first.buildingId floor:first.floor zoomMode:MXMZoomAnimated edgePadding:UIEdgeInsetsZero];
+        [self.mapPlugin selectBuilding:first.buildingId floor:first.floor.code zoomMode:MXMZoomAnimated edgePadding:UIEdgeInsetsZero];
     }
     [ProgressHUD dismiss];
 }

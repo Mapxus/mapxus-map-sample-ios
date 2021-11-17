@@ -3,6 +3,44 @@
 
 [English Version](./README.md)
 
+
+## 怎么运行
+
+要创建一个构建配置文件，选择 "File > New File…" 菜单项（⌘n），向下滚动到标有 "Other" 的部分，并选择 "Configuration Settings File"。接下来，把它保存在你的项目目录的某个地方，确保把它添加到你想要的 Target 中。
+
+![](./readme_img/WX20211117-101553.png)
+
+在生成的文件中填入以下的内容，并按需修改变量值。
+
+```
+// your.xcconfig
+
+BUNDLE_ID = your.bundle.id
+
+APP_NAME = Mapxus Map Sample
+
+MAPXUS_KEY = @"your apiKey"
+
+MAPXUS_SECRET = @"your secret"
+
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) MAPXUS_KEY='$(MAPXUS_KEY)' MAPXUS_SECRET='$(MAPXUS_SECRET)'
+```
+
+一旦你创建了一个 xcconfig 文件，你可以把它分配给一个或多个相关目标的构建配置。
+
+![](./readme_img/WX20211116-181657.png)
+
+最后，在终端的项目根目录下运行以下命令来安装依赖包。
+
+```
+pod install
+```
+
+现在，你可以开始体验mapxus地图了。
+
+
+## 关于App
+
 * 地图创建
 
   1. 创建地图（代码）

@@ -95,7 +95,7 @@
         MXMPointAnnotation *annotation = [[MXMPointAnnotation alloc] init];
         annotation.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
         annotation.buildingId = poi.buildingId;
-        annotation.floor = poi.floor;
+        annotation.floor = poi.floor.code;
         annotation.title = [poi nameChooseBySystem];
         [anns addObject:annotation];
     }

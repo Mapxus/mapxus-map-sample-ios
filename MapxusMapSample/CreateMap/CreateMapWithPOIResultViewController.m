@@ -25,7 +25,7 @@
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.zoomLevel = self.zoomLevel;
     configuration.poiId = self.POIID;
-    configuration.defaultStyle = MXMStyleMAPXUS_V2;
+    configuration.defaultStyle = MXMStyleMAPXUS;
     // Create MapxusMap with MGLMapView instance and MXMConfiguration instance
     self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }

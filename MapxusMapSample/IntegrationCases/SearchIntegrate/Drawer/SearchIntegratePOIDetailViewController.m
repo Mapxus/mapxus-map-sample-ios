@@ -37,13 +37,13 @@
     MXMPointAnnotation *annotation = [[MXMPointAnnotation alloc] init];
     annotation.coordinate = CLLocationCoordinate2DMake(self.poi.location.latitude, self.poi.location.longitude);
     annotation.buildingId = self.poi.buildingId;
-    annotation.floor = self.poi.floor;
+    annotation.floor = self.poi.floor.code;
     annotation.title = [self.poi nameChooseBySystem];
     
     self.annotations = @[annotation];
     
     self.primaryVC = (MXMPrimaryContentViewController *)self.pulleyViewController.primaryContentViewController;
-    [self.primaryVC moveToPOICenter:CLLocationCoordinate2DMake(self.poi.location.latitude, self.poi.location.longitude) buildingID:self.poi.buildingId floor:self.poi.floor];
+    [self.primaryVC moveToPOICenter:CLLocationCoordinate2DMake(self.poi.location.latitude, self.poi.location.longitude) buildingID:self.poi.buildingId floor:self.poi.floor.code];
     [self fillData];
     [self layoutUI];
     [self requestNetBuilding];
@@ -81,7 +81,7 @@
         [self.datas addObject:@{@"tip": @"Opening Hours", @"value": self.poi.openingHours, @"cell": @"SearchIntegratePOIDetailBaseCell"}];
     }
     if (self.building) {
-        [self.datas addObject:@{@"name": [self.building nameChooseBySystem], @"type": self.building.building, @"address": [NSString stringWithFormat:@"%@ · %@", self.buildingAddress?:@"", self.poi.floor], @"cell": @"SearchIntegratePOIDetailBuildingCell"}];
+        [self.datas addObject:@{@"name": [self.building nameChooseBySystem], @"type": self.building.building, @"address": [NSString stringWithFormat:@"%@ · %@", self.buildingAddress?:@"", self.poi.floor.code], @"cell": @"SearchIntegratePOIDetailBuildingCell"}];
     }
     if (self.poi.phone) {
         [self.datas addObject:@{@"tip": @"Phone", @"value": self.poi.phone, @"cell": @"SearchIntegratePOIDetailBaseCell"}];

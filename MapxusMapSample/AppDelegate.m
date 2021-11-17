@@ -26,7 +26,7 @@
     // Setting up Mapxus Core Service delegate
     services.delegate = self;
     // Sign up for Mapxus mapping service
-    [services registerWithApiKey:@"your apiKey" secret:@"your secret"];
+    [services registerWithApiKey:MAPXUS_KEY secret:MAPXUS_SECRET];
 
     [self monitorNetwork];
     

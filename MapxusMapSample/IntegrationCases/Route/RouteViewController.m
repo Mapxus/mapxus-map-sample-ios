@@ -43,7 +43,7 @@
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.buildingId = @"harbourcity_hk_8b580b";
     configuration.floor = @"L2";
-    configuration.defaultStyle = MXMStyleMAPXUS_V2;
+    configuration.defaultStyle = MXMStyleMAPXUS;
     self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
     self.mapPlugin.selectorPosition = MXMSelectorPositionCenterRight;
     self.mapPlugin.delegate = self;
@@ -251,7 +251,6 @@
             [self navigationAction:self.goButton]; // 模拟按下
         } else {
             // repaint
-            [self.painter cleanRoute];
             [self.painter paintRouteUsingPath:path wayPoints:shortener.originalWayPoints];
             [self.painter changeOnBuilding:self.mapPlugin.building.identifier floor:self.mapPlugin.floor];
         }
@@ -351,7 +350,6 @@
     [self.mapPlugin removeMXMPointAnnotaions:self.mapPlugin.MXMAnnotations];
     
     self.painter.isAddStartDash = YES;
-    [self.painter cleanRoute];
     
     [self.painter paintRouteUsingPath:response.paths.firstObject wayPoints:response.wayPointList];
     for (NSString *key in self.painter.dto.keys) {

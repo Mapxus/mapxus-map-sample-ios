@@ -32,7 +32,7 @@
     [self layoutUI];
     self.times = 0;
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
-    configuration.defaultStyle = MXMStyleMAPXUS_V2;
+    configuration.defaultStyle = MXMStyleMAPXUS;
     self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 
     // Use Custom Location Manager to limit positioning delays caused by frequent angle changes
