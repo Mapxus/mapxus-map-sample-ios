@@ -238,7 +238,7 @@
     if (!_latTextField) {
         _latTextField = [[UITextField alloc] init];
         _latTextField.translatesAutoresizingMaskIntoConstraints = NO;
-        _latTextField.text = @"22.370787";
+        _latTextField.text = PARAMCONFIGINFO.search_nearby.latitude;
         _latTextField.placeholder = @"please enter number";
         _latTextField.keyboardType = UIKeyboardTypeDecimalPad;
         _latTextField.borderStyle = UITextBorderStyleRoundedRect;
@@ -251,7 +251,7 @@
     if (!_lonTextField) {
         _lonTextField = [[UITextField alloc] init];
         _lonTextField.translatesAutoresizingMaskIntoConstraints = NO;
-        _lonTextField.text = @"114.111375";
+        _lonTextField.text = PARAMCONFIGINFO.search_nearby.longitude;
         _lonTextField.placeholder = @"please enter number";
         _lonTextField.keyboardType = UIKeyboardTypeDecimalPad;
         _lonTextField.borderStyle = UITextBorderStyleRoundedRect;

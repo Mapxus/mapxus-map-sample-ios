@@ -9,6 +9,7 @@
 #import <Mapbox/Mapbox.h>
 #import <MapxusMapSDK/MapxusMapSDK.h>
 #import "IndoorPolygonViewController.h"
+#import "ParamConfigInstance.h"
 
 @interface IndoorPolygonViewController () <MGLMapViewDelegate, MapxusMapDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
@@ -28,19 +29,17 @@
 }
 
 - (void)addPolygon {
-    CLLocationCoordinate2D coordinates[] = {
-        CLLocationCoordinate2DMake(22.370860, 114.111155),
-        CLLocationCoordinate2DMake(22.371031, 114.111280),
-        CLLocationCoordinate2DMake(22.370941, 114.111481),
-        CLLocationCoordinate2DMake(22.370873, 114.111423),
-        CLLocationCoordinate2DMake(22.370816, 114.111512),
-        CLLocationCoordinate2DMake(22.370703, 114.111449),
-        CLLocationCoordinate2DMake(22.370860, 114.111155),
-    };
-    NSUInteger numberOfCoordinates = sizeof(coordinates) / sizeof(CLLocationCoordinate2D);
+    CLLocationCoordinate2D *coor = malloc(PARAMCONFIGINFO.polygons.count * sizeof(CLLocationCoordinate2D));
     
-    MGLPolygonFeature *polygon = [MGLPolygonFeature polygonWithCoordinates:coordinates count:numberOfCoordinates];
-    polygon.attributes = @{@"floor": @"L1", @"buildingId": @"tsuenwanplaza_hk_369d01"};
+    for (int i = 0; i < PARAMCONFIGINFO.polygons.count ; i++) {
+        ParamConfigPolygon *polygon = PARAMCONFIGINFO.polygons[i];
+        coor[i].latitude = polygon.latitude.doubleValue;
+        coor[i].longitude = polygon.longitude.doubleValue;
+    }
+
+    NSUInteger numberOfCoordinates = PARAMCONFIGINFO.polygons.count;
+    MGLPolygonFeature *polygon = [MGLPolygonFeature polygonWithCoordinates:coor count:numberOfCoordinates];
+    polygon.attributes = @{@"floor": PARAMCONFIGINFO.floor, @"buildingId": PARAMCONFIGINFO.buildingId};
     
     MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"source" shape:polygon options:nil];
     MGLFillStyleLayer *layer = [[MGLFillStyleLayer alloc] initWithIdentifier:@"layer" source:source];
@@ -79,7 +78,8 @@
     if (!_mapView) {
         _mapView = [[MGLMapView alloc] init];
         _mapView.translatesAutoresizingMaskIntoConstraints = NO;
-        _mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
+        _mapView.centerCoordinate = CLLocationCoordinate2DMake(PARAMCONFIGINFO.center_latitude, PARAMCONFIGINFO.center_longitude);
+//        _mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
         _mapView.zoomLevel = 18;
         _mapView.delegate = self;
     }

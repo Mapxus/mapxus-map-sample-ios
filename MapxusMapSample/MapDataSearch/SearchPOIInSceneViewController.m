@@ -11,6 +11,7 @@
 #import <MapxusMapSDK/MapxusMapSDK.h>
 #import "SearchPOIInSceneViewController.h"
 #import "SearchPOIInSceneParamViewController.h"
+#import "ParamConfigInstance.h"
 
 @interface SearchPOIInSceneViewController () <MGLMapViewDelegate, MXMSearchDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
@@ -102,7 +103,7 @@
     if (!_mapView) {
         _mapView = [[MGLMapView alloc] init];
         _mapView.translatesAutoresizingMaskIntoConstraints = NO;
-        _mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
+        _mapView.centerCoordinate = CLLocationCoordinate2DMake(PARAMCONFIGINFO.center_latitude, PARAMCONFIGINFO.center_longitude);
         _mapView.zoomLevel = 18;
         _mapView.delegate = self;
     }

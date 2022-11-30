@@ -7,6 +7,7 @@
 //
 
 #import "MXMPrimaryContentViewController.h"
+#import "ParamConfigInstance.h"
 
 @interface MXMPrimaryContentViewController () <MGLMapViewDelegate, MapxusMapDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
@@ -21,8 +22,8 @@
     [self layoutUI];
 
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
-    configuration.buildingId = @"harbourcity_hk_8b580b";
-    configuration.floor = @"L2";
+    configuration.buildingId = PARAMCONFIGINFO.buildingId_1;
+    configuration.floor = PARAMCONFIGINFO.floor;
     configuration.defaultStyle = MXMStyleMAPXUS;
     self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
     self.mapPlugin.selectorPosition = MXMSelectorPositionTopRight;
