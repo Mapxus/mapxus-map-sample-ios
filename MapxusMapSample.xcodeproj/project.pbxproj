@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		52873AF62936084300D27143 /* ParamConfigInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 52873AF52936084300D27143 /* ParamConfigInstance.m */; };
-		52873AF82936102100D27143 /* paramConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 52873AF72936102100D27143 /* paramConfig.json */; };
+		52873AF82936102100D27143 /* paramConfig_mapxus.json in Resources */ = {isa = PBXBuildFile; fileRef = 52873AF72936102100D27143 /* paramConfig_mapxus.json */; };
 		C15E72DA8653D29FC9C04174 /* Pods_MapxusMapSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F4ABE352B03EF49E072948 /* Pods_MapxusMapSample.framework */; };
 		CAE3C695D3128BDE5CFD6BCA /* Pods_MapxusMapSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A072C56DB036E61BB8E83A87 /* Pods_MapxusMapSampleTests.framework */; };
 		D6061AD724AB154A0065FBA2 /* MBXCustomLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6061AD524AB154A0065FBA2 /* MBXCustomLocationManager.m */; };
@@ -132,7 +132,7 @@
 		5282F6052935EC8600CE2BBF /* mapxus.test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = mapxus.test.xcconfig; sourceTree = "<group>"; };
 		52873AF42936084300D27143 /* ParamConfigInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParamConfigInstance.h; sourceTree = "<group>"; };
 		52873AF52936084300D27143 /* ParamConfigInstance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParamConfigInstance.m; sourceTree = "<group>"; };
-		52873AF72936102100D27143 /* paramConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = paramConfig.json; sourceTree = "<group>"; };
+		52873AF72936102100D27143 /* paramConfig_mapxus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = paramConfig_mapxus.json; sourceTree = "<group>"; };
 		59F4ABE352B03EF49E072948 /* Pods_MapxusMapSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapxusMapSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6761E476883A8A50EAEF788B /* Pods-MapxusMapSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSample/Pods-MapxusMapSample.debug.xcconfig"; sourceTree = "<group>"; };
 		A072C56DB036E61BB8E83A87 /* Pods_MapxusMapSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapxusMapSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -547,7 +547,7 @@
 				D684BC6720FED921004E85D9 /* AppDelegate.m */,
 				D6B510C924C533BF0084D813 /* Param.h */,
 				D695842B24C7E07D00466372 /* Macro.h */,
-				52873AF72936102100D27143 /* paramConfig.json */,
+				52873AF72936102100D27143 /* paramConfig_mapxus.json */,
 				52873AF42936084300D27143 /* ParamConfigInstance.h */,
 				52873AF52936084300D27143 /* ParamConfigInstance.m */,
 				D684BCEE20FF8A16004E85D9 /* FeaturesList */,
@@ -825,7 +825,7 @@
 				D684BD9E20FF8A69004E85D9 /* LaunchScreen.storyboard in Resources */,
 				D684BD9F20FF8A69004E85D9 /* Main.storyboard in Resources */,
 				D6B510A424C00E050084D813 /* CreateMapByXibViewController.xib in Resources */,
-				52873AF82936102100D27143 /* paramConfig.json in Resources */,
+				52873AF82936102100D27143 /* paramConfig_mapxus.json in Resources */,
 				D684BDA220FF8AC5004E85D9 /* Localizable.strings in Resources */,
 				D684BD9420FF8A19004E85D9 /* Assets.xcassets in Resources */,
 			);
