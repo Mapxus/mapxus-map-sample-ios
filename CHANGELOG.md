@@ -1,7 +1,4 @@
-v5.1.0
-2022-07-07
+v5.2.0
+2022-12-06
 
-1. Update Mapxus SDKs v4.1.0.
-    * Show all building floor on the screen
-    * Fix the bug that causes errors in drawing turning points
-2. Update POI id.
+1. Update Mapxus SDKs to v4.2.0.
