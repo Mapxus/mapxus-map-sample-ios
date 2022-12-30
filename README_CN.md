@@ -23,7 +23,9 @@ MAPXUS_KEY = @"your apiKey"
 
 MAPXUS_SECRET = @"your secret"
 
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) MAPXUS_KEY='$(MAPXUS_KEY)' MAPXUS_SECRET='$(MAPXUS_SECRET)'
+PARAM_CONFIG_FILE = @"paramConfig_mapxus"
+
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) MAPXUS_KEY='$(MAPXUS_KEY)' MAPXUS_SECRET='$(MAPXUS_SECRET)' PARAM_CONFIG_FILE='$(PARAM_CONFIG_FILE)'
 ```
 
 一旦你创建了一个 xcconfig 文件，你可以把它分配给一个或多个相关目标的构建配置。

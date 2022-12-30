@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.dataSource addObject:@"9598328"];
+    [self.dataSource addObject:PARAMCONFIGINFO.poiId];
     [self layoutUI];
 }
 

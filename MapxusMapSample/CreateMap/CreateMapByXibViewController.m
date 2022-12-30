@@ -9,6 +9,7 @@
 #import <Mapbox/Mapbox.h>
 #import <MapxusMapSDK/MapxusMapSDK.h>
 #import "CreateMapByXibViewController.h"
+#import "ParamConfigInstance.h"
 
 @interface CreateMapByXibViewController ()
 @property (weak, nonatomic) IBOutlet MGLMapView *mapView;
@@ -20,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Set the center coordinate of the map. When this value is changed, the scale level of the map does not change.
-    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
+    self.mapView.centerCoordinate = CLLocationCoordinate2DMake(PARAMCONFIGINFO.center_latitude, PARAMCONFIGINFO.center_longitude);
     // Set the map scale level
     self.mapView.zoomLevel = 18;
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];

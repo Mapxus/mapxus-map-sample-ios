@@ -13,6 +13,7 @@
 #import "MXMSimulateLocationManager.h"
 #import "SurroundingIdentificationViewController.h"
 #import "SurroundingIdentificationParamViewController.h"
+#import "ParamConfigInstance.h"
 
 @interface SurroundingIdentificationViewController () <MGLMapViewDelegate, MXMSearchDelegate, MXMGeoCodeSearchDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
@@ -86,6 +87,7 @@
     CLLocation *location = [[CLLocation alloc] initWithLatitude:[(NSString *)param[@"latitude"] doubleValue] longitude:[(NSString *)param[@"longitude"] doubleValue]];
     location.myFloor = floor;
     // Set analog positioning
+    self.mapView.centerCoordinate = location.coordinate;
     [self.locationManager setSimulateLocation:location];
 }
 
@@ -161,7 +163,7 @@
     if (!_mapView) {
         _mapView = [[MGLMapView alloc] init];
         _mapView.translatesAutoresizingMaskIntoConstraints = NO;
-        _mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
+        _mapView.centerCoordinate = CLLocationCoordinate2DMake(PARAMCONFIGINFO.center_latitude, PARAMCONFIGINFO.center_longitude);
         _mapView.zoomLevel = 18;
         _mapView.delegate = self;
     }

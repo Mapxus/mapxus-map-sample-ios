@@ -252,7 +252,7 @@
         _buildingIDTextField.delegate = self;
         _buildingIDTextField.keyboardType = UIKeyboardTypeDefault;
         _buildingIDTextField.borderStyle = UITextBorderStyleRoundedRect;
-        _buildingIDTextField.text = @"tsuenwanplaza_hk_369d01";
+        _buildingIDTextField.text = PARAMCONFIGINFO.buildingId;;
     }
     return _buildingIDTextField;
 }
@@ -264,7 +264,7 @@
         _floorTextField.delegate = self;
         _floorTextField.keyboardType = UIKeyboardTypeDefault;
         _floorTextField.borderStyle = UITextBorderStyleRoundedRect;
-        _floorTextField.text = @"L3";
+        _floorTextField.text = PARAMCONFIGINFO.floor;
     }
     return _floorTextField;
 }

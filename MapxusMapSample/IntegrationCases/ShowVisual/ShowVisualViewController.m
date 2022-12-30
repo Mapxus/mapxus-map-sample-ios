@@ -41,8 +41,8 @@
     self.isFrist = YES;
     
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
-    configuration.buildingId = @"tsuenwanplaza_hk_369d01";
-    configuration.floor = @"L1";
+    configuration.buildingId = PARAMCONFIGINFO.buildingId;;
+    configuration.floor = PARAMCONFIGINFO.floor;
     configuration.defaultStyle = MXMStyleMAPXUS;
     self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mglMapView configuration:configuration];
     self.mapPlugin.delegate = self;

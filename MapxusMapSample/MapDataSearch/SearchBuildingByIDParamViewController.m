@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.dataSource addObject:@"tsuenwanplaza_hk_369d01"];
+    [self.dataSource addObject:PARAMCONFIGINFO.buildingId];
     [self layoutUI];
 }
 

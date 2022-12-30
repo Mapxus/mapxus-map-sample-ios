@@ -9,6 +9,8 @@
 #ifndef Macro_h
 #define Macro_h
 
+#import "ParamConfigInstance.h"
+
 #define leadingSpace 20
 #define trailingSpace 15
 #define moduleSpace 20

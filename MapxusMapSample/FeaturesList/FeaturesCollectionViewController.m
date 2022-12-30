@@ -10,7 +10,7 @@
 #import "FeatureCollectionViewCell.h"
 #import "MenuViewController.h"
 #import "Feature.h"
-
+#import "ParamConfigInstance.h"
 
 @interface FeaturesCollectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MenuViewControllerDelegate, UIScrollViewDelegate>
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
@@ -35,6 +35,9 @@ static NSString * const reuseIdentifier = @"Cell";
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStyleDone target:self action:@selector(showMenu)];
     leftItem.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = leftItem;
+    
+    //单例实现保存数据
+    [ParamConfigInstance shared];
     
     self.titleList = @[NSLocalizedString(@"Map Creation", nil),
                        NSLocalizedString(@"Map Interaction", nil),

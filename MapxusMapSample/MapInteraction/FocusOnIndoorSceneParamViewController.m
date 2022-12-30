@@ -228,7 +228,7 @@
         _buildingTextField = [[UITextField alloc] init];
         _buildingTextField.translatesAutoresizingMaskIntoConstraints = NO;
         _buildingTextField.borderStyle = UITextBorderStyleRoundedRect;
-        _buildingTextField.text = @"harbourcity_hk_8b580b";
+        _buildingTextField.text = PARAMCONFIGINFO.buildingId_1;
         _buildingTextField.keyboardType = UIKeyboardTypeASCIICapable;
         _buildingTextField.delegate = self;
     }
@@ -248,7 +248,7 @@
     if (!_floorTextField) {
         _floorTextField = [[UITextField alloc] init];
         _floorTextField.translatesAutoresizingMaskIntoConstraints = NO;
-        _floorTextField.text = @"L3";
+        _floorTextField.text = PARAMCONFIGINFO.floor;
         _floorTextField.borderStyle = UITextBorderStyleRoundedRect;
         _floorTextField.keyboardType = UIKeyboardTypeASCIICapable;
         _floorTextField.delegate = self;

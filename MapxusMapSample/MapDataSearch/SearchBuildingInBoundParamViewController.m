@@ -309,7 +309,7 @@
     if (!_minLatTextField) {
         _minLatTextField = [[UITextField alloc] init];
         _minLatTextField.translatesAutoresizingMaskIntoConstraints = NO;
-        _minLatTextField.text = @"22.292540";
+        _minLatTextField.text = PARAMCONFIGINFO.specified_area.min_latitude;
         _minLatTextField.placeholder = @"please enter number";
         _minLatTextField.keyboardType = UIKeyboardTypeDecimalPad;
         _minLatTextField.borderStyle = UITextBorderStyleRoundedRect;
@@ -322,7 +322,7 @@
     if (!_minLonTextField) {
         _minLonTextField = [[UITextField alloc] init];
         _minLonTextField.translatesAutoresizingMaskIntoConstraints = NO;
-        _minLonTextField.text = @"114.158608";
+        _minLonTextField.text = PARAMCONFIGINFO.specified_area.min_longitude;
         _minLonTextField.placeholder = @"please enter number";
         _minLonTextField.keyboardType = UIKeyboardTypeDecimalPad;
         _minLonTextField.borderStyle = UITextBorderStyleRoundedRect;
@@ -335,7 +335,7 @@
     if (!_maxLatTextField) {
         _maxLatTextField = [[UITextField alloc] init];
         _maxLatTextField.translatesAutoresizingMaskIntoConstraints = NO;
-        _maxLatTextField.text = @"22.310600";
+        _maxLatTextField.text = PARAMCONFIGINFO.specified_area.max_latitude;
         _maxLatTextField.placeholder = @"please enter number";
         _maxLatTextField.keyboardType = UIKeyboardTypeDecimalPad;
         _maxLatTextField.borderStyle = UITextBorderStyleRoundedRect;
@@ -348,7 +348,7 @@
     if (!_maxLonTextField) {
         _maxLonTextField = [[UITextField alloc] init];
         _maxLonTextField.translatesAutoresizingMaskIntoConstraints = NO;
-        _maxLonTextField.text = @"114.172422";
+        _maxLonTextField.text = PARAMCONFIGINFO.specified_area.max_longitude;
         _maxLonTextField.placeholder = @"please enter number";
         _maxLonTextField.keyboardType = UIKeyboardTypeDecimalPad;
         _maxLonTextField.borderStyle = UITextBorderStyleRoundedRect;

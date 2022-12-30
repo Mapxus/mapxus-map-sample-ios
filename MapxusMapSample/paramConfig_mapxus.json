@@ -1,0 +1,98 @@
+{
+    "buildingId" : "tsuenwanplaza_hk_369d01",
+    "buildingId_1" : "harbourcity_hk_8b580b",
+    "poiId" : "9598328",
+    "floor" : "L2",
+    "center_latitude" : "22.370787",
+    "center_longitude" : "114.111375",
+
+    "polygons" : [
+        {
+            "latitude" : "22.370860",
+            "longitude" : "114.111155",
+        },
+        {
+            "latitude" : "22.371031",
+            "longitude" : "114.111280",
+        },
+        {
+            "latitude" : "22.370941",
+            "longitude" : "114.111481",
+        },
+        {
+            "latitude" : "22.370873",
+            "longitude" : "114.111423",
+        },
+        {
+            "latitude" : "22.370816",
+            "longitude" : "114.111512",
+        },
+        {
+            "latitude" : "22.370703",
+            "longitude" : "114.111449",
+        },
+        {
+            "latitude" : "22.370860",
+            "longitude" : "114.111155",
+        }
+    ],
+    "drawing_markers" : [
+        {
+            "title" : "室外测试点",
+            "subtitle" : "lat:22.370779,lon:114.111341",
+            "latitude" : "22.370779",
+            "longitude" : "114.111341",
+        },
+        {
+            "title" : "室内测试点",
+            "subtitle" : "L1层",
+            "buildingId" : "tsuenwanplaza_hk_369d01",
+            "latitude" : "22.371147",
+            "longitude" : "114.111073",
+            "floor" : "L1",
+        },
+        {
+            "title" : "室内测试点",
+            "subtitle" : "L2层",
+            "buildingId" : "tsuenwanplaza_hk_369d01",
+            "latitude" : "22.370561",
+            "longitude" : "114.111290",
+            "floor" : "L2",
+        },
+        {
+            "title" : "室内测试点",
+            "subtitle" : "1F层",
+            "buildingId" : "tsuenwanplaza_hk_369d01",
+            "latitude" : "22.371006",
+            "longitude" : "114.111675",
+            "floor" : "1F",
+        },
+        {
+            "title" : "室内测试点",
+            "subtitle" : "L3层",
+            "buildingId" : "tsuenwanplaza_hk_369d01",
+            "latitude" : "22.370606",
+            "longitude" : "114.111830",
+            "floor" : "L3",
+        }
+    ],
+    
+    "specified_area" : {
+        "min_latitude" : "22.292540",
+        "min_longitude" : "114.158608",
+        "max_latitude" : "22.310600",
+        "max_longitude" : "114.172422",
+    },
+    
+    "search_nearby" : {
+        "latitude" : "22.370787",
+        "longitude" : "114.111375",
+    },
+    
+    "rectangular_area_bbox" : {
+        "min_latitude" : "22.292540",
+        "min_longitude" : "114.158608",
+        "max_latitude" : "22.310600",
+        "max_longitude" : "114.172422",
+    },
+}

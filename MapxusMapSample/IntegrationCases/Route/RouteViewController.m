@@ -11,6 +11,7 @@
 #import <MapxusComponentKit/MapxusComponentKit.h>
 #import "RouteViewController.h"
 #import "MXMRouteLocationManager.h"
+#import "ParamConfigInstance.h"
 
 @interface RouteViewController () <MapxusMapDelegate, MXMSearchDelegate, MGLMapViewDelegate, TrackDelegate, MXMRouteShortenerDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
@@ -41,8 +42,8 @@
     [self layoutUI];
     // Specify the scene initialization map
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
-    configuration.buildingId = @"harbourcity_hk_8b580b";
-    configuration.floor = @"L2";
+    configuration.buildingId = PARAMCONFIGINFO.buildingId_1;
+    configuration.floor = PARAMCONFIGINFO.floor;
     configuration.defaultStyle = MXMStyleMAPXUS;
     self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
     self.mapPlugin.selectorPosition = MXMSelectorPositionCenterRight;
