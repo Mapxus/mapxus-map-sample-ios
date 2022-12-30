@@ -23,7 +23,9 @@ MAPXUS_KEY = @"your apiKey"
 
 MAPXUS_SECRET = @"your secret"
 
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) MAPXUS_KEY='$(MAPXUS_KEY)' MAPXUS_SECRET='$(MAPXUS_SECRET)'
+PARAM_CONFIG_FILE = @"paramConfig_mapxus"
+
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) MAPXUS_KEY='$(MAPXUS_KEY)' MAPXUS_SECRET='$(MAPXUS_SECRET)' PARAM_CONFIG_FILE='$(PARAM_CONFIG_FILE)'
 ```
 
 Once you’ve created an xcconfig file, you can assign it to one or more build configurations for its associated targets.

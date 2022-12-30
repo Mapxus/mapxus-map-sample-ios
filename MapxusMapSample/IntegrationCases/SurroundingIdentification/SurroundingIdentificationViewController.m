@@ -87,6 +87,7 @@
     CLLocation *location = [[CLLocation alloc] initWithLatitude:[(NSString *)param[@"latitude"] doubleValue] longitude:[(NSString *)param[@"longitude"] doubleValue]];
     location.myFloor = floor;
     // Set analog positioning
+    self.mapView.centerCoordinate = location.coordinate;
     [self.locationManager setSimulateLocation:location];
 }
 

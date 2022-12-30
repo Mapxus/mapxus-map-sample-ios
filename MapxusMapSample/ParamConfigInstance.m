@@ -25,7 +25,7 @@ static ParamConfigInstance *__onetimeClass;
 {
     self = [super init];
     if (self) {
-        NSDictionary *param = [self getJsonDataJsonname:@"paramConfig_mapxus"];
+        NSDictionary *param = [self getJsonDataJsonname:PARAM_CONFIG_FILE];
         self.info = [[ParamConfigInfo alloc] initWithDictionary:param];
     }
     return self;

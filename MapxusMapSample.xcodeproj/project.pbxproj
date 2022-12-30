@@ -126,10 +126,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5282F6022935EC8600CE2BBF /* mapxus.common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = mapxus.common.xcconfig; sourceTree = "<group>"; };
-		5282F6032935EC8600CE2BBF /* kawasaki.prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = kawasaki.prod.xcconfig; sourceTree = "<group>"; };
-		5282F6042935EC8600CE2BBF /* mapxus.prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = mapxus.prod.xcconfig; sourceTree = "<group>"; };
-		5282F6052935EC8600CE2BBF /* mapxus.test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = mapxus.test.xcconfig; sourceTree = "<group>"; };
 		52873AF42936084300D27143 /* ParamConfigInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParamConfigInstance.h; sourceTree = "<group>"; };
 		52873AF52936084300D27143 /* ParamConfigInstance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParamConfigInstance.m; sourceTree = "<group>"; };
 		52873AF72936102100D27143 /* paramConfig_mapxus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = paramConfig_mapxus.json; sourceTree = "<group>"; };
@@ -341,17 +337,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5282F6012935EC8600CE2BBF /* BuildConfig */ = {
-			isa = PBXGroup;
-			children = (
-				5282F6022935EC8600CE2BBF /* mapxus.common.xcconfig */,
-				5282F6032935EC8600CE2BBF /* kawasaki.prod.xcconfig */,
-				5282F6042935EC8600CE2BBF /* mapxus.prod.xcconfig */,
-				5282F6052935EC8600CE2BBF /* mapxus.test.xcconfig */,
-			);
-			path = BuildConfig;
-			sourceTree = "<group>";
-		};
 		9EF10F73C9FD8B939971BDAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -539,7 +524,6 @@
 		D684BC6520FED921004E85D9 /* MapxusMapSample */ = {
 			isa = PBXGroup;
 			children = (
-				5282F6012935EC8600CE2BBF /* BuildConfig */,
 				D684BDA020FF8AC5004E85D9 /* Localizable.strings */,
 				D684BD9A20FF8A68004E85D9 /* LaunchScreen.storyboard */,
 				D684BD9C20FF8A69004E85D9 /* Main.storyboard */,
@@ -1088,7 +1072,6 @@
 /* Begin XCBuildConfiguration section */
 		D684BC8D20FED922004E85D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5282F6032935EC8600CE2BBF /* kawasaki.prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1149,7 +1132,6 @@
 		};
 		D684BC8E20FED922004E85D9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5282F6032935EC8600CE2BBF /* kawasaki.prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1225,7 +1207,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 5.1.0;
+				MARKETING_VERSION = 6.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapxus.kawasaki.mapSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1259,7 +1241,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 5.1.0;
+				MARKETING_VERSION = 6.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapxus.kawasaki.mapSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
