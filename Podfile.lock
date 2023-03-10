@@ -7,54 +7,54 @@ PODS:
   - AFNetworking/Security (4.0.1)
   - AFNetworking/Serialization (4.0.1)
   - IQKeyboardManager (6.5.11)
-  - MapxusBaseSDK (4.2.1):
+  - MapxusBaseSDK-jp (5.1.2):
     - AFNetworking/NSURLSession (~> 4.0)
     - AFNetworking/Reachability (~> 4.0)
     - AFNetworking/Security (~> 4.0)
     - AFNetworking/Serialization (~> 4.0)
     - YYModel (~> 1.0.4)
-  - MapxusComponentKit (4.2.1):
-    - MapxusMapSDK (= 4.2.1)
-  - MapxusMapSDK (4.2.1):
-    - MapxusBaseSDK (= 4.2.1)
+  - MapxusComponentKit-jp (5.1.2):
+    - MapxusMapSDK-jp (= 5.1.2)
+  - MapxusMapSDK-jp (5.1.2):
+    - MapxusBaseSDK-jp (= 5.1.2)
     - MapxusRenderSDK (= 5.12.2)
   - MapxusRenderSDK (5.12.2)
-  - MapxusVisualSDK (4.2.1):
-    - MapxusBaseSDK (= 4.2.1)
+  - MapxusVisualSDK-jp (5.1.2):
+    - MapxusBaseSDK-jp (= 5.1.2)
   - ProgressHUD (2.70)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - IQKeyboardManager
-  - MapxusBaseSDK
-  - MapxusComponentKit
-  - MapxusMapSDK
-  - MapxusVisualSDK
+  - MapxusBaseSDK-jp
+  - MapxusComponentKit-jp
+  - MapxusMapSDK-jp
+  - MapxusVisualSDK-jp
   - ProgressHUD
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - IQKeyboardManager
-    - MapxusBaseSDK
-    - MapxusComponentKit
-    - MapxusMapSDK
+    - MapxusBaseSDK-jp
+    - MapxusComponentKit-jp
+    - MapxusMapSDK-jp
     - MapxusRenderSDK
-    - MapxusVisualSDK
+    - MapxusVisualSDK-jp
     - ProgressHUD
     - YYModel
 
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
-  MapxusBaseSDK: c1c30adfcaa386f02668e45b509d4287cf3931b3
-  MapxusComponentKit: 086bce44b09e54d53e08bf8247a998530eab97c2
-  MapxusMapSDK: c3f54892bca23312228b72565c04a0e9ff2003f0
+  MapxusBaseSDK-jp: 390995087674034052dac8905f6ed4077190a727
+  MapxusComponentKit-jp: ceac233f0119b9238f70877aa7329e690933f6eb
+  MapxusMapSDK-jp: a7be084ee42fecdb973079e0bf5bd7e5e9615585
   MapxusRenderSDK: cd04806db0cc904b49f8ec870d368b3d78821f87
-  MapxusVisualSDK: 9482fa8a4c04b71a427e6d27027e3dac6904a8cb
+  MapxusVisualSDK-jp: 27bce231d22ae44c9db0577d1058eabcb5fbc07b
   ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: b56a1ff6dcc910bcdae1bd00e3083ddf08fa67bf
+PODFILE CHECKSUM: aca8bd9389604e03be94c67a3b8856e021ce97ef
 
 COCOAPODS: 1.11.3

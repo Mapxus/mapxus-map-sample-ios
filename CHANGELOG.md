@@ -1,4 +1,4 @@
-v5.2.1
-2023-01-18
+v6.1.2
+2023-03-10
 
-1. Update Mapxus SDKs to v4.2.1.
+1. Update MapxusJP SDKs to v5.1.2.
