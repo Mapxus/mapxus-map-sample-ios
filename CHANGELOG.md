@@ -1,4 +1,4 @@
-v6.1.2
-2023-03-10
+v6.2.0
+2023-05-10
 
-1. Update MapxusJP SDKs to v5.1.2.
+1. Update the offset of the search.
