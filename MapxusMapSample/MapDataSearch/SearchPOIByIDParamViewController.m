@@ -118,10 +118,16 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.dataSource removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [tableView reloadData];
+        });
     }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (self.dataSource.count >= 10) {
+      return [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 64)];
+    }
     UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
     addButton.frame = CGRectMake((KScreenWidth-200)/2, 10, 200, 44);
     addButton.layer.cornerRadius = 5;

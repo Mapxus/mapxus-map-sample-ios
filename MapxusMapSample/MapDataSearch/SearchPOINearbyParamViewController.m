@@ -333,7 +333,7 @@
     if (!_meterDistanceTip) {
         _meterDistanceTip = [[UILabel alloc] init];
         _meterDistanceTip.translatesAutoresizingMaskIntoConstraints = NO;
-        _meterDistanceTip.text = @"meterDistance";
+        _meterDistanceTip.text = @"meterDistance(≤ 10000)";
     }
     return _meterDistanceTip;
 }
@@ -342,7 +342,7 @@
     if (!_offsetTip) {
         _offsetTip = [[UILabel alloc] init];
         _offsetTip.translatesAutoresizingMaskIntoConstraints = NO;
-        _offsetTip.text = @"offset";
+        _offsetTip.text = @"offset (≤ 100)";
     }
     return _offsetTip;
 }
