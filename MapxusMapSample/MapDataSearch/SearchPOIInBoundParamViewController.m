@@ -233,7 +233,7 @@
     if (!_offsetTip) {
         _offsetTip = [[UILabel alloc] init];
         _offsetTip.translatesAutoresizingMaskIntoConstraints = NO;
-        _offsetTip.text = @"offset";
+        _offsetTip.text = @"offset (≤ 100)";
     }
     return _offsetTip;
 }
@@ -251,7 +251,7 @@
     if (!_bboxTip) {
         _bboxTip = [[UILabel alloc] init];
         _bboxTip.translatesAutoresizingMaskIntoConstraints = NO;
-        _bboxTip.text = @"bbox";
+        _bboxTip.text = @"bbox(area ≤ 400 km²)";
     }
     return _bboxTip;
 }

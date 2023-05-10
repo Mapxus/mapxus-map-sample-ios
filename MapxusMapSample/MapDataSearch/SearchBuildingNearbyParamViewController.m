@@ -280,7 +280,7 @@
     if (!_offsetTip) {
         _offsetTip = [[UILabel alloc] init];
         _offsetTip.translatesAutoresizingMaskIntoConstraints = NO;
-        _offsetTip.text = @"offset";
+        _offsetTip.text = @"offset (≤ 100)";
     }
     return _offsetTip;
 }

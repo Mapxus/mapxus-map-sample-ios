@@ -220,7 +220,7 @@
     if (!_distanceTip) {
         _distanceTip = [[UILabel alloc] init];
         _distanceTip.translatesAutoresizingMaskIntoConstraints = NO;
-        _distanceTip.text = @"distance";
+        _distanceTip.text = @"distance(≤ 100)";
     }
     return _distanceTip;
 }
