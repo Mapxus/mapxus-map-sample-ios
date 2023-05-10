@@ -1,4 +1,4 @@
-v5.2.1
-2023-01-18
+v5.3.0
+2023-05-10
 
-1. Update Mapxus SDKs to v4.2.1.
+1. Update the offset of the search.
