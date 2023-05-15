@@ -26,6 +26,7 @@
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
     self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapPlugin.collapseCopyright = YES;
 }
 
 - (void)layoutUI {

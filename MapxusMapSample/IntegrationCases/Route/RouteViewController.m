@@ -253,7 +253,14 @@
         } else {
             // repaint
             [self.painter paintRouteUsingPath:path wayPoints:shortener.originalWayPoints];
-            [self.painter changeOnBuilding:self.mapPlugin.building.identifier floor:self.mapPlugin.floor];
+            MXMOrdinal *ordinal;
+            for (MXMFloor *floor in self.mapPlugin.building.floors) {
+              if ([self.mapPlugin.floor isEqualToString:floor.code]) {
+                ordinal = floor.ordinal;
+                break;
+              }
+            }
+            [self.painter changeOnVenue:self.mapPlugin.building.venueId ordinal:ordinal];
         }
     }
 }
@@ -276,7 +283,14 @@
 - (void)mapView:(MapxusMap *)mapView didChangeFloor:(NSString *)floorName atBuilding:(MXMGeoBuilding *)building
 {
     // show different line on different scene
-    [self.painter changeOnBuilding:building.identifier floor:floorName];
+    MXMOrdinal *ordinal;
+    for (MXMFloor *floor in building.floors) {
+      if ([floor.code isEqualToString:floorName]) {
+        ordinal = floor.ordinal;
+        break;
+      }
+    }
+    [self.painter changeOnVenue:building.venueId ordinal:ordinal];
 }
 
 /// Use two callbacks to cover all situations
@@ -357,7 +371,6 @@
         if (![key containsString:@"outdoor"]) {
             MXMParagraph *paph = self.painter.dto.paragraphs[key];
             [self.mapPlugin selectBuilding:paph.buildingId floor:paph.floor zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
-            [self.painter changeOnBuilding:paph.buildingId floor:paph.floor];
             [self.painter focusOnKeys:@[key] edgePadding:UIEdgeInsetsMake(130, 30, 110, 80)];
             break;
         }
