@@ -111,7 +111,7 @@ platform :ios do
       workspace: scheme + ".xcworkspace",
       scheme: scheme,
       xcconfig: config_file,
-      include_bitcode: true,
+      include_bitcode: false,
       include_symbols: true,
       export_method: 'app-store',
       xcargs: "-allowProvisioningUpdates"
