@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		52873AF62936084300D27143 /* ParamConfigInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 52873AF52936084300D27143 /* ParamConfigInstance.m */; };
+		893C36AD2A2983210058561A /* InstructionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C36AC2A2983210058561A /* InstructionListViewController.m */; };
+		893C36B12A2998A00058561A /* UIButton+StatusBackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C36B02A2998A00058561A /* UIButton+StatusBackgroundColor.m */; };
+		893C36C12A29CE100058561A /* StatisticalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C36C02A29CE100058561A /* StatisticalView.m */; };
 		C15E72DA8653D29FC9C04174 /* Pods_MapxusMapSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F4ABE352B03EF49E072948 /* Pods_MapxusMapSample.framework */; };
 		CAE3C695D3128BDE5CFD6BCA /* Pods_MapxusMapSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A072C56DB036E61BB8E83A87 /* Pods_MapxusMapSampleTests.framework */; };
 		D6061AD724AB154A0065FBA2 /* MBXCustomLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6061AD524AB154A0065FBA2 /* MBXCustomLocationManager.m */; };
@@ -131,6 +134,12 @@
 		52873AF72936102100D27143 /* paramConfig_mapxus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = paramConfig_mapxus.json; sourceTree = "<group>"; };
 		59F4ABE352B03EF49E072948 /* Pods_MapxusMapSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapxusMapSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6761E476883A8A50EAEF788B /* Pods-MapxusMapSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSample/Pods-MapxusMapSample.debug.xcconfig"; sourceTree = "<group>"; };
+		893C36AB2A2983210058561A /* InstructionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstructionListViewController.h; sourceTree = "<group>"; };
+		893C36AC2A2983210058561A /* InstructionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstructionListViewController.m; sourceTree = "<group>"; };
+		893C36AF2A2998750058561A /* UIButton+StatusBackgroundColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+StatusBackgroundColor.h"; sourceTree = "<group>"; };
+		893C36B02A2998A00058561A /* UIButton+StatusBackgroundColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+StatusBackgroundColor.m"; sourceTree = "<group>"; };
+		893C36BF2A29CE100058561A /* StatisticalView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatisticalView.h; sourceTree = "<group>"; };
+		893C36C02A29CE100058561A /* StatisticalView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatisticalView.m; sourceTree = "<group>"; };
 		A072C56DB036E61BB8E83A87 /* Pods_MapxusMapSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapxusMapSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEED814EAD36ACE9D95D5810 /* Pods-MapxusMapSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSampleTests/Pods-MapxusMapSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		B41AF1415917CC65CC4C0DB8 /* Pods-MapxusMapSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSampleTests/Pods-MapxusMapSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -426,6 +435,12 @@
 				D67F00DE24C983EC003D40BA /* RouteViewController.m */,
 				D67F00E324C98780003D40BA /* MXMRouteLocationManager.h */,
 				D67F00E424C98780003D40BA /* MXMRouteLocationManager.m */,
+				893C36AB2A2983210058561A /* InstructionListViewController.h */,
+				893C36AC2A2983210058561A /* InstructionListViewController.m */,
+				893C36AF2A2998750058561A /* UIButton+StatusBackgroundColor.h */,
+				893C36B02A2998A00058561A /* UIButton+StatusBackgroundColor.m */,
+				893C36BF2A29CE100058561A /* StatisticalView.h */,
+				893C36C02A29CE100058561A /* StatisticalView.m */,
 			);
 			path = Route;
 			sourceTree = "<group>";
@@ -954,6 +969,7 @@
 				D695842124C6ECB300466372 /* SearchBuildingNearbyParamViewController.m in Sources */,
 				D6B510CF24C58DA00084D813 /* IndoorPolygonViewController.m in Sources */,
 				D6B510BC24C1560D0084D813 /* FocusOnIndoorSceneViewController.m in Sources */,
+				893C36AD2A2983210058561A /* InstructionListViewController.m in Sources */,
 				D672A1E424D27732005777A7 /* UIViewController+Pulley.m in Sources */,
 				D664220E24CFCAE40078404B /* MXMPrimaryContentViewController.m in Sources */,
 				D6B510C524C1564B0084D813 /* IndoorSceneInAndOutListeningViewController.m in Sources */,
@@ -978,6 +994,7 @@
 				D695842424C7CF6C00466372 /* SearchBuildingByIDParamViewController.m in Sources */,
 				D684BD6520FF8A19004E85D9 /* MenuTableViewCell.m in Sources */,
 				D684BC6820FED921004E85D9 /* AppDelegate.m in Sources */,
+				893C36B12A2998A00058561A /* UIButton+StatusBackgroundColor.m in Sources */,
 				D695844F24C845FC00466372 /* SurroundingIdentificationParamViewController.m in Sources */,
 				D6B510AA24C00E480084D813 /* CreateMapWithPOIViewController.m in Sources */,
 				D66421F124CC05B70078404B /* SearchIntegratePOIDetailViewController.m in Sources */,
@@ -999,6 +1016,7 @@
 				D684BD8420FF8A19004E85D9 /* SearchPOINearbyViewController.m in Sources */,
 				D684BD8A20FF8A19004E85D9 /* SearchPOIInBoundViewController.m in Sources */,
 				D65B573A21CB949900142732 /* VisualDirectionAnnotationView.m in Sources */,
+				893C36C12A29CE100058561A /* StatisticalView.m in Sources */,
 				D695841E24C6D2DD00466372 /* SearchBuildingInBoundParamViewController.m in Sources */,
 				D684BD9320FF8A19004E85D9 /* DisplayLocationViewController.m in Sources */,
 				D684BD8120FF8A19004E85D9 /* SearchBuildingNearbyViewController.m in Sources */,
@@ -1192,7 +1210,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = ZNBZ7BZAKZ;
 				ENABLE_BITCODE = NO;
@@ -1207,7 +1225,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 5.3.0;
+				MARKETING_VERSION = 5.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1226,7 +1244,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = ZNBZ7BZAKZ;
 				ENABLE_BITCODE = NO;
@@ -1241,7 +1259,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 5.3.0;
+				MARKETING_VERSION = 5.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

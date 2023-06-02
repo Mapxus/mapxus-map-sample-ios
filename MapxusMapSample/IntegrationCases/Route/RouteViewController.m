@@ -12,6 +12,8 @@
 #import "RouteViewController.h"
 #import "MXMRouteLocationManager.h"
 #import "ParamConfigInstance.h"
+#import "InstructionListViewController.h"
+#import "UIButton+StatusBackgroundColor.h"
 
 @interface RouteViewController () <MapxusMapDelegate, MXMSearchDelegate, MGLMapViewDelegate, TrackDelegate, MXMRouteShortenerDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
@@ -24,6 +26,7 @@
 @property (nonatomic, strong) UISegmentedControl *travelWaySegmented;
 @property (nonatomic, strong) UILabel *toDoorTip;
 @property (nonatomic, strong) UISwitch *toDoorSwitch;
+@property (nonatomic, strong) UIButton *instructionButton;
 @property (nonatomic, strong) MXMPointAnnotation *fromAnnotation;
 @property (nonatomic, strong) MXMPointAnnotation *toAnnotation;
 @property (nonatomic, strong) NSMutableDictionary *fromDictionary;
@@ -120,7 +123,7 @@
     MXMGeoPoint *toP = self.toDictionary[@"point"];
     re.toLat = toP.latitude;
     re.toLon = toP.longitude;
-    re.locale = @"zh-Hans";
+    re.locale = [self searchLocalBySystem];
     re.toDoor = self.toDoorSwitch.isOn ? YES : NO;
     if (self.travelWaySegmented.selectedSegmentIndex == 0) {
         re.vehicle = @"foot";
@@ -131,6 +134,26 @@
     MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
     api.delegate = self;
     [api MXMRouteSearch:re];
+}
+
+- (NSString *)searchLocalBySystem {
+  NSString *localText = nil;
+  NSString *preferredLanguage = [[[NSBundle mainBundle] preferredLocalizations] firstObject];
+  if ([preferredLanguage containsString:@"en"]) {
+    localText = @"en";
+  } else if ([preferredLanguage containsString:@"Hans"]) {
+    localText = @"zh-Hans";
+  } else if ([preferredLanguage containsString:@"Hant"]) {
+    localText = @"zh-Hant";
+  } else if ([preferredLanguage containsString:@"ja"]) {
+    localText = @"zh-ja";
+  } else if ([preferredLanguage containsString:@"ko"]) {
+    localText = @"zh-ko";
+  }
+  if (localText == nil) {
+    localText = @"en";
+  }
+  return localText;
 }
 
 - (void)navigationAction:(UIButton *)sender {
@@ -157,6 +180,12 @@
     self.locationManager.isNavigation = YES;
 }
 
+- (void)showInstructions {
+  MXMPath *path = self.currentResponse.paths.firstObject;
+  InstructionListViewController *vc = [[InstructionListViewController alloc] initWithInstructions:path.instructions distance:path.distance time:path.time];
+  [self presentViewController:vc animated:YES completion:nil];
+}
+
 - (void)setCamera:(CLLocationCoordinate2D)location heading:(CLLocationDirection)heading buildingID:(NSString *)buildingID floor:(NSString *)floor zoomLevel:(double)zoomLevel {
     [self.mapPlugin selectBuilding:buildingID floor:floor zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
     MGLMapCamera *old = self.mapView.camera;
@@ -180,6 +209,7 @@
     [self.boxView addSubview:self.travelWaySegmented];
     [self.boxView addSubview:self.toDoorTip];
     [self.boxView addSubview:self.toDoorSwitch];
+    [self.boxView addSubview:self.instructionButton];
     
     [self.mapView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
     [self.mapView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
@@ -221,11 +251,15 @@
     [self.travelWaySegmented.topAnchor constraintEqualToAnchor:self.boxView.topAnchor constant:10].active = YES;
     
     [self.toDoorSwitch.topAnchor constraintEqualToAnchor:self.travelWaySegmented.bottomAnchor constant:10].active = YES;
-    [self.toDoorSwitch.leadingAnchor constraintEqualToAnchor:self.boxView.centerXAnchor constant:5].active = YES;
+    [self.toDoorSwitch.centerXAnchor constraintEqualToAnchor:self.boxView.centerXAnchor].active = YES;
 
     [self.toDoorTip.centerYAnchor constraintEqualToAnchor:self.toDoorSwitch.centerYAnchor].active = YES;
-    [self.toDoorTip.trailingAnchor constraintEqualToAnchor:self.boxView.centerXAnchor constant:-5].active = YES;
+    [self.toDoorTip.trailingAnchor constraintEqualToAnchor:self.toDoorSwitch.leadingAnchor constant:-10].active = YES;
     
+    [self.instructionButton.widthAnchor constraintEqualToConstant:120].active = YES;
+    [self.instructionButton.heightAnchor constraintEqualToConstant:40].active = YES;
+    [self.instructionButton.leadingAnchor constraintEqualToAnchor:self.toDoorSwitch.trailingAnchor constant:10].active = YES;
+    [self.instructionButton.centerYAnchor constraintEqualToAnchor:self.toDoorSwitch.centerYAnchor].active = YES;
 }
 
 #pragma mark - TrackDelegate
@@ -337,6 +371,7 @@
 
 - (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error
 {
+    [self.instructionButton setCustomEnabled:NO];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Sorry, I can't find the route." preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:action];
@@ -345,6 +380,11 @@
 
 - (void)onRouteSearchDone:(MXMRouteSearchRequest *)request response:(MXMRouteSearchResponse *)response
 {
+    if (response.paths.firstObject.instructions) {
+      [self.instructionButton setCustomEnabled:YES];
+    } else {
+      [self.instructionButton setCustomEnabled:NO];
+    }
     self.currentResponse = response;
     self.fromAnnotation = nil;
     self.toAnnotation = nil;
@@ -466,6 +506,20 @@
         _toDoorSwitch.layer.cornerRadius = 20;
     }
     return _toDoorSwitch;
+}
+
+- (UIButton *)instructionButton {
+  if (!_instructionButton) {
+    _instructionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _instructionButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [_instructionButton setTitle:@"Instructions" forState:UIControlStateNormal];
+    [_instructionButton setBackgroundColor:[UIColor colorWithRed:80/255.0 green:175/255.0 blue:243/255.0 alpha:1.0] state:UIControlStateNormal];
+    [_instructionButton setBackgroundColor:[UIColor grayColor] state:UIControlStateDisabled];
+    _instructionButton.layer.cornerRadius = 5;
+    [_instructionButton setCustomEnabled:NO];
+    [_instructionButton addTarget:self action:@selector(showInstructions) forControlEvents:UIControlEventTouchUpInside];
+  }
+  return _instructionButton;
 }
 
 - (NSMutableDictionary *)fromDictionary {

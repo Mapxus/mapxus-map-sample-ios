@@ -1,4 +1,4 @@
-v5.3.0
-2023-05-10
+v5.4.0
+2023-06-02
 
-1. Update the offset of the search.
+1. Added "Instructions" button and page to the route planning function.
