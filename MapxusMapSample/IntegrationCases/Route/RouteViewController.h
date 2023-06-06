@@ -10,6 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol RouteViewControllerDelegate <NSObject>
+
+- (void)routeInstructionDidChange:(NSUInteger)index;
+
+@end
+
 @interface RouteViewController : UIViewController
 
 @end

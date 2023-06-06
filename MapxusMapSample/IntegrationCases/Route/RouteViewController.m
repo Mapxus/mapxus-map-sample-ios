@@ -35,6 +35,7 @@
 @property (nonatomic, strong) MXMRouteLocationManager *locationManager;
 @property (nonatomic, strong) MXMRouteSearchResponse *currentResponse;
 @property (nonatomic, assign) BOOL isEndOfNavigation;
+@property (nonatomic, weak) id<RouteViewControllerDelegate> instructionDelegate;
 @end
 
 @implementation RouteViewController
@@ -183,6 +184,7 @@
 - (void)showInstructions {
   MXMPath *path = self.currentResponse.paths.firstObject;
   InstructionListViewController *vc = [[InstructionListViewController alloc] initWithInstructions:path.instructions distance:path.distance time:path.time];
+  self.instructionDelegate = vc;
   [self presentViewController:vc animated:YES completion:nil];
 }
 
@@ -278,6 +280,9 @@
 
 #pragma mark - MXMRouteShortenerDelegate
 - (void)routeShortener:(MXMRouteShortener *)shortener redrawingNewPath:(MXMPath *)path fromInstructionIndex:(NSUInteger)index {
+    if (self.instructionDelegate && [self.instructionDelegate respondsToSelector:@selector(routeInstructionDidChange:)]) {
+      [self.instructionDelegate routeInstructionDidChange:index];
+    }
     if (!self.isEndOfNavigation) {
         if (path.distance < 3) {
             self.isEndOfNavigation = YES;

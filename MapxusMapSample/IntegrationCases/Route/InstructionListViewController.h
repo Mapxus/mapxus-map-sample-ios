@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RouteViewController.h"
 
 @class MXMInstruction;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface InstructionListViewController : UIViewController
+@interface InstructionListViewController : UIViewController <RouteViewControllerDelegate>
 
 - (instancetype)initWithInstructions:(NSArray<MXMInstruction *> *)list distance:(double)distance time:(NSUInteger)time;
 

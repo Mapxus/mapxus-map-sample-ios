@@ -70,11 +70,19 @@
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - RouteViewControllerDelegate
+- (void)routeInstructionDidChange:(NSUInteger)index {
+  [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+}
+
 #pragma mark - UITableViewDelegate, UITableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"instructionCell"];
   if (cell == nil) {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"instructionCell"];
+    UIView *cellColor = [[UIView alloc] initWithFrame:cell.frame];
+    cellColor.backgroundColor = [UIColor colorWithRed:80/255.0 green:175/255.0 blue:243/255.0 alpha:1.0];
+    cell.selectedBackgroundView = cellColor;
   }
   if (self.instructionList.count > indexPath.row) {
     MXMInstruction *instruction = self.instructionList[indexPath.row];
@@ -85,7 +93,6 @@
       cell.contentConfiguration = conf;
     } else {
       // Fallback on earlier versions
-//      cell.sty =
       cell.textLabel.text = instruction.text;
       cell.detailTextLabel.text = [NSString stringWithFormat:@"%.0fm", instruction.distance];
     }
