@@ -1,4 +1,4 @@
-v5.4.0
-2023-06-02
+v5.5.0
+2023-06-08
 
-1. Added "Instructions" button and page to the route planning function.
+1. During navigation, if the user activates follow mode, the instruction commands will be highlighted based on the user’s current position.
