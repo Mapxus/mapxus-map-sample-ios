@@ -53,7 +53,7 @@
     MXMPOISearchRequest *re = [[MXMPOISearchRequest alloc] init];
     re.buildingId = self.building.identifier;
     re.category = self.category.category;
-    re.offset = 10000;
+    re.offset = 100;
     re.page = 1;
     
     MXMSearchAPI *api = [[MXMSearchAPI alloc] init];

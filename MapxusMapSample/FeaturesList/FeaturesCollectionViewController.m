@@ -75,6 +75,10 @@ static NSString * const reuseIdentifier = @"Cell";
                                               imageName:@"SwitchingBuildingGestures"
                                                   title:NSLocalizedString(@"Gesture interaction for switching buildings", nil)
                                                subTitle:NSLocalizedString(@"Setting gestures for switching buildings.", nil)],
+                       [Feature createWithPageClassName:@"SwitchingModelViewController"
+                                              imageName:@"FocusOnIndoorScene"
+                                                  title:NSLocalizedString(@"Switching indoor floor mode", nil)
+                                               subTitle:NSLocalizedString(@"Select different modes of switching floors by parameters.", nil)],
                        [Feature createWithPageClassName:@"FocusOnIndoorSceneViewController"
                                               imageName:@"FocusOnIndoorScene"
                                                   title:NSLocalizedString(@"Method interaction (Switching indoor scenes)", nil)
@@ -106,7 +110,23 @@ static NSString * const reuseIdentifier = @"Cell";
                                                   title:NSLocalizedString(@"Indoor positioning", nil)
                                                subTitle:NSLocalizedString(@"Show the positioning location and different following mode.", nil)],
                      ],
-                     @[[Feature createWithPageClassName:@"SearchBuildingGlobalViewController"
+                     @[[Feature createWithPageClassName:@"SearchVenueGlobalViewController"
+                                              imageName:@"SearchBuildingGlobal"
+                                                  title:NSLocalizedString(@"Search venue globally", nil)
+                                               subTitle:NSLocalizedString(@"Search venue globally.", nil)],
+                       [Feature createWithPageClassName:@"SearchVenueInBoundViewController"
+                                              imageName:@"SearchBuildingInBound"
+                                                  title:NSLocalizedString(@"Search venue in the specified area", nil)
+                                               subTitle:NSLocalizedString(@"Search venue in the specified rectangular area.", nil)],
+                       [Feature createWithPageClassName:@"SearchVenueNearbyViewController"
+                                              imageName:@"SearchBuildingNearby"
+                                                  title:NSLocalizedString(@"Search venue nearby", nil)
+                                               subTitle:NSLocalizedString(@"Search venue in the specified circular area.", nil)],
+                       [Feature createWithPageClassName:@"SearchVenueByIDViewController"
+                                              imageName:@"SearchBuildingByID"
+                                                  title:NSLocalizedString(@"Search venue by venue ID", nil)
+                                               subTitle:NSLocalizedString(@"Search venue by venue ID.", nil)],
+                       [Feature createWithPageClassName:@"SearchBuildingGlobalViewController"
                                               imageName:@"SearchBuildingGlobal"
                                                   title:NSLocalizedString(@"Search building globally", nil)
                                                subTitle:NSLocalizedString(@"Search building globally.", nil)],

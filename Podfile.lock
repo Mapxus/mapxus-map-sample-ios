@@ -7,54 +7,60 @@ PODS:
   - AFNetworking/Security (4.0.1)
   - AFNetworking/Serialization (4.0.1)
   - IQKeyboardManager (6.5.11)
-  - MapxusBaseSDK-jp (6.0.0):
+  - MapxusBaseSDK (6.0.0):
     - AFNetworking/NSURLSession (~> 4.0)
     - AFNetworking/Reachability (~> 4.0)
     - AFNetworking/Security (~> 4.0)
     - AFNetworking/Serialization (~> 4.0)
     - YYModel (~> 1.0.4)
-  - MapxusComponentKit-jp (6.0.0):
-    - MapxusMapSDK-jp (= 6.0.0)
-  - MapxusMapSDK-jp (6.0.0):
-    - MapxusBaseSDK-jp (= 6.0.0)
+  - MapxusComponentKit (6.0.0):
+    - MapxusMapSDK (= 6.0.0)
+  - MapxusMapSDK (6.0.0):
+    - MapxusBaseSDK (= 6.0.0)
     - MapxusRenderSDK (= 5.13.0)
   - MapxusRenderSDK (5.13.0)
-  - MapxusVisualSDK-jp (6.0.0):
-    - MapxusBaseSDK-jp (= 6.0.0)
+  - MapxusVisualSDK (6.0.0):
+    - MapxusBaseSDK (= 6.0.0)
   - ProgressHUD (2.70)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - IQKeyboardManager
-  - MapxusBaseSDK-jp
-  - MapxusComponentKit-jp
-  - MapxusMapSDK-jp
-  - MapxusVisualSDK-jp
+  - MapxusBaseSDK (from `../mapxus-base-sdk-ios`)
+  - MapxusComponentKit (from `../mapxus-component-kit-ios`)
+  - MapxusMapSDK (from `../mapxus-map-sdk-ios`)
+  - MapxusVisualSDK (from `../mapxus-visual-sdk-ios`)
   - ProgressHUD
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - IQKeyboardManager
-    - MapxusBaseSDK-jp
-    - MapxusComponentKit-jp
-    - MapxusMapSDK-jp
     - MapxusRenderSDK
-    - MapxusVisualSDK-jp
     - ProgressHUD
     - YYModel
+
+EXTERNAL SOURCES:
+  MapxusBaseSDK:
+    :path: "../mapxus-base-sdk-ios"
+  MapxusComponentKit:
+    :path: "../mapxus-component-kit-ios"
+  MapxusMapSDK:
+    :path: "../mapxus-map-sdk-ios"
+  MapxusVisualSDK:
+    :path: "../mapxus-visual-sdk-ios"
 
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
-  MapxusBaseSDK-jp: 93cd4796631908db2b1c54bd5dd6a0e6342abf07
-  MapxusComponentKit-jp: ef9ce22d268877fe1e657d65bb820d773f83e1c3
-  MapxusMapSDK-jp: b234c9e98574cdd7d9640380bb9bb4f8f6e7afc1
+  MapxusBaseSDK: ddf323613693242443f3b1dcbafd5c7e3ae3fde6
+  MapxusComponentKit: 23f9f188e6ede16117c1734ce38fd492e2b4ec61
+  MapxusMapSDK: 3f1c38859b46dcf72fb00268bb72c78c9533505c
   MapxusRenderSDK: 413a64e3d83012d4ca8f0f18f25a48b759aed9ad
-  MapxusVisualSDK-jp: 68ea906a7cccbf086f8b8c10dd1a0c874ab96cb0
+  MapxusVisualSDK: 8d59db61383acdd006930220807412c7c64cc052
   ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 1a6224141614ecdc4cc115284e02dc4fe0f08965
+PODFILE CHECKSUM: 78cbe6376f64e647b9179b07d6f024758bff5476
 
 COCOAPODS: 1.12.1
