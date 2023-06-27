@@ -40,6 +40,9 @@
 "Gesture interaction for switching buildings" = "切換建築的手勢交互";
 "Setting gestures for switching buildings." = "設置切換建築手勢。";
 
+"Switching indoor floor mode" = "切換室內樓層模式";
+"Select different modes of switching floors by parameters." = "通過參數選擇不同的切換樓層的模式。";
+
 "Method interaction (Switching indoor scenes)" = "方法交互（切換室內場景）";
 "Use code settings to focus on indoor scenes." = "代碼設置聚焦的室內場景";
 
@@ -66,6 +69,18 @@
 "Show the positioning location and different following mode." = "展示室內定位及地圖跟隨的效果。";
 
 //==============================================================
+
+"Search venue globally" = "全球範圍內搜索地點";
+"Search venue globally." = "全球範圍內搜索地點。";
+
+"Search venue in the specified area" = "指定矩形區域內搜索地點";
+"Search venue in the specified rectangular area." = "在指定的矩形區域內搜索地點。";
+
+"Search venue nearby" = "在附近搜索符合要求的地點";
+"Search venue in the specified circular area." = "在指定的圓形區域內搜索地點。";
+
+"Search venue by venue ID" = "根據venueId搜索地點";
+"Search venue by venue ID." = "根據venueId搜索地點。";
 
 "Search building globally" = "全球範圍內搜索建築";
 "Search building globally." = "在全球範圍內搜索建築。";

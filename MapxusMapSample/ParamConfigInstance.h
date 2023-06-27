@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ParamConfigInfo : NSObject
 
+@property (strong, nonatomic) NSString *venueId;
 @property (strong, nonatomic) NSString *buildingId;
 @property (strong, nonatomic) NSString *buildingId_1;
 @property (strong, nonatomic) NSString *poiId;

@@ -1,4 +1,4 @@
-v5.5.0
-2023-06-08
+v7.0.0
+2023-05-23
 
-1. During navigation, if the user activates follow mode, the instruction commands will be highlighted based on the user’s current position.
+1. Update MapxusJP SDKs v6.0.0.

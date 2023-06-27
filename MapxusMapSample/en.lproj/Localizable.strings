@@ -40,6 +40,9 @@
 "Gesture interaction for switching buildings" = "Gesture interaction for switching buildings";
 "Setting gestures for switching buildings." = "Setting gestures for switching buildings.";
 
+"Switching indoor floor mode" = "Switching indoor floor mode";
+"Select different modes of switching floors by parameters." = "Select different modes of switching floors by parameters.";
+
 "Method interaction (Switching indoor scenes)" = "Method interaction (Switching indoor scenes)";
 "Use code settings to focus on indoor scenes." = "Use code settings to focus on indoor scenes.";
 
@@ -66,6 +69,18 @@
 "Show the positioning location and different following mode." = "Show the positioning location and different following mode.";
 
 //==============================================================
+
+"Search venue globally" = "Search venue globally";
+"Search venue globally." = "Search venue globally.";
+
+"Search venue in the specified area" = "Search venue in the specified area";
+"Search venue in the specified rectangular area." = "Search venue in the specified rectangular area.";
+
+"Search venue nearby" = "Search venue nearby";
+"Search venue in the specified circular area." = "Search venue in the specified circular area.";
+
+"Search venue by venue ID" = "Search venue by venue ID";
+"Search venue by venue ID." = "Search venue by venue ID.";
 
 "Search building globally" = "Search building globally";
 "Search building globally." = "Search building globally.";

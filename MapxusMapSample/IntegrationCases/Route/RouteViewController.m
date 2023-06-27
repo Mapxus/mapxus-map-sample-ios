@@ -17,7 +17,7 @@
 
 @interface RouteViewController () <MapxusMapDelegate, MXMSearchDelegate, MGLMapViewDelegate, TrackDelegate, MXMRouteShortenerDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *map;
 @property (nonatomic, strong) UIButton *fromButton;
 @property (nonatomic, strong) UIButton *toButton;
 @property (nonatomic, strong) UIButton *searchButton;
@@ -49,9 +49,9 @@
     configuration.buildingId = PARAMCONFIGINFO.buildingId_1;
     configuration.floor = PARAMCONFIGINFO.floor;
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
-    self.mapPlugin.selectorPosition = MXMSelectorPositionCenterRight;
-    self.mapPlugin.delegate = self;
+    self.map = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.map.selectorPosition = MXMSelectorPositionCenterRight;
+    self.map.delegate = self;
     
     // The painter help to draw the route line on the mapview
     self.painter = [[MXMRoutePainter alloc] initWithMapView:self.mapView];
@@ -86,11 +86,14 @@
 }
 
 - (void)btnTitleSet {
+    MXMFloor *fromFloor = self.fromDictionary[@"floor"];
+    MXMFloor *toFloor = self.toDictionary[@"floor"];
+
     MXMGeoPoint *fromP = self.fromDictionary[@"point"];
     if (fromP) {
         NSString *fromTitle = [NSString stringWithFormat:@"%.4f, %.4f ", fromP.latitude, fromP.longitude];
-        if (self.fromDictionary[@"floor"]) {
-            fromTitle = [fromTitle stringByAppendingString:self.fromDictionary[@"floor"]];
+        if (fromFloor) {
+            fromTitle = [fromTitle stringByAppendingString:fromFloor.code];
         }
         [self.fromButton setTitle:fromTitle forState:UIControlStateNormal];
     } else {
@@ -99,8 +102,8 @@
     MXMGeoPoint *toP = self.toDictionary[@"point"];
     if (toP) {
         NSString *toTitle = [NSString stringWithFormat:@"%.4f, %.4f ", toP.latitude, toP.longitude];
-        if (self.toDictionary[@"floor"]) {
-            toTitle = [toTitle stringByAppendingString:self.toDictionary[@"floor"]];
+        if (toFloor) {
+            toTitle = [toTitle stringByAppendingString:toFloor.code];
         }
         [self.toButton setTitle:toTitle forState:UIControlStateNormal];
     } else {
@@ -112,15 +115,18 @@
 - (void)searchRouteAction:(UIButton *)sender {
     [self.painter cleanRoute];
     self.isEndOfNavigation = NO;
+  
+    MXMFloor *fromFloor = self.fromDictionary[@"floor"];
+    MXMFloor *toFloor = self.toDictionary[@"floor"];
     
     MXMRouteSearchRequest *re = [[MXMRouteSearchRequest alloc] init];
-    re.fromBuilding = self.fromDictionary[@"building"];
-    re.fromFloor = self.fromDictionary[@"floor"];
+    re.fromBuildingId = self.fromDictionary[@"building"];
+    re.fromFloorId = fromFloor.floorId;
     MXMGeoPoint *fromP = self.fromDictionary[@"point"];
     re.fromLat = fromP.latitude;
     re.fromLon = fromP.longitude;
-    re.toBuilding = self.toDictionary[@"building"];
-    re.toFloor = self.toDictionary[@"floor"];
+    re.toBuildingId = self.toDictionary[@"building"];
+    re.toFloorId = toFloor.floorId;
     MXMGeoPoint *toP = self.toDictionary[@"point"];
     re.toLat = toP.latitude;
     re.toLon = toP.longitude;
@@ -189,7 +195,7 @@
 }
 
 - (void)setCamera:(CLLocationCoordinate2D)location heading:(CLLocationDirection)heading buildingID:(NSString *)buildingID floor:(NSString *)floor zoomLevel:(double)zoomLevel {
-    [self.mapPlugin selectBuilding:buildingID floor:floor zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
+    [self.map selectBuilding:buildingID floor:floor zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
     MGLMapCamera *old = self.mapView.camera;
     CLLocationDistance altitube = MGLAltitudeForZoomLevel(zoomLevel, old.pitch, location.latitude, self.mapView.frame.size);
     MGLMapCamera *newCamera = [MGLMapCamera cameraLookingAtCenterCoordinate:location fromEyeCoordinate:location eyeAltitude:altitube];
@@ -292,7 +298,14 @@
         } else {
             // repaint
             [self.painter paintRouteUsingPath:path wayPoints:shortener.originalWayPoints];
-            [self.painter changeOnBuilding:self.mapPlugin.building.identifier floor:self.mapPlugin.floor];
+            MXMOrdinal *ordinal;
+            for (MXMFloor *floor in self.map.building.floors) {
+              if ([self.map.floor isEqualToString:floor.code]) {
+                ordinal = floor.ordinal;
+                break;
+              }
+            }
+            [self.painter changeOnVenue:self.map.building.venueId ordinal:ordinal];
         }
     }
 }
@@ -312,26 +325,25 @@
 
 #pragma mark - MapxusMapDelegate
 
-- (void)mapView:(MapxusMap *)mapView didChangeFloor:(NSString *)floorName atBuilding:(MXMGeoBuilding *)building
-{
-    // show different line on different scene
-    [self.painter changeOnBuilding:building.identifier floor:floorName];
+- (void)map:(MapxusMap *)map didChangeSelectedFloor:(MXMFloor *)floor inSelectedBuilding:(MXMGeoBuilding *)building atSelectedVenue:(MXMGeoVenue *)venue {
+  // show different line on different scene
+  [self.painter changeOnVenue:building.venueId ordinal:floor.ordinal];
 }
 
 /// Use two callbacks to cover all situations
-- (void)mapView:(MapxusMap *)mapView didSingleTappedOnMapBlank:(CLLocationCoordinate2D)coordinate onFloor:(NSString *)floorName inBuilding:(MXMGeoBuilding *)building {
-    [self didTappedAtCoordinate:coordinate onFloor:floorName inBuilding:building];
+- (void)map:(MapxusMap *)map didSingleTapOnBlank:(CLLocationCoordinate2D)coordinate atSite:(MXMSite *)site {
+  [self didTappedAtCoordinate:coordinate onFloor:site.floor inBuilding:site.building];
 }
 
-- (void)mapView:(MapxusMap *)mapView didSingleTappedOnPOI:(MXMGeoPOI *)poi atCoordinate:(CLLocationCoordinate2D)coordinate onFloor:(NSString *)floorName inBuilding:(MXMGeoBuilding *)building {
-    [self didTappedAtCoordinate:coordinate onFloor:floorName inBuilding:building];
+- (void)map:(MapxusMap *)map didSingleTapOnPOI:(MXMGeoPOI *)poi atCoordinate:(CLLocationCoordinate2D)coordinate atSite:(MXMSite *)site {
+  [self didTappedAtCoordinate:coordinate onFloor:site.floor inBuilding:site.building];
 }
 /// --end
 
-- (void)didTappedAtCoordinate:(CLLocationCoordinate2D)coordinate onFloor:(nullable NSString *)floorName inBuilding:(nullable MXMGeoBuilding *)building
+- (void)didTappedAtCoordinate:(CLLocationCoordinate2D)coordinate onFloor:(nullable MXMFloor *)floor inBuilding:(nullable MXMGeoBuilding *)building
 {
     if (self.fromButton.isSelected) {
-        self.fromDictionary[@"floor"] = floorName;
+        self.fromDictionary[@"floor"] = floor;
         self.fromDictionary[@"building"] = building.identifier;
         MXMGeoPoint *p = [[MXMGeoPoint alloc] init];
         p.latitude = coordinate.latitude;
@@ -341,17 +353,17 @@
         if (self.fromAnnotation == nil) {
             self.fromAnnotation = [[MXMPointAnnotation alloc] init];
             self.fromAnnotation.coordinate = coordinate;
-            self.fromAnnotation.floor = floorName;
+            self.fromAnnotation.floorId = floor.floorId;
             self.fromAnnotation.buildingId = building.identifier;
-            [self.mapPlugin addMXMPointAnnotations:@[self.fromAnnotation]];
+            [self.map addMXMPointAnnotations:@[self.fromAnnotation]];
         } else {
             self.fromAnnotation.coordinate = coordinate;
-            self.fromAnnotation.floor = floorName;
+            self.fromAnnotation.floorId = floor.floorId;
             self.fromAnnotation.buildingId = building.identifier;
         }
 
     } else if (self.toButton.isSelected) {
-        self.toDictionary[@"floor"] = floorName;
+        self.toDictionary[@"floor"] = floor;
         self.toDictionary[@"building"] = building.identifier;
         MXMGeoPoint *p = [[MXMGeoPoint alloc] init];
         p.latitude = coordinate.latitude;
@@ -361,12 +373,12 @@
         if (self.toAnnotation == nil) {
             self.toAnnotation = [[MXMPointAnnotation alloc] init];
             self.toAnnotation.coordinate = coordinate;
-            self.toAnnotation.floor = floorName;
+            self.toAnnotation.floorId = floor.floorId;
             self.toAnnotation.buildingId = building.identifier;
-            [self.mapPlugin addMXMPointAnnotations:@[self.toAnnotation]];
+            [self.map addMXMPointAnnotations:@[self.toAnnotation]];
         } else {
             self.toAnnotation.coordinate = coordinate;
-            self.toAnnotation.floor = floorName;
+            self.toAnnotation.floorId = floor.floorId;
             self.toAnnotation.buildingId = building.identifier;
         }
     }
@@ -393,7 +405,7 @@
     self.currentResponse = response;
     self.fromAnnotation = nil;
     self.toAnnotation = nil;
-    [self.mapPlugin removeMXMPointAnnotaions:self.mapPlugin.MXMAnnotations];
+    [self.map removeMXMPointAnnotaions:self.map.MXMAnnotations];
     
     self.painter.isAddStartDash = YES;
     
@@ -401,8 +413,8 @@
     for (NSString *key in self.painter.dto.keys) {
         if (![key containsString:@"outdoor"]) {
             MXMParagraph *paph = self.painter.dto.paragraphs[key];
-            [self.mapPlugin selectBuilding:paph.buildingId floor:paph.floor zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
-            [self.painter changeOnBuilding:paph.buildingId floor:paph.floor];
+            [self.map selectBuilding:paph.buildingId floor:paph.floor zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
+            [self.painter changeOnVenue:paph.venueId ordinal:paph.ordinal];
             [self.painter focusOnKeys:@[key] edgePadding:UIEdgeInsetsMake(130, 30, 110, 80)];
             break;
         }

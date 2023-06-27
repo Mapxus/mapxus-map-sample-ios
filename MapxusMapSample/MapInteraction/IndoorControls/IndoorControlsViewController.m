@@ -9,15 +9,18 @@
 #import <Mapbox/Mapbox.h>
 #import <MapxusMapSDK/MapxusMapSDK.h>
 #import "IndoorControlsViewController.h"
+#import "BoxLengthViewController.h"
 #import "Macro.h"
 
-@interface IndoorControlsViewController () <MGLMapViewDelegate>
+@interface IndoorControlsViewController () <MGLMapViewDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic, strong) MapxusMap *mapPlugin;
 @property (nonatomic, strong) UIView *boxView;
 @property (nonatomic, strong) UILabel *hiddenTip;
 @property (nonatomic, strong) UISwitch *hiddenSwitch;
+@property (nonatomic, strong) UIStackView *stackView;
 @property (nonatomic, strong) UIButton *positionButton;
+@property (nonatomic, strong) UIButton *boxLengthButton;
 @property (nonatomic, assign) NSUInteger times;
 @end
 
@@ -69,13 +72,23 @@
     }
 }
 
+- (void)clickToSetBoxLength {
+  BoxLengthViewController *vc = [[BoxLengthViewController alloc] init];
+  vc.delegate = self;
+  [self presentViewController:vc
+                     animated:YES
+                   completion:nil];
+}
+
 - (void)layoutUI {
     [self.view addSubview:self.mapView];
     [self.view addSubview:self.boxView];
     [self.boxView addSubview:self.hiddenSwitch];
     [self.boxView addSubview:self.hiddenTip];
-    [self.boxView addSubview:self.positionButton];
-    
+    [self.boxView addSubview:self.stackView];
+    [self.stackView addArrangedSubview:self.positionButton];
+    [self.stackView addArrangedSubview:self.boxLengthButton];
+
     [self.mapView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
     [self.mapView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
     [self.mapView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
@@ -85,21 +98,28 @@
     [self.boxView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
     [self.boxView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
     if (@available(iOS 11.0, *)) {
-        [self.boxView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-70].active = YES;
+        [self.boxView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-130].active = YES;
     } else {
-        [self.boxView.topAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-70].active = YES;
+        [self.boxView.topAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-130].active = YES;
     }
-    
+
     [self.hiddenSwitch.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:trailingSpace].active = YES;
     [self.hiddenSwitch.topAnchor constraintEqualToAnchor:self.boxView.topAnchor constant:moduleSpace].active = YES;
     
     [self.hiddenTip.centerYAnchor constraintEqualToAnchor:self.hiddenSwitch.centerYAnchor].active = YES;
     [self.hiddenTip.leadingAnchor constraintEqualToAnchor:self.hiddenSwitch.trailingAnchor constant:innerSpace].active  = YES;
     
-    [self.positionButton.widthAnchor constraintEqualToConstant:130].active = YES;
-    [self.positionButton.heightAnchor constraintEqualToConstant:40].active = YES;
-    [self.positionButton.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
-    [self.positionButton.centerYAnchor constraintEqualToAnchor:self.hiddenSwitch.centerYAnchor].active = YES;
+    [self.stackView.topAnchor constraintEqualToAnchor:self.hiddenSwitch.bottomAnchor constant:moduleSpace].active = YES;
+    [self.stackView.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
+    [self.stackView.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
+    [self.stackView.heightAnchor constraintEqualToConstant:40].active = YES;
+}
+
+#pragma mark - Param
+
+- (void)completeParamConfiguration:(NSDictionary *)param {
+  NSUInteger count = [param[@"maxLength"] intValue];
+  self.mapPlugin.floorBar.maxVisibleFloors = count;
 }
 
 #pragma mark - Lazy loading
@@ -140,6 +160,17 @@
     return _hiddenSwitch;
 }
 
+- (UIStackView *)stackView {
+    if (!_stackView) {
+        _stackView = [[UIStackView alloc] init];
+        _stackView.translatesAutoresizingMaskIntoConstraints = NO;
+        _stackView.axis = UILayoutConstraintAxisHorizontal;
+        _stackView.distribution = UIStackViewDistributionFillEqually;
+        _stackView.spacing = moduleSpace;
+    }
+    return _stackView;
+}
+
 - (UIButton *)positionButton {
     if (!_positionButton) {
         _positionButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -152,5 +183,19 @@
     }
     return _positionButton;
 }
+
+- (UIButton *)boxLengthButton {
+    if (!_boxLengthButton) {
+      _boxLengthButton = [UIButton buttonWithType:UIButtonTypeCustom];
+      _boxLengthButton.translatesAutoresizingMaskIntoConstraints = NO;
+      [_boxLengthButton setTitle:@"Box Length" forState:UIControlStateNormal];
+      [_boxLengthButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+      _boxLengthButton.backgroundColor = [UIColor colorWithRed:80/255.0 green:175/255.0 blue:243/255.0 alpha:1.0];
+      [_boxLengthButton addTarget:self action:@selector(clickToSetBoxLength) forControlEvents:UIControlEventTouchUpInside];
+      _boxLengthButton.layer.cornerRadius = 5;
+    }
+    return _boxLengthButton;
+}
+
 
 @end
