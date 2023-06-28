@@ -373,28 +373,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		89B3CFF02A40373000CE9351 /* IndoorControls */ = {
-			isa = PBXGroup;
-			children = (
-				D6B510B124C155CE0084D813 /* IndoorControlsViewController.h */,
-				D6B510B224C155CE0084D813 /* IndoorControlsViewController.m */,
-				89B3CFED2A40371A00CE9351 /* BoxLengthViewController.h */,
-				89B3CFEE2A40371A00CE9351 /* BoxLengthViewController.m */,
-			);
-			path = IndoorControls;
-			sourceTree = "<group>";
-		};
-		89B3D00D2A4054F400CE9351 /* MapAppearance */ = {
-			isa = PBXGroup;
-			children = (
-				D6B510B424C155EA0084D813 /* MapAppearanceViewController.h */,
-				D6B510B524C155EA0084D813 /* MapAppearanceViewController.m */,
-				89B3D00E2A4056F100CE9351 /* SelectedBuildingOutlineViewController.h */,
-				89B3D00F2A4056F100CE9351 /* SelectedBuildingOutlineViewController.m */,
-			);
-			path = MapAppearance;
-      sourceTree = "<group>";
-    };
 		893C37212A307B180058561A /* SearchVenueGlobal */ = {
 			isa = PBXGroup;
 			children = (
