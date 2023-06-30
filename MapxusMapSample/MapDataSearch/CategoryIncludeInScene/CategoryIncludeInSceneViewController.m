@@ -15,7 +15,7 @@
 
 @interface CategoryIncludeInSceneViewController () <MGLMapViewDelegate, MXMSearchDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (nonatomic, strong) UIView *boxView;
 @property (nonatomic, strong) UIStackView *stackView;
 @property (nonatomic, strong) UIButton *searchInBuildingButton;
@@ -31,12 +31,12 @@
     
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 // Search all categories in building
 - (void)searchInBuildingButtonAction:(UIButton *)sender {
-    if (self.mapPlugin.building == nil) {
+    if (self.mapxusMap.building == nil) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning!" message:@"Please select the scene first." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
         [alert addAction:okAction];
@@ -46,7 +46,7 @@
     [ProgressHUD show];
     
     MXMPOICategorySearchRequest *re = [[MXMPOICategorySearchRequest alloc] init];
-    re.buildingId = self.mapPlugin.building.identifier;
+    re.buildingId = self.mapxusMap.building.identifier;
     
     MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
     api.delegate = self;
@@ -55,7 +55,7 @@
 
 // Search all categories on the floor
 - (void)searchOnFloorButtonAction:(UIButton *)sender {
-    if (self.mapPlugin.building == nil || self.mapPlugin.floor == nil) {
+    if (self.mapxusMap.building == nil || self.mapxusMap.floor == nil) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning!" message:@"Please select the scene first." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
         [alert addAction:okAction];
@@ -65,8 +65,8 @@
     [ProgressHUD show];
     
     MXMPOICategorySearchRequest *re = [[MXMPOICategorySearchRequest alloc] init];
-    re.buildingId = self.mapPlugin.building.identifier;
-    re.floor = self.mapPlugin.floor;
+    re.buildingId = self.mapxusMap.building.identifier;
+    re.floor = self.mapxusMap.floor;
     
     MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
     api.delegate = self;

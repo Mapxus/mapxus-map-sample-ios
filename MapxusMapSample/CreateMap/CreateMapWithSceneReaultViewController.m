@@ -12,7 +12,7 @@
 
 @interface CreateMapWithSceneReaultViewController () <MGLMapViewDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @end
 
 @implementation CreateMapWithSceneReaultViewController
@@ -29,7 +29,7 @@
     configuration.zoomInsets = self.zoomInsets;
     configuration.defaultStyle = MXMStyleMAPXUS;
     // Create MapxusMap with MGLMapView instance and MXMConfiguration instance
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 - (void)layoutUI {

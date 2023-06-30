@@ -13,7 +13,7 @@
 
 @interface IndoorPolygonViewController () <MGLMapViewDelegate, MapxusMapDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @end
 
 @implementation IndoorPolygonViewController
@@ -24,8 +24,8 @@
     [self layoutUI];
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
-    self.mapPlugin.delegate = self;
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap.delegate = self;
 }
 
 - (void)addPolygon {
@@ -59,11 +59,11 @@
 }
 
 #pragma mark - MapxusMapDelegate
-- (void)mapView:(MapxusMap *)mapView didChangeFloor:(NSString *)floorName atBuilding:(MXMGeoBuilding *)building {
+- (void)map:(MapxusMap *)map didChangeSelectedFloor:(MXMFloor *)floor inSelectedBuilding:(MXMGeoBuilding *)building atSelectedVenue:(MXMGeoVenue *)venue {
     // When the scene is changed, modify the layer`s predicate to filter features
     MGLVectorStyleLayer *layer = (MGLVectorStyleLayer *)[self.mapView.style layerWithIdentifier:@"layer"];
     NSPredicate *p0 = [NSPredicate predicateWithFormat:@"buildingId == %@", building.identifier];
-    NSPredicate *p1 = [NSPredicate predicateWithFormat:@"floor == %@", floorName];
+    NSPredicate *p1 = [NSPredicate predicateWithFormat:@"floor == %@", floor.code];
     layer.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[p0, p1]];
 }
 
@@ -79,7 +79,6 @@
         _mapView = [[MGLMapView alloc] init];
         _mapView.translatesAutoresizingMaskIntoConstraints = NO;
         _mapView.centerCoordinate = CLLocationCoordinate2DMake(PARAMCONFIGINFO.center_latitude, PARAMCONFIGINFO.center_longitude);
-//        _mapView.centerCoordinate = CLLocationCoordinate2DMake(22.370787, 114.111375);
         _mapView.zoomLevel = 18;
         _mapView.delegate = self;
     }

@@ -13,7 +13,7 @@
 
 @interface SwitchingBuildingGesturesViewController () <MGLMapViewDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (nonatomic, strong) UIView *boxView;
 @property (nonatomic, strong) UISwitch *autoSwitch;
 @property (nonatomic, strong) UILabel *autoTip;
@@ -29,26 +29,26 @@
     [self layoutUI];
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 - (void)changeAutoSwitch:(UISwitch *)sender {
     if (sender.isOn == YES) {
         // When the center of the map changes, the building in the center of the map is automatically selected.
-        self.mapPlugin.autoChangeBuilding = YES;
+        self.mapxusMap.autoChangeBuilding = YES;
     } else {
         // Does not automatically switch the selected building when the map center is changed.
-        self.mapPlugin.autoChangeBuilding = NO;
+        self.mapxusMap.autoChangeBuilding = NO;
     }
 }
 
 - (void)changeGestureSwitch:(UISwitch *)sender {
     if (sender.isOn == YES) {
         // Support for users to select buildings by clicking on the map
-        self.mapPlugin.gestureSwitchingBuilding = YES;
+        self.mapxusMap.gestureSwitchingBuilding = YES;
     } else {
         // User click on the map to select a building is not supported
-        self.mapPlugin.gestureSwitchingBuilding = NO;
+        self.mapxusMap.gestureSwitchingBuilding = NO;
     }
 }
 

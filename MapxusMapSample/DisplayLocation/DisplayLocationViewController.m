@@ -14,7 +14,7 @@
 
 @interface DisplayLocationViewController () <MGLMapViewDelegate, MapxusMapDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (nonatomic, strong) UIView *boxView;
 @property (nonatomic, strong) UILabel *latLabel;
 @property (nonatomic, strong) UILabel *lonLabel;
@@ -33,7 +33,7 @@
     self.times = 0;
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 
     // Use Custom Location Manager to limit positioning delays caused by frequent angle changes
     self.mapView.locationManager = [[MBXCustomLocationManager alloc] init];

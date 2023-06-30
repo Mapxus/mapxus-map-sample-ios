@@ -13,7 +13,7 @@
 
 @interface CreateMapByCodeViewController () <MGLMapViewDelegate>
 @property (nonatomic, strong) MGLMapView *mapView; // Render map using MGLMapView
-@property (nonatomic, strong) MapxusMap *mapPlugin; // MapxusMap control and listen of the indoor map.
+@property (nonatomic, strong) MapxusMap *mapxusMap; // MapxusMap control and listen of the indoor map.
 @end
 
 @implementation CreateMapByCodeViewController
@@ -25,8 +25,8 @@
     // Create MapxusMap instance with MGLMapView instance
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
-    self.mapPlugin.collapseCopyright = YES;
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap.collapseCopyright = YES;
 }
 
 - (void)layoutUI {

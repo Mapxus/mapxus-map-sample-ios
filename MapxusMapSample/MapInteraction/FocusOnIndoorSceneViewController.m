@@ -14,7 +14,7 @@
 
 @interface FocusOnIndoorSceneViewController () <MGLMapViewDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @end
 
 @implementation FocusOnIndoorSceneViewController
@@ -26,7 +26,7 @@
     [self layoutUI];
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 - (void)openParam {
@@ -61,7 +61,7 @@
                                                 [(NSString *)param[@"edgeLeft"] floatValue],
                                                 [(NSString *)param[@"edgeBottom"] floatValue],
                                                 [(NSString *)param[@"edgeRight"] floatValue]);
-        [weakSelf.mapPlugin selectBuilding:buildingID floor:floor zoomMode:zoomMode edgePadding:padding];
+        [weakSelf.mapxusMap selectBuilding:buildingID floor:floor zoomMode:zoomMode edgePadding:padding];
         
     }];
     

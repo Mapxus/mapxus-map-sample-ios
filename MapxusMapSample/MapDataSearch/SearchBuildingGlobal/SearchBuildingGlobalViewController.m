@@ -14,7 +14,7 @@
 
 @interface SearchBuildingGlobalViewController () <MXMSearchDelegate, MGLMapViewDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @end
 
 @implementation SearchBuildingGlobalViewController
@@ -25,7 +25,7 @@
     [self layoutUI];
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 - (void)openParam {
@@ -59,7 +59,7 @@
     NSMutableArray *anns = [NSMutableArray array];
     for (MXMBuilding *building in response.buildings) {
         if (response.total == 1) {
-            [self.mapPlugin selectBuilding:building.buildingId zoomMode:MXMZoomAnimated edgePadding:UIEdgeInsetsZero];
+            [self.mapxusMap selectBuilding:building.buildingId zoomMode:MXMZoomAnimated edgePadding:UIEdgeInsetsZero];
         }
         MGLPointAnnotation *ann = [[MGLPointAnnotation alloc] init];
         ann.coordinate = CLLocationCoordinate2DMake(building.labelCenter.latitude, building.labelCenter.longitude);

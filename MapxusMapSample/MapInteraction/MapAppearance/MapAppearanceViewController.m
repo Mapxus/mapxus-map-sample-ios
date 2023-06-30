@@ -15,7 +15,7 @@
 
 @interface MapAppearanceViewController () <MGLMapViewDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (nonatomic, strong) UIView *boxView;
 @property (nonatomic, strong) UILabel *hiddenTip;
 @property (nonatomic, strong) UISwitch *hiddenSwitch;
@@ -34,16 +34,16 @@
     [self layoutUI];
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 - (void)changeHiddenStatu:(UISwitch *)sender {
     if (sender.isOn) {
         // Hidden outdoor map information
-        self.mapPlugin.outdoorHidden = YES;
+        self.mapxusMap.outdoorHidden = YES;
     } else {
         // Show outdoor map information
-        self.mapPlugin.outdoorHidden = NO;
+        self.mapxusMap.outdoorHidden = NO;
     }
 }
 
@@ -52,23 +52,23 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
     UIAlertAction *common = [UIAlertAction actionWithTitle:NSLocalizedString(@"COMMON", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         // Use COMMON map style
-        [weakSelf.mapPlugin setMapSytle:(MXMStyleCOMMON)];
+        [weakSelf.mapxusMap setMapSytle:(MXMStyleCOMMON)];
     }];
     UIAlertAction *christmas = [UIAlertAction actionWithTitle:NSLocalizedString(@"CHRISTMAS", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         // Use CHRISTMAS map style
-        [weakSelf.mapPlugin setMapSytle:(MXMStyleCHRISTMAS)];
+        [weakSelf.mapxusMap setMapSytle:(MXMStyleCHRISTMAS)];
     }];
     UIAlertAction *hallowmas = [UIAlertAction actionWithTitle:NSLocalizedString(@"HALLOWMAS", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         // Use HALLOWMAS map style
-        [weakSelf.mapPlugin setMapSytle:(MXMStyleHALLOWMAS)];
+        [weakSelf.mapxusMap setMapSytle:(MXMStyleHALLOWMAS)];
     }];
     UIAlertAction *mappybee = [UIAlertAction actionWithTitle:NSLocalizedString(@"MAPPYBEE", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         // Use MAPPYBEE map style
-        [weakSelf.mapPlugin setMapSytle:(MXMStyleMAPPYBEE)];
+        [weakSelf.mapxusMap setMapSytle:(MXMStyleMAPPYBEE)];
     }];
     UIAlertAction *mapxus = [UIAlertAction actionWithTitle:NSLocalizedString(@"MAPXUS", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         // Use MAPXUS map style
-        [weakSelf.mapPlugin setMapSytle:(MXMStyleMAPXUS)];
+        [weakSelf.mapxusMap setMapSytle:(MXMStyleMAPXUS)];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:(UIAlertActionStyleCancel) handler:nil];
     
@@ -91,27 +91,27 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"default", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         // Display default marks on the map
-        [weakSelf.mapPlugin setMapLanguage:@"default"];
+        [weakSelf.mapxusMap setMapLanguage:@"default"];
     }];
     UIAlertAction *enAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"en", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         // Display English marks on the map
-        [weakSelf.mapPlugin setMapLanguage:@"en"];
+        [weakSelf.mapxusMap setMapLanguage:@"en"];
     }];
     UIAlertAction *zhHantAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"zh-Hant", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         // Display Traditional Chinese marks on the map
-        [weakSelf.mapPlugin setMapLanguage:@"zh-Hant"];
+        [weakSelf.mapxusMap setMapLanguage:@"zh-Hant"];
     }];
     UIAlertAction *zhHansAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"zh-Hans", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         // Display Simplified Chinese marks on the map
-        [weakSelf.mapPlugin setMapLanguage:@"zh-Hans"];
+        [weakSelf.mapxusMap setMapLanguage:@"zh-Hans"];
     }];
     UIAlertAction *jaAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ja", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         // Display Japanese marks on the map
-        [weakSelf.mapPlugin setMapLanguage:@"ja"];
+        [weakSelf.mapxusMap setMapLanguage:@"ja"];
     }];
     UIAlertAction *koAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ko", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         // Display Korean marks on the map
-        [weakSelf.mapPlugin setMapLanguage:@"ko"];
+        [weakSelf.mapxusMap setMapLanguage:@"ko"];
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:(UIAlertActionStyleCancel) handler:nil];
     
@@ -189,7 +189,7 @@
   style.lineColor = [NSExpression expressionForConstantValue:[self ColorwithHexString:lineColor]];
   style.lineWidth = [NSExpression expressionForConstantValue:@(lineWidth)];
 
-  self.mapPlugin.selectedBuildingBorderStyle = style;
+  self.mapxusMap.selectedBuildingBorderStyle = style;
 }
 
 - (UIColor *)ColorwithHexString:(NSString *)color {

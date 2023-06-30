@@ -15,7 +15,7 @@
 
 @interface SearchVenueInBoundViewController () <MGLMapViewDelegate, MXMSearchDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (strong, nonatomic) MGLPolygon *polygon;
 @end
 
@@ -27,7 +27,7 @@
     [self layoutUI];
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 - (void)openParam {

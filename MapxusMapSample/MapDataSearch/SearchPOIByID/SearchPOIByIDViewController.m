@@ -15,7 +15,7 @@
 
 @interface SearchPOIByIDViewController () <MGLMapViewDelegate, MXMSearchDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @end
 
 @implementation SearchPOIByIDViewController
@@ -27,7 +27,7 @@
 
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 - (void)openParam {
@@ -52,8 +52,8 @@
 
 - (void)onPOISearchDone:(MXMPOISearchRequest *)request response:(MXMPOISearchResponse *)response
 {
-    if (self.mapPlugin.MXMAnnotations.count) {
-        [self.mapPlugin removeMXMPointAnnotaions:self.mapPlugin.MXMAnnotations];
+    if (self.mapxusMap.MXMAnnotations.count) {
+        [self.mapxusMap removeMXMPointAnnotaions:self.mapxusMap.MXMAnnotations];
     }
     
     NSMutableArray *anns = [NSMutableArray array];
@@ -63,11 +63,11 @@
         ann.title = poi.name_default;
         ann.subtitle = [poi.floor.code stringByAppendingString:@"层"];
         ann.buildingId = poi.buildingId;
-        ann.floor = poi.floor.code;
+        ann.floorId = poi.floor.floorId;
         [anns addObject:ann];
     }
     
-    [self.mapPlugin addMXMPointAnnotations:anns];
+    [self.mapxusMap addMXMPointAnnotations:anns];
     [self.mapView showAnnotations:anns animated:YES];
     
     [ProgressHUD dismiss];

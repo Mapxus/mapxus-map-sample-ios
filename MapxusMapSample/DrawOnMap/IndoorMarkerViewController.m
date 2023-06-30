@@ -13,7 +13,7 @@
 
 @interface IndoorMarkerViewController () <MGLMapViewDelegate, MapxusMapDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @end
 
 @implementation IndoorMarkerViewController
@@ -30,7 +30,7 @@
 
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 
     NSMutableArray *annotations = [NSMutableArray array];
     for (ParamConfigDrawingMarker *marker in PARAMCONFIGINFO.drawing_markers) {
@@ -42,7 +42,7 @@
         mxmAnn.floor = marker.floor;
         [annotations addObject:mxmAnn];
     }
-    [self.mapPlugin addMXMPointAnnotations:annotations];
+    [self.mapxusMap addMXMPointAnnotations:annotations];
 }
 
 #pragma mark - MGLMapViewDelegate

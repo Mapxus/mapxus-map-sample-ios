@@ -13,7 +13,7 @@
 
 @interface IndoorSceneInAndOutListeningViewController () <MGLMapViewDelegate, MapxusMapDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (nonatomic, strong) UIView *boxView;
 @property (nonatomic, strong) UILabel *statuLabel;
 @end
@@ -26,8 +26,8 @@
     [self layoutUI];
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
-    self.mapPlugin.delegate = self;
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap.delegate = self;
 }
 
 - (void)layoutUI {
@@ -51,7 +51,11 @@
 }
 
 #pragma mark - MapxusMapDelegate
-- (void)mapView:(MapxusMap *)mapView indoorMapWithIn:(BOOL)flag building:(NSString *)buildingId floor:(NSString *)floor
+- (void)map:(MapxusMap *)map
+    didChangeIndoorSiteAccess:(BOOL)flag
+    selectedFloor:(MXMFloor *)floor
+    selectedBuilding:(MXMGeoBuilding *)building
+    selectedVenue:(MXMGeoVenue *)venue
 {
     self.statuLabel.text = flag ? @"Indoor now" : @"Outdoor now";
 }

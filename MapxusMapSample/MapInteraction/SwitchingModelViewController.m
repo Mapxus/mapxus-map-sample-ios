@@ -13,7 +13,7 @@
 @interface SwitchingModelViewController () <MGLMapViewDelegate>
 
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (nonatomic, strong) UIView *boxView;
 @property (nonatomic, strong) UIButton *floorSwitchModeButton;
 
@@ -27,17 +27,17 @@
   [self layoutUI];
   MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
   configuration.defaultStyle = MXMStyleMAPXUS;
-  self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+  self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 - (void)changeSwitchMode:(UIButton *)sender {
   __weak typeof(self) weakSelf = self;
   UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
   UIAlertAction *venueAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Switching By Venue", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    weakSelf.mapPlugin.floorSwitchMode = MXMSwitchedByVenue;
+    weakSelf.mapxusMap.floorSwitchMode = MXMSwitchedByVenue;
   }];
   UIAlertAction *buildingAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Switching By Building", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    weakSelf.mapPlugin.floorSwitchMode = MXMSwitchedByBuilding;
+    weakSelf.mapxusMap.floorSwitchMode = MXMSwitchedByBuilding;
   }];
   UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:(UIAlertActionStyleCancel) handler:nil];
   

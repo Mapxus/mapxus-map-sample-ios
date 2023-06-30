@@ -17,7 +17,7 @@
 
 @interface SurroundingIdentificationViewController () <MGLMapViewDelegate, MXMSearchDelegate, MXMGeoCodeSearchDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (nonatomic, strong) UIButton *searchButton;
 @property (nonatomic, strong) MXMSimulateLocationManager *locationManager;
 @property (nonatomic, strong) MXMGeoCodeSearch *geoCodeSearcher;
@@ -36,7 +36,7 @@
     self.mapView.showsUserHeadingIndicator = YES;
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 - (void)openParam {
@@ -94,7 +94,7 @@
 #pragma mark - MXMGeoCodeSearchDelegate
 - (void)onGetReverseGeoCode:(MXMGeoCodeSearch *)searcher result:(MXMReverseGeoCodeSearchResult *)result error:(NSError *)error {
     if (result) {
-        [self.mapPlugin selectBuilding:result.building.buildingId floor:result.floor.code zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
+        [self.mapxusMap selectBuilding:result.building.buildingId floor:result.floor.code zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
         MXMGeoPoint *point = [[MXMGeoPoint alloc] init];
         point.latitude = [(NSString *)self.params[@"latitude"] doubleValue];
         point.longitude = [(NSString *)self.params[@"longitude"] doubleValue];
@@ -123,8 +123,8 @@
 
 - (void)onOrientationPOISearchDone:(MXMOrientationPOISearchRequest *)request response:(MXMOrientationPOISearchResponse *)response
 {
-    if (self.mapPlugin.MXMAnnotations.count) {
-        [self.mapPlugin removeMXMPointAnnotaions:self.mapPlugin.MXMAnnotations];
+    if (self.mapxusMap.MXMAnnotations.count) {
+        [self.mapxusMap removeMXMPointAnnotaions:self.mapxusMap.MXMAnnotations];
     }
     
     NSMutableArray *anns = [NSMutableArray array];
@@ -147,7 +147,7 @@
         [anns addObject:ann];
     }
     
-    [self.mapPlugin addMXMPointAnnotations:anns];
+    [self.mapxusMap addMXMPointAnnotations:anns];
     
     [ProgressHUD dismiss];
 }

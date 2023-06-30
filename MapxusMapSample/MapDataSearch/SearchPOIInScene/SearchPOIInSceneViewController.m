@@ -15,7 +15,7 @@
 
 @interface SearchPOIInSceneViewController () <MGLMapViewDelegate, MXMSearchDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @end
 
 @implementation SearchPOIInSceneViewController
@@ -27,7 +27,7 @@
 
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 - (void)openParam {
@@ -54,8 +54,8 @@
 
 - (void)onPOISearchDone:(MXMPOISearchRequest *)request response:(MXMPOISearchResponse *)response
 {
-    if (self.mapPlugin.MXMAnnotations.count) {
-        [self.mapPlugin removeMXMPointAnnotaions:self.mapPlugin.MXMAnnotations];
+    if (self.mapxusMap.MXMAnnotations.count) {
+        [self.mapxusMap removeMXMPointAnnotaions:self.mapxusMap.MXMAnnotations];
     }
 
     NSMutableArray *anns = [NSMutableArray array];
@@ -68,10 +68,10 @@
         ann.floor = poi.floor.code;
         [anns addObject:ann];
     }
-    [self.mapPlugin addMXMPointAnnotations:anns];
+    [self.mapxusMap addMXMPointAnnotations:anns];
     if (response.pois.count) {
         MXMPOI *first = response.pois.firstObject;
-        [self.mapPlugin selectBuilding:first.buildingId floor:first.floor.code zoomMode:MXMZoomAnimated edgePadding:UIEdgeInsetsZero];
+        [self.mapxusMap selectBuilding:first.buildingId floor:first.floor.code zoomMode:MXMZoomAnimated edgePadding:UIEdgeInsetsZero];
     }
     [ProgressHUD dismiss];
 }

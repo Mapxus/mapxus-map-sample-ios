@@ -13,7 +13,7 @@
 
 @interface ClickEventListeningViewController () <MGLMapViewDelegate, MapxusMapDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (nonatomic, strong) UIView *boxView;
 @property (nonatomic, strong) UILabel *tipLabel;
 @end
@@ -26,8 +26,8 @@
     [self layoutUI];
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
-    self.mapPlugin.delegate = self;
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap.delegate = self;
 }
 
 - (void)layoutUI {
@@ -54,7 +54,7 @@
 #pragma mark - MapxusMapDelegate
 
 // If you want to listen to this method, you need to block the corresponding two methods first.
-//- (void)mapView:(MapxusMap *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate {
+//- (void)map:(MapxusMap *)map didSingleTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
 //    NSString *message = [NSString stringWithFormat:@"You have tap at coordinate %f, %f", coordinate.latitude, coordinate.longitude];
 //    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
 //    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
@@ -81,7 +81,7 @@
 }
 
 // If you want to listen to this method, you need to block the corresponding method first.
-//- (void)mapView:(MapxusMap *)mapView didLongPressedAtCoordinate:(CLLocationCoordinate2D)coordinate {
+//- (void)map:(MapxusMap *)map didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate {
 //    NSString *message = [NSString stringWithFormat:@"You have long press at coordinate %f, %f", coordinate.latitude, coordinate.longitude];
 //    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
 //    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];

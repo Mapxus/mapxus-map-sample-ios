@@ -14,7 +14,7 @@
 
 @interface IndoorControlsViewController () <MGLMapViewDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (nonatomic, strong) UIView *boxView;
 @property (nonatomic, strong) UILabel *hiddenTip;
 @property (nonatomic, strong) UISwitch *hiddenSwitch;
@@ -32,16 +32,16 @@
     [self layoutUI];
     MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
 }
 
 - (void)changeHiddenStatu:(UISwitch *)sender {
     if (sender.isOn == YES) {
         // Let floorBar and buildingSelectButton of MapxusMap instance always hidden
-        self.mapPlugin.indoorControllerAlwaysHidden = YES;
+        self.mapxusMap.indoorControllerAlwaysHidden = YES;
     } else {
         // Let floorBar and buildingSelectButton of MapxusMap instance displayed when you in any indoor scene
-        self.mapPlugin.indoorControllerAlwaysHidden = NO;
+        self.mapxusMap.indoorControllerAlwaysHidden = NO;
     }
 }
 
@@ -50,22 +50,22 @@
     
     switch (self.times) {
         case 0:
-            self.mapPlugin.selectorPosition = MXMSelectorPositionCenterLeft; // Let floorBar and buildingSelectButton of MapxusMap instance on the left
+            self.mapxusMap.selectorPosition = MXMSelectorPositionCenterLeft; // Let floorBar and buildingSelectButton of MapxusMap instance on the left
             break;
         case 1:
-            self.mapPlugin.selectorPosition = MXMSelectorPositionCenterRight; // Let floorBar and buildingSelectButton of MapxusMap instance on the right
+            self.mapxusMap.selectorPosition = MXMSelectorPositionCenterRight; // Let floorBar and buildingSelectButton of MapxusMap instance on the right
             break;
         case 2:
-            self.mapPlugin.selectorPosition = MXMSelectorPositionBottomLeft; // Let floorBar and buildingSelectButton of MapxusMap instance on bottom left
+            self.mapxusMap.selectorPosition = MXMSelectorPositionBottomLeft; // Let floorBar and buildingSelectButton of MapxusMap instance on bottom left
             break;
         case 3:
-            self.mapPlugin.selectorPosition = MXMSelectorPositionBottomRight; // Let floorBar and buildingSelectButton of MapxusMap instance on bottom right
+            self.mapxusMap.selectorPosition = MXMSelectorPositionBottomRight; // Let floorBar and buildingSelectButton of MapxusMap instance on bottom right
             break;
         case 4:
-            self.mapPlugin.selectorPosition = MXMSelectorPositionTopLeft; // Let floorBar and buildingSelectButton of MapxusMap instance on top left
+            self.mapxusMap.selectorPosition = MXMSelectorPositionTopLeft; // Let floorBar and buildingSelectButton of MapxusMap instance on top left
             break;
         case 5:
-            self.mapPlugin.selectorPosition = MXMSelectorPositionTopRight; // Let floorBar and buildingSelectButton of MapxusMap instance on top right
+            self.mapxusMap.selectorPosition = MXMSelectorPositionTopRight; // Let floorBar and buildingSelectButton of MapxusMap instance on top right
             break;
         default:
             break;
@@ -119,7 +119,7 @@
 
 - (void)completeParamConfiguration:(NSDictionary *)param {
   NSUInteger count = [param[@"maxLength"] intValue];
-  self.mapPlugin.floorBar.maxVisibleFloors = count;
+  self.mapxusMap.floorBar.maxVisibleFloors = count;
 }
 
 #pragma mark - Lazy loading

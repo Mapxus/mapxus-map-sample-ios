@@ -11,7 +11,7 @@
 
 @interface MXMPrimaryContentViewController () <MGLMapViewDelegate, MapxusMapDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic, strong) MapxusMap *mapPlugin;
+@property (nonatomic, strong) MapxusMap *mapxusMap;
 @end
 
 @implementation MXMPrimaryContentViewController
@@ -25,9 +25,9 @@
     configuration.buildingId = PARAMCONFIGINFO.buildingId_1;
     configuration.floor = PARAMCONFIGINFO.floor;
     configuration.defaultStyle = MXMStyleMAPXUS;
-    self.mapPlugin = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
-    self.mapPlugin.selectorPosition = MXMSelectorPositionTopRight;
-    self.mapPlugin.delegate = self;
+    self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+    self.mapxusMap.selectorPosition = MXMSelectorPositionTopRight;
+    self.mapxusMap.delegate = self;
 }
 
 - (void)layoutUI {
@@ -49,15 +49,15 @@
 
 - (void)moveToPOICenter:(CLLocationCoordinate2D)center buildingID:( NSString * _Nullable)buildingID floor:( NSString * _Nullable)floor {
     [self setCameraCenter:center zoomLevel:18 animated:YES];
-    [self.mapPlugin selectBuilding:buildingID floor:floor zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
+    [self.mapxusMap selectBuilding:buildingID floor:floor zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
 }
 
 - (void)addAnnotations:(NSArray<MXMPointAnnotation *> *)annotations {
-    [self.mapPlugin addMXMPointAnnotations:annotations];
+    [self.mapxusMap addMXMPointAnnotations:annotations];
 }
 
 - (void)removeAnnotations:(NSArray<MXMPointAnnotation *> *)annotations {
-    [self.mapPlugin removeMXMPointAnnotaions:annotations];
+    [self.mapxusMap removeMXMPointAnnotaions:annotations];
 }
 
 #pragma mark - MGLMapViewDelegate
@@ -66,9 +66,9 @@
 }
 
 #pragma mark - MapxusMapDelegate
-- (void)mapView:(MapxusMap *)mapView didChangeFloor:(NSString *)floorName atBuilding:(MXMGeoBuilding *)building {
+- (void)map:(MapxusMap *)map didChangeSelectedFloor:(MXMFloor *)floor inSelectedBuilding:(MXMGeoBuilding *)building atSelectedVenue:(MXMGeoVenue *)venue {
     if (self.primaryControlDelegate && [self.primaryControlDelegate respondsToSelector:@selector(mapDidChangeFloor:atBuilding:)]) {
-        [self.primaryControlDelegate mapDidChangeFloor:floorName atBuilding:building];
+        [self.primaryControlDelegate mapDidChangeFloor:floor.code atBuilding:building];
     }
 }
 
