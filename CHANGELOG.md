@@ -1,8 +1,5 @@
-v7.1.0
-2023-06-30
+v7.1.1
+2023-08-02
 
-1. 添加展示Venue搜索的功能展示模块
-2. 添加可设置floor bar最大可见楼层数的功能
-3. 添加当选建筑高亮框外观设置功能
-4. 添加切换室内楼层模式功能
-5. Update Mapxus SDKs v6.1.0.
+1. To increase accuracy, add floor judgment at the end of navigation.
+2. Update Mapxus SDKs v6.1.1.

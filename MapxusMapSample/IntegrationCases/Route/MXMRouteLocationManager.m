@@ -152,6 +152,10 @@
     if (actual.timestamp.timeIntervalSince1970 < self.lastActualLocation.timestamp.timeIntervalSince1970) {
         return;
     }
+  
+    self.locationBuildingId = buildingID;
+    self.locationFloorCode = floor;
+
     switch (state) {
         case MXMAdsorptionStateDefault:
         case MXMAdsorptionStateDrifting:

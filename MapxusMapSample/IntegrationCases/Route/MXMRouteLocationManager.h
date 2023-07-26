@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MXMRouteLocationManager : NSObject <MGLLocationManager>
 @property (nonatomic, weak) id<TrackDelegate> trackDelegate;
 @property (nonatomic, assign) BOOL isNavigation;
+@property (nonatomic, strong) NSString *locationBuildingId;
+@property (nonatomic, strong) NSString *locationFloorCode;
 - (void)setShorterDelegate:(id<MXMRouteShortenerDelegate>)sDelegate;
 - (void)updatePath:(MXMPath *)path wayPoints:(NSArray<MXMIndoorPoint *> *)wayPoints;
 @end

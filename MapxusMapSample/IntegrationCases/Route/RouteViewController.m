@@ -290,7 +290,17 @@
       [self.instructionDelegate routeInstructionDidChange:index];
     }
     if (!self.isEndOfNavigation) {
-        if (path.distance < 3) {
+      
+      MXMInstruction *lastInstruction = path.instructions.lastObject;
+      BOOL isSameOutdoor = (lastInstruction.buildingId == nil) && (self.locationManager.locationBuildingId == nil);
+      BOOL isSameSite = lastInstruction.buildingId &&
+          lastInstruction.floor &&
+          self.locationManager.locationBuildingId &&
+          self.locationManager.locationFloorCode &&
+          [lastInstruction.buildingId isEqualToString:self.locationManager.locationBuildingId] &&
+          [lastInstruction.floor isEqualToString:self.locationManager.locationFloorCode];
+      
+        if (path.distance < 3 && (isSameSite || isSameOutdoor)) {
             self.isEndOfNavigation = YES;
             self.currentResponse = nil;
             [self.painter cleanRoute];
