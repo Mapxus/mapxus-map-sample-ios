@@ -31,8 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *venueId;
 @property (strong, nonatomic) NSString *buildingId;
 @property (strong, nonatomic) NSString *buildingId_1;
+@property (strong, nonatomic) NSString *floorId;
+@property (strong, nonatomic) NSString *floorId_1;
 @property (strong, nonatomic) NSString *poiId;
-@property (strong, nonatomic) NSString *floor;
 @property (assign, nonatomic) CLLocationDegrees center_latitude;
 @property (assign, nonatomic) CLLocationDegrees center_longitude;
 
@@ -61,10 +62,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *subtitle;
-@property (strong, nonatomic) NSString *buildingId;
+@property (strong, nonatomic) NSString *floorId;
 @property (strong, nonatomic) NSString *latitude;
 @property (strong, nonatomic) NSString *longitude;
-@property (strong, nonatomic) NSString *floor;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

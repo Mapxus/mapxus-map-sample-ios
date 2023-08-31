@@ -26,13 +26,13 @@
 @implementation MXMRouteLocationManager
 
 - (void)setShorterDelegate:(id<MXMRouteShortenerDelegate>)sDelegate {
-    self.shortener.delegate = sDelegate;
+  self.shortener.delegate = sDelegate;
 }
 
 - (void)updatePath:(MXMPath *)path wayPoints:(NSArray<MXMIndoorPoint *> *)wayPoints {
-    MXMNavigationPathDTO *pathDTO = [[MXMNavigationPathDTO alloc] initWithPath:path];
-    [self.adsorber updateNavigationPathDTO:pathDTO];
-    [self.shortener inputSourceWithOriginalPath:path originalWayPoints:wayPoints andNavigationPathDTO:pathDTO];
+  MXMNavigationPathDTO *pathDTO = [[MXMNavigationPathDTO alloc] initWithPath:path];
+  [self.adsorber updateNavigationPathDTO:pathDTO];
+  [self.shortener inputSourceWithOriginalPath:path originalWayPoints:wayPoints andNavigationPathDTO:pathDTO];
 }
 
 /** Virtual positioning function  */
@@ -147,42 +147,46 @@
 /** Virtual positioning function */
 
 #pragma mark - MXMRouteAdsorberDelegate
-- (void)refreshTheAdsorptionLocation:(CLLocation *)location buildingID:(NSString *)buildingID floor:(NSString *)floor state:(MXMAdsorptionState)state fromActual:(CLLocation *)actual {
-    // Discard obsolete data
-    if (actual.timestamp.timeIntervalSince1970 < self.lastActualLocation.timestamp.timeIntervalSince1970) {
-        return;
-    }
+- (void)refreshTheAdsorptionLocation:(CLLocation *)location
+                             venueId:(nullable NSString *)venueId
+                          buildingId:(nullable NSString *)buildingId
+                             floorId:(nullable NSString *)floorId
+                               state:(MXMAdsorptionState)state
+                          fromActual:(CLLocation *)actual {
+  // Discard obsolete data
+  if (actual.timestamp.timeIntervalSince1970 < self.lastActualLocation.timestamp.timeIntervalSince1970) {
+    return;
+  }
   
-    self.locationBuildingId = buildingID;
-    self.locationFloorCode = floor;
-
-    switch (state) {
-        case MXMAdsorptionStateDefault:
-        case MXMAdsorptionStateDrifting:
-            // In general, calculate the route after interception
-            [self.shortener cutFromTheLocationProjection:location buildingID:buildingID andFloor:floor];
-            break;
-        case MXMAdsorptionStateDriftsNumberExceeded:
-            // Initiate a callback after the number of drifts exceeds the limit
-        {
-            if (self.trackDelegate && [self.trackDelegate respondsToSelector:@selector(excessiveDrift)]) {
-                [self.trackDelegate excessiveDrift];
-            }
-        }
-            break;
-        default:
-            break;
+  self.locationFloorId = floorId;
+  
+  switch (state) {
+    case MXMAdsorptionStateDefault:
+    case MXMAdsorptionStateDrifting:
+      // In general, calculate the route after interception
+      [self.shortener cutFromTheLocationProjection:location floorId:floorId];
+      break;
+    case MXMAdsorptionStateDriftsNumberExceeded:
+      // Initiate a callback after the number of drifts exceeds the limit
+    {
+      if (self.trackDelegate && [self.trackDelegate respondsToSelector:@selector(excessiveDrift)]) {
+        [self.trackDelegate excessiveDrift];
+      }
     }
-    self.lastActualLocation = actual;
-
-    // Provide UI to show follow
-    if (self.trackDelegate && [self.trackDelegate respondsToSelector:@selector(refreshTheAdsorptionLocation:heading:buildingId:floor:state:fromActual:)]) {
-        [self.trackDelegate refreshTheAdsorptionLocation:location heading:self.innerLocationManager.heading.trueHeading buildingId:buildingID floor:floor state:state fromActual:actual];
-    }
-    // Send the locations to mapbox view. If no adsorption locator is needed, annotate here.
-    if (self.delegate && [self.delegate respondsToSelector:@selector(locationManager:didUpdateLocations:)]) {
-        [self.delegate locationManager:self didUpdateLocations:@[location]];
-    }
+      break;
+    default:
+      break;
+  }
+  self.lastActualLocation = actual;
+  
+  // Provide UI to show follow
+  if (self.trackDelegate && [self.trackDelegate respondsToSelector:@selector(refreshTheAdsorptionLocation:heading:floorId:state:fromActual:)]) {
+    [self.trackDelegate refreshTheAdsorptionLocation:location heading:self.innerLocationManager.heading.trueHeading floorId:floorId state:state fromActual:actual];
+  }
+  // Send the locations to mapbox view. If no adsorption locator is needed, annotate here.
+  if (self.delegate && [self.delegate respondsToSelector:@selector(locationManager:didUpdateLocations:)]) {
+    [self.delegate locationManager:self didUpdateLocations:@[location]];
+  }
 }
 
 #pragma mark - MGLLocationManager
@@ -190,100 +194,100 @@
 @synthesize delegate;
 
 - (CLActivityType)activityType {
-    return self.innerLocationManager.activityType;
+  return self.innerLocationManager.activityType;
 }
 
 - (void)setActivityType:(CLActivityType)activityType {
-    self.innerLocationManager.activityType = activityType;
+  self.innerLocationManager.activityType = activityType;
 }
 
 - (CLDeviceOrientation)headingOrientation {
-    return self.innerLocationManager.headingOrientation;
+  return self.innerLocationManager.headingOrientation;
 }
 
 - (void)setHeadingOrientation:(CLDeviceOrientation)headingOrientation {
-    self.innerLocationManager.headingOrientation = headingOrientation;
+  self.innerLocationManager.headingOrientation = headingOrientation;
 }
 
 - (CLAuthorizationStatus)authorizationStatus {
-    return [CLLocationManager authorizationStatus];
+  return [CLLocationManager authorizationStatus];
 }
 
 - (void)dismissHeadingCalibrationDisplay {
-    [self.innerLocationManager dismissHeadingCalibrationDisplay];
+  [self.innerLocationManager dismissHeadingCalibrationDisplay];
 }
 
 - (void)requestAlwaysAuthorization {
-    [self.innerLocationManager requestAlwaysAuthorization];
+  [self.innerLocationManager requestAlwaysAuthorization];
 }
 
 - (void)requestWhenInUseAuthorization {
-    [self.innerLocationManager requestWhenInUseAuthorization];
+  [self.innerLocationManager requestWhenInUseAuthorization];
 }
 
 - (void)startUpdatingHeading {
-    [self.innerLocationManager startUpdatingHeading];
+  [self.innerLocationManager startUpdatingHeading];
 }
 
 - (void)startUpdatingLocation {
-    [self.innerLocationManager startUpdatingLocation];
-    /** Virtual positioning function  */
-//    [self loadRouteCoordinates];
-//    self.locationUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:0.9 target:self selector:@selector(updateLocation) userInfo:nil repeats:YES];
-    /** Virtual positioning function */
+  [self.innerLocationManager startUpdatingLocation];
+  /** Virtual positioning function  */
+  //    [self loadRouteCoordinates];
+  //    self.locationUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:0.9 target:self selector:@selector(updateLocation) userInfo:nil repeats:YES];
+  /** Virtual positioning function */
 }
 
 - (void)stopUpdatingHeading {
-    [self.innerLocationManager stopUpdatingHeading];
+  [self.innerLocationManager stopUpdatingHeading];
 }
 
 - (void)stopUpdatingLocation {
-    [self.innerLocationManager stopUpdatingLocation];
+  [self.innerLocationManager stopUpdatingLocation];
 }
 
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    if (self.isNavigation) {
-        [self.adsorber calculateTheAdsorptionLocationFromActual:locations.lastObject];
-    }
-    else { // If no adsorption locator is needed, annotate here.
-        [self.delegate locationManager:self didUpdateLocations:locations];
-    }
+  if (self.isNavigation) {
+    [self.adsorber calculateTheAdsorptionLocationFromActual:locations.lastObject];
+  }
+  else { // If no adsorption locator is needed, annotate here.
+    [self.delegate locationManager:self didUpdateLocations:locations];
+  }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
-    [self.delegate locationManager:self didUpdateHeading:newHeading];
+  [self.delegate locationManager:self didUpdateHeading:newHeading];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    [self.delegate locationManager:self didFailWithError:error];
+  [self.delegate locationManager:self didFailWithError:error];
 }
 
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager {
-    return [self.delegate locationManagerShouldDisplayHeadingCalibration:self];
+  return [self.delegate locationManagerShouldDisplayHeadingCalibration:self];
 }
 
 #pragma mark - Lazy loading
 - (CLLocationManager *)innerLocationManager {
-    if (!_innerLocationManager) {
-        _innerLocationManager = [[CLLocationManager alloc] init];
-        _innerLocationManager.delegate = self;
-    }
-    return _innerLocationManager;
+  if (!_innerLocationManager) {
+    _innerLocationManager = [[CLLocationManager alloc] init];
+    _innerLocationManager.delegate = self;
+  }
+  return _innerLocationManager;
 }
 
 - (MXMRouteAdsorber *)adsorber {
-    if (!_adsorber) {
-        _adsorber = [[MXMRouteAdsorber alloc] init];
-        _adsorber.delegate = self;
-    }
-    return _adsorber;
+  if (!_adsorber) {
+    _adsorber = [[MXMRouteAdsorber alloc] init];
+    _adsorber.delegate = self;
+  }
+  return _adsorber;
 }
 
 - (MXMRouteShortener *)shortener {
-    if (!_shortener) {
-        _shortener = [[MXMRouteShortener alloc] init];
-    }
-    return _shortener;
+  if (!_shortener) {
+    _shortener = [[MXMRouteShortener alloc] init];
+  }
+  return _shortener;
 }
 @end

@@ -14,14 +14,17 @@
 NS_ASSUME_NONNULL_BEGIN
 @protocol TrackDelegate <NSObject>
 - (void)excessiveDrift;
-- (void)refreshTheAdsorptionLocation:(CLLocation *)location heading:(CLLocationDirection)heading buildingId:(NSString *)buildingId floor:(NSString *)floor state:(MXMAdsorptionState)state fromActual:(CLLocation *)actual;
+- (void)refreshTheAdsorptionLocation:(CLLocation *)location
+                             heading:(CLLocationDirection)heading
+                             floorId:(NSString *)floorId
+                               state:(MXMAdsorptionState)state
+                          fromActual:(CLLocation *)actual;
 @end
 
 @interface MXMRouteLocationManager : NSObject <MGLLocationManager>
 @property (nonatomic, weak) id<TrackDelegate> trackDelegate;
 @property (nonatomic, assign) BOOL isNavigation;
-@property (nonatomic, strong) NSString *locationBuildingId;
-@property (nonatomic, strong) NSString *locationFloorCode;
+@property (nonatomic, strong) NSString *locationFloorId;
 - (void)setShorterDelegate:(id<MXMRouteShortenerDelegate>)sDelegate;
 - (void)updatePath:(MXMPath *)path wayPoints:(NSArray<MXMIndoorPoint *> *)wayPoints;
 @end

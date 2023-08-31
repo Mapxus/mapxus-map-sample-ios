@@ -11,8 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CreateMapWithSceneReaultViewController : UIViewController
-@property (nonatomic, strong) NSString *buildingId;
-@property (nonatomic, strong) NSString *floor;
+@property (nonatomic, strong, nullable) NSString *floorId;
+@property (nonatomic, strong, nullable) NSString *buildingId;
+@property (nonatomic, strong, nullable) NSString *venueId;
 @property (nonatomic, assign) UIEdgeInsets zoomInsets;
 @end
 

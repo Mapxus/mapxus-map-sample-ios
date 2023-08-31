@@ -1,5 +1,7 @@
-v7.1.1
-2023-08-02
+v8.0.0
+2023-08-31
 
-1. To increase accuracy, add floor judgment at the end of navigation.
-2. Update Mapxus SDKs v6.1.1.
+1. Update Mapxus SDKs v6.2.0.
+2. A unique `floorId` is now used to specify a distinct floor, superseding the previous version which identified a floor through a combination of `buildingId` and `floor`.
+3. Add ShuttleBus route rendering.
+

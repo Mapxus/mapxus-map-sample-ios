@@ -7,10 +7,10 @@ target 'MapxusMapSample' do
   inhibit_all_warnings!
   
   # Pods for MapxusMapSample
-  pod 'MapxusBaseSDK'
-  pod 'MapxusMapSDK'
-  pod 'MapxusVisualSDK'
-  pod 'MapxusComponentKit'
+  pod 'MapxusBaseSDK', '6.2.0'#:path => '../mapxus-base-sdk-ios'
+  pod 'MapxusMapSDK', '6.2.0'#, :path => '../mapxus-map-sdk-ios'
+  pod 'MapxusVisualSDK', '6.2.0'#, :path => '../mapxus-visual-sdk-ios'
+  pod 'MapxusComponentKit', '6.2.0'#, :path => '../mapxus-component-kit-ios'
 
 
   pod 'ProgressHUD'

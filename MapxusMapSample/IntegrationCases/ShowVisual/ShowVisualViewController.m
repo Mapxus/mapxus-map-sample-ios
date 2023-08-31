@@ -41,8 +41,7 @@
   self.isFrist = YES;
   
   MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
-  configuration.buildingId = PARAMCONFIGINFO.buildingId;;
-  configuration.floor = PARAMCONFIGINFO.floor;
+  configuration.floorId = PARAMCONFIGINFO.floorId;;
   configuration.defaultStyle = MXMStyleMAPXUS;
   self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mglMapView configuration:configuration];
   self.mapxusMap.delegate = self;
@@ -65,8 +64,7 @@
       weakSelf.ann = [[MXMPointAnnotation alloc] init];
       [weakSelf.mapxusMap addMXMPointAnnotations:@[weakSelf.ann]];
     }
-    weakSelf.ann.buildingId = node[@"buildingId"];
-    weakSelf.ann.floor = node[@"floor"];
+    weakSelf.ann.floorId = node[@"floorId"];
     weakSelf.ann.coordinate = CLLocationCoordinate2DMake([node[@"latitude"] doubleValue], [node[@"longitude"] doubleValue]);
     
     weakSelf.visualView.hidden = NO;
@@ -93,9 +91,9 @@
 {
   sender.selected = !sender.isSelected;
   if (sender.isSelected) {
-    self.currentVisualBuildingId = self.mapxusMap.building.identifier;
+    self.currentVisualBuildingId = self.mapxusMap.selectedBuildingId;
     MXMVisualBuildingSearchOption *option = [[MXMVisualBuildingSearchOption alloc] init];
-    option.buildingId = self.mapxusMap.building.identifier;
+    option.buildingId = self.mapxusMap.selectedBuildingId;
     option.scope = MXMVisualSearchScopeDetail;
     [self.searchApi searchVisualDataInBuilding:option];
   } else {
@@ -171,16 +169,16 @@
 
 #pragma makr - MapxusMapDelegate
 
-- (void)map:(MapxusMap *)map didChangeSelectedFloor:(MXMFloor *)floor inSelectedBuilding:(MXMGeoBuilding *)building atSelectedVenue:(MXMGeoVenue *)venue
+- (void)map:(MapxusMap *)map didChangeSelectedFloor:(MXMFloor *)floor inSelectedBuildingId:(NSString *)buildingId atSelectedVenueId:(NSString *)venueId
 {
   self.visualView.hidden = YES;
-  if ([self.currentVisualBuildingId isEqualToString:building.identifier]) {
-    [self.painter changeOnBuilding:building.identifier floor:floor.code];
+  if ([self.currentVisualBuildingId isEqualToString:buildingId]) {
+    [self.painter changeOnFloorId:floor.floorId];
   } else {
     if (self.openBtn.isSelected) {
-      self.currentVisualBuildingId = building.identifier;
+      self.currentVisualBuildingId = buildingId;
       MXMVisualBuildingSearchOption *option = [[MXMVisualBuildingSearchOption alloc] init];
-      option.buildingId = building.identifier;
+      option.buildingId = buildingId;
       option.scope = MXMVisualSearchScopeDetail;
       [self.searchApi searchVisualDataInBuilding:option];
     }
@@ -200,7 +198,7 @@
   }
   [self.painter renderFlagUsingNodes:arr];
   // Filter the current floor data
-  [self.painter changeOnBuilding:self.mapxusMap.building.identifier floor:self.mapxusMap.floor];
+  [self.painter changeOnFloorId:self.mapxusMap.selectedFloor.floorId];
 }
 
 

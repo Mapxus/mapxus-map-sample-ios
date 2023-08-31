@@ -20,27 +20,27 @@
 
 - (instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier
 {
-    self = [super initWithReuseIdentifier:reuseIdentifier];
-    if (self) {
-        self.frame = CGRectMake(0, 0, 72, 72);
-        self.rotatesToMatchCamera = YES;
-        self.iconView.frame = CGRectMake(0, 0, 72, 72);
-        [self addSubview:self.iconView];
-    }
-    return self;
+  self = [super initWithReuseIdentifier:reuseIdentifier];
+  if (self) {
+    self.frame = CGRectMake(0, 0, 72, 72);
+    self.rotatesToMatchCamera = YES;
+    self.iconView.frame = CGRectMake(0, 0, 72, 72);
+    [self addSubview:self.iconView];
+  }
+  return self;
 }
 
 - (void)changeRotate:(double)rotate
 {
-    self.iconView.transform = CGAffineTransformMakeRotation((angle2Rad(rotate)));
+  self.iconView.transform = CGAffineTransformMakeRotation((angle2Rad(rotate)));
 }
 
 - (UIImageView *)iconView
 {
-    if (!_iconView) {
-        _iconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_current_position"]];
-    }
-    return _iconView;
+  if (!_iconView) {
+    _iconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_current_position"]];
+  }
+  return _iconView;
 }
 
 @end
