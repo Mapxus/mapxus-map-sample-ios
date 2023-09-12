@@ -88,6 +88,7 @@
   re.keywords = param[@"keywords"];
   re.floorId = param[@"floorId"];
   re.buildingId = param[@"buildingId"];
+  re.venueId = param[@"venueId"];
   re.category = param[@"category"];
   re.offset = [(NSString *)param[@"offset"] integerValue];
   re.page = [(NSString *)param[@"page"] integerValue];

@@ -408,7 +408,7 @@
   for (NSString *key in self.painter.dto.keys) {
     if (![key containsString:@"outdoor"]) {
       MXMParagraph *paph = self.painter.dto.paragraphs[key];
-      [self.map selectFloorById:paph.floorId];
+      [self.map selectFloorById:paph.floorId zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
       [self.painter changeOnVenue:paph.venueId ordinal:paph.ordinal];
       [self.painter focusOnKeys:@[key] edgePadding:UIEdgeInsetsMake(130, 30, 110, 80)];
       break;

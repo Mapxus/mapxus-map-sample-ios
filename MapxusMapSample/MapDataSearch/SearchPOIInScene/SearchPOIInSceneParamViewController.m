@@ -48,6 +48,9 @@
     case 1:
       self.idTextField.text = PARAMCONFIGINFO.buildingId;
       break;
+    case 2:
+      self.idTextField.text = PARAMCONFIGINFO.venueId;
+      break;
     default:
       break;
   }
@@ -64,6 +67,9 @@
           break;
         case 1:
           params[@"buildingId"] = weakSelf.idTextField.text.length ? weakSelf.idTextField.text : nil;
+          break;
+        case 2:
+          params[@"venueId"] = weakSelf.idTextField.text.length ? weakSelf.idTextField.text : nil;
           break;
         default:
           break;
@@ -207,7 +213,7 @@
 
 - (UISegmentedControl *)idTypeView {
   if (!_idTypeView) {
-    _idTypeView = [[UISegmentedControl alloc] initWithItems:@[@"floorId", @"buildingId"]];
+    _idTypeView = [[UISegmentedControl alloc] initWithItems:@[@"floorId", @"buildingId", @"venueId"]];
     _idTypeView.translatesAutoresizingMaskIntoConstraints = NO;
     _idTypeView.selectedSegmentIndex = 0;
     [_idTypeView addTarget:self action:@selector(changeIdType:) forControlEvents:UIControlEventValueChanged];

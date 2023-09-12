@@ -16,6 +16,8 @@
 @property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (nonatomic, strong) UIView *boxView;
 @property (nonatomic, strong) UIButton *floorSwitchModeButton;
+@property (nonatomic, strong) UISwitch *maskModeSwitch;
+@property (nonatomic, strong) UILabel *maskModeTip;
 
 @end
 
@@ -52,10 +54,22 @@
   [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (void)changeMaskModeSwitch:(UISwitch *)sender {
+    if (sender.isOn == YES) {
+        // When the center of the map changes, the building in the center of the map is automatically selected.
+        self.mapxusMap.maskNonSelectedSite = YES;
+    } else {
+        // Does not automatically switch the selected building when the map center is changed.
+        self.mapxusMap.maskNonSelectedSite = NO;
+    }
+}
+
 - (void)layoutUI {
   [self.view addSubview:self.mapView];
   [self.view addSubview:self.boxView];
   [self.boxView addSubview:self.floorSwitchModeButton];
+  [self.boxView addSubview:self.maskModeSwitch];
+  [self.boxView addSubview:self.maskModeTip];
   
   [self.mapView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
   [self.mapView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
@@ -71,10 +85,17 @@
     [self.boxView.topAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-70].active = YES;
   }
   
-  [self.floorSwitchModeButton.centerXAnchor constraintEqualToAnchor:self.boxView.centerXAnchor].active = YES;
   [self.floorSwitchModeButton.topAnchor constraintEqualToAnchor:self.boxView.topAnchor constant:moduleSpace].active = YES;
-  [self.floorSwitchModeButton.widthAnchor constraintEqualToConstant:200].active = YES;
+  [self.floorSwitchModeButton.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:10].active = YES;
+  [self.floorSwitchModeButton.widthAnchor constraintEqualToConstant:170].active = YES;
   [self.floorSwitchModeButton.heightAnchor constraintEqualToConstant:40].active = YES;
+  
+  [self.maskModeSwitch.topAnchor constraintEqualToAnchor:self.boxView.topAnchor constant:moduleSpace].active = YES;
+  [self.maskModeSwitch.leadingAnchor constraintEqualToAnchor:self.boxView.centerXAnchor constant:10].active = YES;
+  
+  [self.maskModeTip.leadingAnchor constraintEqualToAnchor:self.boxView.centerXAnchor constant:50 + innerSpace + moduleSpace].active = YES;
+  [self.maskModeTip.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-innerSpace].active = YES;
+  [self.maskModeTip.centerYAnchor constraintEqualToAnchor:self.maskModeSwitch.centerYAnchor].active = YES;
 }
 
 #pragma mark - Lazy loading
@@ -109,5 +130,25 @@
   }
   return _floorSwitchModeButton;
 }
+
+- (UISwitch *)maskModeSwitch {
+  if (!_maskModeSwitch) {
+    _maskModeSwitch = [[UISwitch alloc] init];
+    _maskModeSwitch.translatesAutoresizingMaskIntoConstraints = NO;
+    [_maskModeSwitch addTarget:self action:@selector(changeMaskModeSwitch:) forControlEvents:UIControlEventValueChanged];
+  }
+  return _maskModeSwitch;
+}
+
+- (UILabel *)maskModeTip {
+    if (!_maskModeTip) {
+      _maskModeTip = [[UILabel alloc] init];
+      _maskModeTip.translatesAutoresizingMaskIntoConstraints = NO;
+      _maskModeTip.text = @"mask non selected site";
+      _maskModeTip.numberOfLines = 0;
+    }
+    return _maskModeTip;
+}
+
 
 @end

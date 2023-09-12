@@ -17,7 +17,9 @@
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (nonatomic, strong) UIView *boxView;
+@property (nonatomic, strong) UILabel *tipLabel;
 @property (nonatomic, strong) UIStackView *stackView;
+@property (nonatomic, strong) UIButton *searchInVenueButton;
 @property (nonatomic, strong) UIButton *searchInBuildingButton;
 @property (nonatomic, strong) UIButton *searchOnFloorButton;
 @end
@@ -32,6 +34,25 @@
   MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
   configuration.defaultStyle = MXMStyleMAPXUS;
   self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+}
+
+// Search all categories in venue
+- (void)searchInVenueButtonAction:(UIButton *)sender {
+  if (self.mapxusMap.selectedVenueId == nil) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning!" message:@"Please select the scene first." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
+    return;
+  }
+  [ProgressHUD show];
+  
+  MXMPOICategorySearchRequest *re = [[MXMPOICategorySearchRequest alloc] init];
+  re.venueId = self.mapxusMap.selectedVenueId;
+  
+  MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
+  api.delegate = self;
+  [api MXMPOICategorySearch:re];
 }
 
 // Search all categories in building
@@ -75,9 +96,11 @@
 - (void)layoutUI {
   [self.view addSubview:self.mapView];
   [self.view addSubview:self.boxView];
+  [self.boxView addSubview:self.tipLabel];
   [self.boxView addSubview:self.stackView];
-  [self.stackView addArrangedSubview:self.searchInBuildingButton];
   [self.stackView addArrangedSubview:self.searchOnFloorButton];
+  [self.stackView addArrangedSubview:self.searchInBuildingButton];
+  [self.stackView addArrangedSubview:self.searchInVenueButton];
   
   [self.mapView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
   [self.mapView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
@@ -88,14 +111,17 @@
   [self.boxView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
   [self.boxView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
   if (@available(iOS 11.0, *)) {
-    [self.boxView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-80].active = YES;
+    [self.boxView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-100].active = YES;
   } else {
-    [self.boxView.topAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-80].active = YES;
+    [self.boxView.topAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-100].active = YES;
   }
   
+  [self.tipLabel.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
+  [self.tipLabel.topAnchor constraintEqualToAnchor:self.boxView.topAnchor constant:moduleSpace].active = YES;
+
   [self.stackView.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
   [self.stackView.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
-  [self.stackView.topAnchor constraintEqualToAnchor:self.boxView.topAnchor constant:moduleSpace].active = YES;
+  [self.stackView.topAnchor constraintEqualToAnchor:self.tipLabel.bottomAnchor constant:moduleSpace].active = YES;
   [self.stackView.heightAnchor constraintEqualToConstant:40].active = YES;
 }
 
@@ -131,6 +157,15 @@
   return _boxView;
 }
 
+- (UILabel *)tipLabel {
+  if (!_tipLabel) {
+    _tipLabel = [[UILabel alloc] init];
+    _tipLabel.text = @"Search category in";
+    _tipLabel.translatesAutoresizingMaskIntoConstraints = NO;
+  }
+  return _tipLabel;
+}
+
 - (UIStackView *)stackView {
   if (!_stackView) {
     _stackView = [[UIStackView alloc] init];
@@ -142,11 +177,24 @@
   return _stackView;
 }
 
+- (UIButton *)searchInVenueButton {
+  if (!_searchInVenueButton) {
+    _searchInVenueButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _searchInVenueButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [_searchInVenueButton setTitle:@"Venue" forState:UIControlStateNormal];
+    [_searchInVenueButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _searchInVenueButton.backgroundColor = [UIColor colorWithRed:80/255.0 green:175/255.0 blue:243/255.0 alpha:1.0];
+    [_searchInVenueButton addTarget:self action:@selector(searchInVenueButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    _searchInVenueButton.layer.cornerRadius = 5;
+  }
+  return _searchInVenueButton;
+}
+
 - (UIButton *)searchInBuildingButton {
   if (!_searchInBuildingButton) {
     _searchInBuildingButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _searchInBuildingButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [_searchInBuildingButton setTitle:@"Search In Building" forState:UIControlStateNormal];
+    [_searchInBuildingButton setTitle:@"Building" forState:UIControlStateNormal];
     [_searchInBuildingButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _searchInBuildingButton.backgroundColor = [UIColor colorWithRed:80/255.0 green:175/255.0 blue:243/255.0 alpha:1.0];
     [_searchInBuildingButton addTarget:self action:@selector(searchInBuildingButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -155,11 +203,12 @@
   return _searchInBuildingButton;
 }
 
+
 - (UIButton *)searchOnFloorButton {
   if (!_searchOnFloorButton) {
     _searchOnFloorButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _searchOnFloorButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [_searchOnFloorButton setTitle:@"Search On Floor" forState:UIControlStateNormal];
+    [_searchOnFloorButton setTitle:@"Floor" forState:UIControlStateNormal];
     [_searchOnFloorButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _searchOnFloorButton.backgroundColor = [UIColor colorWithRed:80/255.0 green:175/255.0 blue:243/255.0 alpha:1.0];
     [_searchOnFloorButton addTarget:self action:@selector(searchOnFloorButtonAction:) forControlEvents:UIControlEventTouchUpInside];
