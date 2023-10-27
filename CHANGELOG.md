@@ -1,5 +1,5 @@
-v8.1.0
-2023-09-28
+v8.2.0
+2023-10-27
 
-1. Update Mapxus SDKs v6.3.0.
+1. Update Mapxus SDKs v6.3.1.
 
