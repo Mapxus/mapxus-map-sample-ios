@@ -99,12 +99,21 @@
     point.latitude = [(NSString *)self.params[@"latitude"] doubleValue];
     point.longitude = [(NSString *)self.params[@"longitude"] doubleValue];
     
+    
     MXMOrientationPOISearchRequest *re = [[MXMOrientationPOISearchRequest alloc] init];
     re.center = point;
     re.distance = [(NSString *)self.params[@"distance"] integerValue];
     re.angle = self.mapView.userLocation.heading.trueHeading;
-    re.floorId = result.floor.floorId;
     re.distanceSearchType = self.params[@"distanceSearchType"];
+    NSString *searchScope = (NSString *)self.params[@"searchScope"];
+    if ([searchScope isEqualToString:@"floorId"]) {
+      re.floorId = result.floor.floorId;
+    } else if ([searchScope isEqualToString:@"buildingId"]) {
+        re.buildingId = result.building.buildingId;
+    } else if ([searchScope isEqualToString:@"floorOrdinal"]) {
+        NSInteger ordinal = [(NSString *)self.params[@"ordinal"] integerValue];
+        re.floorOrdinal = @(ordinal);
+    }
     // Search POI near the center
     MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
     api.delegate = self;

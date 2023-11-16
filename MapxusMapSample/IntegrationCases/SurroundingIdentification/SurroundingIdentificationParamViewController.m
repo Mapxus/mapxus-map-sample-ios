@@ -24,6 +24,8 @@
 @property (nonatomic, strong) UITextField *ordinalTextField;
 @property (nonatomic, strong) UITextField *distanceTextField;
 @property (nonatomic, strong) UIButton *searchTypeButton;
+@property (nonatomic, strong) UILabel *searchScopeTip;
+@property (nonatomic, strong) UISegmentedControl *searchScopeControl;
 @property (nonatomic, strong) UIButton *createButton;
 @end
 
@@ -36,6 +38,7 @@
 }
 
 - (void)createButtonAction {
+    [self.view endEditing:YES];
     __weak typeof(self) weakSelf = self;
     [self dismissViewControllerAnimated:YES completion:^{
         if (self.delegate && [self.delegate respondsToSelector:@selector(completeParamConfiguration:)]) {
@@ -49,6 +52,18 @@
             } else {
                 params[@"distanceSearchType"] = @"Point";
             }
+          switch (weakSelf.searchScopeControl.selectedSegmentIndex) {
+            case 1:
+              params[@"searchScope"] = @"buildingId";
+              break;
+            case 2:
+              params[@"searchScope"] = @"floorOrdinal";
+              break;
+            case 0:
+            default:
+              params[@"searchScope"] = @"floorId";
+              break;
+          }
             [self.delegate completeParamConfiguration:params];
         }
     }];
@@ -62,7 +77,6 @@
         [self.searchTypeButton setTitle:@"Point" forState:UIControlStateNormal];
     }
 }
-
 
 - (void)layoutUI {
     [self.view addSubview:self.scrollView];
@@ -78,6 +92,8 @@
     [self.boxView addSubview:self.distanceTextField];
     [self.boxView addSubview:self.searchTypeTip];
     [self.boxView addSubview:self.searchTypeButton];
+    [self.boxView addSubview:self.searchScopeTip];
+    [self.boxView addSubview:self.searchScopeControl];
     [self.boxView addSubview:self.createButton];
     
     if (@available(iOS 11.0, *)) {
@@ -149,11 +165,20 @@
     [self.searchTypeButton.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
     [self.searchTypeButton.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
     [self.searchTypeButton.heightAnchor constraintEqualToConstant:44].active = YES;
+  
+    [self.searchScopeTip.topAnchor constraintEqualToAnchor:self.searchTypeButton.bottomAnchor constant:moduleSpace].active = YES;
+    [self.searchScopeTip.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:leadingSpace].active = YES;
+    [self.searchScopeTip.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-trailingSpace].active = YES;
+  
+    [self.searchScopeControl.topAnchor constraintEqualToAnchor:self.searchScopeTip.bottomAnchor constant:innerSpace].active = YES;
+    [self.searchScopeControl.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
+    [self.searchScopeControl.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
+    [self.searchScopeControl.heightAnchor constraintEqualToConstant:44].active = YES;
     
     [self.createButton.widthAnchor constraintEqualToConstant:150].active = YES;
     [self.createButton.heightAnchor constraintEqualToConstant:44].active = YES;
     [self.createButton.centerXAnchor constraintEqualToAnchor:self.boxView.centerXAnchor].active = YES;
-    [self.createButton.topAnchor constraintEqualToAnchor:self.searchTypeButton.bottomAnchor constant:40].active = YES;
+    [self.createButton.topAnchor constraintEqualToAnchor:self.searchScopeControl.bottomAnchor constant:40].active = YES;
     [self.createButton.bottomAnchor constraintEqualToAnchor:self.boxView.bottomAnchor constant:-40].active = YES;
 }
 
@@ -297,6 +322,24 @@
         _searchTypeButton.layer.cornerRadius = 5;
     }
     return _searchTypeButton;
+}
+
+- (UILabel *)searchScopeTip {
+    if (!_searchScopeTip) {
+      _searchScopeTip = [[UILabel alloc] init];
+      _searchScopeTip.translatesAutoresizingMaskIntoConstraints = NO;
+      _searchScopeTip.text = @"search scope";
+    }
+    return _searchScopeTip;
+}
+
+- (UISegmentedControl *)searchScopeControl {
+  if (!_searchScopeControl) {
+    _searchScopeControl = [[UISegmentedControl alloc] initWithItems:@[@"floorId", @"buildingId", @"floorOrdinal"]];
+    _searchScopeControl.translatesAutoresizingMaskIntoConstraints = NO;
+    _searchScopeControl.selectedSegmentIndex = 0;
+  }
+  return _searchScopeControl;
 }
 
 - (UIButton *)createButton {
