@@ -21,6 +21,7 @@
 		89B3D0102A4056F200CE9351 /* SelectedBuildingOutlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3D00F2A4056F100CE9351 /* SelectedBuildingOutlineViewController.m */; };
 		89B3D0132A417C0E00CE9351 /* SwitchingModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3D0122A417C0E00CE9351 /* SwitchingModelViewController.m */; };
 		89C9E1CB2A3F581800D93569 /* paramConfig_mapxus.json in Resources */ = {isa = PBXBuildFile; fileRef = 52873AF72936102100D27143 /* paramConfig_mapxus.json */; };
+		89D92FD12B2FE9910035218E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 89D92FD02B2FE9910035218E /* PrivacyInfo.xcprivacy */; };
 		C15E72DA8653D29FC9C04174 /* Pods_MapxusMapSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F4ABE352B03EF49E072948 /* Pods_MapxusMapSample.framework */; };
 		CAE3C695D3128BDE5CFD6BCA /* Pods_MapxusMapSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A072C56DB036E61BB8E83A87 /* Pods_MapxusMapSampleTests.framework */; };
 		D6061AD724AB154A0065FBA2 /* MBXCustomLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6061AD524AB154A0065FBA2 /* MBXCustomLocationManager.m */; };
@@ -167,6 +168,7 @@
 		89B3D00F2A4056F100CE9351 /* SelectedBuildingOutlineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedBuildingOutlineViewController.m; sourceTree = "<group>"; };
 		89B3D0112A417C0E00CE9351 /* SwitchingModelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchingModelViewController.h; sourceTree = "<group>"; };
 		89B3D0122A417C0E00CE9351 /* SwitchingModelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchingModelViewController.m; sourceTree = "<group>"; };
+		89D92FD02B2FE9910035218E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		A072C56DB036E61BB8E83A87 /* Pods_MapxusMapSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapxusMapSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEED814EAD36ACE9D95D5810 /* Pods-MapxusMapSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSampleTests/Pods-MapxusMapSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		B41AF1415917CC65CC4C0DB8 /* Pods-MapxusMapSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSampleTests/Pods-MapxusMapSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -711,6 +713,7 @@
 		D684BC5A20FED921004E85D9 = {
 			isa = PBXGroup;
 			children = (
+				89D92FD02B2FE9910035218E /* PrivacyInfo.xcprivacy */,
 				D684BC6520FED921004E85D9 /* MapxusMapSample */,
 				D684BC7E20FED922004E85D9 /* MapxusMapSampleTests */,
 				D684BC8920FED922004E85D9 /* MapxusMapSampleUITests */,
@@ -989,6 +992,7 @@
 				89C9E1CB2A3F581800D93569 /* paramConfig_mapxus.json in Resources */,
 				D684BD9E20FF8A69004E85D9 /* LaunchScreen.storyboard in Resources */,
 				D684BD9F20FF8A69004E85D9 /* Main.storyboard in Resources */,
+				89D92FD12B2FE9910035218E /* PrivacyInfo.xcprivacy in Resources */,
 				D6B510A424C00E050084D813 /* CreateMapByXibViewController.xib in Resources */,
 				D684BDA220FF8AC5004E85D9 /* Localizable.strings in Resources */,
 				D684BD9420FF8A19004E85D9 /* Assets.xcassets in Resources */,
