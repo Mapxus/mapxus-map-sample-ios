@@ -1,5 +1,4 @@
-v8.3.0
-2023-11-16
+v8.3.1
+2023-12-21
 
-1. Update Mapxus SDKs v6.4.0.
-2. Update orientation POI search example.
+1. Update Mapxus SDKs to v6.5.0.
