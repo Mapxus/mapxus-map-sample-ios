@@ -23,7 +23,7 @@
 @property (nonatomic, strong) UITextField *lonTextField;
 @property (nonatomic, strong) UITextField *ordinalTextField;
 @property (nonatomic, strong) UITextField *distanceTextField;
-@property (nonatomic, strong) UIButton *searchTypeButton;
+@property (nonatomic, strong) UISegmentedControl *searchTypeButton;
 @property (nonatomic, strong) UILabel *searchScopeTip;
 @property (nonatomic, strong) UISegmentedControl *searchScopeControl;
 @property (nonatomic, strong) UIButton *createButton;
@@ -47,11 +47,26 @@
             params[@"longitude"] = weakSelf.lonTextField.text;
             params[@"ordinal"] = weakSelf.ordinalTextField.text;
             params[@"distance"] = weakSelf.distanceTextField.text;
-            if (self.searchTypeButton.isSelected) {
-                params[@"distanceSearchType"] = @"Polygon";
-            } else {
-                params[@"distanceSearchType"] = @"Point";
+          switch (weakSelf.searchTypeButton.selectedSegmentIndex) {
+            case 0:
+            {
+              params[@"distanceSearchType"] = @"Polygon";
             }
+              break;
+            case 1:
+            {
+              params[@"distanceSearchType"] = @"Point";
+            }
+              break;
+            case 2:
+            {
+              params[@"distanceSearchType"] = @"Gate";
+            }
+              break;
+            default:
+              break;
+          }
+
           switch (weakSelf.searchScopeControl.selectedSegmentIndex) {
             case 1:
               params[@"searchScope"] = @"buildingId";
@@ -67,15 +82,6 @@
             [self.delegate completeParamConfiguration:params];
         }
     }];
-}
-
-- (void)changeSearchType:(UIButton *)sender {
-    sender.selected = !sender.isSelected;
-    if (sender.isSelected) {
-        [self.searchTypeButton setTitle:@"Polygon" forState:UIControlStateNormal];
-    } else {
-        [self.searchTypeButton setTitle:@"Point" forState:UIControlStateNormal];
-    }
 }
 
 - (void)layoutUI {
@@ -311,17 +317,13 @@
     return _distanceTextField;
 }
 
-- (UIButton *)searchTypeButton {
-    if (!_searchTypeButton) {
-        _searchTypeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _searchTypeButton.translatesAutoresizingMaskIntoConstraints = NO;
-        [_searchTypeButton setTitle:@"Point" forState:UIControlStateNormal];
-        [_searchTypeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        _searchTypeButton.backgroundColor = [UIColor colorWithRed:80/255.0 green:175/255.0 blue:243/255.0 alpha:1.0];
-        [_searchTypeButton addTarget:self action:@selector(changeSearchType:) forControlEvents:UIControlEventTouchUpInside];
-        _searchTypeButton.layer.cornerRadius = 5;
-    }
-    return _searchTypeButton;
+- (UISegmentedControl *)searchTypeButton {
+  if (!_searchTypeButton) {
+    _searchTypeButton = [[UISegmentedControl alloc] initWithItems:@[@"Polygon", @"Point", @"Gate"]];
+    _searchTypeButton.translatesAutoresizingMaskIntoConstraints = NO;
+    _searchTypeButton.selectedSegmentIndex = 0;
+  }
+  return _searchTypeButton;
 }
 
 - (UILabel *)searchScopeTip {
