@@ -131,10 +131,18 @@
   re.toLon = toP.longitude;
   re.locale = [self searchLocalBySystem];
   re.toDoor = self.toDoorSwitch.isOn ? YES : NO;
-  if (self.travelWaySegmented.selectedSegmentIndex == 0) {
-    re.vehicle = @"foot";
-  } else {
-    re.vehicle = @"wheelchair";
+  switch (self.travelWaySegmented.selectedSegmentIndex) {
+    case 0:
+      re.vehicle = @"foot";
+      break;
+    case 1:
+      re.vehicle = @"wheelchair";
+      break;
+    case 2:
+      re.vehicle = @"emergency";
+      break;
+    default:
+      break;
   }
   
   MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
@@ -494,7 +502,7 @@
 
 - (UISegmentedControl *)travelWaySegmented {
   if (!_travelWaySegmented) {
-    _travelWaySegmented = [[UISegmentedControl alloc] initWithItems:@[@"foot", @"wheelchair"]];
+    _travelWaySegmented = [[UISegmentedControl alloc] initWithItems:@[@"foot", @"wheelchair", @"emergency"]];
     _travelWaySegmented.translatesAutoresizingMaskIntoConstraints = NO;
     _travelWaySegmented.selectedSegmentIndex = 0;
   }
