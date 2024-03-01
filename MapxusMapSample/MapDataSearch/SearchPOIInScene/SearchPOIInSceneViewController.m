@@ -86,10 +86,12 @@
   [ProgressHUD show];
   MXMPOISearchRequest *re = [[MXMPOISearchRequest alloc] init];
   re.keywords = param[@"keywords"];
+  re.orderBy = param[@"orderBy"];
   re.floorId = param[@"floorId"];
   re.buildingId = param[@"buildingId"];
   re.venueId = param[@"venueId"];
   re.category = param[@"category"];
+  re.excludeCategories = param[@"excludeCategories"];
   re.offset = [(NSString *)param[@"offset"] integerValue];
   re.page = [(NSString *)param[@"page"] integerValue];
   
