@@ -18,19 +18,27 @@
 @interface RouteViewController () <MapxusMapDelegate, MXMSearchDelegate, MGLMapViewDelegate, TrackDelegate, MXMRouteShortenerDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic, strong) MapxusMap *map;
-@property (nonatomic, strong) UIButton *fromButton;
-@property (nonatomic, strong) UIButton *toButton;
+@property (nonatomic, strong) UIButton *point1Btn;
+@property (nonatomic, strong) UIButton *point2Btn;
+@property (nonatomic, strong) UIButton *point3Btn;
+@property (nonatomic, strong) UIButton *point4Btn;
+@property (nonatomic, strong) UIButton *point5Btn;
+@property (nonatomic, strong) UIStackView *pointsView;
 @property (nonatomic, strong) UIButton *searchButton;
 @property (nonatomic, strong) UIButton *goButton;
 @property (nonatomic, strong) UIView *boxView;
 @property (nonatomic, strong) UISegmentedControl *travelWaySegmented;
-@property (nonatomic, strong) UILabel *toDoorTip;
-@property (nonatomic, strong) UISwitch *toDoorSwitch;
 @property (nonatomic, strong) UIButton *instructionButton;
-@property (nonatomic, strong) MXMPointAnnotation *fromAnnotation;
-@property (nonatomic, strong) MXMPointAnnotation *toAnnotation;
-@property (nonatomic, strong) NSMutableDictionary *fromDictionary;
-@property (nonatomic, strong) NSMutableDictionary *toDictionary;
+
+@property (nonatomic, strong) MXMPointAnnotation *point1Annotation;
+@property (nonatomic, strong) MXMPointAnnotation *point2Annotation;
+@property (nonatomic, strong) MXMPointAnnotation *point3Annotation;
+@property (nonatomic, strong) MXMPointAnnotation *point4Annotation;
+@property (nonatomic, strong) MXMPointAnnotation *point5Annotation;
+
+@property (nonatomic, strong) NSArray<UIButton *> *buttons;
+@property (nonatomic, strong) NSMutableArray<NSMutableDictionary *> *points;
+
 @property (nonatomic, strong) MXMRoutePainter *painter;
 @property (nonatomic, strong) MXMRouteLocationManager *locationManager;
 @property (nonatomic, strong) MXMRouteSearchResponse *currentResponse;
@@ -44,6 +52,7 @@
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor whiteColor];
   [self layoutUI];
+  self.buttons = @[self.point1Btn, self.point2Btn, self.point3Btn, self.point4Btn, self.point5Btn];
   // Specify the scene initialization map
   MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
   configuration.floorId = PARAMCONFIGINFO.floorId_1;
@@ -51,9 +60,17 @@
   self.map = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
   self.map.selectorPosition = MXMSelectorPositionCenterRight;
   self.map.delegate = self;
+  self.map.floorBar.isFolded = YES;
   
   // The painter help to draw the route line on the mapview
   self.painter = [[MXMRoutePainter alloc] initWithMapView:self.mapView];
+  MXMWaypointInfo *info1 = [[MXMWaypointInfo alloc] init];
+  info1.icon = [UIImage imageNamed:@"start_marker"];
+  MXMWaypointInfo *info2 = [[MXMWaypointInfo alloc] init];
+  info2.icon = [UIImage imageNamed:@"ic_way_point"];
+  MXMWaypointInfo *info3 = [[MXMWaypointInfo alloc] init];
+  info3.icon = [UIImage imageNamed:@"end_marker"];
+  self.painter.waypointInfos = @[info1, info2, info3];
   // Set trackDelegate, callback to update map camera during navigation
   self.locationManager.trackDelegate = self;
   // Set delegate to redraw the shorter route line
@@ -64,50 +81,50 @@
   self.mapView.showsUserHeadingIndicator = YES;
 }
 
-- (void)fromBtnOnClickAction:(UIButton *)sender {
-  sender.selected = !sender.selected;
-  self.toButton.selected = NO;
-  if (sender.isSelected) {
-    [self.fromDictionary removeAllObjects];
-  } else {
-    [self btnTitleSet];
+- (void)pointOnClickAction:(UIButton *)sender {
+  sender.selected = !sender.isSelected;
+  for (UIButton *btn in self.buttons) {
+    if (btn.tag != sender.tag) {
+      btn.selected = NO;
+    }
   }
-}
-
-- (void)toBtnOnClickAction:(UIButton *)sender {
-  sender.selected = !sender.selected;
-  self.fromButton.selected = NO;
-  if (sender.isSelected) {
-    [self.toDictionary removeAllObjects];
-  } else {
-    [self btnTitleSet];
-  }
-}
-
-- (void)btnTitleSet {
-  MXMFloor *fromFloor = self.fromDictionary[@"floor"];
-  MXMFloor *toFloor = self.toDictionary[@"floor"];
   
-  MXMGeoPoint *fromP = self.fromDictionary[@"point"];
-  if (fromP) {
-    NSString *fromTitle = [NSString stringWithFormat:@"%.4f, %.4f ", fromP.latitude, fromP.longitude];
-    if (fromFloor) {
-      fromTitle = [fromTitle stringByAppendingString:fromFloor.code];
-    }
-    [self.fromButton setTitle:fromTitle forState:UIControlStateNormal];
-  } else {
-    [self.fromButton setTitle:@"Start" forState:UIControlStateNormal];
+  for (UIButton *btn in self.buttons) {
+    [self btnTitleSet:btn];
   }
-  MXMGeoPoint *toP = self.toDictionary[@"point"];
-  if (toP) {
-    NSString *toTitle = [NSString stringWithFormat:@"%.4f, %.4f ", toP.latitude, toP.longitude];
-    if (toFloor) {
-      toTitle = [toTitle stringByAppendingString:toFloor.code];
+}
+
+- (void)btnTitleSet:(UIButton *)sender {
+  NSDictionary *dic = self.points[sender.tag-1];
+  if (dic.count != 0) {
+    MXMFloor *floor = dic[@"floor"];
+    MXMGeoPoint *point = dic[@"point"];
+
+    NSString *title = [NSString stringWithFormat:@"%.4f, %.4f ", point.latitude, point.longitude];
+    if (floor) {
+      title = [title stringByAppendingString:floor.code];
     }
-    [self.toButton setTitle:toTitle forState:UIControlStateNormal];
-  } else {
-    [self.toButton setTitle:@"End" forState:UIControlStateNormal];
+    [sender setTitle:title forState:UIControlStateNormal];
   }
+}
+
+- (MXMIndoorPoint *)makePointFromDic:(NSDictionary *)dic {
+  MXMFloor *floor = dic[@"floor"];
+  MXMGeoPoint *point = dic[@"point"];
+  NSString *buildingId = dic[@"buildingId"];
+  return [MXMIndoorPoint locationWithLatitude:point.latitude
+                                    longitude:point.longitude
+                                   buildingId:buildingId
+                                      floorId:floor.floorId];
+}
+
+- (void)showAlertTitle:(NSString *)title message:(NSString *)message {
+  UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+                                                                 message:message
+                                                          preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+  [alert addAction:action];
+  [self presentViewController:alert animated:YES completion:nil];
 }
 
 // Search a route with params
@@ -115,22 +132,32 @@
   [self.painter cleanRoute];
   self.isEndOfNavigation = NO;
   
-  MXMFloor *fromFloor = self.fromDictionary[@"floor"];
-  MXMFloor *toFloor = self.toDictionary[@"floor"];
+  NSMutableArray *list = [NSMutableArray array];
+  
+  NSDictionary *start = self.points[0];
+  NSDictionary *end = self.points[1];
+  if (start.count == 0 || end.count == 0) {
+    [self showAlertTitle:@"Error" message:@"Please select start and end point!"];
+    return;
+  }
+  
+  for (int i=0; i<self.points.count; i++) {
+    NSDictionary *dic = self.points[i];
+    if (i == 0 || i == 1) { continue; }
+    if (dic.count) {
+      MXMIndoorPoint *nP = [self makePointFromDic:dic];
+      [list addObject:nP];
+    }
+  }
+  
+  MXMIndoorPoint *startP = [self makePointFromDic:start];
+  MXMIndoorPoint *endP = [self makePointFromDic:end];
+  [list insertObject:startP atIndex:0];
+  [list addObject:endP];
   
   MXMRouteSearchRequest *re = [[MXMRouteSearchRequest alloc] init];
-  re.fromBuildingId = self.fromDictionary[@"building"];
-  re.fromFloorId = fromFloor.floorId;
-  MXMGeoPoint *fromP = self.fromDictionary[@"point"];
-  re.fromLat = fromP.latitude;
-  re.fromLon = fromP.longitude;
-  re.toBuildingId = self.toDictionary[@"building"];
-  re.toFloorId = toFloor.floorId;
-  MXMGeoPoint *toP = self.toDictionary[@"point"];
-  re.toLat = toP.latitude;
-  re.toLon = toP.longitude;
+  re.points = list;
   re.locale = [self searchLocalBySystem];
-  re.toDoor = self.toDoorSwitch.isOn ? YES : NO;
   if (self.travelWaySegmented.selectedSegmentIndex == 0) {
     re.vehicle = @"foot";
   } else {
@@ -172,10 +199,7 @@
   // If there are no navigation routes, send an alert.
   if (self.currentResponse == nil) {
     sender.selected = !sender.isSelected;
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Please search the route first." preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-    [alert addAction:action];
-    [self presentViewController:alert animated:YES completion:nil];
+    [self showAlertTitle:@"Warning" message:@"Please search the route first."];
     return;
   }
   // Hide the start marker point when starting navigation
@@ -207,41 +231,34 @@
 }
 
 - (void)layoutUI {
+  [self.pointsView addArrangedSubview:self.point1Btn];
+  [self.pointsView addArrangedSubview:self.point2Btn];
+  [self.pointsView addArrangedSubview:self.point3Btn];
+  [self.pointsView addArrangedSubview:self.point4Btn];
+  [self.pointsView addArrangedSubview:self.point5Btn];
+  
   [self.view addSubview:self.mapView];
-  [self.view addSubview:self.fromButton];
-  [self.view addSubview:self.toButton];
-  [self.view addSubview:self.searchButton];
-  [self.view addSubview:self.goButton];
+  [self.view addSubview:self.pointsView];
   [self.view addSubview:self.boxView];
+  [self.boxView addSubview:self.searchButton];
+  [self.boxView addSubview:self.goButton];
   [self.boxView addSubview:self.travelWaySegmented];
-  [self.boxView addSubview:self.toDoorTip];
-  [self.boxView addSubview:self.toDoorSwitch];
   [self.boxView addSubview:self.instructionButton];
+  
+  [self.point1Btn.heightAnchor constraintEqualToConstant:40].active = YES;
+  [self.point2Btn.heightAnchor constraintEqualToConstant:40].active = YES;
+  [self.point3Btn.heightAnchor constraintEqualToConstant:40].active = YES;
+  [self.point4Btn.heightAnchor constraintEqualToConstant:40].active = YES;
+  [self.point5Btn.heightAnchor constraintEqualToConstant:40].active = YES;
   
   [self.mapView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
   [self.mapView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
   [self.mapView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
   [self.mapView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
   
-  [self.fromButton.heightAnchor constraintEqualToConstant:40].active = YES;
-  [self.fromButton.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20].active = YES;
-  [self.fromButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:10].active = YES;
-  [self.fromButton.trailingAnchor constraintEqualToAnchor:self.view.centerXAnchor constant:-5].active = YES;
-  
-  [self.toButton.heightAnchor constraintEqualToConstant:40].active = YES;
-  [self.toButton.widthAnchor constraintEqualToAnchor:self.fromButton.widthAnchor].active = YES;
-  [self.toButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:10].active = YES;
-  [self.toButton.topAnchor constraintEqualToAnchor:self.fromButton.bottomAnchor constant:10].active = YES;
-  
-  [self.searchButton.widthAnchor constraintEqualToConstant:80].active = YES;
-  [self.searchButton.heightAnchor constraintEqualToConstant:40].active = YES;
-  [self.searchButton.leadingAnchor constraintEqualToAnchor:self.view.centerXAnchor constant:5].active = YES;
-  [self.searchButton.centerYAnchor constraintEqualToAnchor:self.fromButton.bottomAnchor constant:5].active = YES;
-  
-  [self.goButton.widthAnchor constraintEqualToConstant:80].active = YES;
-  [self.goButton.heightAnchor constraintEqualToConstant:40].active = YES;
-  [self.goButton.leadingAnchor constraintEqualToAnchor:self.searchButton.trailingAnchor constant:10].active = YES;
-  [self.goButton.centerYAnchor constraintEqualToAnchor:self.searchButton.centerYAnchor].active = YES;
+  [self.pointsView.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20].active = YES;
+  [self.pointsView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:10].active = YES;
+  [self.pointsView.trailingAnchor constraintEqualToAnchor:self.view.centerXAnchor constant:-5].active = YES;
   
   [self.boxView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
   [self.boxView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
@@ -257,16 +274,21 @@
   [self.travelWaySegmented.centerXAnchor constraintEqualToAnchor:self.boxView.centerXAnchor].active = YES;
   [self.travelWaySegmented.topAnchor constraintEqualToAnchor:self.boxView.topAnchor constant:10].active = YES;
   
-  [self.toDoorSwitch.topAnchor constraintEqualToAnchor:self.travelWaySegmented.bottomAnchor constant:10].active = YES;
-  [self.toDoorSwitch.centerXAnchor constraintEqualToAnchor:self.boxView.centerXAnchor].active = YES;
-  
-  [self.toDoorTip.centerYAnchor constraintEqualToAnchor:self.toDoorSwitch.centerYAnchor].active = YES;
-  [self.toDoorTip.trailingAnchor constraintEqualToAnchor:self.toDoorSwitch.leadingAnchor constant:-10].active = YES;
-  
+  [self.searchButton.widthAnchor constraintEqualToConstant:80].active = YES;
+  [self.searchButton.heightAnchor constraintEqualToConstant:40].active = YES;
+  [self.searchButton.centerXAnchor constraintEqualToAnchor:self.boxView.centerXAnchor].active = YES;
+  [self.searchButton.topAnchor constraintEqualToAnchor:self.travelWaySegmented.bottomAnchor constant:10].active = YES;
+
   [self.instructionButton.widthAnchor constraintEqualToConstant:120].active = YES;
   [self.instructionButton.heightAnchor constraintEqualToConstant:40].active = YES;
-  [self.instructionButton.leadingAnchor constraintEqualToAnchor:self.toDoorSwitch.trailingAnchor constant:10].active = YES;
-  [self.instructionButton.centerYAnchor constraintEqualToAnchor:self.toDoorSwitch.centerYAnchor].active = YES;
+  [self.instructionButton.trailingAnchor constraintEqualToAnchor:self.searchButton.leadingAnchor constant:-10].active = YES;
+  [self.instructionButton.centerYAnchor constraintEqualToAnchor:self.searchButton.centerYAnchor].active = YES;
+
+  [self.goButton.widthAnchor constraintEqualToConstant:80].active = YES;
+  [self.goButton.heightAnchor constraintEqualToConstant:40].active = YES;
+  [self.goButton.leadingAnchor constraintEqualToAnchor:self.searchButton.trailingAnchor constant:10].active = YES;
+  [self.goButton.centerYAnchor constraintEqualToAnchor:self.searchButton.centerYAnchor].active = YES;
+
 }
 
 #pragma mark - TrackDelegate
@@ -290,7 +312,16 @@
   }
   if (!self.isEndOfNavigation) {
     
-    MXMInstruction *lastInstruction = path.instructions.lastObject;
+    MXMInstruction *lastInstruction;
+    double distance = 0;
+    for (MXMInstruction *inst in path.instructions) {
+      distance += inst.distance;
+      if (inst.sign == MXMReachedVia || inst.sign == MXMFinish) {
+        lastInstruction = inst;
+        break;
+      }
+    }
+    
     BOOL isSameOutdoor = (lastInstruction.floorId == nil) && (self.locationManager.locationFloorId == nil);
     BOOL isSameSite = lastInstruction.floorId &&
     self.locationManager.locationFloorId &&
@@ -301,6 +332,8 @@
       self.currentResponse = nil;
       [self.painter cleanRoute];
       [self navigationAction:self.goButton]; // 模拟按下
+    } else if (distance < 3 && (isSameSite || isSameOutdoor)) {
+      [self showAlertTitle:@"Warning" message:@"You have arrived at the waypoint."];
     } else {
       // repaint
       [self.painter paintRouteUsingPath:path wayPoints:shortener.originalWayPoints];
@@ -341,42 +374,36 @@
 
 - (void)didTappedAtCoordinate:(CLLocationCoordinate2D)coordinate onFloor:(nullable MXMFloor *)floor inBuilding:(nullable MXMGeoBuilding *)building
 {
-  if (self.fromButton.isSelected) {
-    self.fromDictionary[@"floor"] = floor;
-    self.fromDictionary[@"building"] = building.identifier;
-    MXMGeoPoint *p = [[MXMGeoPoint alloc] init];
-    p.latitude = coordinate.latitude;
-    p.longitude = coordinate.longitude;
-    self.fromDictionary[@"point"] = p;
-    
-    if (self.fromAnnotation == nil) {
-      self.fromAnnotation = [[MXMPointAnnotation alloc] init];
-      self.fromAnnotation.coordinate = coordinate;
-      self.fromAnnotation.floorId = floor.floorId;
-      [self.map addMXMPointAnnotations:@[self.fromAnnotation]];
-    } else {
-      self.fromAnnotation.coordinate = coordinate;
-      self.fromAnnotation.floorId = floor.floorId;
-    }
-    
-  } else if (self.toButton.isSelected) {
-    self.toDictionary[@"floor"] = floor;
-    self.toDictionary[@"building"] = building.identifier;
-    MXMGeoPoint *p = [[MXMGeoPoint alloc] init];
-    p.latitude = coordinate.latitude;
-    p.longitude = coordinate.longitude;
-    self.toDictionary[@"point"] = p;
-    
-    if (self.toAnnotation == nil) {
-      self.toAnnotation = [[MXMPointAnnotation alloc] init];
-      self.toAnnotation.coordinate = coordinate;
-      self.toAnnotation.floorId = floor.floorId;
-      [self.map addMXMPointAnnotations:@[self.toAnnotation]];
-    } else {
-      self.toAnnotation.coordinate = coordinate;
-      self.toAnnotation.floorId = floor.floorId;
+  NSMutableDictionary *dic;
+  for (UIButton *btn in self.buttons) {
+    if (btn.isSelected) {
+      dic = self.points[btn.tag-1];
     }
   }
+  
+  if (!dic) {
+    return;
+  }
+  
+  dic[@"floor"] = floor;
+  dic[@"buildingId"] = building.identifier;
+  MXMGeoPoint *p = [[MXMGeoPoint alloc] init];
+  p.latitude = coordinate.latitude;
+  p.longitude = coordinate.longitude;
+  dic[@"point"] = p;
+  
+  MXMPointAnnotation *ann = dic[@"ann"];
+  if (ann == nil) {
+    ann = [[MXMPointAnnotation alloc] init];
+    ann.coordinate = coordinate;
+    ann.floorId = floor.floorId;
+    [self.map addMXMPointAnnotations:@[ann]];
+    dic[@"ann"] = ann;
+  } else {
+    ann.coordinate = coordinate;
+    ann.floorId = floor.floorId;
+  }
+  
 }
 
 #pragma mark - MXMSearchDelegate
@@ -384,10 +411,7 @@
 - (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error
 {
   [self.instructionButton setCustomEnabled:NO];
-  UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Sorry, I can't find the route." preferredStyle:UIAlertControllerStyleAlert];
-  UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-  [alert addAction:action];
-  [self presentViewController:alert animated:YES completion:nil];
+  [self showAlertTitle:@"Warning" message:@"Sorry, I can't find the route."];
 }
 
 - (void)onRouteSearchDone:(MXMRouteSearchRequest *)request response:(MXMRouteSearchResponse *)response
@@ -398,22 +422,17 @@
     [self.instructionButton setCustomEnabled:NO];
   }
   self.currentResponse = response;
-  self.fromAnnotation = nil;
-  self.toAnnotation = nil;
   [self.map removeMXMPointAnnotaions:self.map.MXMAnnotations];
   
   self.painter.isAddStartDash = YES;
   
   [self.painter paintRouteUsingPath:response.paths.firstObject wayPoints:response.wayPointList];
-  for (NSString *key in self.painter.dto.keys) {
-    if (![key containsString:@"outdoor"]) {
-      MXMParagraph *paph = self.painter.dto.paragraphs[key];
-      [self.map selectFloorById:paph.floorId zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
-      [self.painter changeOnVenue:paph.venueId ordinal:paph.ordinal];
-      [self.painter focusOnKeys:@[key] edgePadding:UIEdgeInsetsMake(130, 30, 110, 80)];
-      break;
-    }
-  }
+  NSString *key = self.painter.dto.keys.firstObject;
+  MXMParagraph *paph = self.painter.dto.paragraphs[key];
+  [self.map selectFloorById:paph.floorId zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
+  [self.painter changeOnVenue:paph.venueId ordinal:paph.ordinal];
+  [self.painter focusOnKeys:@[key] edgePadding:UIEdgeInsetsMake(130, 30, 110, 80)];
+  
 }
 
 #pragma mark - Lazy loading
@@ -426,36 +445,99 @@
   return _mapView;
 }
 
-- (UIButton *)fromButton {
-  if (!_fromButton) {
-    _fromButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _fromButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [_fromButton setTitle:@"Start" forState:UIControlStateNormal];
-    [_fromButton setTitle:@"Tap screen for Start" forState:UIControlStateSelected];
-    [_fromButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_fromButton addTarget:self action:@selector(fromBtnOnClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    _fromButton.backgroundColor = [UIColor colorWithRed:100/255.0 green:149/255.0 blue:237/255.0 alpha:1];
-    _fromButton.layer.cornerRadius = 5;
-    _fromButton.titleLabel.font = [UIFont systemFontOfSize:14];
+- (UIButton *)point1Btn {
+  if (!_point1Btn) {
+    _point1Btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _point1Btn.translatesAutoresizingMaskIntoConstraints = NO;
+    [_point1Btn setTitle:@"Start" forState:UIControlStateNormal];
+    [_point1Btn setTitle:@"Tap screen for start" forState:UIControlStateSelected];
+    [_point1Btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_point1Btn addTarget:self action:@selector(pointOnClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    _point1Btn.backgroundColor = [UIColor colorWithRed:100/255.0 green:149/255.0 blue:237/255.0 alpha:1];
+    _point1Btn.layer.cornerRadius = 5;
+    _point1Btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    _point1Btn.tag = 1;
   }
-  return _fromButton;
+  return _point1Btn;
 }
 
-- (UIButton *)toButton {
-  if (!_toButton) {
-    _toButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _toButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [_toButton setTitle:@"End" forState:UIControlStateNormal];
-    [_toButton setTitle:@"Tap screen for End" forState:UIControlStateSelected];
-    [_toButton setTitleColor:[UIColor colorWithRed:100/255.0 green:149/255.0 blue:237/255.0 alpha:1] forState:UIControlStateNormal];
-    [_toButton addTarget:self action:@selector(toBtnOnClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    _toButton.backgroundColor = [UIColor whiteColor];
-    _toButton.layer.cornerRadius = 5;
-    _toButton.layer.borderWidth = 2;
-    _toButton.layer.borderColor = [UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:0.4].CGColor;
-    _toButton.titleLabel.font = [UIFont systemFontOfSize:14];
+- (UIButton *)point2Btn {
+  if (!_point2Btn) {
+    _point2Btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _point2Btn.translatesAutoresizingMaskIntoConstraints = NO;
+    [_point2Btn setTitle:@"End" forState:UIControlStateNormal];
+    [_point2Btn setTitle:@"Tap screen for end" forState:UIControlStateSelected];
+    [_point2Btn setTitleColor:[UIColor colorWithRed:100/255.0 green:149/255.0 blue:237/255.0 alpha:1] forState:UIControlStateNormal];
+    [_point2Btn addTarget:self action:@selector(pointOnClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    _point2Btn.backgroundColor = [UIColor whiteColor];
+    _point2Btn.layer.cornerRadius = 5;
+    _point2Btn.layer.borderWidth = 2;
+    _point2Btn.layer.borderColor = [UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:0.4].CGColor;
+    _point2Btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    _point2Btn.tag = 2;
   }
-  return _toButton;
+  return _point2Btn;
+}
+
+- (UIButton *)point3Btn {
+  if (!_point3Btn) {
+    _point3Btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _point3Btn.translatesAutoresizingMaskIntoConstraints = NO;
+    [_point3Btn setTitle:@"waypoint 1" forState:UIControlStateNormal];
+    [_point3Btn setTitle:@"Tap screen for point 1" forState:UIControlStateSelected];
+    [_point3Btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_point3Btn addTarget:self action:@selector(pointOnClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    _point3Btn.backgroundColor = [UIColor colorWithRed:100/255.0 green:149/255.0 blue:237/255.0 alpha:1];
+    _point3Btn.layer.cornerRadius = 5;
+    _point3Btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    _point3Btn.tag = 3;
+  }
+  return _point3Btn;
+}
+
+- (UIButton *)point4Btn {
+  if (!_point4Btn) {
+    _point4Btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _point4Btn.translatesAutoresizingMaskIntoConstraints = NO;
+    [_point4Btn setTitle:@"waypoint 2" forState:UIControlStateNormal];
+    [_point4Btn setTitle:@"Tap screen for point 2" forState:UIControlStateSelected];
+    [_point4Btn setTitleColor:[UIColor colorWithRed:100/255.0 green:149/255.0 blue:237/255.0 alpha:1] forState:UIControlStateNormal];
+    [_point4Btn addTarget:self action:@selector(pointOnClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    _point4Btn.backgroundColor = [UIColor whiteColor];
+    _point4Btn.layer.cornerRadius = 5;
+    _point4Btn.layer.borderWidth = 2;
+    _point4Btn.layer.borderColor = [UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:0.4].CGColor;
+    _point4Btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    _point4Btn.tag = 4;
+  }
+  return _point4Btn;
+}
+
+- (UIButton *)point5Btn {
+  if (!_point5Btn) {
+    _point5Btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _point5Btn.translatesAutoresizingMaskIntoConstraints = NO;
+    [_point5Btn setTitle:@"waypoint 3" forState:UIControlStateNormal];
+    [_point5Btn setTitle:@"Tap screen for point 3" forState:UIControlStateSelected];
+    [_point5Btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_point5Btn addTarget:self action:@selector(pointOnClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    _point5Btn.backgroundColor = [UIColor colorWithRed:100/255.0 green:149/255.0 blue:237/255.0 alpha:1];
+    _point5Btn.layer.cornerRadius = 5;
+    _point5Btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    _point5Btn.tag = 5;
+  }
+  return _point5Btn;
+}
+
+- (UIStackView *)pointsView {
+  if (!_pointsView) {
+    _pointsView = [[UIStackView alloc] init];
+    _pointsView.translatesAutoresizingMaskIntoConstraints = NO;
+    _pointsView.axis = UILayoutConstraintAxisVertical;
+    _pointsView.alignment = UIStackViewAlignmentFill;
+    _pointsView.spacing = 10;
+  }
+  return _pointsView;
 }
 
 - (UIButton *)searchButton {
@@ -501,25 +583,6 @@
   return _travelWaySegmented;
 }
 
-- (UILabel *)toDoorTip {
-  if (!_toDoorTip) {
-    _toDoorTip = [[UILabel alloc] init];
-    _toDoorTip.translatesAutoresizingMaskIntoConstraints = NO;
-    _toDoorTip.text = @"toDoor";
-  }
-  return _toDoorTip;
-}
-
-- (UISwitch *)toDoorSwitch {
-  if (!_toDoorSwitch) {
-    _toDoorSwitch = [[UISwitch alloc] init];
-    _toDoorSwitch.translatesAutoresizingMaskIntoConstraints = NO;
-    _toDoorSwitch.backgroundColor = [UIColor whiteColor];
-    _toDoorSwitch.layer.cornerRadius = 20;
-  }
-  return _toDoorSwitch;
-}
-
 - (UIButton *)instructionButton {
   if (!_instructionButton) {
     _instructionButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -534,18 +597,14 @@
   return _instructionButton;
 }
 
-- (NSMutableDictionary *)fromDictionary {
-  if (!_fromDictionary) {
-    _fromDictionary = [NSMutableDictionary dictionary];
+- (NSMutableArray<NSMutableDictionary *> *)points {
+  if (!_points) {
+    _points = [NSMutableArray arrayWithCapacity:5];
+    for (int i=0; i<5; i++) {
+      [_points addObject:[[NSMutableDictionary alloc] init]];
+    }
   }
-  return _fromDictionary;
-}
-
-- (NSMutableDictionary *)toDictionary {
-  if (!_toDictionary) {
-    _toDictionary = [NSMutableDictionary dictionary];
-  }
-  return _toDictionary;
+  return _points;
 }
 
 - (MXMRouteLocationManager *)locationManager {
