@@ -89,15 +89,15 @@
   
   MXMPOISearchRequest *re = [[MXMPOISearchRequest alloc] init];
   re.keywords = param[@"keywords"];
-  re.center = point;
   re.category = param[@"category"];
+  re.excludeCategories = param[@"excludeCategories"];
   re.sort = param[@"sort"];
-  re.meterDistance = [(NSString *)param[@"meterDistance"] integerValue];
   re.ordinal = [(NSString *)param[@"ordinal"] integerValue];
-  re.buildingId = param[@"buildingId"];
+  re.center = point;
+  re.meterDistance = [(NSString *)param[@"meterDistance"] integerValue];
   re.offset = [(NSString *)param[@"offset"] integerValue];
   re.page = [(NSString *)param[@"page"] integerValue];
-  
+
   MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
   api.delegate = self;
   [api MXMPOISearch:re];

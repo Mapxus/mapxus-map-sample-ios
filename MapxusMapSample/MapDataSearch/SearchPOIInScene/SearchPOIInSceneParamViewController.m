@@ -13,16 +13,23 @@
 @interface SearchPOIInSceneParamViewController () <UITextFieldDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *boxView;
-@property (nonatomic, strong) UILabel *keywordsTip;
+
+@property (nonatomic, strong) UISegmentedControl *keywordsOrOrderByTip;
+@property (nonatomic, strong) UITextField *keywordsTextField;
+
+@property (nonatomic, strong) UISegmentedControl *categoryTip;
+@property (nonatomic, strong) UITextField *categoryTextField;
+@property (nonatomic, strong) UILabel *categoryNoteTip;
+
 @property (nonatomic, strong) UISegmentedControl *idTypeView;
 @property (nonatomic, strong) UITextField *idTextField;
-@property (nonatomic, strong) UILabel *categoryTip;
+
 @property (nonatomic, strong) UILabel *offsetTip;
-@property (nonatomic, strong) UILabel *pageTip;
-@property (nonatomic, strong) UITextField *keywordsTextField;
-@property (nonatomic, strong) UITextField *categoryTextField;
 @property (nonatomic, strong) UITextField *offsetTextField;
+
+@property (nonatomic, strong) UILabel *pageTip;
 @property (nonatomic, strong) UITextField *pageTextField;
+
 @property (nonatomic, strong) UIButton *createButton;
 
 @end
@@ -38,6 +45,44 @@
 - (void)viewWillDisappear:(BOOL)animated {
   [super viewWillDisappear:animated];
   [self.view endEditing:YES];
+}
+
+- (void)changeKeywordOrOrderBy:(UISegmentedControl *)sender {
+  switch (sender.selectedSegmentIndex) {
+    case 0:
+    {
+      self.keywordsTextField.enabled = YES;
+      self.keywordsTextField.text = nil;
+    }
+      break;
+    case 1:
+    {
+      self.keywordsTextField.enabled = NO;
+      self.keywordsTextField.text = @"DefaultName";
+    }
+      break;
+    default:
+      break;
+  }
+}
+
+- (void)changeCategoryType:(UISegmentedControl *)sender {
+  switch (sender.selectedSegmentIndex) {
+    case 0:
+    {
+      self.categoryTextField.text = @"";
+      self.categoryNoteTip.text = @"Note: Please provide a single category identifier.";
+    }
+      break;
+    case 1:
+    {
+      self.categoryTextField.text = @"";
+      self.categoryNoteTip.text = @"Note: Multiple category identifiers can be entered, separated by half-character commas.";
+    }
+      break;
+    default:
+      break;
+  }
 }
 
 - (void)changeIdType:(UISegmentedControl *)sender {
@@ -61,6 +106,16 @@
   [self dismissViewControllerAnimated:YES completion:^{
     if (self.delegate && [self.delegate respondsToSelector:@selector(completeParamConfiguration:)]) {
       NSMutableDictionary *params = [NSMutableDictionary dictionary];
+      switch (weakSelf.keywordsOrOrderByTip.selectedSegmentIndex) {
+        case 0:
+          params[@"keywords"] = weakSelf.keywordsTextField.text;
+          break;
+        case 1:
+          params[@"orderBy"] = weakSelf.keywordsTextField.text;
+          break;
+        default:
+          break;
+      }
       switch (weakSelf.idTypeView.selectedSegmentIndex) {
         case 0:
           params[@"floorId"] = weakSelf.idTextField.text.length ? weakSelf.idTextField.text : nil;
@@ -74,10 +129,22 @@
         default:
           break;
       }
-      params[@"keywords"] = weakSelf.keywordsTextField.text;
-      params[@"category"] = weakSelf.categoryTextField.text;
+      switch (weakSelf.categoryTip.selectedSegmentIndex) {
+        case 0:
+          params[@"category"] = weakSelf.categoryTextField.text.length ? weakSelf.categoryTextField.text : nil;
+          break;
+        case 1:
+        {
+          NSArray *list = weakSelf.categoryTextField.text.length ? [weakSelf.categoryTextField.text componentsSeparatedByString:@","] : nil;
+          params[@"excludeCategories"] = list;
+        }
+          break;
+        default:
+          break;
+      }
       params[@"offset"] = weakSelf.offsetTextField.text;
       params[@"page"] = weakSelf.pageTextField.text;
+      
       [self.delegate completeParamConfiguration:params];
     }
   }];
@@ -86,12 +153,13 @@
 - (void)layoutUI {
   [self.view addSubview:self.scrollView];
   [self.scrollView addSubview:self.boxView];
-  [self.boxView addSubview:self.keywordsTip];
+  [self.boxView addSubview:self.keywordsOrOrderByTip];
   [self.boxView addSubview:self.keywordsTextField];
   [self.boxView addSubview:self.idTypeView];
   [self.boxView addSubview:self.idTextField];
   [self.boxView addSubview:self.categoryTip];
   [self.boxView addSubview:self.categoryTextField];
+  [self.boxView addSubview:self.categoryNoteTip];
   [self.boxView addSubview:self.offsetTip];
   [self.boxView addSubview:self.offsetTextField];
   [self.boxView addSubview:self.pageTip];
@@ -116,25 +184,29 @@
   [self.boxView.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor].active = YES;
   [self.boxView.widthAnchor constraintEqualToAnchor:self.scrollView.widthAnchor].active = YES;
   
-  [self.keywordsTip.topAnchor constraintEqualToAnchor:self.boxView.topAnchor constant:moduleSpace].active = YES;
-  [self.keywordsTip.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
-  [self.keywordsTip.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
+  [self.keywordsOrOrderByTip.topAnchor constraintEqualToAnchor:self.boxView.topAnchor constant:moduleSpace].active = YES;
+  [self.keywordsOrOrderByTip.centerXAnchor constraintEqualToAnchor:self.boxView.centerXAnchor].active = YES;
+  [self.keywordsOrOrderByTip.heightAnchor constraintEqualToConstant:44].active = YES;
   
-  [self.keywordsTextField.topAnchor constraintEqualToAnchor:self.keywordsTip.bottomAnchor constant:innerSpace].active = YES;
+  [self.keywordsTextField.topAnchor constraintEqualToAnchor:self.keywordsOrOrderByTip.bottomAnchor constant:innerSpace].active = YES;
   [self.keywordsTextField.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
   [self.keywordsTextField.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
   [self.keywordsTextField.heightAnchor constraintEqualToConstant:44].active = YES;
   
   [self.categoryTip.topAnchor constraintEqualToAnchor:self.keywordsTextField.bottomAnchor constant:moduleSpace].active = YES;
-  [self.categoryTip.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
-  [self.categoryTip.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
+  [self.categoryTip.centerXAnchor constraintEqualToAnchor:self.boxView.centerXAnchor].active = YES;
+  [self.categoryTip.heightAnchor constraintEqualToConstant:44].active = YES;
   
   [self.categoryTextField.topAnchor constraintEqualToAnchor:self.categoryTip.bottomAnchor constant:innerSpace].active = YES;
   [self.categoryTextField.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
   [self.categoryTextField.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
   [self.categoryTextField.heightAnchor constraintEqualToConstant:44].active = YES;
   
-  [self.idTypeView.topAnchor constraintEqualToAnchor:self.categoryTextField.bottomAnchor constant:moduleSpace].active = YES;
+  [self.categoryNoteTip.topAnchor constraintEqualToAnchor:self.categoryTextField.bottomAnchor constant:innerSpace].active = YES;
+  [self.categoryNoteTip.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
+  [self.categoryNoteTip.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
+  
+  [self.idTypeView.topAnchor constraintEqualToAnchor:self.categoryNoteTip.bottomAnchor constant:moduleSpace].active = YES;
   [self.idTypeView.centerXAnchor constraintEqualToAnchor:self.boxView.centerXAnchor].active = YES;
   [self.idTypeView.heightAnchor constraintEqualToConstant:44].active = YES;
   
@@ -193,22 +265,36 @@
   return _boxView;
 }
 
-- (UILabel *)keywordsTip {
-  if (!_keywordsTip) {
-    _keywordsTip = [[UILabel alloc] init];
-    _keywordsTip.translatesAutoresizingMaskIntoConstraints = NO;
-    _keywordsTip.text = @"keywords";
+- (UISegmentedControl *)keywordsOrOrderByTip {
+  if (!_keywordsOrOrderByTip) {
+    _keywordsOrOrderByTip = [[UISegmentedControl alloc] initWithItems:@[@"keywords", @"orderBy"]];
+    _keywordsOrOrderByTip.translatesAutoresizingMaskIntoConstraints = NO;
+    _keywordsOrOrderByTip.selectedSegmentIndex = 0;
+    [_keywordsOrOrderByTip addTarget:self action:@selector(changeKeywordOrOrderBy:) forControlEvents:UIControlEventValueChanged];
   }
-  return _keywordsTip;
+  return _keywordsOrOrderByTip;
 }
 
-- (UILabel *)categoryTip {
+- (UISegmentedControl *)categoryTip {
   if (!_categoryTip) {
-    _categoryTip = [[UILabel alloc] init];
+    _categoryTip = [[UISegmentedControl alloc] initWithItems:@[@"category", @"excludeCategories"]];
     _categoryTip.translatesAutoresizingMaskIntoConstraints = NO;
-    _categoryTip.text = @"category";
+    _categoryTip.selectedSegmentIndex = 0;
+    [_categoryTip addTarget:self action:@selector(changeCategoryType:) forControlEvents:UIControlEventValueChanged];
   }
   return _categoryTip;
+}
+
+- (UILabel *)categoryNoteTip {
+  if (!_categoryNoteTip) {
+    _categoryNoteTip = [[UILabel alloc] init];
+    _categoryNoteTip.translatesAutoresizingMaskIntoConstraints = NO;
+    _categoryNoteTip.font = [UIFont systemFontOfSize:12];
+    _categoryNoteTip.textColor = [UIColor grayColor];
+    _categoryNoteTip.numberOfLines = 0;
+    _categoryNoteTip.text = @"Note: Please provide a single category identifier.";
+  }
+  return _categoryNoteTip;
 }
 
 - (UISegmentedControl *)idTypeView {

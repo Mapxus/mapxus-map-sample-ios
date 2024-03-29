@@ -113,7 +113,9 @@
   
   MXMPOISearchRequest *re = [[MXMPOISearchRequest alloc] init];
   re.keywords = param[@"keywords"];
+  re.orderBy = param[@"orderBy"];
   re.category = param[@"category"];
+  re.excludeCategories = param[@"excludeCategories"];
   re.bbox = box;
   re.offset = [(NSString *)param[@"offset"] integerValue];
   re.page = [(NSString *)param[@"page"] integerValue];
