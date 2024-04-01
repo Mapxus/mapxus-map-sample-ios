@@ -17,7 +17,7 @@
 		893C37172A3030500058561A /* SearchVenueByIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C37162A3030500058561A /* SearchVenueByIDViewController.m */; };
 		893C371D2A30705A0058561A /* SearchVenueByIDParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C371C2A30705A0058561A /* SearchVenueByIDParamViewController.m */; };
 		893C37202A3071CE0058561A /* VenueIDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C371F2A3071CE0058561A /* VenueIDCell.m */; };
-		89ADEB3B2B4BD73E0094F0F9 /* paramConfig_mapxus.json in Resources */ = {isa = PBXBuildFile; fileRef = 52873AF72936102100D27143 /* paramConfig_mapxus.json */; };
+		8961AAE92BB7355000B90F93 /* paramConfig_mapxus.json in Resources */ = {isa = PBXBuildFile; fileRef = 52873AF72936102100D27143 /* paramConfig_mapxus.json */; };
 		89B3CFEF2A40371A00CE9351 /* BoxLengthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3CFEE2A40371A00CE9351 /* BoxLengthViewController.m */; };
 		89B3D0102A4056F200CE9351 /* SelectedBuildingOutlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3D00F2A4056F100CE9351 /* SelectedBuildingOutlineViewController.m */; };
 		89B3D0132A417C0E00CE9351 /* SwitchingModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3D0122A417C0E00CE9351 /* SwitchingModelViewController.m */; };
@@ -163,6 +163,7 @@
 		893C371C2A30705A0058561A /* SearchVenueByIDParamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchVenueByIDParamViewController.m; sourceTree = "<group>"; };
 		893C371E2A3071CE0058561A /* VenueIDCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VenueIDCell.h; sourceTree = "<group>"; };
 		893C371F2A3071CE0058561A /* VenueIDCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VenueIDCell.m; sourceTree = "<group>"; };
+		8961AAE72BB72EFA00B90F93 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		89B3CFED2A40371A00CE9351 /* BoxLengthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxLengthViewController.h; sourceTree = "<group>"; };
 		89B3CFEE2A40371A00CE9351 /* BoxLengthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxLengthViewController.m; sourceTree = "<group>"; };
 		89B3D00E2A4056F100CE9351 /* SelectedBuildingOutlineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedBuildingOutlineViewController.h; sourceTree = "<group>"; };
@@ -718,6 +719,7 @@
 		D684BC5A20FED921004E85D9 = {
 			isa = PBXGroup;
 			children = (
+				8961AAE72BB72EFA00B90F93 /* CHANGELOG.md */,
 				89D92FD02B2FE9910035218E /* PrivacyInfo.xcprivacy */,
 				D684BC6520FED921004E85D9 /* MapxusMapSample */,
 				D684BC7E20FED922004E85D9 /* MapxusMapSampleTests */,
@@ -994,7 +996,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89ADEB3B2B4BD73E0094F0F9 /* paramConfig_mapxus.json in Resources */,
+				8961AAE92BB7355000B90F93 /* paramConfig_mapxus.json in Resources */,
 				D684BD9E20FF8A69004E85D9 /* LaunchScreen.storyboard in Resources */,
 				D684BD9F20FF8A69004E85D9 /* Main.storyboard in Resources */,
 				89D92FD12B2FE9910035218E /* PrivacyInfo.xcprivacy in Resources */,
@@ -1409,7 +1411,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 8.4.0;
+				MARKETING_VERSION = 8.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1443,7 +1445,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 8.4.0;
+				MARKETING_VERSION = 8.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

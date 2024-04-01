@@ -1,6 +1,9 @@
-v8.4.0
-2024-02-05
+# CHANGELOG
 
-1. Update Mapxus SDKs to v6.6.0.
-2. Incorporate a gate search type at Surrounding Environment Recognition.
-3. Add location enhancer to Route planning and navigation.
+## v8.5.0 (2024-03-30)
+
+### 🎉 New
+
+* Upgrade the SDK version to 6.7.0
+* Enhance the route planning feature with the addition of multi-point navigation and an emergency mode
+* Augment the POI search function with the inclusion of an 'orderBy' parameter and an 'excludeCategories' parameter
