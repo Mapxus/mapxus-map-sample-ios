@@ -187,9 +187,9 @@
   } else if ([preferredLanguage containsString:@"Hant"]) {
     localText = @"zh-Hant";
   } else if ([preferredLanguage containsString:@"ja"]) {
-    localText = @"zh-ja";
+    localText = @"ja";
   } else if ([preferredLanguage containsString:@"ko"]) {
-    localText = @"zh-ko";
+    localText = @"ko";
   }
   if (localText == nil) {
     localText = @"en";
