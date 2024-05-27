@@ -65,7 +65,7 @@
         }
         MGLPointAnnotation *ann = [[MGLPointAnnotation alloc] init];
         ann.coordinate = CLLocationCoordinate2DMake(venue.labelCenter.latitude, venue.labelCenter.longitude);
-        ann.title = venue.name_default;
+        ann.title = venue.nameMap.Default;
         [anns addObject:ann];
     }
     [self.mapView addAnnotations:anns];

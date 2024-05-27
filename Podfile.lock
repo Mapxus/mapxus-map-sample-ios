@@ -7,29 +7,29 @@ PODS:
   - AFNetworking/Security (4.0.2)
   - AFNetworking/Serialization (4.0.2)
   - IQKeyboardManager (6.5.11)
-  - MapxusBaseSDK (6.7.0):
+  - MapxusBaseSDK (6.8.0):
     - AFNetworking/NSURLSession (~> 4.0.2)
     - AFNetworking/Reachability (~> 4.0.2)
     - AFNetworking/Security (~> 4.0.2)
     - AFNetworking/Serialization (~> 4.0.2)
     - YYModel (~> 1.0.5)
-  - MapxusComponentKit (6.7.0):
-    - MapxusMapSDK (= 6.7.0)
-  - MapxusMapSDK (6.7.0):
-    - MapxusBaseSDK (= 6.7.0)
+  - MapxusComponentKit (6.8.0):
+    - MapxusMapSDK (= 6.8.0)
+  - MapxusMapSDK (6.8.0):
+    - MapxusBaseSDK (= 6.8.0)
     - MapxusRenderSDK (= 5.13.0)
   - MapxusRenderSDK (5.13.0)
-  - MapxusVisualSDK (6.7.0):
-    - MapxusBaseSDK (= 6.7.0)
+  - MapxusVisualSDK (6.8.0):
+    - MapxusBaseSDK (= 6.8.0)
   - ProgressHUD (2.70)
   - YYModel (1.0.5)
 
 DEPENDENCIES:
   - IQKeyboardManager
-  - MapxusBaseSDK (= 6.7.0)
-  - MapxusComponentKit (= 6.7.0)
-  - MapxusMapSDK (= 6.7.0)
-  - MapxusVisualSDK (= 6.7.0)
+  - MapxusBaseSDK (= 6.8.0)
+  - MapxusComponentKit (= 6.8.0)
+  - MapxusMapSDK (= 6.8.0)
+  - MapxusVisualSDK (= 6.8.0)
   - ProgressHUD
 
 SPEC REPOS:
@@ -48,14 +48,14 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 24bbe15bca5f5c108a34a2608c8efd9d548ee884
   IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
-  MapxusBaseSDK: 5a4b62574c6ab5abf51a61c3b3a3bf5f30e9f492
-  MapxusComponentKit: e26cfcbd164b48c81979d3e05192e4be3abfd580
-  MapxusMapSDK: 30baeb8801803cc388a6a7a0d683a582ab1e2bd7
+  MapxusBaseSDK: d1ac2e7165ff2600ec81fb3af9abd4d9e607dba5
+  MapxusComponentKit: 646e65155abb23e03e873915adc77492cd4996ce
+  MapxusMapSDK: 622660fb9a76879152e2166df874a0c3b81cb044
   MapxusRenderSDK: 9afa40a07888b84ffe8ccb03b53958fb9e670def
-  MapxusVisualSDK: 92a6daeb36799babd0051f7008fd2b4a787935bf
+  MapxusVisualSDK: d75dce16287002b1950736f6b290922326359b17
   ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
   YYModel: 035c452ebe1aca91282aa570739c55f3d5e1b16e
 
-PODFILE CHECKSUM: 9badfb4edceb0ed71fe4dc0c0c9f01218bae888b
+PODFILE CHECKSUM: 58170f2889ea3eaf66917cf6370886d8605445cc
 
 COCOAPODS: 1.15.2

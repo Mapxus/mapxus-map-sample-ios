@@ -63,7 +63,7 @@
     }
     MGLPointAnnotation *ann = [[MGLPointAnnotation alloc] init];
     ann.coordinate = CLLocationCoordinate2DMake(building.labelCenter.latitude, building.labelCenter.longitude);
-    ann.title = building.name_default;
+    ann.title = building.nameMap.Default;
     [anns addObject:ann];
   }
   [self.mapView addAnnotations:anns];

@@ -14,14 +14,14 @@
     NSString *titleText = nil;
     NSString *preferredLanguage = [[[NSBundle mainBundle] preferredLocalizations] firstObject];
     if ([preferredLanguage containsString:@"en"]) {
-        titleText = self.title_en;
+        titleText = self.titleMap.en;
     } else if ([preferredLanguage containsString:@"Hans"]) {
-        titleText = self.title_cn;
+        titleText = self.titleMap.zh_Hans;
     } else if ([preferredLanguage containsString:@"Hant"]) {
-        titleText = self.title_zh;
+        titleText = self.titleMap.zh_Hant;
     }
     if (titleText == nil || [titleText isEqualToString:@""]) {
-        titleText = self.title_en;
+        titleText = self.titleMap.en;
     }
     return titleText;
 }

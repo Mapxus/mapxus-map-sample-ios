@@ -1,9 +1,9 @@
 # CHANGELOG
 
-## v8.5.0 (2024-03-30)
+## v8.6.0 (2024-05-27)
 
-### 🎉 New
+### 📝 Changes
 
-* Upgrade the SDK version to 6.7.0
-* Enhance the route planning feature with the addition of multi-point navigation and an emergency mode
-* Augment the POI search function with the inclusion of an 'orderBy' parameter and an 'excludeCategories' parameter
+* Upgrade the SDK version to 6.8.0
+
+* Fix the bug of RouteViewController page that use the error local tag.

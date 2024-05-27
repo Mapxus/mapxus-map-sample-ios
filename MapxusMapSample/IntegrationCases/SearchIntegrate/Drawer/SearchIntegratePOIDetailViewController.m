@@ -88,8 +88,8 @@
   if (self.poi.website) {
     [self.datas addObject:@{@"tip": @"Websit", @"value": self.poi.website, @"cell": @"SearchIntegratePOIDetailBaseCell"}];
   }
-  if (self.poi.accessibilityDetail) {
-    [self.datas addObject:@{@"tip": @"Accessibility Details", @"value": self.poi.accessibilityDetail, @"cell": @"SearchIntegratePOIDetailBaseCell"}];
+  if (self.poi.accessibilityDetailMap.Default) {
+    [self.datas addObject:@{@"tip": @"Accessibility Details", @"value": self.poi.accessibilityDetailMap.Default, @"cell": @"SearchIntegratePOIDetailBaseCell"}];
   }
   [self.tableView reloadData];
 }
@@ -137,11 +137,11 @@
 - (void)onBuildingSearchDone:(MXMBuildingSearchRequest *)request response:(MXMBuildingSearchResponse *)response {
   MXMBuilding *netBuilding = response.buildings.firstObject;
   if (netBuilding.city) {
-    self.buildingAddress = [NSString stringWithFormat:@"%@, %@", netBuilding.city, netBuilding.address_default.street];
+    self.buildingAddress = [NSString stringWithFormat:@"%@, %@", netBuilding.city, netBuilding.addressMap.Default.street];
   } else if (netBuilding.region) {
-    self.buildingAddress = [NSString stringWithFormat:@"%@, %@", netBuilding.region, netBuilding.address_default.street];
+    self.buildingAddress = [NSString stringWithFormat:@"%@, %@", netBuilding.region, netBuilding.addressMap.Default.street];
   } else {
-    self.buildingAddress = [NSString stringWithFormat:@"%@, %@", netBuilding.country, netBuilding.address_default.street];
+    self.buildingAddress = [NSString stringWithFormat:@"%@, %@", netBuilding.country, netBuilding.addressMap.Default.street];
   }
   [self fillData];
 }

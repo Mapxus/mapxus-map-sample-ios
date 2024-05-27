@@ -139,7 +139,7 @@
   for (MXMPOI *poi in response.pois) {
     MXMPointAnnotation *ann = [[MXMPointAnnotation alloc] init];
     ann.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
-    ann.title = poi.name_default;
+    ann.title = poi.nameMap.Default;
     // Use POI`s angle to calculate bearing
     if (poi.angle > 315 || poi.angle <= 44) {
       ann.subtitle = @"In the front";

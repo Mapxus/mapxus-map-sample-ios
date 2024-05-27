@@ -61,7 +61,7 @@
 - (void)map:(MapxusMap *)map didChangeSelectedFloor:(MXMFloor *)floor inSelectedBuildingId:(NSString *)buildingId atSelectedVenueId:(NSString *)venueId
 {
   MXMGeoBuilding *building = buildingId ? map.buildings[buildingId] : nil;
-  self.buildingNameLabel.text = [NSString stringWithFormat:@"BuildingName:%@", building.name];
+  self.buildingNameLabel.text = [NSString stringWithFormat:@"BuildingName:%@", building.nameMap.Default];
   self.floorNameLabel.text = [NSString stringWithFormat:@"Floor:%@", floor.code];  
 }
 

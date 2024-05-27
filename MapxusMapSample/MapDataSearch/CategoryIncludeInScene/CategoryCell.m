@@ -48,9 +48,9 @@
 
 - (void)refreshData:(MXMCategory *)data {
     self.categoryLabel.text = [NSString stringWithFormat:@"category: %@", data.category];
-    self.enLabel.text = [NSString stringWithFormat:@"title_en: %@", data.title_en];
-    self.zhLabel.text = [NSString stringWithFormat:@"title_zh: %@", data.title_zh];
-    self.cnLabel.text = [NSString stringWithFormat:@"title_cn: %@", data.title_cn];
+    self.enLabel.text = [NSString stringWithFormat:@"title_en: %@", data.titleMap.en];
+    self.zhLabel.text = [NSString stringWithFormat:@"title_zh: %@", data.titleMap.zh_Hant];
+    self.cnLabel.text = [NSString stringWithFormat:@"title_cn: %@", data.titleMap.zh_Hans];
 
 }
 
