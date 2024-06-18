@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *buildingId_1;
 @property (strong, nonatomic) NSString *floorId;
 @property (strong, nonatomic) NSString *floorId_1;
+@property (strong, nonatomic) NSString *visualFloorId;
 @property (strong, nonatomic) NSString *poiId;
 @property (assign, nonatomic) CLLocationDegrees center_latitude;
 @property (assign, nonatomic) CLLocationDegrees center_longitude;

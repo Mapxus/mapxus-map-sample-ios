@@ -41,7 +41,7 @@
   self.isFrist = YES;
   
   MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
-  configuration.floorId = PARAMCONFIGINFO.floorId;;
+  configuration.floorId = PARAMCONFIGINFO.visualFloorId;;
   configuration.defaultStyle = MXMStyleMAPXUS;
   self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mglMapView configuration:configuration];
   self.mapxusMap.delegate = self;
