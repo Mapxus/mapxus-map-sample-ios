@@ -1,9 +1,9 @@
 # CHANGELOG
 
-## v8.6.0 (2024-05-27)
+## v8.6.1 (2024-06-18)
 
 ### 📝 Changes
 
-* Upgrade the SDK version to 6.8.0
+* Upgrade the SDK version to 6.9.0
 
-* Fix the bug of RouteViewController page that use the error local tag.
+* Fixed multi-language adaptation errors.

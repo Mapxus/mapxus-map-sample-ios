@@ -1,0 +1,139 @@
+/* 
+  Localizable.strings
+  MapxusMapSample
+
+  Created by Chenghao Guo on 2018/5/25.
+  Copyright © 2018年 MAPHIVE TECHNOLOGY LIMITED. All rights reserved.
+*/
+
+//==============================================================
+
+"Map Creation" = "Map Creation";
+"Map Interaction" = "Map Interaction";
+"Map Editing" = "Map Editing";
+"Indoor Positioning" = "Indoor Positioning";
+"Search Service" = "Search Service";
+"Integration Cases" = "Integration Cases";
+
+//==============================================================
+
+"Create map with code" = "Create map with code";
+"Create map with code." = "Create map with code.";
+
+"Create map with xib" = "Create map with xib";
+"Create map with Interface Builder." = "Create map with Interface Builder.";
+
+"Create map (Specify the initial building, floor and building adaptive margin)" = "Create map (Specify the initial building, floor and building adaptive margin)";
+"To Maximize the specified building indoor map by the setting margin range and switch to the setting floor." = "To Maximize the specified building indoor map by the setting margin range and switch to the setting floor.";
+
+"Create map (Specify the initial POI and zoom level)" = "Create map (Specify the initial POI and zoom level)";
+"To show the specified POI in the centre of the map and show the map by the setting zoom level when creating map." = "To show the specified POI in the centre of the map and show the map by the setting zoom level when creating map.";
+
+//==============================================================
+
+"Interaction of indoor map controller" = "Interaction of indoor map controller";
+"Location of indoor map controllers." = "Location of indoor map controllers.";
+
+"Map style setting" = "Map style setting";
+"Modify map style, mark language and control outdoor map hiding." = "Modify map style, mark language and control outdoor map hiding.";
+
+"Gesture interaction for switching buildings" = "Gesture interaction for switching buildings";
+"Setting gestures for switching buildings." = "Setting gestures for switching buildings.";
+
+"Switching indoor floor mode" = "Switching indoor floor mode";
+"Select different modes of switching floors by parameters." = "Select different modes of switching floors by parameters.";
+
+"Method interaction (Switching indoor scenes)" = "Method interaction (Switching indoor scenes)";
+"Use code settings to focus on indoor scenes." = "Use code settings to focus on indoor scenes.";
+
+"Click event listener" = "Click event listener";
+"Listener for click or long on the map, and click POI event." = "Listener for click or long on the map, and click POI event.";
+
+"Indoor scene switching event listener" = "Indoor scene switching event listener";
+"Listener for indoor scene switching events." = "Listener for indoor scene switching events.";
+
+"Get in or leave indoor scene event listener" = "Get in or leave indoor scene event listener";
+"Listener for get in indoor or leave indoor scene." = "Listener for get in indoor or leave indoor scene.";
+
+//==============================================================
+
+"Drawing markers by floor" = "Drawing markers by floor";
+"Only display the markers on current floor." = "Only display the markers on current floor.";
+
+"Drawing polygons by floor" = "Drawing polygons by floor";
+"Only display the polygon on current floor." = "Only display the polygon on current floor.";
+
+//==============================================================
+
+"Indoor positioning" = "Indoor positioning";
+"Show the positioning location and different following mode." = "Show the positioning location and different following mode.";
+
+//==============================================================
+
+"Search venue globally" = "Search venue globally";
+"Search venue globally." = "Search venue globally.";
+
+"Search venue in the specified area" = "Search venue in the specified area";
+"Search venue in the specified rectangular area." = "Search venue in the specified rectangular area.";
+
+"Search venue nearby" = "Search venue nearby";
+"Search venue in the specified circular area." = "Search venue in the specified circular area.";
+
+"Search venue by venue ID" = "Search venue by venue ID";
+"Search venue by venue ID." = "Search venue by venue ID.";
+
+"Search building globally" = "Search building globally";
+"Search building globally." = "Search building globally.";
+
+"Search building in the specified area" = "Search building in the specified area";
+"Search building in the specified rectangular area." = "Search building in the specified rectangular area.";
+
+"Search building nearby" = "Search building nearby";
+"Search building in the specified circular area." = "Search building in the specified circular area.";
+
+"Search building by building ID" = "Search building by building ID";
+"Search building by building ID." = "Search building by building ID.";
+
+"Get the POI categories by building or floor" = "Get the POI categories by building or floor";
+"Get all the POI categories of the specified building or floor." = "Get all the POI categories of the specified building or floor.";
+
+"Search POI in the specified scene" = "Search POI in the specified scene";
+"Search POI in the specified scene." = "Search POI in the specified scene.";
+
+"Search POI in the specified area" = "Search POI in the specified area";
+"Search POI in the specified retangular area." = "Search POI in the specified retangular area.";
+
+"Search POI nearby" = "Search POI nearby";
+"Search POI in the specified circular area." = "Search POI in the specified circular area.";
+
+"Search POI by POI ID" = "Search POI by POI ID";
+"Search POI by POI ID." = "Search POI by POI ID.";
+
+//==============================================================
+
+"Surrounding environment recognition" = "Surrounding environment recognition";
+"Make a virtual location and identify POI information around the location." = "Make a virtual location and identify POI information around the location.";
+
+"Route planning and navigation" = "Route planning and navigation";
+"Search the route between the starting point and end point, and show the road adsorption." = "Search the route between the starting point and end point, and show the road adsorption.";
+
+"Visual map" = "Visual map";
+"Integration of Visual map." = "Integration of Visual map.";
+
+"Explore building" = "Explore building";
+"Common case of POI search in the building." = "Common case of POI search in the building.";
+
+//==============================================================
+
+"Style" = "Style";
+"COMMON" = "COMMON";
+"CHRISTMAS" = "CHRISTMAS";
+"HALLOWMAS" = "HALLOWMAS";
+"MAPPYBEE" = "MAPPYBEE";
+"MAPXUS" = "MAPXUS";
+"Cancel" = "Cancel";
+
+//==============================================================
+
+
+
