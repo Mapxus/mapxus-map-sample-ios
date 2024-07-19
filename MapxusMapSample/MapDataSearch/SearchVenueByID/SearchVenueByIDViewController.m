@@ -47,7 +47,7 @@
 #pragma mark - MXMSearchDelegate
 - (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error
 {
-    [ProgressHUD showError:NSLocalizedString(@"No buildings could be found", nil)];
+    [ProgressHUD showError:NSLocalizedString(@"No venues could be found", nil)];
 }
 
 - (void)onVenueSearchDone:(MXMVenueSearchRequest *)request response:(MXMVenueSearchResponse *)response

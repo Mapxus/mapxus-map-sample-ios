@@ -1,9 +1,7 @@
 # CHANGELOG
 
-## v8.6.1 (2024-06-18)
+## v8.6.2 (2024-07-19)
 
 ### 📝 Changes
 
-* Upgrade the SDK version to 6.9.0
-
-* Fixed multi-language adaptation errors.
+* Upgrade the SDK version to 6.10.0
