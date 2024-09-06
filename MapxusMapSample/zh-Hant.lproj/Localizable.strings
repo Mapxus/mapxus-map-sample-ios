@@ -97,6 +97,9 @@
 "Get the POI categories by building or floor" = "獲取指定場景內包含的POI分類。";
 "Get all the POI categories of the specified building or floor." = "獲取指定建築或樓層內所有包含的分類。";
 
+"Get POI categories by Bbox" = "獲取特定範圍內包含的POI分類";
+"Get all POI categories of a specified region." = "獲取特定範圍內所有的POI涉及到的分類。";
+
 "Search POI in the specified scene" = "指定場景內POI搜索";
 "Search POI in the specified scene." = "在指定場景內搜索POI。";
 

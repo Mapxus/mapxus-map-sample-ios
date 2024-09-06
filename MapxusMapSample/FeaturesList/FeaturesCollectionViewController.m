@@ -146,6 +146,10 @@ static NSString * const reuseIdentifier = @"Cell";
                                               imageName:@"CategoryIncludeInScene"
                                                   title:NSLocalizedString(@"Get the POI categories by building or floor", nil)
                                                subTitle:NSLocalizedString(@"Get all the POI categories of the specified building or floor.", nil)],
+                       [Feature createWithPageClassName:@"SearchCategoryInBoundViewController"
+                                              imageName:@"CategoryIncludeInScene"
+                                                  title:NSLocalizedString(@"Get POI categories by Bbox", nil)
+                                               subTitle:NSLocalizedString(@"Get all POI categories of a specified region.", nil)],
                        [Feature createWithPageClassName:@"SearchPOIInSceneViewController"
                                               imageName:@"SearchPOIInScene"
                                                   title:NSLocalizedString(@"Search POI in the specified scene", nil)

@@ -13,7 +13,7 @@
 #import "CategoryIncludeInSceneResultViewController.h"
 #import "Macro.h"
 
-@interface CategoryIncludeInSceneViewController () <MGLMapViewDelegate, MXMSearchDelegate>
+@interface CategoryIncludeInSceneViewController () <MGLMapViewDelegate, MXMCategorySearchDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (nonatomic, strong) UIView *boxView;
@@ -47,12 +47,12 @@
   }
   [ProgressHUD show];
   
-  MXMPOICategorySearchRequest *re = [[MXMPOICategorySearchRequest alloc] init];
-  re.venueId = self.mapxusMap.selectedVenueId;
+  MXMPoiCategoryVenueSearchOption *option = [[MXMPoiCategoryVenueSearchOption alloc] init];
+  option.venueId = self.mapxusMap.selectedVenueId;
   
-  MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
+  MXMCategorySearch *api = [[MXMCategorySearch alloc] init];
   api.delegate = self;
-  [api MXMPOICategorySearch:re];
+  [api searchPoiCategoriesByVenue:option];
 }
 
 // Search all categories in building
@@ -66,12 +66,12 @@
   }
   [ProgressHUD show];
   
-  MXMPOICategorySearchRequest *re = [[MXMPOICategorySearchRequest alloc] init];
-  re.buildingId = self.mapxusMap.selectedBuildingId;
+  MXMPoiCategoryBuildingSearchOption *option = [[MXMPoiCategoryBuildingSearchOption alloc] init];
+  option.buildingId = self.mapxusMap.selectedBuildingId;
   
-  MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
+  MXMCategorySearch *api = [[MXMCategorySearch alloc] init];
   api.delegate = self;
-  [api MXMPOICategorySearch:re];
+  [api searchPoiCategoriesByBuilding:option];
 }
 
 // Search all categories on the floor
@@ -85,12 +85,12 @@
   }
   [ProgressHUD show];
   
-  MXMPOICategorySearchRequest *re = [[MXMPOICategorySearchRequest alloc] init];
-  re.floorId = self.mapxusMap.selectedFloor.floorId;
+  MXMPoiCategoryFloorSearchOption *option = [[MXMPoiCategoryFloorSearchOption alloc] init];
+  option.floorId = self.mapxusMap.selectedFloor.floorId;
   
-  MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
+  MXMCategorySearch *api = [[MXMCategorySearch alloc] init];
   api.delegate = self;
-  [api MXMPOICategorySearch:re];
+  [api searchPoiCategoriesByFloor:option];
 }
 
 - (void)layoutUI {
@@ -118,23 +118,25 @@
   
   [self.tipLabel.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
   [self.tipLabel.topAnchor constraintEqualToAnchor:self.boxView.topAnchor constant:moduleSpace].active = YES;
-
+  
   [self.stackView.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
   [self.stackView.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
   [self.stackView.topAnchor constraintEqualToAnchor:self.tipLabel.bottomAnchor constant:moduleSpace].active = YES;
   [self.stackView.heightAnchor constraintEqualToConstant:40].active = YES;
 }
 
-#pragma mark - MXMSearchDelegate
-- (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error {
-  [ProgressHUD showError:NSLocalizedString(@"No categories could be found", nil)];
-}
-
-- (void)onPOICategorySearchDone:(MXMPOICategorySearchRequest *)request response:(MXMPOICategorySearchResponse *)response {
-  [ProgressHUD dismiss];
-  CategoryIncludeInSceneResultViewController *vc = [[CategoryIncludeInSceneResultViewController alloc] init];
-  vc.categorys = response.category;
-  [self presentViewController:vc animated:YES completion:nil];
+#pragma mark - MXMCategorySearchDelegate
+- (void)categorySearcher:(MXMCategorySearch *)categorySearcher 
+  didReceivePoiCategoryWithResult:(MXMPoiCategorySearchResult *)searchResult
+                   error:(NSError *)error {
+  if (searchResult) {
+    [ProgressHUD dismiss];
+    CategoryIncludeInSceneResultViewController *vc = [[CategoryIncludeInSceneResultViewController alloc] init];
+    vc.categorys = searchResult.categoryResults;
+    [self presentViewController:vc animated:YES completion:nil];
+  } else {
+    [ProgressHUD showError:NSLocalizedString(@"No categories could be found", nil)];
+  }
 }
 
 #pragma mark - Lazy loading

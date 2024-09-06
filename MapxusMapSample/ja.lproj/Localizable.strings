@@ -97,6 +97,9 @@
 "Get the POI categories by building or floor" = "Get the POI categories by building or floor";
 "Get all the POI categories of the specified building or floor." = "Get all the POI categories of the specified building or floor.";
 
+"Get POI categories by Bbox" = "Get POI categories by Bbox";
+"Get all POI categories of a specified region." = "Get all POI categories of a specified region.";
+
 "Search POI in the specified scene" = "Search POI in the specified scene";
 "Search POI in the specified scene." = "Search POI in the specified scene.";
 

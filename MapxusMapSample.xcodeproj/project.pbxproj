@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		52873AF62936084300D27143 /* ParamConfigInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 52873AF52936084300D27143 /* ParamConfigInstance.m */; };
+		892FE04A2C87F50400C6EB66 /* SearchCategoryInBoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892FE0492C87F50400C6EB66 /* SearchCategoryInBoundViewController.m */; };
+		892FE04D2C87F51C00C6EB66 /* SearchCategoryInBoundParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892FE04C2C87F51C00C6EB66 /* SearchCategoryInBoundParamViewController.m */; };
+		892FE0502C88006C00C6EB66 /* SearchCategoryInBoundResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892FE04F2C88006C00C6EB66 /* SearchCategoryInBoundResultViewController.m */; };
+		892FE0532C8800B300C6EB66 /* CategoryInBoundResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 892FE0522C8800B300C6EB66 /* CategoryInBoundResultCell.m */; };
 		893C36AD2A2983210058561A /* InstructionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C36AC2A2983210058561A /* InstructionListViewController.m */; };
 		893C36B12A2998A00058561A /* UIButton+StatusBackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C36B02A2998A00058561A /* UIButton+StatusBackgroundColor.m */; };
 		893C36C12A29CE100058561A /* StatisticalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C36C02A29CE100058561A /* StatisticalView.m */; };
@@ -151,6 +155,14 @@
 		8905A9B02C216DA000ED7D65 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8905A9B12C216DA000ED7D65 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		8905A9B22C216DA000ED7D65 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		892FE0482C87F50400C6EB66 /* SearchCategoryInBoundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCategoryInBoundViewController.h; sourceTree = "<group>"; };
+		892FE0492C87F50400C6EB66 /* SearchCategoryInBoundViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchCategoryInBoundViewController.m; sourceTree = "<group>"; };
+		892FE04B2C87F51C00C6EB66 /* SearchCategoryInBoundParamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCategoryInBoundParamViewController.h; sourceTree = "<group>"; };
+		892FE04C2C87F51C00C6EB66 /* SearchCategoryInBoundParamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchCategoryInBoundParamViewController.m; sourceTree = "<group>"; };
+		892FE04E2C88006C00C6EB66 /* SearchCategoryInBoundResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCategoryInBoundResultViewController.h; sourceTree = "<group>"; };
+		892FE04F2C88006C00C6EB66 /* SearchCategoryInBoundResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchCategoryInBoundResultViewController.m; sourceTree = "<group>"; };
+		892FE0512C8800B300C6EB66 /* CategoryInBoundResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryInBoundResultCell.h; sourceTree = "<group>"; };
+		892FE0522C8800B300C6EB66 /* CategoryInBoundResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryInBoundResultCell.m; sourceTree = "<group>"; };
 		893C36AB2A2983210058561A /* InstructionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstructionListViewController.h; sourceTree = "<group>"; };
 		893C36AC2A2983210058561A /* InstructionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstructionListViewController.m; sourceTree = "<group>"; };
 		893C36AF2A2998750058561A /* UIButton+StatusBackgroundColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+StatusBackgroundColor.h"; sourceTree = "<group>"; };
@@ -385,6 +397,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		892FE0362C85BDE200C6EB66 /* SearchCategoryInBound */ = {
+			isa = PBXGroup;
+			children = (
+				892FE0482C87F50400C6EB66 /* SearchCategoryInBoundViewController.h */,
+				892FE0492C87F50400C6EB66 /* SearchCategoryInBoundViewController.m */,
+				892FE04B2C87F51C00C6EB66 /* SearchCategoryInBoundParamViewController.h */,
+				892FE04C2C87F51C00C6EB66 /* SearchCategoryInBoundParamViewController.m */,
+				892FE04E2C88006C00C6EB66 /* SearchCategoryInBoundResultViewController.h */,
+				892FE04F2C88006C00C6EB66 /* SearchCategoryInBoundResultViewController.m */,
+				892FE0512C8800B300C6EB66 /* CategoryInBoundResultCell.h */,
+				892FE0522C8800B300C6EB66 /* CategoryInBoundResultCell.m */,
+			);
+			path = SearchCategoryInBound;
+			sourceTree = "<group>";
+		};
 		893C37212A307B180058561A /* SearchVenueGlobal */ = {
 			isa = PBXGroup;
 			children = (
@@ -851,6 +878,7 @@
 				893C37272A307D460058561A /* SearchBuildingNearby */,
 				893C37282A307D5F0058561A /* SearchBuildingByID */,
 				893C37292A307D7E0058561A /* CategoryIncludeInScene */,
+				892FE0362C85BDE200C6EB66 /* SearchCategoryInBound */,
 				893C372A2A307EAC0058561A /* SearchPOIInScene */,
 				893C372B2A307EC80058561A /* SearchPOIInBound */,
 				893C372C2A307EE00058561A /* SearchPOINearby */,
@@ -1126,10 +1154,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				892FE04D2C87F51C00C6EB66 /* SearchCategoryInBoundParamViewController.m in Sources */,
 				D6B510AD24C040380084D813 /* CreateMapWithSceneReaultViewController.m in Sources */,
 				D66421EA24CC055B0078404B /* SearchIntegrateCategoryViewController.m in Sources */,
 				D695845524C8B6AE00466372 /* CategoryCell.m in Sources */,
 				D6B510D824C690E00084D813 /* SearchBuildingGlobalParamViewController.m in Sources */,
+				892FE04A2C87F50400C6EB66 /* SearchCategoryInBoundViewController.m in Sources */,
 				D695845224C8B0B700466372 /* CategoryIncludeInSceneResultViewController.m in Sources */,
 				D6B510B024C040B00084D813 /* CreateMapWithPOIResultViewController.m in Sources */,
 				D684BD6420FF8A19004E85D9 /* FeatureCollectionViewCell.m in Sources */,
@@ -1194,6 +1224,7 @@
 				89B3CFEF2A40371A00CE9351 /* BoxLengthViewController.m in Sources */,
 				D6B510B924C155FD0084D813 /* SwitchingBuildingGesturesViewController.m in Sources */,
 				893C37172A3030500058561A /* SearchVenueByIDViewController.m in Sources */,
+				892FE0532C8800B300C6EB66 /* CategoryInBoundResultCell.m in Sources */,
 				D6061AD724AB154A0065FBA2 /* MBXCustomLocationManager.m in Sources */,
 				D6B510CC24C58D8C0084D813 /* IndoorMarkerViewController.m in Sources */,
 				893C371D2A30705A0058561A /* SearchVenueByIDParamViewController.m in Sources */,
@@ -1212,6 +1243,7 @@
 				893C36C12A29CE100058561A /* StatisticalView.m in Sources */,
 				89E998BD2B624C16008374EF /* TestLocationManager.m in Sources */,
 				D695841E24C6D2DD00466372 /* SearchBuildingInBoundParamViewController.m in Sources */,
+				892FE0502C88006C00C6EB66 /* SearchCategoryInBoundResultViewController.m in Sources */,
 				D684BD9320FF8A19004E85D9 /* DisplayLocationViewController.m in Sources */,
 				D684BD8120FF8A19004E85D9 /* SearchBuildingNearbyViewController.m in Sources */,
 			);
@@ -1410,7 +1442,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 28;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = ZNBZ7BZAKZ;
 				ENABLE_BITCODE = NO;
@@ -1425,7 +1457,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 8.6.2;
+				MARKETING_VERSION = 8.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1444,7 +1476,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 28;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = ZNBZ7BZAKZ;
 				ENABLE_BITCODE = NO;
@@ -1459,7 +1491,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 8.6.2;
+				MARKETING_VERSION = 8.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
