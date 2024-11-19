@@ -38,6 +38,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) CLLocationDegrees center_latitude;
 @property (assign, nonatomic) CLLocationDegrees center_longitude;
 
+@property (nonatomic, assign) double routeStylePoint1_lat;
+@property (nonatomic, assign) double routeStylePoint1_lon;
+@property (nonatomic, assign) double routeStylePoint2_lat;
+@property (nonatomic, assign) double routeStylePoint2_lon;
+@property (nonatomic, strong) NSString *routeStylePoint2_floorId;
+@property (nonatomic, assign) double routeStylePoint3_lat;
+@property (nonatomic, assign) double routeStylePoint3_lon;
+@property (nonatomic, strong) NSString *routeStylePoint3_floorId;
+
+
 @property (strong, nonatomic) ParamConfigSearchNearby *search_nearby;       //搜索附近建筑
 @property (strong, nonatomic) ParamConfigAreaBbox *specified_area;      //指定区域内搜索建筑和 指定矩形区域内*POI*搜寻
 @property (strong, nonatomic) ParamConfigAreaBbox *rectangular_area_bbox;       //矩形区域*POI*搜索的bbox：

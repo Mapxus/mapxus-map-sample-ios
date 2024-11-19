@@ -155,7 +155,8 @@
   }
   
   [self.mapxusMap addMXMPointAnnotations:anns];
-  
+  [self.mapView showAnnotations:anns animated:YES];
+
   [ProgressHUD dismiss];
 }
 

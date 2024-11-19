@@ -69,8 +69,12 @@
     [anns addObject:ann];
   }
   [self.mapxusMap addMXMPointAnnotations:anns];
-  [self.mapView showAnnotations:anns animated:YES];
-  
+  if (response.pois.count == 1) {
+    MXMPOI *firstPoi = response.pois.firstObject;
+    [self.mapxusMap selectFloorById:firstPoi.floor.floorId];
+  } else if (response.pois.count > 1) {
+    [self.mapView showAnnotations:anns animated:YES];
+  }
   [ProgressHUD dismiss];
 }
 

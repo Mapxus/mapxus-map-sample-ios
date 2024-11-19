@@ -27,6 +27,8 @@
 		89B3D0132A417C0E00CE9351 /* SwitchingModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3D0122A417C0E00CE9351 /* SwitchingModelViewController.m */; };
 		89D92FD12B2FE9910035218E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 89D92FD02B2FE9910035218E /* PrivacyInfo.xcprivacy */; };
 		89E998BD2B624C16008374EF /* TestLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E998BC2B624C16008374EF /* TestLocationManager.m */; };
+		89FBDED72CE2F630002577A6 /* RoutePainterSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FBDED62CE2F630002577A6 /* RoutePainterSettingViewController.m */; };
+		89FBDEDA2CE2F6C9002577A6 /* RouteLineSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FBDED92CE2F6C9002577A6 /* RouteLineSettingViewController.m */; };
 		C15E72DA8653D29FC9C04174 /* Pods_MapxusMapSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F4ABE352B03EF49E072948 /* Pods_MapxusMapSample.framework */; };
 		CAE3C695D3128BDE5CFD6BCA /* Pods_MapxusMapSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A072C56DB036E61BB8E83A87 /* Pods_MapxusMapSampleTests.framework */; };
 		D6061AD724AB154A0065FBA2 /* MBXCustomLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6061AD524AB154A0065FBA2 /* MBXCustomLocationManager.m */; };
@@ -191,6 +193,10 @@
 		89D92FD02B2FE9910035218E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		89E998BB2B624C16008374EF /* TestLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestLocationManager.h; sourceTree = "<group>"; };
 		89E998BC2B624C16008374EF /* TestLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestLocationManager.m; sourceTree = "<group>"; };
+		89FBDED52CE2F630002577A6 /* RoutePainterSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutePainterSettingViewController.h; sourceTree = "<group>"; };
+		89FBDED62CE2F630002577A6 /* RoutePainterSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutePainterSettingViewController.m; sourceTree = "<group>"; };
+		89FBDED82CE2F6C9002577A6 /* RouteLineSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouteLineSettingViewController.h; sourceTree = "<group>"; };
+		89FBDED92CE2F6C9002577A6 /* RouteLineSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouteLineSettingViewController.m; sourceTree = "<group>"; };
 		A072C56DB036E61BB8E83A87 /* Pods_MapxusMapSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapxusMapSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEED814EAD36ACE9D95D5810 /* Pods-MapxusMapSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSampleTests/Pods-MapxusMapSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		B41AF1415917CC65CC4C0DB8 /* Pods-MapxusMapSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSampleTests/Pods-MapxusMapSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -579,6 +585,17 @@
 			path = MapAppearance;
 			sourceTree = "<group>";
 		};
+		89FBDED22CE2EFC8002577A6 /* RouterPainterSetting */ = {
+			isa = PBXGroup;
+			children = (
+				89FBDED52CE2F630002577A6 /* RoutePainterSettingViewController.h */,
+				89FBDED62CE2F630002577A6 /* RoutePainterSettingViewController.m */,
+				89FBDED82CE2F6C9002577A6 /* RouteLineSettingViewController.h */,
+				89FBDED92CE2F6C9002577A6 /* RouteLineSettingViewController.m */,
+			);
+			path = RouterPainterSetting;
+			sourceTree = "<group>";
+		};
 		9EF10F73C9FD8B939971BDAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -605,6 +622,7 @@
 		D6408DA2212FF7A200582558 /* MapInteraction */ = {
 			isa = PBXGroup;
 			children = (
+				89FBDED22CE2EFC8002577A6 /* RouterPainterSetting */,
 				89B3CFF02A40373000CE9351 /* IndoorControls */,
 				89B3D00D2A4054F400CE9351 /* MapAppearance */,
 				D6B510B724C155FD0084D813 /* SwitchingBuildingGesturesViewController.h */,
@@ -1174,6 +1192,7 @@
 				D6B510B624C155EA0084D813 /* MapAppearanceViewController.m in Sources */,
 				D66421F724CC227D0078404B /* SearchIntegratePOICell.m in Sources */,
 				D695844024C8068A00466372 /* SearchPOIByIDParamViewController.m in Sources */,
+				89FBDED72CE2F630002577A6 /* RoutePainterSettingViewController.m in Sources */,
 				D695844924C8368D00466372 /* POIIDCell.m in Sources */,
 				D664221424CFCE710078404B /* MXMPulleyViewController.m in Sources */,
 				D67F00E524C98780003D40BA /* MXMRouteLocationManager.m in Sources */,
@@ -1211,6 +1230,7 @@
 				D695842424C7CF6C00466372 /* SearchBuildingByIDParamViewController.m in Sources */,
 				D684BD6520FF8A19004E85D9 /* MenuTableViewCell.m in Sources */,
 				D684BC6820FED921004E85D9 /* AppDelegate.m in Sources */,
+				89FBDEDA2CE2F6C9002577A6 /* RouteLineSettingViewController.m in Sources */,
 				893C36B12A2998A00058561A /* UIButton+StatusBackgroundColor.m in Sources */,
 				D695844F24C845FC00466372 /* SurroundingIdentificationParamViewController.m in Sources */,
 				D6B510AA24C00E480084D813 /* CreateMapWithPOIViewController.m in Sources */,
@@ -1442,7 +1462,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 30;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = ZNBZ7BZAKZ;
 				ENABLE_BITCODE = NO;
@@ -1457,7 +1477,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 8.7.0;
+				MARKETING_VERSION = 8.8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1476,7 +1496,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 30;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = ZNBZ7BZAKZ;
 				ENABLE_BITCODE = NO;
@@ -1491,7 +1511,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 8.7.0;
+				MARKETING_VERSION = 8.8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

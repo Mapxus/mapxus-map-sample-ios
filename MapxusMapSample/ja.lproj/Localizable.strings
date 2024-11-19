@@ -37,6 +37,9 @@
 "Map style setting" = "Map style setting";
 "Modify map style, mark language and control outdoor map hiding." = "Modify map style, mark language and control outdoor map hiding.";
 
+"Route Style Setting" = "Route Style Setting";
+"Modify route style." = "Modify route style.";
+
 "Gesture interaction for switching buildings" = "Gesture interaction for switching buildings";
 "Setting gestures for switching buildings." = "Setting gestures for switching buildings.";
 

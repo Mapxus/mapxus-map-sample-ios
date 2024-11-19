@@ -27,7 +27,7 @@
   //  [self.locationManager startUpdatingLocation];
   /** Virtual positioning function  */
   [self loadRouteCoordinates];
-  self.locationUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updateLocation) userInfo:nil repeats:YES];
+  self.locationUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateLocation) userInfo:nil repeats:YES];
   /** Virtual positioning function */
 }
 

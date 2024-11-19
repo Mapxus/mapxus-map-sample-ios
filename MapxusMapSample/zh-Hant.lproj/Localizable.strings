@@ -37,6 +37,9 @@
 "Map style setting" = "修改地圖外觀";
 "Modify map style, mark language and control outdoor map hiding." = "修改地圖配色，標注語言及控制室外地圖隱藏。";
 
+"Route Style Setting" = "修改線路外觀";
+"Modify route style." = "修改路線樣式。";
+
 "Gesture interaction for switching buildings" = "切換建築的手勢交互";
 "Setting gestures for switching buildings." = "設置切換建築手勢。";
 

@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isNavigation;
 @property (nonatomic, strong) NSString *locationFloorId;
 - (void)setShorterDelegate:(id<MXMRouteShortenerDelegate>)sDelegate;
-- (void)updatePath:(MXMPath *)path wayPoints:(NSArray<MXMIndoorPoint *> *)wayPoints;
+- (void)updatePath:(MXMPath *)path waypoints:(NSArray<MXMWaypoint *> *)waypoints;
 @end
 
 

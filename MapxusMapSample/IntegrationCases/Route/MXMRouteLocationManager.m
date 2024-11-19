@@ -24,10 +24,10 @@
   self.shortener.delegate = sDelegate;
 }
 
-- (void)updatePath:(MXMPath *)path wayPoints:(NSArray<MXMIndoorPoint *> *)wayPoints {
+- (void)updatePath:(MXMPath *)path waypoints:(NSArray<MXMWaypoint *> *)waypoints {
   MXMNavigationPathDTO *pathDTO = [[MXMNavigationPathDTO alloc] initWithPath:path];
   [self.adsorber updateNavigationPathDTO:pathDTO];
-  [self.shortener inputSourceWithOriginalPath:path originalWayPoints:wayPoints andNavigationPathDTO:pathDTO];
+  [self.shortener configureWithOriginalPath:path originalWaypoints:waypoints navigationDTO:pathDTO];
 }
 
 #pragma mark - MXMRouteAdsorberDelegate

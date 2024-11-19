@@ -71,6 +71,10 @@ static NSString * const reuseIdentifier = @"Cell";
                                               imageName:@"MapAppearance"
                                                   title:NSLocalizedString(@"Map style setting", nil)
                                                subTitle:NSLocalizedString(@"Modify map style, mark language and control outdoor map hiding.", nil)],
+                       [Feature createWithPageClassName:@"RoutePainterSettingViewController"
+                                              imageName:@"RoutePainterSetting"
+                                                  title:NSLocalizedString(@"Route Style Setting", nil)
+                                               subTitle:NSLocalizedString(@"Modify route style.", nil)],
                        [Feature createWithPageClassName:@"SwitchingBuildingGesturesViewController"
                                               imageName:@"SwitchingBuildingGestures"
                                                   title:NSLocalizedString(@"Gesture interaction for switching buildings", nil)

@@ -15,7 +15,7 @@
 #import "InstructionListViewController.h"
 #import "UIButton+StatusBackgroundColor.h"
 
-@interface RouteViewController () <MapxusMapDelegate, MXMSearchDelegate, MGLMapViewDelegate, TrackDelegate, MXMRouteShortenerDelegate>
+@interface RouteViewController () <MapxusMapDelegate, MXMRouteSearchDelegate, MGLMapViewDelegate, TrackDelegate, MXMRouteShortenerDelegate>
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic, strong) MapxusMap *map;
 @property (nonatomic, strong) UIButton *point1Btn;
@@ -41,7 +41,7 @@
 
 @property (nonatomic, strong) MXMRoutePainter *painter;
 @property (nonatomic, strong) MXMRouteLocationManager *locationManager;
-@property (nonatomic, strong) MXMRouteSearchResponse *currentResponse;
+@property (nonatomic, strong) MXMRouteSearchResult *currentResponse;
 @property (nonatomic, assign) BOOL isEndOfNavigation;
 @property (nonatomic, weak) id<RouteViewControllerDelegate> instructionDelegate;
 @end
@@ -64,13 +64,16 @@
   
   // The painter help to draw the route line on the mapview
   self.painter = [[MXMRoutePainter alloc] initWithMapView:self.mapView];
-  MXMWaypointInfo *info1 = [[MXMWaypointInfo alloc] init];
+  // Set route style
+  MXMRouteStyle *style = [MXMRouteStyle defaultRouteStyle];
+  MXMSymbolInfo *info1 = [[MXMSymbolInfo alloc] init];
   info1.icon = [UIImage imageNamed:@"start_marker"];
-  MXMWaypointInfo *info2 = [[MXMWaypointInfo alloc] init];
+  MXMSymbolInfo *info2 = [[MXMSymbolInfo alloc] init];
   info2.icon = [UIImage imageNamed:@"ic_way_point"];
-  MXMWaypointInfo *info3 = [[MXMWaypointInfo alloc] init];
+  MXMSymbolInfo *info3 = [[MXMSymbolInfo alloc] init];
   info3.icon = [UIImage imageNamed:@"end_marker"];
-  self.painter.waypointInfos = @[info1, info2, info3];
+  style.waypointSymbols = @[info1, info2, info3];
+  self.painter.routeStyle = style;
   // Set trackDelegate, callback to update map camera during navigation
   self.locationManager.trackDelegate = self;
   // Set delegate to redraw the shorter route line
@@ -108,14 +111,12 @@
   }
 }
 
-- (MXMIndoorPoint *)makePointFromDic:(NSDictionary *)dic {
+- (MXMWaypoint *)makePointFromDic:(NSDictionary *)dic {
   MXMFloor *floor = dic[@"floor"];
   MXMGeoPoint *point = dic[@"point"];
-  NSString *buildingId = dic[@"buildingId"];
-  return [MXMIndoorPoint locationWithLatitude:point.latitude
-                                    longitude:point.longitude
-                                   buildingId:buildingId
-                                      floorId:floor.floorId];
+  return [MXMWaypoint createWaypointWithLatitude:point.latitude
+                                       longitude:point.longitude
+                                         floorId:floor.floorId];
 }
 
 - (void)showAlertTitle:(NSString *)title message:(NSString *)message {
@@ -145,56 +146,54 @@
     NSDictionary *dic = self.points[i];
     if (i == 0 || i == 1) { continue; }
     if (dic.count) {
-      MXMIndoorPoint *nP = [self makePointFromDic:dic];
+      MXMWaypoint *nP = [self makePointFromDic:dic];
       [list addObject:nP];
     }
   }
   
-  MXMIndoorPoint *startP = [self makePointFromDic:start];
-  MXMIndoorPoint *endP = [self makePointFromDic:end];
+  MXMWaypoint *startP = [self makePointFromDic:start];
+  MXMWaypoint *endP = [self makePointFromDic:end];
   [list insertObject:startP atIndex:0];
   [list addObject:endP];
   
-  MXMRouteSearchRequest *re = [[MXMRouteSearchRequest alloc] init];
-  re.points = list;
-  re.locale = [self searchLocalBySystem];
+  
+  MXMRouteSearchOption *option = [[MXMRouteSearchOption alloc] init];
+  option.points = list;
+  option.locale = [self searchLocalBySystem];
   switch (self.travelWaySegmented.selectedSegmentIndex) {
     case 0:
-      re.vehicle = @"foot";
+      option.vehicle = MXMFoot;
       break;
     case 1:
-      re.vehicle = @"wheelchair";
+      option.vehicle = MXMWheelchair;
       break;
     case 2:
-      re.vehicle = @"emergency";
+      option.vehicle = MXMEmergency;
       break;
     default:
       break;
   }
   
-  MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
-  api.delegate = self;
-  [api MXMRouteSearch:re];
+  MXMRouteSearch *searcher = [[MXMRouteSearch alloc] init];
+  searcher.delegate = self;
+  [searcher findRouteWithSearchOption:option];
 }
 
-- (NSString *)searchLocalBySystem {
-  NSString *localText = nil;
+- (MXMLocale)searchLocalBySystem {
+  MXMLocale local = MXMEn;
   NSString *preferredLanguage = [[[NSBundle mainBundle] preferredLocalizations] firstObject];
   if ([preferredLanguage containsString:@"en"]) {
-    localText = @"en";
+    local = MXMEn;
   } else if ([preferredLanguage containsString:@"Hans"]) {
-    localText = @"zh-Hans";
+    local = MXMZh_Hans;
   } else if ([preferredLanguage containsString:@"Hant"]) {
-    localText = @"zh-Hant";
+    local = MXMZh_Hant;
   } else if ([preferredLanguage containsString:@"ja"]) {
-    localText = @"ja";
+    local = MXMJa;
   } else if ([preferredLanguage containsString:@"ko"]) {
-    localText = @"ko";
+    local = MXMKo;
   }
-  if (localText == nil) {
-    localText = @"en";
-  }
-  return localText;
+  return local;
 }
 
 - (void)navigationAction:(UIButton *)sender {
@@ -211,9 +210,9 @@
     return;
   }
   // Hide the start marker point when starting navigation
-  self.painter.isAddStartDash = NO;
+  self.painter.routeStyle.isAddStartDash = NO;
   // Update navigation data
-  [self.locationManager updatePath:self.currentResponse.paths.firstObject wayPoints:self.currentResponse.wayPointList];
+  [self.locationManager updatePath:self.currentResponse.paths.firstObject waypoints:self.currentResponse.waypoints];
   // Start to navigation
   self.locationManager.isNavigation = YES;
 }
@@ -344,7 +343,7 @@
       [self showAlertTitle:@"Warning" message:@"You have arrived at the waypoint."];
     } else {
       // repaint
-      [self.painter paintRouteUsingPath:path wayPoints:shortener.originalWayPoints];
+      [self.painter drawRouteWithPath:path];
       [self.painter changeOnVenue:self.map.selectedVenueId ordinal:self.map.selectedFloor.ordinal];
     }
   }
@@ -394,7 +393,6 @@
   }
   
   dic[@"floor"] = floor;
-  dic[@"buildingId"] = building.identifier;
   MXMGeoPoint *p = [[MXMGeoPoint alloc] init];
   p.latitude = coordinate.latitude;
   p.longitude = coordinate.longitude;
@@ -414,34 +412,33 @@
   
 }
 
-#pragma mark - MXMSearchDelegate
+#pragma mark - MXMRouteSearchDelegate
 
-- (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error
-{
-  [self.instructionButton setCustomEnabled:NO];
-  [self showAlertTitle:@"Warning" message:@"Sorry, I can't find the route."];
-}
-
-- (void)onRouteSearchDone:(MXMRouteSearchRequest *)request response:(MXMRouteSearchResponse *)response
-{
-  if (response.paths.firstObject.instructions) {
-    [self.instructionButton setCustomEnabled:YES];
+- (void)routeSearcher:(MXMRouteSearch *)routeSearcher didReceiveRouteResult:(MXMRouteSearchResult *)searchResult error:(NSError *)error {
+  if (searchResult) {
+    if (searchResult.paths.firstObject.instructions) {
+      [self.instructionButton setCustomEnabled:YES];
+    } else {
+      [self.instructionButton setCustomEnabled:NO];
+    }
+    self.currentResponse = searchResult;
+    [self.map removeMXMPointAnnotaions:self.map.MXMAnnotations];
+    
+    self.painter.routeStyle.isAddStartDash = YES;
+    
+    [self.painter updateFullPath:searchResult.paths.firstObject waypoints:searchResult.waypoints];
+    [self.painter drawRouteWithPath:searchResult.paths.firstObject];
+    NSString *key = self.painter.dto.keys.firstObject;
+    MXMParagraph *paph = self.painter.dto.paragraphs[key];
+    [self.map selectFloorById:paph.floorId zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
+    [self.painter changeOnVenue:paph.venueId ordinal:paph.ordinal];
+    [self.painter focusOnKeys:@[key] edgePadding:UIEdgeInsetsMake(130, 30, 110, 80)];
   } else {
     [self.instructionButton setCustomEnabled:NO];
+    [self showAlertTitle:@"Warning" message:@"Sorry, I can't find the route."];
   }
-  self.currentResponse = response;
-  [self.map removeMXMPointAnnotaions:self.map.MXMAnnotations];
-  
-  self.painter.isAddStartDash = YES;
-  
-  [self.painter paintRouteUsingPath:response.paths.firstObject wayPoints:response.wayPointList];
-  NSString *key = self.painter.dto.keys.firstObject;
-  MXMParagraph *paph = self.painter.dto.paragraphs[key];
-  [self.map selectFloorById:paph.floorId zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
-  [self.painter changeOnVenue:paph.venueId ordinal:paph.ordinal];
-  [self.painter focusOnKeys:@[key] edgePadding:UIEdgeInsetsMake(130, 30, 110, 80)];
-  
 }
+
 
 #pragma mark - Lazy loading
 - (MGLMapView *)mapView {

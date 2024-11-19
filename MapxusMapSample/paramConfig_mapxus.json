@@ -9,6 +9,15 @@
     "center_latitude" : "22.370787",
     "center_longitude" : "114.111375",
 
+    "routeStylePoint1_lat": 22.371690473506533,
+    "routeStylePoint1_lon": 114.11180770638578,
+    "routeStylePoint2_lat": 22.370788886238273,
+    "routeStylePoint2_lon": 114.1115608877733,
+    "routeStylePoint2_floorId": "2cdd6174730d4431b1aa730eda596ed4",
+    "routeStylePoint3_lat": 22.370699436006532,
+    "routeStylePoint3_lon": 114.11134223746296,
+    "routeStylePoint3_floorId": "36e4546eb75a48ddbbf3518d6e762f28",
+    
     "polygons" : [
         {
             "latitude" : "22.370860",

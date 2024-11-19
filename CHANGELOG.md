@@ -1,11 +1,11 @@
 # CHANGELOG
 
-## v8.7.0 (2024-09-27)
+## v8.8.0 (2024-11-25)
 
 ### 📝 Changes
 
-* The SDK version has been upgraded to 6.11.0.
+* The SDK version has been upgraded to 7.0.0.
 
 ### 🎉 New
 
-* Added a case for obtaining all POI categories within a specific bounding box.
+* Added a case change the style of the route painting.
