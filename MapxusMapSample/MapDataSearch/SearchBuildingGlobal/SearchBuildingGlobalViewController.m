@@ -12,7 +12,7 @@
 #import "SearchBuildingGlobalViewController.h"
 #import "SearchBuildingGlobalParamViewController.h"
 
-@interface SearchBuildingGlobalViewController () <MXMSearchDelegate, MGLMapViewDelegate, Param>
+@interface SearchBuildingGlobalViewController () <MXMBuildingSearchDelegate, MGLMapViewDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic, strong) MapxusMap *mapxusMap;
 @end
@@ -44,34 +44,32 @@
   [self.mapView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
 }
 
-#pragma mark - MXMSearchDelegate
-- (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error
-{
-  [ProgressHUD showError:NSLocalizedString(@"No buildings could be found", nil)];
-}
-
-- (void)onBuildingSearchDone:(MXMBuildingSearchRequest *)request response:(MXMBuildingSearchResponse *)response
-{
-  if (self.mapView.annotations.count) {
-    [self.mapView removeAnnotations:self.mapView.annotations];
-  }
-  
-  NSMutableArray *anns = [NSMutableArray array];
-  for (MXMBuilding *building in response.buildings) {
-    if (response.total == 1) {
-      [self.mapxusMap selectBuildingById:building.buildingId];
+#pragma mark - MXMBuildingSearchDelegate
+- (void)buildingSearcher:(MXMBuildingSearch *)buildingSearcher didReceiveBuildingsWithResult:(MXMBuildingSearchResult *)searchResult error:(NSError *)error {
+  if (searchResult) {
+    if (self.mapView.annotations.count) {
+      [self.mapView removeAnnotations:self.mapView.annotations];
     }
-    MGLPointAnnotation *ann = [[MGLPointAnnotation alloc] init];
-    ann.coordinate = CLLocationCoordinate2DMake(building.labelCenter.latitude, building.labelCenter.longitude);
-    ann.title = building.nameMap.Default;
-    [anns addObject:ann];
+    
+    NSMutableArray *anns = [NSMutableArray array];
+    for (MXMBuilding *building in searchResult.buildings) {
+      if (searchResult.total == 1) {
+        [self.mapxusMap selectBuildingById:building.buildingId];
+      }
+      MGLPointAnnotation *ann = [[MGLPointAnnotation alloc] init];
+      ann.coordinate = CLLocationCoordinate2DMake(building.labelCenter.latitude, building.labelCenter.longitude);
+      ann.title = building.nameMap.Default;
+      [anns addObject:ann];
+    }
+    [self.mapView addAnnotations:anns];
+    if (searchResult.total > 1) {
+      [self.mapView showAnnotations:anns animated:YES];
+    }
+    
+    [ProgressHUD dismiss];
+  } else {
+    [ProgressHUD showError:NSLocalizedString(@"No buildings could be found", nil)];
   }
-  [self.mapView addAnnotations:anns];
-  if (response.total > 1) {
-    [self.mapView showAnnotations:anns animated:YES];
-  }
-  
-  [ProgressHUD dismiss];
 }
 
 #pragma mark - MGLMapViewDelegate
@@ -83,14 +81,14 @@
 #pragma mark - Param
 - (void)completeParamConfiguration:(NSDictionary *)param {
   [ProgressHUD show];
-  MXMBuildingSearchRequest *re = [[MXMBuildingSearchRequest alloc] init];
-  re.keywords = param[@"keywords"];
-  re.offset = [(NSString *)param[@"offset"] integerValue];
-  re.page = [(NSString *)param[@"page"] integerValue];
+  MXMBuildingGlobalSearchOption *opt = [[MXMBuildingGlobalSearchOption alloc] init];
+  opt.keyword = param[@"keywords"];
+  opt.offset = [(NSString *)param[@"offset"] integerValue];
+  opt.page = [(NSString *)param[@"page"] integerValue];
   
-  MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
+  MXMBuildingSearch *api = [[MXMBuildingSearch alloc] init];
   api.delegate = self;
-  [api MXMBuildingSearch:re];
+  [api searchBuildingsInGlobal:opt];
 }
 
 #pragma mark - Lazy loading

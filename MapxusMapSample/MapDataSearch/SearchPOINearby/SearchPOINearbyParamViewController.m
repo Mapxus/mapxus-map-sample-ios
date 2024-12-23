@@ -8,6 +8,7 @@
 
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "SearchPOINearbyParamViewController.h"
+#import <MapxusMapSDK/MXMDefine.h>
 #import "Macro.h"
 
 @interface SearchPOINearbyParamViewController () <UITextFieldDelegate>
@@ -82,15 +83,12 @@
       switch (self.sortButton.selectedSegmentIndex) {
         case 0:
         {
-          params[@"sort"] = @"ActualDistance";
+          params[@"sort"] = @(MXMSortType_ActualDistance);
           params[@"ordinal"] = weakSelf.ordinalTextField.text;
         }
           break;
         case 1:
-          params[@"sort"] = @"AbsoluteDistance";
-          break;
-        case 2:
-          params[@"sort"] = @"DefaultName";
+          params[@"sort"] = @(MXMSortType_AbsoluteDistance);
           break;
         default:
           break;

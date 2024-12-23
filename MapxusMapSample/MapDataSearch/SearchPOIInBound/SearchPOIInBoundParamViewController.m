@@ -8,6 +8,7 @@
 
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "SearchPOIInBoundParamViewController.h"
+#import <MapxusMapSDK/MXMDefine.h>
 #import "Macro.h"
 
 @interface SearchPOIInBoundParamViewController () <UITextFieldDelegate>
@@ -102,7 +103,7 @@
           params[@"keywords"] = weakSelf.keywordsTextField.text;
           break;
         case 1:
-          params[@"orderBy"] = weakSelf.keywordsTextField.text;
+          params[@"orderBy"] = @(MXMOrderByDefaultName);
           break;
         default:
           break;

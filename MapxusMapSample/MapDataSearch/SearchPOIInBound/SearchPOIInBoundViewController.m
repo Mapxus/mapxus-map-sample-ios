@@ -13,7 +13,7 @@
 #import "SearchPOIInBoundParamViewController.h"
 #import "ParamConfigInstance.h"
 
-@interface SearchPOIInBoundViewController () <MGLMapViewDelegate, MXMSearchDelegate, Param>
+@interface SearchPOIInBoundViewController () <MGLMapViewDelegate, MXMPoiSearchDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (strong, nonatomic) MGLPolygon *polygon;
@@ -47,36 +47,36 @@
   [self.mapView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
 }
 
-- (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error
-{
-  [ProgressHUD showError:NSLocalizedString(@"No POI could be found", nil)];
+#pragma mark - MXMPoiSearchDelegate
+- (void)poiSearcher:(MXMPoiSearch *)poiSearcher didReceivePoisWithResult:(MXMPoiSearchResult *)searchResult error:(NSError *)error {
+  if (searchResult) {
+    if (self.mapxusMap.MXMAnnotations.count) {
+      [self.mapxusMap removeMXMPointAnnotaions:self.mapxusMap.MXMAnnotations];
+    }
+    [self.mapView addAnnotation:self.polygon];
+    
+    NSMutableArray *anns = [NSMutableArray array];
+    for (MXMPOI *poi in searchResult.pois) {
+      MXMPointAnnotation *ann = [[MXMPointAnnotation alloc] init];
+      ann.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
+      ann.title = poi.nameMap.Default;
+      ann.subtitle = [poi.floor.code stringByAppendingString:@"层"];
+      ann.floorId = poi.floor.floorId;
+      [anns addObject:ann];
+    }
+    [self.mapxusMap addMXMPointAnnotations:anns];
+    if (searchResult.pois.count == 1) {
+      MXMPOI *firstPoi = searchResult.pois.firstObject;
+      [self.mapxusMap selectFloorById:firstPoi.floor.floorId];
+    } else if (searchResult.pois.count > 1) {
+      [self.mapView showAnnotations:anns animated:YES];
+    }
+    [ProgressHUD dismiss];
+  } else {
+    [ProgressHUD showError:NSLocalizedString(@"No POI could be found", nil)];
+  }
 }
 
-- (void)onPOISearchDone:(MXMPOISearchRequest *)request response:(MXMPOISearchResponse *)response
-{
-  if (self.mapxusMap.MXMAnnotations.count) {
-    [self.mapxusMap removeMXMPointAnnotaions:self.mapxusMap.MXMAnnotations];
-  }
-  [self.mapView addAnnotation:self.polygon];
-  
-  NSMutableArray *anns = [NSMutableArray array];
-  for (MXMPOI *poi in response.pois) {
-    MXMPointAnnotation *ann = [[MXMPointAnnotation alloc] init];
-    ann.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
-    ann.title = poi.nameMap.Default;
-    ann.subtitle = [poi.floor.code stringByAppendingString:@"层"];
-    ann.floorId = poi.floor.floorId;
-    [anns addObject:ann];
-  }
-  [self.mapxusMap addMXMPointAnnotations:anns];
-  if (response.pois.count == 1) {
-    MXMPOI *firstPoi = response.pois.firstObject;
-    [self.mapxusMap selectFloorById:firstPoi.floor.floorId];
-  } else if (response.pois.count > 1) {
-    [self.mapView showAnnotations:anns animated:YES];
-  }
-  [ProgressHUD dismiss];
-}
 
 #pragma mark - MGLMapViewDelegate
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation {
@@ -115,18 +115,18 @@
   box.max_latitude = max_latitude;
   box.max_longitude = max_longitude;
   
-  MXMPOISearchRequest *re = [[MXMPOISearchRequest alloc] init];
-  re.keywords = param[@"keywords"];
-  re.orderBy = param[@"orderBy"];
-  re.category = param[@"category"];
-  re.excludeCategories = param[@"excludeCategories"];
-  re.bbox = box;
-  re.offset = [(NSString *)param[@"offset"] integerValue];
-  re.page = [(NSString *)param[@"page"] integerValue];
+  MXMPoiBboxSearchOption *opt = [[MXMPoiBboxSearchOption alloc] init];
+  opt.keyword = param[@"keywords"];
+  opt.orderBy = [(NSNumber *)param[@"orderBy"] unsignedIntegerValue];
+  opt.category = param[@"category"];
+  opt.excludeCategories = param[@"excludeCategories"];
+  opt.bbox = box;
+  opt.offset = [(NSString *)param[@"offset"] integerValue];
+  opt.page = [(NSString *)param[@"page"] integerValue];
   
-  MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
+  MXMPoiSearch *api = [[MXMPoiSearch alloc] init];
   api.delegate = self;
-  [api MXMPOISearch:re];
+  [api searchPoisInBoundingBox:opt];
 }
 
 #pragma mark - Lazy loading

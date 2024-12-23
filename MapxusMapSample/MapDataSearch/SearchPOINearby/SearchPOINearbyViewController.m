@@ -13,7 +13,7 @@
 #import "SearchPOINearbyParamViewController.h"
 #import "ParamConfigInstance.h"
 
-@interface SearchPOINearbyViewController () <MGLMapViewDelegate, MXMSearchDelegate, Param>
+@interface SearchPOINearbyViewController () <MGLMapViewDelegate, MXMPoiSearchDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic, strong) MapxusMap *mapxusMap;
 @end
@@ -45,39 +45,38 @@
   [self.mapView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
 }
 
-#pragma mark - MXMSearchDelegate
-- (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error
-{
-  [ProgressHUD showError:NSLocalizedString(@"No POI could be found", nil)];
+#pragma mark - MXMPoiSearchDelegate
+- (void)poiSearcher:(MXMPoiSearch *)poiSearcher didReceivePoisWithResult:(MXMPoiSearchResult *)searchResult error:(NSError *)error {
+  if (searchResult) {
+    if (self.mapxusMap.MXMAnnotations.count) {
+      [self.mapxusMap removeMXMPointAnnotaions:self.mapxusMap.MXMAnnotations];
+    }
+    
+    NSMutableArray *anns = [NSMutableArray array];
+    for (MXMPOI *poi in searchResult.pois) {
+      MXMPointAnnotation *ann = [[MXMPointAnnotation alloc] init];
+      ann.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
+      ann.title = poi.nameMap.Default;
+      ann.subtitle = [poi.floor.code stringByAppendingString:@"层"];
+      ann.floorId = poi.floor.floorId;
+      [anns addObject:ann];
+    }
+    
+    [self.mapxusMap addMXMPointAnnotations:anns];
+    
+    if (searchResult.pois.count == 1) {
+      MXMPOI *firstPoi = searchResult.pois.firstObject;
+      [self.mapxusMap selectFloorById:firstPoi.floor.floorId];
+    } else if (searchResult.pois.count > 1) {
+      [self.mapView showAnnotations:anns animated:YES];
+    }
+    
+    [ProgressHUD dismiss];
+  } else {
+    [ProgressHUD showError:NSLocalizedString(@"No POI could be found", nil)];
+  }
 }
 
-- (void)onPOISearchDone:(MXMPOISearchRequest *)request response:(MXMPOISearchResponse *)response
-{
-  if (self.mapxusMap.MXMAnnotations.count) {
-    [self.mapxusMap removeMXMPointAnnotaions:self.mapxusMap.MXMAnnotations];
-  }
-  
-  NSMutableArray *anns = [NSMutableArray array];
-  for (MXMPOI *poi in response.pois) {
-    MXMPointAnnotation *ann = [[MXMPointAnnotation alloc] init];
-    ann.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
-    ann.title = poi.nameMap.Default;
-    ann.subtitle = [poi.floor.code stringByAppendingString:@"层"];
-    ann.floorId = poi.floor.floorId;
-    [anns addObject:ann];
-  }
-  
-  [self.mapxusMap addMXMPointAnnotations:anns];
-  
-  if (response.pois.count == 1) {
-    MXMPOI *firstPoi = response.pois.firstObject;
-    [self.mapxusMap selectFloorById:firstPoi.floor.floorId];
-  } else if (response.pois.count > 1) {
-    [self.mapView showAnnotations:anns animated:YES];
-  }
-  
-  [ProgressHUD dismiss];
-}
 
 #pragma mark - MGLMapViewDelegate
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation
@@ -93,20 +92,20 @@
   point.latitude = [(NSString *)param[@"latitude"] doubleValue];
   point.longitude = [(NSString *)param[@"longitude"] doubleValue];
   
-  MXMPOISearchRequest *re = [[MXMPOISearchRequest alloc] init];
-  re.keywords = param[@"keywords"];
-  re.category = param[@"category"];
-  re.excludeCategories = param[@"excludeCategories"];
-  re.sort = param[@"sort"];
-  re.ordinal = [(NSString *)param[@"ordinal"] integerValue];
-  re.center = point;
-  re.meterDistance = [(NSString *)param[@"meterDistance"] integerValue];
-  re.offset = [(NSString *)param[@"offset"] integerValue];
-  re.page = [(NSString *)param[@"page"] integerValue];
-
-  MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
+  MXMPoiNearBySearchOption *opt = [[MXMPoiNearBySearchOption alloc] init];
+  opt.keyword = param[@"keywords"];
+  opt.category = param[@"category"];
+  opt.excludeCategories = param[@"excludeCategories"];
+  opt.sort = [(NSNumber *)param[@"sort"] unsignedIntegerValue];
+  opt.ordinal = @([(NSString *)param[@"ordinal"] integerValue]);
+  opt.center = point;
+  opt.meterDistance = [(NSString *)param[@"meterDistance"] integerValue];
+  opt.offset = [(NSString *)param[@"offset"] integerValue];
+  opt.page = [(NSString *)param[@"page"] integerValue];
+  
+  MXMPoiSearch *api = [[MXMPoiSearch alloc] init];
   api.delegate = self;
-  [api MXMPOISearch:re];
+  [api searchPoisNearBy:opt];
 }
 
 #pragma mark - Lazy loading

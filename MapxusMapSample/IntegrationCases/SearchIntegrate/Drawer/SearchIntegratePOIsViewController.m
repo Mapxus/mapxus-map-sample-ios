@@ -15,7 +15,7 @@
 #import "MXMPOI+Language.h"
 #import "MXMCategory+Language.h"
 
-@interface SearchIntegratePOIsViewController () <UITableViewDelegate, UITableViewDataSource, MXMSearchDelegate>
+@interface SearchIntegratePOIsViewController () <UITableViewDelegate, UITableViewDataSource, MXMPoiSearchDelegate>
 @property (nonatomic, strong) UILabel *nameTip;
 @property (nonatomic, strong) UIButton *closeButton;
 @property (nonatomic, strong) UITableView *tableView;
@@ -50,15 +50,15 @@
 }
 
 - (void)requestPOIs {
-  MXMPOISearchRequest *re = [[MXMPOISearchRequest alloc] init];
+  MXMPoiInSiteSearchOption *re = [[MXMPoiInSiteSearchOption alloc] init];
   re.buildingId = self.building.identifier;
   re.category = self.category.category;
   re.offset = 100;
   re.page = 1;
   
-  MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
+  MXMPoiSearch *api = [[MXMPoiSearch alloc] init];
   api.delegate = self;
-  [api MXMPOISearch:re];
+  [api searchPoisInSite:re];
 }
 
 - (void)layoutUI {
@@ -84,26 +84,24 @@
   [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma mark - MXMSearchDelegate
-- (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error {
-  
-}
-
-- (void)onPOISearchDone:(MXMPOISearchRequest *)request response:(MXMPOISearchResponse *)response {
-  NSMutableArray *anns = [NSMutableArray array];
-  for (MXMPOI *poi in response.pois) {
-    MXMPointAnnotation *annotation = [[MXMPointAnnotation alloc] init];
-    annotation.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
-    annotation.floorId = poi.floor.floorId;
-    annotation.title = [poi nameChooseBySystem];
-    [anns addObject:annotation];
+#pragma mark - MXMPoiSearchDelegate
+- (void)poiSearcher:(MXMPoiSearch *)poiSearcher didReceivePoisWithResult:(MXMPoiSearchResult *)searchResult error:(NSError *)error {
+  if (searchResult) {
+    NSMutableArray *anns = [NSMutableArray array];
+    for (MXMPOI *poi in searchResult.pois) {
+      MXMPointAnnotation *annotation = [[MXMPointAnnotation alloc] init];
+      annotation.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
+      annotation.floorId = poi.floor.floorId;
+      annotation.title = [poi nameChooseBySystem];
+      [anns addObject:annotation];
+    }
+    [self.primaryVC addAnnotations:anns];
+    [self.annotations removeAllObjects];
+    [self.annotations addObjectsFromArray:anns];
+    [self.datas removeAllObjects];
+    [self.datas addObjectsFromArray:searchResult.pois];
+    [self.tableView reloadData];
   }
-  [self.primaryVC addAnnotations:anns];
-  [self.annotations removeAllObjects];
-  [self.annotations addObjectsFromArray:anns];
-  [self.datas removeAllObjects];
-  [self.datas addObjectsFromArray:response.pois];
-  [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource

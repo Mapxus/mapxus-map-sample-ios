@@ -16,7 +16,7 @@
 #import "MXMGeoBuilding+Language.h"
 #import "UIImage+icon.h"
 
-@interface SearchIntegratePOIDetailViewController () <UITableViewDelegate, UITableViewDataSource, MXMSearchDelegate>
+@interface SearchIntegratePOIDetailViewController () <UITableViewDelegate, UITableViewDataSource, MXMBuildingSearchDelegate>
 @property (nonatomic, strong) UIImageView *icon;
 @property (nonatomic, strong) UILabel *nameTip;
 @property (nonatomic, strong) UIButton *closeButton;
@@ -64,12 +64,12 @@
 }
 
 - (void)requestNetBuilding {
-  MXMBuildingSearchRequest *re = [[MXMBuildingSearchRequest alloc] init];
+  MXMBuildingIdSearchOption *re = [[MXMBuildingIdSearchOption alloc] init];
   re.buildingIds = @[self.building.identifier];
   
-  MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
+  MXMBuildingSearch *api = [[MXMBuildingSearch alloc] init];
   api.delegate = self;
-  [api MXMBuildingSearch:re];
+  [api searchBuildingsById:re];
 }
 
 - (void)fillData {
@@ -129,22 +129,21 @@
   [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma mark - MXMSearchDelegate
-- (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error {
-  
+#pragma mark - MXMBuildingSearchDelegate
+- (void)buildingSearcher:(MXMBuildingSearch *)buildingSearcher didReceiveBuildingsWithResult:(MXMBuildingSearchResult *)searchResult error:(NSError *)error {
+  if (searchResult) {
+    MXMBuilding *netBuilding = searchResult.buildings.firstObject;
+    if (netBuilding.city) {
+      self.buildingAddress = [NSString stringWithFormat:@"%@, %@", netBuilding.city, netBuilding.addressMap.Default.street];
+    } else if (netBuilding.region) {
+      self.buildingAddress = [NSString stringWithFormat:@"%@, %@", netBuilding.region, netBuilding.addressMap.Default.street];
+    } else {
+      self.buildingAddress = [NSString stringWithFormat:@"%@, %@", netBuilding.country, netBuilding.addressMap.Default.street];
+    }
+    [self fillData];
+  }
 }
 
-- (void)onBuildingSearchDone:(MXMBuildingSearchRequest *)request response:(MXMBuildingSearchResponse *)response {
-  MXMBuilding *netBuilding = response.buildings.firstObject;
-  if (netBuilding.city) {
-    self.buildingAddress = [NSString stringWithFormat:@"%@, %@", netBuilding.city, netBuilding.addressMap.Default.street];
-  } else if (netBuilding.region) {
-    self.buildingAddress = [NSString stringWithFormat:@"%@, %@", netBuilding.region, netBuilding.addressMap.Default.street];
-  } else {
-    self.buildingAddress = [NSString stringWithFormat:@"%@, %@", netBuilding.country, netBuilding.addressMap.Default.street];
-  }
-  [self fillData];
-}
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

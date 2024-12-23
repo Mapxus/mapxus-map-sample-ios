@@ -15,7 +15,7 @@
 #import "SurroundingIdentificationParamViewController.h"
 #import "ParamConfigInstance.h"
 
-@interface SurroundingIdentificationViewController () <MGLMapViewDelegate, MXMSearchDelegate, MXMGeoCodeSearchDelegate, Param>
+@interface SurroundingIdentificationViewController () <MGLMapViewDelegate, MXMPoiSearchDelegate, MXMGeoCodeSearchDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (nonatomic, strong) UIButton *searchButton;
@@ -100,64 +100,62 @@
     point.longitude = [(NSString *)self.params[@"longitude"] doubleValue];
     
     
-    MXMOrientationPOISearchRequest *re = [[MXMOrientationPOISearchRequest alloc] init];
-    re.center = point;
-    re.distance = [(NSString *)self.params[@"distance"] integerValue];
-    re.angle = self.mapView.userLocation.heading.trueHeading;
-    re.distanceSearchType = self.params[@"distanceSearchType"];
+    MXMPoiOrientationSearchOption *opt = [[MXMPoiOrientationSearchOption alloc] init];
+    opt.center = point;
+    opt.distance = [(NSString *)self.params[@"distance"] integerValue];
+    opt.angle = self.mapView.userLocation.heading.trueHeading;
+    opt.distanceSearchType = [(NSNumber *)self.params[@"distanceSearchType"] unsignedIntegerValue];
     NSString *searchScope = (NSString *)self.params[@"searchScope"];
     if ([searchScope isEqualToString:@"floorId"]) {
-      re.floorId = result.floor.floorId;
+      opt.floorId = result.floor.floorId;
     } else if ([searchScope isEqualToString:@"buildingId"]) {
-        re.buildingId = result.building.buildingId;
+      opt.buildingId = result.building.buildingId;
     } else if ([searchScope isEqualToString:@"floorOrdinal"]) {
-        NSInteger ordinal = [(NSString *)self.params[@"ordinal"] integerValue];
-        re.floorOrdinal = @(ordinal);
+      NSInteger ordinal = [(NSString *)self.params[@"ordinal"] integerValue];
+      opt.floorOrdinal = @(ordinal);
     }
     // Search POI near the center
-    MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
+    MXMPoiSearch *api = [[MXMPoiSearch alloc] init];
     api.delegate = self;
-    [api MXMOrientationPOISearch:re];
+    [api searchPoisOrientation:opt];
   } else {
     [ProgressHUD showError:NSLocalizedString(@"No POI could be found", nil)];
   }
 }
 
-#pragma mark - MXMSearchDelegate
-- (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error
-{
-  [ProgressHUD showError:NSLocalizedString(@"No POI could be found", nil)];
-}
-
-- (void)onOrientationPOISearchDone:(MXMOrientationPOISearchRequest *)request response:(MXMOrientationPOISearchResponse *)response
-{
-  if (self.mapxusMap.MXMAnnotations.count) {
-    [self.mapxusMap removeMXMPointAnnotaions:self.mapxusMap.MXMAnnotations];
-  }
-  
-  NSMutableArray *anns = [NSMutableArray array];
-  for (MXMPOI *poi in response.pois) {
-    MXMPointAnnotation *ann = [[MXMPointAnnotation alloc] init];
-    ann.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
-    ann.title = poi.nameMap.Default;
-    // Use POI`s angle to calculate bearing
-    if (poi.angle > 315 || poi.angle <= 44) {
-      ann.subtitle = @"In the front";
-    } else if (poi.angle > 44 && poi.angle <= 134) {
-      ann.subtitle = @"On the right";
-    } else if (poi.angle > 134 && poi.angle <= 224) {
-      ann.subtitle = @"In the back";
-    } else if (poi.angle > 224 && poi.angle <= 314) {
-      ann.subtitle = @"On the left";
+#pragma mark - MXMPoiSearchDelegate
+- (void)poiSearcher:(MXMPoiSearch *)poiSearcher didReceivePoiOrientationWithResult:(MXMPoiOrientationSearchResult *)searchResult error:(NSError *)error {
+  if (searchResult) {
+    if (self.mapxusMap.MXMAnnotations.count) {
+      [self.mapxusMap removeMXMPointAnnotaions:self.mapxusMap.MXMAnnotations];
     }
-    ann.floorId = poi.floor.floorId;
-    [anns addObject:ann];
+    
+    NSMutableArray *anns = [NSMutableArray array];
+    for (MXMPOI *poi in searchResult.pois) {
+      MXMPointAnnotation *ann = [[MXMPointAnnotation alloc] init];
+      ann.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
+      ann.title = poi.nameMap.Default;
+      // Use POI`s angle to calculate bearing
+      if (poi.angle > 315 || poi.angle <= 44) {
+        ann.subtitle = @"In the front";
+      } else if (poi.angle > 44 && poi.angle <= 134) {
+        ann.subtitle = @"On the right";
+      } else if (poi.angle > 134 && poi.angle <= 224) {
+        ann.subtitle = @"In the back";
+      } else if (poi.angle > 224 && poi.angle <= 314) {
+        ann.subtitle = @"On the left";
+      }
+      ann.floorId = poi.floor.floorId;
+      [anns addObject:ann];
+    }
+    
+    [self.mapxusMap addMXMPointAnnotations:anns];
+    [self.mapView showAnnotations:anns animated:YES];
+    
+    [ProgressHUD dismiss];
+  } else {
+    [ProgressHUD showError:NSLocalizedString(@"No POI could be found", nil)];
   }
-  
-  [self.mapxusMap addMXMPointAnnotations:anns];
-  [self.mapView showAnnotations:anns animated:YES];
-
-  [ProgressHUD dismiss];
 }
 
 #pragma mark - MGLMapViewDelegate

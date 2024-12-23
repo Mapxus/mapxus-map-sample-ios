@@ -13,7 +13,7 @@
 #import "SearchPOIInSceneParamViewController.h"
 #import "ParamConfigInstance.h"
 
-@interface SearchPOIInSceneViewController () <MGLMapViewDelegate, MXMSearchDelegate, Param>
+@interface SearchPOIInSceneViewController () <MGLMapViewDelegate, MXMPoiSearchDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic, strong) MapxusMap *mapxusMap;
 @end
@@ -46,33 +46,31 @@
   [self.mapView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
 }
 
-#pragma mark - MXMSearchDelegate
-- (void)MXMSearchRequest:(id)request didFailWithError:(NSError *)error
-{
-  [ProgressHUD showError:NSLocalizedString(@"No POI could be found", nil)];
-}
-
-- (void)onPOISearchDone:(MXMPOISearchRequest *)request response:(MXMPOISearchResponse *)response
-{
-  if (self.mapxusMap.MXMAnnotations.count) {
-    [self.mapxusMap removeMXMPointAnnotaions:self.mapxusMap.MXMAnnotations];
+#pragma mark - MXMPoiSearchDelegate
+- (void)poiSearcher:(MXMPoiSearch *)poiSearcher didReceivePoisWithResult:(MXMPoiSearchResult *)searchResult error:(NSError *)error {
+  if (searchResult) {
+    if (self.mapxusMap.MXMAnnotations.count) {
+      [self.mapxusMap removeMXMPointAnnotaions:self.mapxusMap.MXMAnnotations];
+    }
+    
+    NSMutableArray *anns = [NSMutableArray array];
+    for (MXMPOI *poi in searchResult.pois) {
+      MXMPointAnnotation *ann = [[MXMPointAnnotation alloc] init];
+      ann.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
+      ann.title = poi.nameMap.Default;
+      ann.subtitle = [poi.floor.code stringByAppendingString:@"层"];
+      ann.floorId = poi.floor.floorId;
+      [anns addObject:ann];
+    }
+    [self.mapxusMap addMXMPointAnnotations:anns];
+    if (searchResult.pois.count) {
+      MXMPOI *first = searchResult.pois.firstObject;
+      [self.mapxusMap selectFloorById:first.floor.floorId zoomMode:MXMZoomAnimated edgePadding:UIEdgeInsetsZero];
+    }
+    [ProgressHUD dismiss];
+  } else {
+    [ProgressHUD showError:NSLocalizedString(@"No POI could be found", nil)];
   }
-  
-  NSMutableArray *anns = [NSMutableArray array];
-  for (MXMPOI *poi in response.pois) {
-    MXMPointAnnotation *ann = [[MXMPointAnnotation alloc] init];
-    ann.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
-    ann.title = poi.nameMap.Default;
-    ann.subtitle = [poi.floor.code stringByAppendingString:@"层"];
-    ann.floorId = poi.floor.floorId;
-    [anns addObject:ann];
-  }
-  [self.mapxusMap addMXMPointAnnotations:anns];
-  if (response.pois.count) {
-    MXMPOI *first = response.pois.firstObject;
-    [self.mapxusMap selectFloorById:first.floor.floorId zoomMode:MXMZoomAnimated edgePadding:UIEdgeInsetsZero];
-  }
-  [ProgressHUD dismiss];
 }
 
 #pragma mark - MGLMapViewDelegate
@@ -84,20 +82,20 @@
 #pragma mark - Param
 - (void)completeParamConfiguration:(NSDictionary *)param {
   [ProgressHUD show];
-  MXMPOISearchRequest *re = [[MXMPOISearchRequest alloc] init];
-  re.keywords = param[@"keywords"];
-  re.orderBy = param[@"orderBy"];
-  re.floorId = param[@"floorId"];
-  re.buildingId = param[@"buildingId"];
-  re.venueId = param[@"venueId"];
-  re.category = param[@"category"];
-  re.excludeCategories = param[@"excludeCategories"];
-  re.offset = [(NSString *)param[@"offset"] integerValue];
-  re.page = [(NSString *)param[@"page"] integerValue];
+  MXMPoiInSiteSearchOption *opt = [[MXMPoiInSiteSearchOption alloc] init];
+  opt.keyword = param[@"keywords"];
+  opt.orderBy = [(NSNumber *)param[@"orderBy"] unsignedIntegerValue];
+  opt.floorId = param[@"floorId"];
+  opt.buildingId = param[@"buildingId"];
+  opt.venueId = param[@"venueId"];
+  opt.category = param[@"category"];
+  opt.excludeCategories = param[@"excludeCategories"];
+  opt.offset = [(NSString *)param[@"offset"] integerValue];
+  opt.page = [(NSString *)param[@"page"] integerValue];
   
-  MXMSearchAPI *api = [[MXMSearchAPI alloc] init];
+  MXMPoiSearch *api = [[MXMPoiSearch alloc] init];
   api.delegate = self;
-  [api MXMPOISearch:re];
+  [api searchPoisInSite:opt];
 }
 
 #pragma mark - Lazy loading

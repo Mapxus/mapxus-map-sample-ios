@@ -1,11 +1,7 @@
 # CHANGELOG
 
-## v8.8.0 (2024-11-25)
+## v8.9.0 (2024-12-23)
 
 ### 📝 Changes
 
-* The SDK version has been upgraded to 7.0.0.
-
-### 🎉 New
-
-* Added a case change the style of the route painting.
+* The SDK version has been upgraded to 7.1.0.
