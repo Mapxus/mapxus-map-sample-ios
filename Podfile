@@ -14,10 +14,10 @@ target 'MapxusMapSample' do
   inhibit_all_warnings!
   
   # Pods for MapxusMapSample
-  pod 'MapxusBaseSDK', '7.1.0'#:path => '../mapxus-base-sdk-ios'
-  pod 'MapxusMapSDK', '7.1.0'#:path => '../mapxus-map-sdk-ios'
-  pod 'MapxusVisualSDK', '7.1.0'#:path => '../mapxus-visual-sdk-ios'
-  pod 'MapxusComponentKit', '7.1.0'#:path => '../mapxus-component-kit-ios'
+  pod 'MapxusBaseSDK', '7.2.0'#:path => '../mapxus-base-sdk-ios'
+  pod 'MapxusMapSDK', '7.2.0'#:path => '../mapxus-map-sdk-ios'
+  pod 'MapxusVisualSDK', '7.2.0'#:path => '../mapxus-visual-sdk-ios'
+  pod 'MapxusComponentKit', '7.2.0'#:path => '../mapxus-component-kit-ios'
 
 
   pod 'ProgressHUD'
@@ -35,12 +35,3 @@ target 'MapxusMapSample' do
   end
   
 end
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
-    end
-  end
-end
-

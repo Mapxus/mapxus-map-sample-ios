@@ -151,6 +151,7 @@
 #pragma mark - Param
 - (void)completeParamConfiguration:(NSDictionary *)param {
   NSString *inactiveLineOpacity = param[@"inactiveLineOpacity"];
+  NSString *outdoorLineOpacity = param[@"outdoorLineOpacity"];
   NSString *indoorLineColor = param[@"indoorLineColor"];
   NSString *outdoorLineColor = param[@"outdoorLineColor"];
   NSString *dashLineColor = param[@"dashLineColor"];
@@ -158,6 +159,7 @@
   NSString *dashLineWidth = param[@"dashLineWidth"];
   
   self.painter.routeStyle.inactiveLineOpacity = @(inactiveLineOpacity.floatValue);
+  self.painter.routeStyle.outdoorLineOpacity = @(outdoorLineOpacity.floatValue);
   self.painter.routeStyle.indoorLineColor = [self colorWithHexString:indoorLineColor];
   self.painter.routeStyle.outdoorLineColor = [self colorWithHexString:outdoorLineColor];
   self.painter.routeStyle.dashedLineColor = [self colorWithHexString:dashLineColor];

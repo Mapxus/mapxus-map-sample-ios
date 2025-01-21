@@ -7,6 +7,7 @@
 //
 
 #import <IQKeyboardManager/IQKeyboardManager.h>
+#import <ProgressHUD/ProgressHUD.h>
 #import "RouteLineSettingViewController.h"
 #import "Macro.h"
 
@@ -15,6 +16,8 @@
 @property (nonatomic, strong) UIView *boxView;
 @property (nonatomic, strong) UILabel *opacityTip;
 @property (nonatomic, strong) UITextField *opacityTextField;
+@property (nonatomic, strong) UILabel *outdoorLineOpacityTip;
+@property (nonatomic, strong) UITextField *outdoorLineOpacityTextField;
 @property (nonatomic, strong) UILabel *indoorLineColorTip;
 @property (nonatomic, strong) UITextField *indoorLineColorTextField;
 @property (nonatomic, strong) UILabel *outdoorLineColorTip;
@@ -43,6 +46,7 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(completeParamConfiguration:)]) {
       NSMutableDictionary *params = [NSMutableDictionary dictionary];
       params[@"inactiveLineOpacity"] = weakSelf.opacityTextField.text;
+      params[@"outdoorLineOpacity"] = weakSelf.outdoorLineOpacityTextField.text;
       params[@"indoorLineColor"] = weakSelf.indoorLineColorTextField.text;
       params[@"outdoorLineColor"] = weakSelf.outdoorLineColorTextField.text;
       params[@"dashLineColor"] = weakSelf.dashLineColorTextField.text;
@@ -59,6 +63,8 @@
   [self.scrollView addSubview:self.boxView];
   [self.boxView addSubview:self.opacityTip];
   [self.boxView addSubview:self.opacityTextField];
+  [self.boxView addSubview:self.outdoorLineOpacityTip];
+  [self.boxView addSubview:self.outdoorLineOpacityTextField];
   [self.boxView addSubview:self.indoorLineColorTip];
   [self.boxView addSubview:self.indoorLineColorTextField];
   [self.boxView addSubview:self.outdoorLineColorTip];
@@ -98,7 +104,16 @@
   [self.opacityTextField.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
   [self.opacityTextField.heightAnchor constraintEqualToConstant:44].active = YES;
   
-  [self.indoorLineColorTip.topAnchor constraintEqualToAnchor:self.opacityTextField.bottomAnchor constant:moduleSpace].active = YES;
+  [self.outdoorLineOpacityTip.topAnchor constraintEqualToAnchor:self.opacityTextField.bottomAnchor constant:moduleSpace].active = YES;
+  [self.outdoorLineOpacityTip.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
+  [self.outdoorLineOpacityTip.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
+  
+  [self.outdoorLineOpacityTextField.topAnchor constraintEqualToAnchor:self.outdoorLineOpacityTip.bottomAnchor constant:innerSpace].active = YES;
+  [self.outdoorLineOpacityTextField.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
+  [self.outdoorLineOpacityTextField.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
+  [self.outdoorLineOpacityTextField.heightAnchor constraintEqualToConstant:44].active = YES;
+
+  [self.indoorLineColorTip.topAnchor constraintEqualToAnchor:self.outdoorLineOpacityTextField.bottomAnchor constant:moduleSpace].active = YES;
   [self.indoorLineColorTip.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
   [self.indoorLineColorTip.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
   
@@ -158,6 +173,26 @@
   return YES;
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+  if (textField == self.opacityTextField) {
+    if (textField.text.floatValue < 0) {
+      textField.text = @"0";
+      [ProgressHUD showError:@"Invalid value, please enter a value between 0 and 1"];
+    } else if (textField.text.floatValue > 1) {
+      textField.text = @"1";
+      [ProgressHUD showError:@"Invalid value, please enter a value between 0 and 1"];
+    }
+  } else if (textField == self.outdoorLineOpacityTextField) {
+    if (textField.text.floatValue < 0) {
+      textField.text = @"0";
+      [ProgressHUD showError:@"Invalid value, please enter a value between 0 and 1"];
+    } else if (textField.text.floatValue > 1) {
+      textField.text = @"1";
+      [ProgressHUD showError:@"Invalid value, please enter a value between 0 and 1"];
+    }
+  }
+}
+
 #pragma mark - Lazy loading
 - (UIScrollView *)scrollView {
   if (!_scrollView) {
@@ -194,6 +229,27 @@
     _opacityTextField.text = @"0.5";
   }
   return _opacityTextField;
+}
+
+- (UILabel *)outdoorLineOpacityTip {
+  if (!_outdoorLineOpacityTip) {
+    _outdoorLineOpacityTip = [[UILabel alloc] init];
+    _outdoorLineOpacityTip.translatesAutoresizingMaskIntoConstraints = NO;
+    _outdoorLineOpacityTip.text = @"Outdoor Route Opacity (From 0 to 1)";
+  }
+  return _outdoorLineOpacityTip;
+}
+
+- (UITextField *)outdoorLineOpacityTextField {
+  if (!_outdoorLineOpacityTextField) {
+    _outdoorLineOpacityTextField = [[UITextField alloc] init];
+    _outdoorLineOpacityTextField.translatesAutoresizingMaskIntoConstraints = NO;
+    _outdoorLineOpacityTextField.delegate = self;
+    _outdoorLineOpacityTextField.keyboardType = UIKeyboardTypeDefault;
+    _outdoorLineOpacityTextField.borderStyle = UITextBorderStyleRoundedRect;
+    _outdoorLineOpacityTextField.text = @"1.0";
+  }
+  return _outdoorLineOpacityTextField;
 }
 
 - (UILabel *)indoorLineColorTip {
