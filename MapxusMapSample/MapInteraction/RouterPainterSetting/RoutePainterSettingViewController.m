@@ -37,7 +37,6 @@
   configuration.defaultStyle = MXMStyleMAPXUS;
   self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
   self.mapxusMap.delegate = self;
-  self.mapxusMap.collapseCopyright = YES;
   self.mapxusMap.selectorPosition = MXMSelectorPositionCenterRight;
   // Create MXMRoutePainter instance with MGLMapView instance
   self.painter = [[MXMRoutePainter alloc] initWithMapView:self.mapView];
