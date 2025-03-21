@@ -21,10 +21,10 @@
 		893C37172A3030500058561A /* SearchVenueByIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C37162A3030500058561A /* SearchVenueByIDViewController.m */; };
 		893C371D2A30705A0058561A /* SearchVenueByIDParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C371C2A30705A0058561A /* SearchVenueByIDParamViewController.m */; };
 		893C37202A3071CE0058561A /* VenueIDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C371F2A3071CE0058561A /* VenueIDCell.m */; };
-		8961AAE92BB7355000B90F93 /* paramConfig_mapxus.json in Resources */ = {isa = PBXBuildFile; fileRef = 52873AF72936102100D27143 /* paramConfig_mapxus.json */; };
 		89B3CFEF2A40371A00CE9351 /* BoxLengthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3CFEE2A40371A00CE9351 /* BoxLengthViewController.m */; };
 		89B3D0102A4056F200CE9351 /* SelectedBuildingOutlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3D00F2A4056F100CE9351 /* SelectedBuildingOutlineViewController.m */; };
 		89B3D0132A417C0E00CE9351 /* SwitchingModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3D0122A417C0E00CE9351 /* SwitchingModelViewController.m */; };
+		89D401E72D7FD2CA009B68C6 /* paramConfig_mapxus.json in Resources */ = {isa = PBXBuildFile; fileRef = 52873AF72936102100D27143 /* paramConfig_mapxus.json */; };
 		89D92FD12B2FE9910035218E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 89D92FD02B2FE9910035218E /* PrivacyInfo.xcprivacy */; };
 		89E998BD2B624C16008374EF /* TestLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E998BC2B624C16008374EF /* TestLocationManager.m */; };
 		89FBDED72CE2F630002577A6 /* RoutePainterSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FBDED62CE2F630002577A6 /* RoutePainterSettingViewController.m */; };
@@ -1050,7 +1050,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8961AAE92BB7355000B90F93 /* paramConfig_mapxus.json in Resources */,
+				89D401E72D7FD2CA009B68C6 /* paramConfig_mapxus.json in Resources */,
 				D684BD9E20FF8A69004E85D9 /* LaunchScreen.storyboard in Resources */,
 				D684BD9F20FF8A69004E85D9 /* Main.storyboard in Resources */,
 				89D92FD12B2FE9910035218E /* PrivacyInfo.xcprivacy in Resources */,

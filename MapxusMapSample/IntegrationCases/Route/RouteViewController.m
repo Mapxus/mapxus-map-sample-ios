@@ -181,12 +181,15 @@
 
 - (MXMLocale)searchLocalBySystem {
   MXMLocale local = MXMEn;
-  NSString *preferredLanguage = [[[NSBundle mainBundle] preferredLocalizations] firstObject];
+  NSArray *languages = [NSLocale preferredLanguages];
+  NSString *preferredLanguage = [languages objectAtIndex:0];
   if ([preferredLanguage containsString:@"en"]) {
     local = MXMEn;
   } else if ([preferredLanguage containsString:@"Hans"]) {
     local = MXMZh_Hans;
-  } else if ([preferredLanguage containsString:@"Hant"]) {
+  } else if ([preferredLanguage containsString:@"Hant-TW"]) {
+    local = MXMZh_Hant_TW;
+  }  else if ([preferredLanguage containsString:@"Hant"]) {
     local = MXMZh_Hant;
   } else if ([preferredLanguage containsString:@"ja"]) {
     local = MXMJa;

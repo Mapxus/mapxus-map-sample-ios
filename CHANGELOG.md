@@ -1,9 +1,11 @@
 # CHANGELOG
 
-## v8.11.0 (2025-02-19)
+## v8.12.0 (2025-03-21)
+
+### 🎉 New
+
+* Add support for Traditional Chinese (Taiwan).
 
 ### 📝 Changes
 
-* The SDK version has been upgraded to 7.3.0.
-
-* Update the hidden effect of the logo.
+* The SDK version has been upgraded to 7.4.0.

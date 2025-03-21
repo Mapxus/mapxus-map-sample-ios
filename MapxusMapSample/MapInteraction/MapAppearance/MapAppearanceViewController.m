@@ -101,6 +101,10 @@
     // Display Traditional Chinese marks on the map
     [weakSelf.mapxusMap setMapLanguage:@"zh-Hant"];
   }];
+  UIAlertAction *zhHantTWAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"zh-Hant-TW", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+    // Display Taiwan Traditional Chinese marks on the map
+    [weakSelf.mapxusMap setMapLanguage:@"zh-Hant-TW"];
+  }];
   UIAlertAction *zhHansAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"zh-Hans", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
     // Display Simplified Chinese marks on the map
     [weakSelf.mapxusMap setMapLanguage:@"zh-Hans"];
@@ -142,6 +146,7 @@
   [alert addAction:defaultAction];
   [alert addAction:enAction];
   [alert addAction:zhHantAction];
+  [alert addAction:zhHantTWAction];
   [alert addAction:zhHansAction];
   [alert addAction:jaAction];
   [alert addAction:koAction];
