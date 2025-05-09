@@ -1,11 +1,7 @@
 # CHANGELOG
 
-## v8.12.0 (2025-03-21)
-
-### 🎉 New
-
-* Add support for Traditional Chinese (Taiwan).
+## v8.13.0 (2025-05-09)
 
 ### 📝 Changes
 
-* The SDK version has been upgraded to 7.4.0.
+* The SDK version has been upgraded to 7.5.0.

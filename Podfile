@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '10.0'
+platform :ios, '13.0'
 
 # Commencing with version v6.5.0, the Mapxus SDKs along with their dependent libraries will be transitioned to a
 # private repository located at 'https://github.com/Mapxus/mapxusSpecs.git'. To guarantee the successful download
@@ -14,10 +14,10 @@ target 'MapxusMapSample' do
   inhibit_all_warnings!
   
   # Pods for MapxusMapSample
-  pod 'MapxusBaseSDK', '7.4.0'#:path => '../mapxus-base-sdk-ios'
-  pod 'MapxusMapSDK', '7.4.0'#:path => '../mapxus-map-sdk-ios'
-  pod 'MapxusVisualSDK', '7.4.0'#:path => '../mapxus-visual-sdk-ios'
-  pod 'MapxusComponentKit', '7.4.0'#:path => '../mapxus-component-kit-ios'
+  pod 'MapxusBaseSDK', '7.5.0'#:path => '../mapxus-base-sdk-ios'
+  pod 'MapxusMapSDK', '7.5.0'#:path => '../mapxus-map-sdk-ios'
+  pod 'MapxusVisualSDK', '7.5.0'#:path => '../mapxus-visual-sdk-ios'
+  pod 'MapxusComponentKit', '7.5.0'#:path => '../mapxus-component-kit-ios'
 
 
   pod 'ProgressHUD'
