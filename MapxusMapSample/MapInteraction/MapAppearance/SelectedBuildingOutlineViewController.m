@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UITextField *colorTextField;
 @property (nonatomic, strong) UILabel *lineWidthTip;
 @property (nonatomic, strong) UITextField *lineWidthTextField;
+@property (nonatomic, strong) UILabel *lineOffsetTip;
+@property (nonatomic, strong) UITextField *lineOffsetTextField;
 @property (nonatomic, strong) UIButton *createButton;
 
 @end
@@ -53,6 +55,7 @@
       params[@"lineOpacity"] = weakSelf.opacityTextField.text;
       params[@"lineColor"] = weakSelf.colorTextField.text;
       params[@"lineWidth"] = weakSelf.lineWidthTextField.text;
+      params[@"lineOffset"] = weakSelf.lineOffsetTextField.text;
       [self.delegate completeParamConfiguration:params];
     }
   }];
@@ -65,6 +68,8 @@
   [self.view addSubview:self.colorTextField];
   [self.view addSubview:self.lineWidthTip];
   [self.view addSubview:self.lineWidthTextField];
+  [self.view addSubview:self.lineOffsetTip];
+  [self.view addSubview:self.lineOffsetTextField];
   [self.view addSubview:self.createButton];
   
   [self.opacityTip.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:moduleSpace].active = YES;
@@ -93,12 +98,20 @@
   [self.lineWidthTextField.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:leadingSpace].active = YES;
   [self.lineWidthTextField.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-trailingSpace].active = YES;
   [self.lineWidthTextField.heightAnchor constraintEqualToConstant:44].active = YES;
-
   
+  [self.lineOffsetTip.topAnchor constraintEqualToAnchor:self.lineWidthTextField.bottomAnchor constant:moduleSpace].active = YES;
+  [self.lineOffsetTip.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:leadingSpace].active = YES;
+  [self.lineOffsetTip.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-trailingSpace].active = YES;
+  
+  [self.lineOffsetTextField.topAnchor constraintEqualToAnchor:self.lineOffsetTip.bottomAnchor constant:innerSpace].active = YES;
+  [self.lineOffsetTextField.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:leadingSpace].active = YES;
+  [self.lineOffsetTextField.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-trailingSpace].active = YES;
+  [self.lineOffsetTextField.heightAnchor constraintEqualToConstant:44].active = YES;
+
   [self.createButton.widthAnchor constraintEqualToConstant:150].active = YES;
   [self.createButton.heightAnchor constraintEqualToConstant:44].active = YES;
   [self.createButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-  [self.createButton.topAnchor constraintEqualToAnchor:self.lineWidthTextField.bottomAnchor constant:40].active = YES;
+  [self.createButton.topAnchor constraintEqualToAnchor:self.lineOffsetTextField.bottomAnchor constant:40].active = YES;
 }
 
 #pragma mark - UITextFieldDelegate
@@ -170,6 +183,27 @@
     _lineWidthTextField.delegate = self;
   }
   return _lineWidthTextField;
+}
+
+- (UILabel *)lineOffsetTip {
+  if (!_lineOffsetTip) {
+    _lineOffsetTip = [[UILabel alloc] init];
+    _lineOffsetTip.translatesAutoresizingMaskIntoConstraints = NO;
+    _lineOffsetTip.text = @"line offset";
+  }
+  return _lineOffsetTip;
+}
+
+- (UITextField *)lineOffsetTextField {
+  if (!_lineOffsetTextField) {
+    _lineOffsetTextField = [[UITextField alloc] init];
+    _lineOffsetTextField.translatesAutoresizingMaskIntoConstraints = NO;
+    _lineOffsetTextField.borderStyle = UITextBorderStyleRoundedRect;
+    _lineOffsetTextField.text = @"-2.5";
+    _lineOffsetTextField.keyboardType = UIKeyboardTypeNumberPad;
+    _lineOffsetTextField.delegate = self;
+  }
+  return _lineOffsetTextField;
 }
 
 

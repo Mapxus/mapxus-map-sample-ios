@@ -215,14 +215,24 @@
 #pragma mark - Param
 
 - (void)completeParamConfiguration:(NSDictionary *)param {
-  float lineOpacity = ([param[@"lineOpacity"] floatValue] > 1.0) ? 1.0 : [param[@"lineOpacity"] floatValue];
-  NSString *lineColor = param[@"lineColor"];
-  float lineWidth = [param[@"lineWidth"] floatValue];
-  
   MXMBorderStyle *style = [[MXMBorderStyle alloc] init];
-  style.lineOpacity = [NSExpression expressionForConstantValue:@(lineOpacity)];
-  style.lineColor = [NSExpression expressionForConstantValue:[self ColorwithHexString:lineColor]];
-  style.lineWidth = [NSExpression expressionForConstantValue:@(lineWidth)];
+  if(![param[@"lineWlineOpacityidth"] isEqualToString:@""])
+  {
+    float lineOpacity = ([param[@"lineOpacity"] floatValue] > 1.0) ? 1.0 : [param[@"lineOpacity"] floatValue];
+    style.lineOpacity = [NSExpression expressionForConstantValue:@(lineOpacity)];
+  }
+  if(![param[@"lineColor"] isEqualToString:@""])
+  {
+    style.lineColor = [NSExpression expressionForConstantValue:[self ColorwithHexString:param[@"lineColor"]]];
+  }
+  if(![param[@"lineWidth"] isEqualToString:@""])
+  {
+    float lineWidth = ([param[@"lineWidth"] floatValue] < 0.0) ? 0 : [param[@"lineWidth"] floatValue];
+    style.lineWidth = [NSExpression expressionForConstantValue:@(lineWidth)];
+  }
+  if(![param[@"lineOffset"] isEqualToString:@""]){
+    style.lineOffset = [NSExpression expressionForConstantValue:@( [param[@"lineOffset"] floatValue])];
+  }
   
   self.mapxusMap.selectedBuildingBorderStyle = style;
 }
