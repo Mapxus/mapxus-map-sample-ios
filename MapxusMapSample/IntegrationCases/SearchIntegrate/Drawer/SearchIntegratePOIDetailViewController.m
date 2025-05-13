@@ -80,7 +80,7 @@
     [self.datas addObject:@{@"tip": @"Opening Hours", @"value": self.poi.openingHours, @"cell": @"SearchIntegratePOIDetailBaseCell"}];
   }
   if (self.building) {
-    [self.datas addObject:@{@"name": [self.building nameChooseBySystem], @"type": self.building.category, @"address": [NSString stringWithFormat:@"%@ · %@", self.buildingAddress?:@"", self.poi.floor.code], @"cell": @"SearchIntegratePOIDetailBuildingCell"}];
+    [self.datas addObject:@{@"name": [self.building nameChooseBySystem], @"type": self.building.category, @"address": [NSString stringWithFormat:@"%@ · %@", self.buildingAddress?:@"", self.poi.floor.name], @"cell": @"SearchIntegratePOIDetailBuildingCell"}];
   }
   if (self.poi.phone) {
     [self.datas addObject:@{@"tip": @"Phone", @"value": self.poi.phone, @"cell": @"SearchIntegratePOIDetailBaseCell"}];

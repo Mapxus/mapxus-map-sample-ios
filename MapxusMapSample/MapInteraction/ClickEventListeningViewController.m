@@ -64,7 +64,7 @@
 
 // This method is called back when the user clicks on the POI
 - (void)map:(MapxusMap *)map didSingleTapOnPOI:(MXMGeoPOI *)poi atCoordinate:(CLLocationCoordinate2D)coordinate atSite:(MXMSite *)site {
-    NSString *message = [NSString stringWithFormat:@"You have tap on \n POI: %@, \n floor: %@, \n building: %@, \n venue: %@", poi.nameMap.Default, site.floor.code, site.building.nameMap.Default, site.venue.nameMap.Default];
+    NSString *message = [NSString stringWithFormat:@"You have tap on \n POI: %@, \n floor: %@, \n building: %@, \n venue: %@", poi.nameMap.Default, site.floor.name, site.building.nameMap.Default, site.venue.nameMap.Default];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:action];
@@ -73,7 +73,7 @@
 
 // This method is called back when the user clicks on a blank.
 - (void)map:(MapxusMap *)map didSingleTapOnBlank:(CLLocationCoordinate2D)coordinate atSite:(MXMSite *)site {
-    NSString *message = [NSString stringWithFormat:@"You have tap at \n coordinate: %f, %f, \n floor: %@, \n building: %@, \n venue: %@", coordinate.latitude, coordinate.longitude, site.floor.code, site.building.nameMap.Default, site.venue.nameMap.Default];
+    NSString *message = [NSString stringWithFormat:@"You have tap at \n coordinate: %f, %f, \n floor: %@, \n building: %@, \n venue: %@", coordinate.latitude, coordinate.longitude, site.floor.name, site.building.nameMap.Default, site.venue.nameMap.Default];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:action];
@@ -91,7 +91,7 @@
 
 // This method is called back when the user long press on the map
 - (void)map:(MapxusMap *)map didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate atSite:(MXMSite *)site {
-    NSString *message = [NSString stringWithFormat:@"You have long press at \n coordinate: %f, %f, \n floor: %@, \n building: %@, \n venue: %@", coordinate.latitude, coordinate.longitude, site.floor.code, site.building.nameMap.Default, site.venue.nameMap.Default];
+    NSString *message = [NSString stringWithFormat:@"You have long press at \n coordinate: %f, %f, \n floor: %@, \n building: %@, \n venue: %@", coordinate.latitude, coordinate.longitude, site.floor.name, site.building.nameMap.Default, site.venue.nameMap.Default];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:action];

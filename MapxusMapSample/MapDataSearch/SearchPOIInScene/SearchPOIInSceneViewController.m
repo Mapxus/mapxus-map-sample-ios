@@ -58,7 +58,7 @@
       MXMPointAnnotation *ann = [[MXMPointAnnotation alloc] init];
       ann.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
       ann.title = poi.nameMap.Default;
-      ann.subtitle = [poi.floor.code stringByAppendingString:@"层"];
+      ann.subtitle = [poi.floor.name stringByAppendingString:@"层"];
       ann.floorId = poi.floor.floorId;
       [anns addObject:ann];
     }

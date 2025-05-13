@@ -46,7 +46,7 @@
 - (void)refreshPOI:(MXMPOI *)poi categoryName:(NSString *)category {
     self.icon.image = [UIImage categoryIconWithType:poi.category.firstObject];
     self.nameLabel.text = [poi nameChooseBySystem];
-    self.extLabel.text = [NSString stringWithFormat:@"%@ · %@", category, poi.floor.code];
+    self.extLabel.text = [NSString stringWithFormat:@"%@ · %@", category, poi.floor.name];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

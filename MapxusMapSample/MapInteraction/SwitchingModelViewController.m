@@ -36,15 +36,15 @@
   __weak typeof(self) weakSelf = self;
   UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
   UIAlertAction *venueAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Switching By Venue", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    weakSelf.mapxusMap.floorSwitchMode = MXMSwitchedByVenue;
+    //weakSelf.mapxusMap.floorSwitchMode = MXMSwitchedByVenue;
   }];
-  UIAlertAction *buildingAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Switching By Building", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    weakSelf.mapxusMap.floorSwitchMode = MXMSwitchedByBuilding;
-  }];
+//  UIAlertAction *buildingAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Switching By Building", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+//    weakSelf.mapxusMap.floorSwitchMode = MXMSwitchedByBuilding;
+//  }];
   UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:(UIAlertActionStyleCancel) handler:nil];
   
   [alert addAction:venueAction];
-  [alert addAction:buildingAction];
+  //[alert addAction:buildingAction];
   [alert addAction:cancelAction];
   
   if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
