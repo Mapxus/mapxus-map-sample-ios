@@ -62,7 +62,7 @@
 {
   MXMGeoBuilding *building = buildingId ? map.buildings[buildingId] : nil;
   self.buildingNameLabel.text = [NSString stringWithFormat:@"BuildingName:%@", building.nameMap.Default];
-  self.floorNameLabel.text = [NSString stringWithFormat:@"Floor:%@", floor.code];  
+  self.floorNameLabel.text = [NSString stringWithFormat:@"Floor:%@", floor.name];  
 }
 
 #pragma mark - Lazy loading

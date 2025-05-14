@@ -105,7 +105,7 @@
 
     NSString *title = [NSString stringWithFormat:@"%.4f, %.4f ", point.latitude, point.longitude];
     if (floor) {
-      title = [title stringByAppendingString:floor.code];
+      title = [title stringByAppendingString:floor.name];
     }
     [sender setTitle:title forState:UIControlStateNormal];
   }
