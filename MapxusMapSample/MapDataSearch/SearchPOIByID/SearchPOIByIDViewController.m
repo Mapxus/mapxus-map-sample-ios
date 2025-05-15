@@ -66,7 +66,11 @@
     
     if (searchResult.pois.count == 1) {
       MXMPOI *firstPoi = searchResult.pois.firstObject;
-      [self.mapxusMap selectFloorById:firstPoi.floor.floorId];
+      if([firstPoi.floor isKindOfClass: [MXMSharedFloor class]])
+        [self.mapxusMap selectSharedFloorById:firstPoi.floor.floorId];
+      else
+        [self.mapxusMap selectFloorById:firstPoi.floor.floorId];
+      
     } else if (searchResult.pois.count > 1) {
       [self.mapView showAnnotations:anns animated:YES];
     }

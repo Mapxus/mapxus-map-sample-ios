@@ -433,7 +433,10 @@
     [self.painter drawRouteWithPath:searchResult.paths.firstObject];
     NSString *key = self.painter.dto.keys.firstObject;
     MXMParagraph *paph = self.painter.dto.paragraphs[key];
-    [self.map selectFloorById:paph.floorId zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
+    if(paph.onSharedFloor)
+      [self.map selectSharedFloorById:paph.floorId zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
+    else
+      [self.map selectFloorById:paph.floorId zoomMode:MXMZoomDisable edgePadding:UIEdgeInsetsZero];
     [self.painter changeOnVenue:paph.venueId ordinal:paph.ordinal];
     [self.painter focusOnKeys:@[key] edgePadding:UIEdgeInsetsMake(130, 30, 110, 80)];
   } else {
