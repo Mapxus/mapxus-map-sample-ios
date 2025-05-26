@@ -52,6 +52,8 @@
   UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     // Floor ID in focus
     NSString *floorId = param[@"floorId"];
+    // sharedFloor ID in focus
+    NSString *sharedFloorId = param[@"sharedFloorId"];
     // Building ID in focus
     NSString *buildingId = param[@"buildingId"];
     // Venue ID in focus
@@ -69,6 +71,10 @@
     }
     if (buildingId) {
       [weakSelf.mapxusMap selectBuildingById:buildingId zoomMode:zoomMode edgePadding:padding];
+      return;
+    }
+    if(sharedFloorId){
+      [weakSelf.mapxusMap selectSharedFloorById:sharedFloorId zoomMode:zoomMode edgePadding:padding];
       return;
     }
     if (venueId) {
