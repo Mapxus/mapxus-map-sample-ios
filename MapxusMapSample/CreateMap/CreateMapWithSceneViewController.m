@@ -55,9 +55,12 @@
       self.idTextField.text = PARAMCONFIGINFO.floorId;
       break;
     case 1:
-      self.idTextField.text = PARAMCONFIGINFO.buildingId;
+      self.idTextField.text = PARAMCONFIGINFO.sharedFloorId;
       break;
     case 2:
+      self.idTextField.text = PARAMCONFIGINFO.buildingId;
+      break;
+    case 3:
       self.idTextField.text = PARAMCONFIGINFO.venueId;
       break;
     default:
@@ -75,10 +78,14 @@
       vc.floorId = self.idTextField.text.length ? self.idTextField.text : nil;
       break;
     case 1:
+      //   Set the initial sharedFloorId
+      vc.sharedFloorId = self.idTextField.text.length ? self.idTextField.text : nil;
+      break;
+    case 2:
       // Set the initial buildingId
       vc.buildingId = self.idTextField.text.length ? self.idTextField.text : nil;
       break;
-    case 2:
+    case 3:
       // Set the initial venueId
       vc.venueId = self.idTextField.text.length ? self.idTextField.text : nil;
       break;
@@ -212,7 +219,7 @@
 
 - (UISegmentedControl *)idTypeView {
   if (!_idTypeView) {
-    _idTypeView = [[UISegmentedControl alloc] initWithItems:@[@"floorId", @"buildingId", @"venueId"]];
+    _idTypeView = [[UISegmentedControl alloc] initWithItems:@[@"floorId", @"sharedFloorId",@"buildingId", @"venueId"]];
     _idTypeView.translatesAutoresizingMaskIntoConstraints = NO;
     _idTypeView.selectedSegmentIndex = 0;
     [_idTypeView addTarget:self action:@selector(changeIdType:) forControlEvents:UIControlEventValueChanged];

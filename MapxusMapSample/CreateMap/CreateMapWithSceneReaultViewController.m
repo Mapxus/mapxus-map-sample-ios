@@ -25,6 +25,7 @@
   // Create the MXMConfiguration instance
   MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
   configuration.floorId = self.floorId;
+  configuration.sharedFloorId = self.sharedFloorId;
   configuration.buildingId = self.buildingId;
   configuration.venueId = self.venueId;
   configuration.zoomInsets = self.zoomInsets;
