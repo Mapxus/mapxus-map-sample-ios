@@ -65,9 +65,24 @@
 
 #pragma mark - MXMCategorySearchDelegate
 
-- (void)categorySearcher:(MXMCategorySearch *)categorySearcher didReceivePoiCategoryWithResult:(MXMPoiCategorySearchResult *)searchResult error:(NSError *)error {
+//- (void)categorySearcher:(MXMCategorySearch *)categorySearcher didReceivePoiCategoryWithResult:(MXMPoiCategorySearchResult *)searchResult error:(NSError *)error {
+//  [self.datas removeAllObjects];
+//  [self.datas addObjectsFromArray:searchResult.categoryResults];
+//  
+//  NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+//  for (MXMCategory*category in self.datas) {
+//    dic[category.category] = [category titleChooseBySystem];
+//  }
+//  self.categoryDictionary = [dic copy];
+//  [self.tableView reloadData];
+//}
+- (void)categorySearcher:(MXMCategorySearch *)categorySearcher didReceivePoiCategoryWithResultV2:(MXMPoiCategorySearchResultV2 *)searchResult error:(NSError *)error {
+  NSMutableArray<MXMCategory*>* array = [[NSMutableArray alloc]init];
+  [searchResult.categoryVenueInfoExResults enumerateObjectsUsingBlock:^(MXMPoiCategoryVenueInfoEx * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [array addObject:obj.category];
+  }];
   [self.datas removeAllObjects];
-  [self.datas addObjectsFromArray:searchResult.categoryResults];
+  [self.datas addObjectsFromArray:array];
   
   NSMutableDictionary *dic = [NSMutableDictionary dictionary];
   for (MXMCategory*category in self.datas) {

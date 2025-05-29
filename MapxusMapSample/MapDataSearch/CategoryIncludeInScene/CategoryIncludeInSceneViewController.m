@@ -22,6 +22,7 @@
 @property (nonatomic, strong) UIButton *searchInVenueButton;
 @property (nonatomic, strong) UIButton *searchInBuildingButton;
 @property (nonatomic, strong) UIButton *searchOnFloorButton;
+@property (nonatomic, strong) UIButton *searchOnSharedFloorButton;
 @end
 
 @implementation CategoryIncludeInSceneViewController
@@ -93,12 +94,32 @@
   [api searchPoiCategoriesByFloor:option];
 }
 
+// Search all categories on the shared floor
+- (void)searchOnSharedFloorButtonAction:(UIButton *)sender {
+  if (self.mapxusMap.selectedFloor == nil) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning!" message:@"Please select the scene first." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
+    return;
+  }
+  [ProgressHUD show];
+  
+  MXMPoiCategorySharedFloorSearchOption *option = [[MXMPoiCategorySharedFloorSearchOption alloc] init];
+  option.sharedFloorId = self.mapxusMap.selectedFloor.floorId;
+  
+  MXMCategorySearch *api = [[MXMCategorySearch alloc] init];
+  api.delegate = self;
+  [api searchPoiCategoriesBySharedFloor:option];
+}
+
 - (void)layoutUI {
   [self.view addSubview:self.mapView];
   [self.view addSubview:self.boxView];
   [self.boxView addSubview:self.tipLabel];
   [self.boxView addSubview:self.stackView];
   [self.stackView addArrangedSubview:self.searchOnFloorButton];
+  [self.stackView addArrangedSubview:self.searchOnSharedFloorButton];
   [self.stackView addArrangedSubview:self.searchInBuildingButton];
   [self.stackView addArrangedSubview:self.searchInVenueButton];
   
@@ -126,13 +147,28 @@
 }
 
 #pragma mark - MXMCategorySearchDelegate
-- (void)categorySearcher:(MXMCategorySearch *)categorySearcher 
-  didReceivePoiCategoryWithResult:(MXMPoiCategorySearchResult *)searchResult
-                   error:(NSError *)error {
+//- (void)categorySearcher:(MXMCategorySearch *)categorySearcher 
+//  didReceivePoiCategoryWithResult:(MXMPoiCategorySearchResult *)searchResult
+//                   error:(NSError *)error {
+//  if (searchResult) {
+//    [ProgressHUD dismiss];
+//    CategoryIncludeInSceneResultViewController *vc = [[CategoryIncludeInSceneResultViewController alloc] init];
+//    vc.categorys = searchResult.categoryResults;
+//    [self presentViewController:vc animated:YES completion:nil];
+//  } else {
+//    [ProgressHUD showError:NSLocalizedString(@"No categories could be found", nil)];
+//  }
+//}
+- (void)categorySearcher:(MXMCategorySearch *)categorySearcher didReceivePoiCategoryWithResultV2:(MXMPoiCategorySearchResultV2 *)searchResult error:(NSError *)error
+{
   if (searchResult) {
+    NSMutableArray<MXMCategory*>* array = [[NSMutableArray alloc]init];
+    [searchResult.categoryVenueInfoExResults enumerateObjectsUsingBlock:^(MXMPoiCategoryVenueInfoEx * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+      [array addObject:obj.category];
+    }];
     [ProgressHUD dismiss];
     CategoryIncludeInSceneResultViewController *vc = [[CategoryIncludeInSceneResultViewController alloc] init];
-    vc.categorys = searchResult.categoryResults;
+    vc.categorys = array;
     [self presentViewController:vc animated:YES completion:nil];
   } else {
     [ProgressHUD showError:NSLocalizedString(@"No categories could be found", nil)];
@@ -217,6 +253,19 @@
     _searchOnFloorButton.layer.cornerRadius = 5;
   }
   return _searchOnFloorButton;
+}
+
+- (UIButton *)searchOnSharedFloorButton {
+  if (!_searchOnSharedFloorButton) {
+    _searchOnSharedFloorButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _searchOnSharedFloorButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [_searchOnSharedFloorButton setTitle:@"SharedFloor" forState:UIControlStateNormal];
+    [_searchOnSharedFloorButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _searchOnSharedFloorButton.backgroundColor = [UIColor colorWithRed:80/255.0 green:175/255.0 blue:243/255.0 alpha:1.0];
+    [_searchOnSharedFloorButton addTarget:self action:@selector(searchOnSharedFloorButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    _searchOnSharedFloorButton.layer.cornerRadius = 5;
+  }
+  return _searchOnSharedFloorButton;
 }
 
 @end

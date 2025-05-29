@@ -50,9 +50,8 @@
 }
 
 #pragma mark - MXMCategorySearchDelegate
-- (void)categorySearcher:(MXMCategorySearch *)categorySearcher
-  didReceivePoiCategoryInBoundingBoxWithResult:(MXMPoiCategoryBboxSearchResult *)searchResult
-                   error:(NSError *)error {
+- (void)categorySearcher:(MXMCategorySearch *)categorySearcher didReceivePoiCategoryWithResultV2:(MXMPoiCategorySearchResultV2 *)searchResult error:(NSError *)error
+{
   if (self.mapView.annotations.count) {
     [self.mapView removeAnnotations:self.mapView.annotations];
   }
