@@ -65,7 +65,10 @@
     [self.mapxusMap addMXMPointAnnotations:anns];
     if (searchResult.pois.count) {
       MXMPOI *first = searchResult.pois.firstObject;
-      [self.mapxusMap selectFloorById:first.floor.floorId zoomMode:MXMZoomAnimated edgePadding:UIEdgeInsetsZero];
+      if([first.floor isKindOfClass: [MXMFloor class]])
+        [self.mapxusMap selectFloorById:first.floor.floorId zoomMode:MXMZoomAnimated edgePadding:UIEdgeInsetsZero];
+      else
+        [self.mapxusMap selectSharedFloorById:first.floor.floorId zoomMode:MXMZoomAnimated edgePadding:UIEdgeInsetsZero];
     }
     [ProgressHUD dismiss];
   } else {
@@ -87,6 +90,7 @@
   opt.orderBy = [(NSNumber *)param[@"orderBy"] unsignedIntegerValue];
   opt.floorId = param[@"floorId"];
   opt.buildingId = param[@"buildingId"];
+  opt.sharedFloorId = param[@"sharedFloorId"];
   opt.venueId = param[@"venueId"];
   opt.category = param[@"category"];
   opt.excludeCategories = param[@"excludeCategories"];
