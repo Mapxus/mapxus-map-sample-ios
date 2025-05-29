@@ -107,8 +107,16 @@
     opt.distanceSearchType = [(NSNumber *)self.params[@"distanceSearchType"] unsignedIntegerValue];
     NSString *searchScope = (NSString *)self.params[@"searchScope"];
     if ([searchScope isEqualToString:@"floorId"]) {
+      if([result.floor isKindOfClass:[MXMSharedFloor class]]){
+        [ProgressHUD showError:NSLocalizedString(@"Can not search by floorId in shared floor", nil)];
+        return;
+      }
       opt.floorId = result.floor.floorId;
     } else if ([searchScope isEqualToString:@"buildingId"]) {
+      if([result.floor isKindOfClass:[MXMSharedFloor class]]){
+        [ProgressHUD showError:NSLocalizedString(@"Can not search by buildingId in shared floor", nil)];
+        return;
+      }
       opt.buildingId = result.building.buildingId;
     } else if ([searchScope isEqualToString:@"floorOrdinal"]) {
       NSInteger ordinal = [(NSString *)self.params[@"ordinal"] integerValue];
