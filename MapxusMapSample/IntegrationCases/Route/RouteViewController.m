@@ -189,12 +189,14 @@
     local = MXMZh_Hans;
   } else if ([preferredLanguage containsString:@"Hant-TW"]) {
     local = MXMZh_Hant_TW;
-  }  else if ([preferredLanguage containsString:@"Hant"]) {
+  } else if ([preferredLanguage containsString:@"Hant"]) {
     local = MXMZh_Hant;
   } else if ([preferredLanguage containsString:@"ja"]) {
     local = MXMJa;
   } else if ([preferredLanguage containsString:@"ko"]) {
     local = MXMKo;
+  } else if ([preferredLanguage containsString:@"ar"]) {
+    local = MXMAr;
   }
   return local;
 }
