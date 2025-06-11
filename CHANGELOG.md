@@ -1,7 +1,7 @@
 # CHANGELOG
 
-## v8.13.0 (2025-05-09)
+## v8.14.0 (2025-06-10)
 
 ### 📝 Changes
 
-* The SDK version has been upgraded to 7.5.0.
+* The SDK version has been upgraded to 8.0.0.
