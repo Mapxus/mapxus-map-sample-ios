@@ -186,7 +186,7 @@
 
 #pragma mark - MapxusMapDelegate
 
-- (void)map:(MapxusMap *)map didChangeSelectedFloor:(MXMFloor *)floor inSelectedBuildingId:(NSString *)buildingId atSelectedVenueId:(NSString *)venueId {
+- (void)map:(MapxusMap *)map didChangeSelectedFloor:(id<MXMFloorProtocol>)floor inSelectedBuildingId:(NSString *)buildingId atSelectedVenueId:(NSString *)venueId {
   [self.painter changeOnVenue:venueId ordinal:floor.ordinal];
 }
 

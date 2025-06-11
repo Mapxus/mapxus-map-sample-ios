@@ -53,7 +53,7 @@
 #pragma mark - MapxusMapDelegate
 - (void)map:(MapxusMap *)map
 didChangeSelectedFloorVisualizationStatus:(BOOL)isVisible
-withSelectedFloor:(MXMFloor *)floor
+withSelectedFloor:(id<MXMFloorProtocol>)floor
 selectedBuildingId:(NSString *)buildingId
 selectedVenueId:(NSString *)venueId {
   self.statuLabel.text = isVisible ? @"Indoor now" : @"Outdoor now";

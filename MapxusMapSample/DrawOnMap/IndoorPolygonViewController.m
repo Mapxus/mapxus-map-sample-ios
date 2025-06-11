@@ -60,7 +60,7 @@
 }
 
 #pragma mark - MapxusMapDelegate
-- (void)map:(MapxusMap *)map didChangeSelectedFloor:(MXMFloor *)floor inSelectedBuildingId:(NSString *)buildingId atSelectedVenueId:(NSString *)venueId {
+- (void)map:(MapxusMap *)map didChangeSelectedFloor:(id<MXMFloorProtocol>)floor inSelectedBuildingId:(NSString *)buildingId atSelectedVenueId:(NSString *)venueId {
   // When the scene is changed, modify the layer`s predicate to filter features
   MGLVectorStyleLayer *layer = (MGLVectorStyleLayer *)[self.mapView.style layerWithIdentifier:@"layer"];
   layer.predicate = [NSPredicate predicateWithFormat:@"floorId == %@", floor.floorId];

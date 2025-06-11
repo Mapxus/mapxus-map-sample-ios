@@ -369,7 +369,7 @@
 
 #pragma mark - MapxusMapDelegate
 
-- (void)map:(MapxusMap *)map didChangeSelectedFloor:(MXMFloor *)floor inSelectedBuildingId:(NSString *)buildingId atSelectedVenueId:(NSString *)venueId {
+- (void)map:(MapxusMap *)map didChangeSelectedFloor:(id<MXMFloorProtocol>)floor inSelectedBuildingId:(NSString *)buildingId atSelectedVenueId:(NSString *)venueId {
   // show different line on different scene
   [self.painter changeOnVenue:venueId ordinal:floor.ordinal];
 }
@@ -384,7 +384,7 @@
 }
 /// --end
 
-- (void)didTappedAtCoordinate:(CLLocationCoordinate2D)coordinate onFloor:(nullable MXMFloor *)floor inBuilding:(nullable MXMGeoBuilding *)building
+- (void)didTappedAtCoordinate:(CLLocationCoordinate2D)coordinate onFloor:(nullable id<MXMFloorProtocol>)floor inBuilding:(nullable MXMGeoBuilding *)building
 {
   NSMutableDictionary *dic;
   for (UIButton *btn in self.buttons) {

@@ -169,7 +169,7 @@
 
 #pragma makr - MapxusMapDelegate
 
-- (void)map:(MapxusMap *)map didChangeSelectedFloor:(MXMFloor *)floor inSelectedBuildingId:(NSString *)buildingId atSelectedVenueId:(NSString *)venueId
+- (void)map:(MapxusMap *)map didChangeSelectedFloor:(id<MXMFloorProtocol>)floor inSelectedBuildingId:(NSString *)buildingId atSelectedVenueId:(NSString *)venueId
 {
   self.visualView.hidden = YES;
   if ([self.currentVisualBuildingId isEqualToString:buildingId]) {

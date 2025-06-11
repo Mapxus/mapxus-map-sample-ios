@@ -58,7 +58,7 @@
 }
 
 #pragma mark - MapxusMapDelegate
-- (void)map:(MapxusMap *)map didChangeSelectedFloor:(MXMFloor *)floor inSelectedBuildingId:(NSString *)buildingId atSelectedVenueId:(NSString *)venueId
+- (void)map:(MapxusMap *)map didChangeSelectedFloor:(id<MXMFloorProtocol>)floor inSelectedBuildingId:(NSString *)buildingId atSelectedVenueId:(NSString *)venueId
 {
   MXMGeoBuilding *building = buildingId ? map.buildings[buildingId] : nil;
   self.buildingNameLabel.text = [NSString stringWithFormat:@"BuildingName:%@", building.nameMap.Default];
