@@ -171,26 +171,25 @@ static NSString * const reuseIdentifier = @"Cell";
                                                   title:NSLocalizedString(@"Search POI by POI ID", nil)
                                                subTitle:NSLocalizedString(@"Search POI by POI ID.", nil)],
                      ],
-                     @[[Feature createWithPageClassName:@"SurroundingIdentificationViewController"
-                                              imageName:@"SurroundingIdentification"
-                                                  title:NSLocalizedString(@"Surrounding environment recognition", nil)
-                                               subTitle:NSLocalizedString(@"Make a virtual location and identify POI information around the location.", nil)],
-                       [Feature createWithPageClassName:@"RouteViewController"
-                                              imageName:@"Route"
-                                                  title:NSLocalizedString(@"Route planning and navigation", nil)
-                                               subTitle:NSLocalizedString(@"Search the route between the starting point and end point, and show the road adsorption.", nil)],
-                       [Feature createWithPageClassName:@"ShowVisualViewController"
-                                              imageName:@"ShowVisual"
-                                                  title:NSLocalizedString(@"Visual map", nil)
-                                               subTitle:NSLocalizedString(@"Integration of Visual map.", nil)],
-                       [Feature createWithPageClassName:@"SearchIntegrateViewController"
-                                              imageName:@"SearchIntegrate"
-                                                  title:NSLocalizedString(@"Explore building", nil)
-                                               subTitle:NSLocalizedString(@"Common case of POI search in the building.", nil)],
-                     ],
-                   ];
-    // Default to Select 0
-    [self selectedMenuOnIndex:0];
+    ];
+  NSMutableArray *mArray = [[NSMutableArray alloc]initWithArray:self.subList];
+  [mArray addObject:[self integrationCasesSublist]];
+  self.subList = mArray;
+  // Default to Select 0
+  [self selectedMenuOnIndex:0];
+}
+
+- (NSArray*)integrationCasesSublist{
+  NSMutableArray *array = [[NSMutableArray alloc]initWithArray:@[
+    [Feature createWithPageClassName:@"SurroundingIdentificationViewController" imageName:@"SurroundingIdentification" title:NSLocalizedString(@"Surrounding environment recognition", nil) subTitle:NSLocalizedString(@"Make a virtual location and identify POI information around the location.", nil)],
+    [Feature createWithPageClassName:@"RouteViewController" imageName:@"Route" title:NSLocalizedString(@"Route planning and navigation", nil) subTitle:NSLocalizedString(@"Search the route between the starting point and end point, and show the road adsorption.", nil)]]
+  ];
+  if(![PARAM_CONFIG_FILE containsString:@"jp"])
+  {
+    [array addObject:[Feature createWithPageClassName:@"ShowVisualViewController" imageName:@"ShowVisual" title:NSLocalizedString(@"Visual map", nil) subTitle:NSLocalizedString(@"Integration of Visual map.", nil)]];
+  }
+  [array addObject:[Feature createWithPageClassName:@"SearchIntegrateViewController" imageName:@"SearchIntegrate" title:NSLocalizedString(@"Explore building", nil) subTitle:NSLocalizedString(@"Common case of POI search in the building.", nil)]];
+  return array;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
