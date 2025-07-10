@@ -70,6 +70,10 @@
     // Use MAPXUS map style
     [weakSelf.mapxusMap setMapSytle:(MXMStyleMAPXUS)];
   }];
+  UIAlertAction *mapxusStyleWithSection = [UIAlertAction actionWithTitle:NSLocalizedString(@"MAPXUSSTYLEWITHSECTION", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+    // Use MAPXUS map style
+    [weakSelf.mapxusMap setMapSytle:(MXMStyleMAPXUSSTYLEWITHSECTION)];
+  }];
   UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:(UIAlertActionStyleCancel) handler:nil];
   
   [alert addAction:common];
@@ -77,6 +81,7 @@
   [alert addAction:hallowmas];
   [alert addAction:mappybee];
   [alert addAction:mapxus];
+  [alert addAction:mapxusStyleWithSection];
   [alert addAction:cancel];
   
   if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {

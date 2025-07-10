@@ -43,8 +43,8 @@
 "Gesture interaction for switching buildings" = "切换建筑的手势交互";
 "Setting gestures for switching buildings." = "设置切换建筑手势。";
 
-"Switching indoor floor mode" = "切换室内楼层模式";
-"Select different modes of switching floors by parameters." = "通过参数选择不同的切换楼层的模式。";
+"Mask venue mode" = "建筑遮罩模式";
+"Through building switching, the unselected buildings will present a mask effect." = "通过建筑切换，未被选中的建筑将呈现遮罩效果。";
 
 "Method interaction (Switching indoor scenes)" = "方法交互（切换室内场景）";
 "Use code settings to focus on indoor scenes." = "代码设置聚焦的室内场景。";
@@ -137,6 +137,7 @@
 "HALLOWMAS" = "万圣节样式";
 "MAPPYBEE" = "MAPPYBEE样式";
 "MAPXUS" = "MAPXUS样式";
+"MAPXUSSTYLEWITHSECTION" = "MAPXUS STYLE WITH SECTION";
 "Cancel" = "取消";
 
 //==============================================================

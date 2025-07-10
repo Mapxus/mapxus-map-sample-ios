@@ -65,6 +65,10 @@
 // This method is called back when the user clicks on the POI
 - (void)map:(MapxusMap *)map didSingleTapOnPOI:(MXMGeoPOI *)poi atCoordinate:(CLLocationCoordinate2D)coordinate atSite:(MXMSite *)site {
     NSString *message = [NSString stringWithFormat:@"You have tap on \n POI: %@, \n floor: %@, \n building: %@, \n venue: %@", poi.nameMap.Default, site.floor.name, site.building.nameMap.Default, site.venue.nameMap.Default];
+    if(poi.sections && poi.sections.count>0)
+    {
+      message = [NSString stringWithFormat:@"You have tap on \n POI: %@, \n section: %@, \n floor: %@, \n building: %@, \n venue: %@", poi.nameMap.Default,poi.sections[0].name, site.floor.name, site.building.nameMap.Default, site.venue.nameMap.Default];
+    }
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:action];

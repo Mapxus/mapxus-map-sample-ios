@@ -81,8 +81,8 @@ static NSString * const reuseIdentifier = @"Cell";
                                                subTitle:NSLocalizedString(@"Setting gestures for switching buildings.", nil)],
                        [Feature createWithPageClassName:@"SwitchingModelViewController"
                                               imageName:@"FocusOnIndoorScene"
-                                                  title:NSLocalizedString(@"Switching indoor floor mode", nil)
-                                               subTitle:NSLocalizedString(@"Select different modes of switching floors by parameters.", nil)],
+                                                  title:NSLocalizedString(@"Mask venue mode", nil)
+                                               subTitle:NSLocalizedString(@"Through building switching, the unselected buildings will present a mask effect.", nil)],
                        [Feature createWithPageClassName:@"FocusOnIndoorSceneViewController"
                                               imageName:@"FocusOnIndoorScene"
                                                   title:NSLocalizedString(@"Method interaction (Switching indoor scenes)", nil)

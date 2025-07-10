@@ -43,8 +43,8 @@
 "Gesture interaction for switching buildings" = "Gesture interaction for switching buildings";
 "Setting gestures for switching buildings." = "Setting gestures for switching buildings.";
 
-"Switching indoor floor mode" = "Switching indoor floor mode";
-"Select different modes of switching floors by parameters." = "Select different modes of switching floors by parameters.";
+"Mask venue mode" = "Mask venue mode";
+"Through building switching, the unselected buildings will present a mask effect." = "Through building switching, the unselected buildings will present a mask effect.";
 
 "Method interaction (Switching indoor scenes)" = "Method interaction (Switching indoor scenes)";
 "Use code settings to focus on indoor scenes." = "Use code settings to focus on indoor scenes.";
@@ -137,6 +137,7 @@
 "HALLOWMAS" = "HALLOWMAS";
 "MAPPYBEE" = "MAPPYBEE";
 "MAPXUS" = "MAPXUS";
+"MAPXUSSTYLEWITHSECTION" = "MAPXUS STYLE WITH SECTION";
 "Cancel" = "Cancel";
 
 //==============================================================
