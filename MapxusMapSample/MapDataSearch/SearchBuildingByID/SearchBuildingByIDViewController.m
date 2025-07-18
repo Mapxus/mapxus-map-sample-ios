@@ -66,6 +66,11 @@
     if (searchResult.total > 1) {
       [self.mapView showAnnotations:anns animated:YES];
     }
+    // 如果结果只有一个的话，选中他 DMSDK-1592 250718
+    if(searchResult.total == 1){
+      MXMBuilding* building = searchResult.buildings[0];
+      [self.mapxusMap selectBuildingById:building.buildingId];
+    }
     
     [ProgressHUD dismiss];
   } else {
