@@ -50,21 +50,21 @@
 - (void)changeStyle:(UIButton *)sender {
   __weak typeof(self) weakSelf = self;
   UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
-  UIAlertAction *common = [UIAlertAction actionWithTitle:NSLocalizedString(@"COMMON", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    // Use COMMON map style
-    [weakSelf.mapxusMap setMapSytle:(MXMStyleCOMMON)];
+  UIAlertAction *mochaMousse = [UIAlertAction actionWithTitle:NSLocalizedString(@"Mocha Mousse", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+    // Use Mocha Mousse map style
+    [weakSelf.mapxusMap setMapSytle:(MXMStyleMochaMousse)];
   }];
-  UIAlertAction *christmas = [UIAlertAction actionWithTitle:NSLocalizedString(@"CHRISTMAS", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    // Use CHRISTMAS map style
-    [weakSelf.mapxusMap setMapSytle:(MXMStyleCHRISTMAS)];
+  UIAlertAction *cityWalk = [UIAlertAction actionWithTitle:NSLocalizedString(@"City Walk", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+    // Use City Walk map style
+    [weakSelf.mapxusMap setMapSytle:(MXMStyleCityWalk)];
   }];
-  UIAlertAction *hallowmas = [UIAlertAction actionWithTitle:NSLocalizedString(@"HALLOWMAS", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    // Use HALLOWMAS map style
-    [weakSelf.mapxusMap setMapSytle:(MXMStyleHALLOWMAS)];
+  UIAlertAction *pearSorbet = [UIAlertAction actionWithTitle:NSLocalizedString(@"Pear Sorbet", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+    // Use Pear Sorbet map style
+    [weakSelf.mapxusMap setMapSytle:(MXMStylePearSorbet)];
   }];
-  UIAlertAction *mappybee = [UIAlertAction actionWithTitle:NSLocalizedString(@"MAPPYBEE", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+  UIAlertAction *roseTea = [UIAlertAction actionWithTitle:NSLocalizedString(@"Rose Tea", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
     // Use MAPPYBEE map style
-    [weakSelf.mapxusMap setMapSytle:(MXMStyleMAPPYBEE)];
+    [weakSelf.mapxusMap setMapSytle:(MXMStyleRoseTea)];
   }];
   UIAlertAction *mapxus = [UIAlertAction actionWithTitle:NSLocalizedString(@"MAPXUS", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
     // Use MAPXUS map style
@@ -76,11 +76,11 @@
   }];
   UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:(UIAlertActionStyleCancel) handler:nil];
   
-  [alert addAction:common];
-  [alert addAction:christmas];
-  [alert addAction:hallowmas];
-  [alert addAction:mappybee];
   [alert addAction:mapxus];
+  [alert addAction:mochaMousse];
+  [alert addAction:cityWalk];
+  [alert addAction:pearSorbet];
+  [alert addAction:roseTea];
   [alert addAction:mapxusStyleWithSection];
   [alert addAction:cancel];
   

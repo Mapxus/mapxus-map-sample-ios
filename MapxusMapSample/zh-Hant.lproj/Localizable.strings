@@ -132,12 +132,12 @@
 //==============================================================
 
 "Style" = "外觀";
-"COMMON" = "通用樣式";
-"CHRISTMAS" = "聖誕節樣式";
-"HALLOWMAS" = "萬聖節樣式";
-"MAPPYBEE" = "MAPPYBEE樣式";
-"MAPXUS" = "MAPXUS樣式";
-"MAPXUSSTYLEWITHSECTION" = "MAPXUS STYLE WITH SECTION";
+"Mocha Mousse" = "Mocha Mousse";
+"City Walk" = "City Walk";
+"Pear Sorbet" = "Pear Sorbet";
+"Rose Tea" = "Rose Tea";
+"MAPXUS" = "Mapxus";
+"MAPXUSSTYLEWITHSECTION" = "Mapxus style with section";
 "Cancel" = "取消";
 
 //==============================================================
