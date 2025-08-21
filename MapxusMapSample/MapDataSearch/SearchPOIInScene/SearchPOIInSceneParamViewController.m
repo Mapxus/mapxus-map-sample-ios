@@ -22,6 +22,7 @@
 @property (nonatomic, strong) UITextField *categoryTextField;
 @property (nonatomic, strong) UILabel *categoryNoteTip;
 
+@property (nonatomic, strong) UILabel *floorIdNoteTip;
 @property (nonatomic, strong) UISegmentedControl *idTypeView;
 @property (nonatomic, strong) UITextField *idTextField;
 
@@ -89,16 +90,20 @@
 - (void)changeIdType:(UISegmentedControl *)sender {
   switch (sender.selectedSegmentIndex) {
     case 0:
-      self.idTextField.text = PARAMCONFIGINFO.floorId;
+      self.idTextField.text = PARAMCONFIGINFO.floorIds;
+      self.floorIdNoteTip.text = @"Note:Support multiple floorIds input separated by ','.";
       break;
     case 1:
-      self.idTextField.text = PARAMCONFIGINFO.sharedFloorId;
+      self.idTextField.text = PARAMCONFIGINFO.sharedFloorIds;
+      self.floorIdNoteTip.text = @"Note:Support multiple sharedFloorIds input separated by ','.";
       break;
     case 2:
       self.idTextField.text = PARAMCONFIGINFO.buildingId;
+      self.floorIdNoteTip.text = @"";
       break;
     case 3:
       self.idTextField.text = PARAMCONFIGINFO.venueId;
+      self.floorIdNoteTip.text = @"";
       break;
     default:
       break;
@@ -167,6 +172,7 @@
   [self.boxView addSubview:self.categoryTip];
   [self.boxView addSubview:self.categoryTextField];
   [self.boxView addSubview:self.categoryNoteTip];
+  [self.boxView addSubview:self.floorIdNoteTip];
   [self.boxView addSubview:self.offsetTip];
   [self.boxView addSubview:self.offsetTextField];
   [self.boxView addSubview:self.pageTip];
@@ -217,7 +223,12 @@
   [self.idTypeView.centerXAnchor constraintEqualToAnchor:self.boxView.centerXAnchor].active = YES;
   [self.idTypeView.heightAnchor constraintEqualToConstant:44].active = YES;
   
-  [self.idTextField.topAnchor constraintEqualToAnchor:self.idTypeView.bottomAnchor constant:innerSpace].active = YES;
+  
+  [self.floorIdNoteTip.topAnchor constraintEqualToAnchor:self.idTypeView.bottomAnchor constant:innerSpace].active = YES;
+  [self.floorIdNoteTip.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
+  [self.floorIdNoteTip.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
+  
+  [self.idTextField.topAnchor constraintEqualToAnchor:self.floorIdNoteTip.bottomAnchor constant:innerSpace].active = YES;
   [self.idTextField.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
   [self.idTextField.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-trailingSpace].active = YES;
   [self.idTextField.heightAnchor constraintEqualToConstant:44].active = YES;
@@ -304,6 +315,18 @@
   return _categoryNoteTip;
 }
 
+- (UILabel *)floorIdNoteTip {
+  if (!_floorIdNoteTip) {
+    _floorIdNoteTip = [[UILabel alloc] init];
+    _floorIdNoteTip.translatesAutoresizingMaskIntoConstraints = NO;
+    _floorIdNoteTip.font = [UIFont systemFontOfSize:12];
+    _floorIdNoteTip.textColor = [UIColor grayColor];
+    _floorIdNoteTip.numberOfLines = 0;
+    _floorIdNoteTip.text = @"Note:Support multiple floorIds input separated by ','.";
+  }
+  return _floorIdNoteTip;
+}
+
 - (UISegmentedControl *)idTypeView {
   if (!_idTypeView) {
     _idTypeView = [[UISegmentedControl alloc] initWithItems:@[@"floorId", @"sharedFloorId", @"buildingId", @"venueId"]];
@@ -318,7 +341,7 @@
   if (!_idTextField) {
     _idTextField = [[UITextField alloc] init];
     _idTextField.translatesAutoresizingMaskIntoConstraints = NO;
-    _idTextField.text = PARAMCONFIGINFO.floorId;
+    _idTextField.text = PARAMCONFIGINFO.floorIds;
     _idTextField.borderStyle = UITextBorderStyleRoundedRect;
     _idTextField.keyboardType = UIKeyboardTypeASCIICapable;
     _idTextField.delegate = self;

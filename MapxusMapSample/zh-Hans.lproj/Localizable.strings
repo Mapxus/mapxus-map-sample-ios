@@ -137,7 +137,9 @@
 "Pear Sorbet" = "Pear Sorbet";
 "Rose Tea" = "Rose Tea";
 "MAPXUS" = "Mapxus";
-"MAPXUSSTYLEWITHSECTION" = "Mapxus style with section";
+"MAPXUSSTYLEWITHSECTION" = "Mapxus Style with Section";
+"SectionDisplayByColor" = "Section Display by Color";
+"SectionDisplayByCategory" = "Section Display by Category";
 "Cancel" = "取消";
 
 //==============================================================
