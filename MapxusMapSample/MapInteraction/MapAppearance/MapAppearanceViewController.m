@@ -13,11 +13,14 @@
 #import "Macro.h"
 #import "Param.h"
 
+#define zoomLevelText @"Zoom: %.2f"
+
 @interface MapAppearanceViewController () <MGLMapViewDelegate, Param>
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic, strong) MapxusMap *mapxusMap;
 @property (nonatomic, strong) UIView *boxView;
 @property (nonatomic, strong) UILabel *hiddenTip;
+@property (nonatomic, strong) UILabel *zoomLevelLabel;
 @property (nonatomic, strong) UISwitch *hiddenSwitch;
 @property (nonatomic, strong) UIStackView *stackView;
 @property (nonatomic, strong) UIButton *styleButton;
@@ -35,6 +38,9 @@
   MXMConfiguration *configuration = [[MXMConfiguration alloc] init];
   configuration.defaultStyle = MXMStyleMAPXUS;
   self.mapxusMap = [[MapxusMap alloc] initWithMapView:self.mapView configuration:configuration];
+  
+  // Initialize zoom level display
+  self.zoomLevelLabel.text = [NSString stringWithFormat:zoomLevelText, self.mapView.zoomLevel];
 }
 
 - (void)changeHiddenStatu:(UISwitch *)sender {
@@ -74,6 +80,14 @@
     // Use MAPXUS map style
     [weakSelf.mapxusMap setMapSytle:(MXMStyleMAPXUSSTYLEWITHSECTION)];
   }];
+  UIAlertAction *sectionDisplayByColor = [UIAlertAction actionWithTitle:NSLocalizedString(@"SectionDisplayByColor", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+    // Use MAPXUS map style
+    [weakSelf.mapxusMap setMapSytle:(MXMStyleSectionDisplayByColor)];
+  }];
+  UIAlertAction *sectionDisplayByCategory = [UIAlertAction actionWithTitle:NSLocalizedString(@"SectionDisplayByCategory", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+    // Use MAPXUS map style
+    [weakSelf.mapxusMap setMapSytle:(MXMStyleSectionDisplayByCategory)];
+  }];
   UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:(UIAlertActionStyleCancel) handler:nil];
   
   [alert addAction:mapxus];
@@ -82,6 +96,8 @@
   [alert addAction:pearSorbet];
   [alert addAction:roseTea];
   [alert addAction:mapxusStyleWithSection];
+  [alert addAction:sectionDisplayByColor];
+  [alert addAction:sectionDisplayByCategory];
   [alert addAction:cancel];
   
   if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
@@ -181,6 +197,7 @@
   [self.view addSubview:self.boxView];
   [self.boxView addSubview:self.hiddenSwitch];
   [self.boxView addSubview:self.hiddenTip];
+  [self.boxView addSubview:self.zoomLevelLabel];
   [self.boxView addSubview:self.stackView];
   [self.stackView addArrangedSubview:self.styleButton];
   [self.stackView addArrangedSubview:self.languageButton];
@@ -205,6 +222,9 @@
   
   [self.hiddenTip.leadingAnchor constraintEqualToAnchor:self.hiddenSwitch.trailingAnchor constant:innerSpace].active = YES;
   [self.hiddenTip.centerYAnchor constraintEqualToAnchor:self.hiddenSwitch.centerYAnchor].active = YES;
+  
+  [self.zoomLevelLabel.trailingAnchor constraintEqualToAnchor:self.boxView.trailingAnchor constant:-leadingSpace].active = YES;
+  [self.zoomLevelLabel.centerYAnchor constraintEqualToAnchor:self.hiddenSwitch.centerYAnchor].active = YES;
   
   [self.stackView.topAnchor constraintEqualToAnchor:self.hiddenSwitch.bottomAnchor constant:moduleSpace].active = YES;
   [self.stackView.leadingAnchor constraintEqualToAnchor:self.boxView.leadingAnchor constant:leadingSpace].active = YES;
@@ -311,6 +331,17 @@
   return _hiddenTip;
 }
 
+- (UILabel *)zoomLevelLabel {
+  if (!_zoomLevelLabel) {
+    _zoomLevelLabel = [[UILabel alloc] init];
+    _zoomLevelLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    _zoomLevelLabel.text = [NSString stringWithFormat:@"Zoom: %.2f", self.mapView.zoomLevel];
+    _zoomLevelLabel.textColor = [UIColor darkGrayColor];
+    _zoomLevelLabel.font = [UIFont systemFontOfSize:14];
+  }
+  return _zoomLevelLabel;
+}
+
 - (UISwitch *)hiddenSwitch {
   if (!_hiddenSwitch) {
     _hiddenSwitch = [[UISwitch alloc] init];
@@ -368,5 +399,11 @@
     _outLineButton.layer.cornerRadius = 5;
   }
   return _outLineButton;
+}
+
+- (void)mapView:(MGLMapView *)mapView regionWillChangeAnimated:(BOOL)animated
+{
+  NSLog(zoomLevelText,mapView.zoomLevel);
+  self.zoomLevelLabel.text = [NSString stringWithFormat:zoomLevelText, mapView.zoomLevel];
 }
 @end
