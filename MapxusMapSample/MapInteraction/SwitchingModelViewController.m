@@ -36,15 +36,15 @@
   __weak typeof(self) weakSelf = self;
   UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
   UIAlertAction *venueAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Switching By Venue", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    weakSelf.mapxusMap.floorSwitchMode = MXMSwitchedByVenue;
+    weakSelf.mapxusMap.floorSwitchScope = MXMSwitchedByVenue;
   }];
-  UIAlertAction *ordinalAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Switching By Ordinal", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    weakSelf.mapxusMap.floorSwitchMode = MXMSwitchedByOrdinal;
+  UIAlertAction *globalAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Switching By Global", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+    weakSelf.mapxusMap.floorSwitchScope = MXMSwitchedByGlobal;
   }];
   UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:(UIAlertActionStyleCancel) handler:nil];
   
   [alert addAction:venueAction];
-  [alert addAction:ordinalAction];
+  [alert addAction:globalAction];
   [alert addAction:cancelAction];
   
   if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
@@ -122,7 +122,7 @@
   if (!_floorSwitchModeButton) {
     _floorSwitchModeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _floorSwitchModeButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [_floorSwitchModeButton setTitle:@"Floor switch Mode" forState:UIControlStateNormal];
+    [_floorSwitchModeButton setTitle:@"Floor Switch Scope" forState:UIControlStateNormal];
     [_floorSwitchModeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _floorSwitchModeButton.backgroundColor = [UIColor colorWithRed:80/255.0 green:175/255.0 blue:243/255.0 alpha:1.0];
     [_floorSwitchModeButton addTarget:self action:@selector(changeSwitchMode:) forControlEvents:UIControlEventTouchUpInside];
