@@ -11,21 +11,21 @@ PODS:
   - AFNetworking/Serialization (4.0.4):
     - AFNetworking/PrivacyResources
   - IQKeyboardManager (6.5.11)
-  - MapxusBaseSDK (8.2.0):
+  - MapxusBaseSDK (8.4.0):
     - AFNetworking/NSURLSession (~> 4.0.4)
     - AFNetworking/Reachability (~> 4.0.4)
     - AFNetworking/Security (~> 4.0.4)
     - AFNetworking/Serialization (~> 4.0.4)
     - Secp256k1 (~> 1.0.0)
     - YYModel (~> 1.0.6)
-  - MapxusComponentKit (8.2.0):
-    - MapxusMapSDK (= 8.2.0)
-  - MapxusMapSDK (8.2.0):
-    - MapxusBaseSDK (= 8.2.0)
+  - MapxusComponentKit (8.4.0):
+    - MapxusMapSDK (= 8.4.0)
+  - MapxusMapSDK (8.4.0):
+    - MapxusBaseSDK (= 8.4.0)
     - MapxusRenderSDK (= 5.13.0)
   - MapxusRenderSDK (5.13.0)
-  - MapxusVisualSDK (8.2.0):
-    - MapxusBaseSDK (= 8.2.0)
+  - MapxusVisualSDK (8.4.0):
+    - MapxusBaseSDK (= 8.4.0)
   - ProgressHUD (2.70)
   - Secp256k1 (1.0.0)
   - YYModel (1.0.6)
@@ -55,11 +55,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: f5fafa33b848d7eba5c0c340e5408bac32d7294e
   IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
-  MapxusBaseSDK: 9f2732f743659a1183adb225f44d0bfa5c9f663b
-  MapxusComponentKit: a36ce4f385ba5844e679bbca03cf6d1fdc4f51f4
-  MapxusMapSDK: bd2a7b4b24356630cd36a97243ce7b2b391fdef9
+  MapxusBaseSDK: b1d176ad5fd20a618ba22943e7345303a8b75f45
+  MapxusComponentKit: b97bb539f048ff8c79a19cf5a2f39c97356f30a6
+  MapxusMapSDK: b8d594a2886874e52f95e5a9d6dcd5fdbf44017b
   MapxusRenderSDK: 9afa40a07888b84ffe8ccb03b53958fb9e670def
-  MapxusVisualSDK: e4bfd1f65b6e15376003d286b15c115c4cd6052c
+  MapxusVisualSDK: 0c43d14de3d3a6ed4b40d69d5bced33ea6e1024a
   ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
   Secp256k1: a42f2df74fee1df5620391b47c829d66d83c35b6
   YYModel: 30b7632ef7764dd1b40ae0875740e71c4393445f
