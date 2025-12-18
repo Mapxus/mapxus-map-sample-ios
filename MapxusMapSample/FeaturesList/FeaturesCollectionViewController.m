@@ -184,10 +184,10 @@ static NSString * const reuseIdentifier = @"Cell";
     [Feature createWithPageClassName:@"SurroundingIdentificationViewController" imageName:@"SurroundingIdentification" title:NSLocalizedString(@"Surrounding environment recognition", nil) subTitle:NSLocalizedString(@"Make a virtual location and identify POI information around the location.", nil)],
     [Feature createWithPageClassName:@"RouteViewController" imageName:@"Route" title:NSLocalizedString(@"Route planning and navigation", nil) subTitle:NSLocalizedString(@"Search the route between the starting point and end point, and show the road adsorption.", nil)]]
   ];
-  if(![PARAM_CONFIG_FILE containsString:@"jp"])
-  {
-    [array addObject:[Feature createWithPageClassName:@"ShowVisualViewController" imageName:@"ShowVisual" title:NSLocalizedString(@"Visual map", nil) subTitle:NSLocalizedString(@"Integration of Visual map.", nil)]];
-  }
+//  if(![PARAM_CONFIG_FILE containsString:@"jp"])
+//  {
+//    [array addObject:[Feature createWithPageClassName:@"ShowVisualViewController" imageName:@"ShowVisual" title:NSLocalizedString(@"Visual map", nil) subTitle:NSLocalizedString(@"Integration of Visual map.", nil)]];
+//  }
   [array addObject:[Feature createWithPageClassName:@"SearchIntegrateViewController" imageName:@"SearchIntegrate" title:NSLocalizedString(@"Explore building", nil) subTitle:NSLocalizedString(@"Common case of POI search in the building.", nil)]];
   return array;
 }
