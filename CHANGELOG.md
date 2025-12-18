@@ -1,7 +1,8 @@
 # CHANGELOG
 
-## v8.18.0 (2025-10-28)
+## v8.19.0 (2025-12-18)
 
 ### 📝 Changes
 
-* The SDK version has been upgraded to 8.4.0.
+* The SDK version has been upgraded to 8.5.0.
+* Hide visual map.
