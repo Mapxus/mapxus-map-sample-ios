@@ -152,7 +152,7 @@
 #pragma mark - Lazy loading
 - (CLLocationManager *)innerLocationManager {
   if (!_innerLocationManager) {
-    _innerLocationManager = [[CLLocationManager alloc] init];
+    _innerLocationManager = [[TestLocationManager alloc]init];//[[CLLocationManager alloc] init];
     _innerLocationManager.delegate = self;
   }
   return _innerLocationManager;
