@@ -168,6 +168,9 @@
       option.vehicle = MXMWheelchair;
       break;
     case 2:
+      option.vehicle = MXMElevator;
+      break;
+    case 3:
       option.vehicle = MXMEmergency;
       break;
     default:
@@ -589,7 +592,7 @@
 
 - (UISegmentedControl *)travelWaySegmented {
   if (!_travelWaySegmented) {
-    _travelWaySegmented = [[UISegmentedControl alloc] initWithItems:@[@"foot", @"wheelchair", @"emergency"]];
+    _travelWaySegmented = [[UISegmentedControl alloc] initWithItems:@[@"foot", @"wheelchair", @"elevator", @"emergency"]];
     _travelWaySegmented.translatesAutoresizingMaskIntoConstraints = NO;
     _travelWaySegmented.selectedSegmentIndex = 0;
   }
