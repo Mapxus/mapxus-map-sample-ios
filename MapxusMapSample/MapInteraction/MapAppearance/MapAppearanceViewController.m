@@ -139,28 +139,36 @@
     [weakSelf.mapxusMap setMapLanguage:@"ko"];
   }];
   UIAlertAction *filAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"fil", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    // Display Korean marks on the map
+    // Display Filipino marks on the map
     [weakSelf.mapxusMap setMapLanguage:@"fil"];
   }];
   UIAlertAction *idAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"id", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    // Display Korean marks on the map
+    // Display Indonesian marks on the map
     [weakSelf.mapxusMap setMapLanguage:@"id"];
   }];
   UIAlertAction *ptAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"pt", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    // Display Korean marks on the map
+    // Display Portuguese marks on the map
     [weakSelf.mapxusMap setMapLanguage:@"pt"];
   }];
   UIAlertAction *thAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"th", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    // Display Korean marks on the map
+    // Display Thai marks on the map
     [weakSelf.mapxusMap setMapLanguage:@"th"];
   }];
   UIAlertAction *viAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"vi", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    // Display Korean marks on the map
+    // Display Vietnamese marks on the map
     [weakSelf.mapxusMap setMapLanguage:@"vi"];
   }];
   UIAlertAction *arAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ar", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    // Display Korean marks on the map
+    // Display Arabic marks on the map
     [weakSelf.mapxusMap setMapLanguage:@"ar"];
+  }];
+  UIAlertAction *frAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"fr", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+    // Display French marks on the map
+    [weakSelf.mapxusMap setMapLanguage:@"fr"];
+  }];
+  UIAlertAction *itAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"it", nil) style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+    // Display Italian marks on the map
+    [weakSelf.mapxusMap setMapLanguage:@"it"];
   }];
   UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:(UIAlertActionStyleCancel) handler:nil];
   
@@ -177,6 +185,8 @@
   [alert addAction:thAction];
   [alert addAction:viAction];
   [alert addAction:arAction];
+  [alert addAction:frAction];
+  [alert addAction:itAction];
   [alert addAction:cancelAction];
   
   if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {

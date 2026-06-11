@@ -35,6 +35,10 @@
     titleText = self.titleMap.vi;
   } else if ([preferredLanguage containsString:@"ar"]) {
     titleText = self.titleMap.ar;
+  } else if ([preferredLanguage containsString:@"fr"]) {
+    titleText = self.titleMap.fr;
+  } else if ([preferredLanguage containsString:@"it"]) {
+    titleText = self.titleMap.it;
   }
   if (titleText == nil || [titleText isEqualToString:@""]) {
     titleText = self.titleMap.en;

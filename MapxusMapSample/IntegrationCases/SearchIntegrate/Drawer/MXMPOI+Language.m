@@ -35,6 +35,10 @@
     titleText = self.nameMap.vi;
   } else if ([preferredLanguage containsString:@"ar"]) {
     titleText = self.nameMap.ar;
+  } else if ([preferredLanguage containsString:@"fr"]) {
+    titleText = self.nameMap.fr;
+  } else if ([preferredLanguage containsString:@"it"]) {
+    titleText = self.nameMap.it;
   }
   if (titleText == nil || [titleText isEqualToString:@""]) {
     titleText = self.nameMap.Default;

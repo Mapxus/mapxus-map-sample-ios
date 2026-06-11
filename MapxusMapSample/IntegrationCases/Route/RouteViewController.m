@@ -200,6 +200,10 @@
     local = MXMKo;
   } else if ([preferredLanguage containsString:@"ar"]) {
     local = MXMAr;
+  } else if ([preferredLanguage containsString:@"fr"]) {
+    local = MXMFr;
+  } else if ([preferredLanguage containsString:@"it"]) {
+    local = MXMIt;
   }
   return local;
 }
