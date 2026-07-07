@@ -3,7 +3,7 @@
 //  MapxusMapSample
 //
 //  Created by Chenghao Guo on 2018/5/11.
-//  Copyright © 2018年 MAPHIVE TECHNOLOGY LIMITED. All rights reserved.
+//  Copyright © 2018 MAPHIVE TECHNOLOGY LIMITED. All rights reserved.
 //
 
 #import "FeaturesCollectionViewController.h"
@@ -36,7 +36,7 @@ static NSString * const reuseIdentifier = @"Cell";
     leftItem.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = leftItem;
     
-    //单例实现保存数据
+    // Initialize the singleton used to store shared sample configuration.
     [ParamConfigInstance shared];
     
     self.titleList = @[NSLocalizedString(@"Map Creation", nil),

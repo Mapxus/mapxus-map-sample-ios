@@ -42,7 +42,7 @@
 @end
 
 @implementation SearchPOIInBoundParamViewController
-//2.指定方形区域内关键字搜索，参数组合为 keywords(可选)，bbox，offset，page，category(可选)；
+// 2. Keyword search in a rectangular area. Parameter combination: optional keywords, bbox, offset, page, and optional category.
 
 - (void)viewDidLoad {
   [super viewDidLoad];

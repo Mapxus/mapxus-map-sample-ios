@@ -18,17 +18,17 @@
 
 #define widthScale ([UIScreen mainScreen].bounds.size.width/375.0f)
 #define heightScale ([UIScreen mainScreen].bounds.size.height/667.0f)
-//屏幕宽度
+// Screen width
 #define KScreenWidth  ([UIScreen mainScreen].bounds.size.width)
-//屏幕高度
+// Screen height
 #define KScreenHeight ([UIScreen mainScreen].bounds.size.height)
-//状态栏高度
+// Status bar height
 #define KStatuesBarHeight  ([UIApplication sharedApplication].statusBarFrame.size.height)
-//导航栏高度
+// Navigation bar height
 #define KNavigationBarHeight 44.0
-//导航栏高度+状态栏高度
+// Navigation bar height plus status bar height
 #define kViewTopHeight (KStatuesBarHeight + KNavigationBarHeight)
-//iphoneX适配差值
+// iPhone X safe-area adjustment
 #define KiPhoneXSafeAreaDValue ([[UIApplication sharedApplication] statusBarFrame].size.height>20?34:0)
 
 #define COLOR(rgbValue)     [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]

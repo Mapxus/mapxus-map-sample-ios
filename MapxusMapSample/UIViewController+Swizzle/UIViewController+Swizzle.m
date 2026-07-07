@@ -3,7 +3,7 @@
 //  healthCare
 //
 //  Created by GuoChenghao on 16/7/18.
-//  Copyright © 2016年 WideVision. All rights reserved.
+//  Copyright © 2016 WideVision. All rights reserved.
 //
 
 #import "UIViewController+Swizzle.h"
@@ -23,9 +23,9 @@
 
 - (void)customViewWillDisappear:(BOOL)animated
 {
-    //    返回按钮
+    // Back button.
     if (!self.navigationItem.backBarButtonItem
-        && self.navigationController.viewControllers.count > 1) {//设置返回按钮(backBarButtonItem的图片不能设置；如果用leftBarButtonItem属性，则iOS7自带的滑动返回功能会失效)
+        && self.navigationController.viewControllers.count > 1) {// Set the back button. backBarButtonItem cannot set images; using leftBarButtonItem disables the built-in iOS 7 swipe-back gesture.
         self.navigationItem.backBarButtonItem = [self backButton];
     }
     [self customViewWillDisappear:animated];

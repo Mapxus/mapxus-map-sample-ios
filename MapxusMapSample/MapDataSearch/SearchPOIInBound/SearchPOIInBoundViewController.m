@@ -3,7 +3,7 @@
 //  MapxusMapSample
 //
 //  Created by Chenghao Guo on 2018/5/11.
-//  Copyright © 2018年 MAPHIVE TECHNOLOGY LIMITED. All rights reserved.
+//  Copyright © 2018 MAPHIVE TECHNOLOGY LIMITED. All rights reserved.
 //
 
 #import <ProgressHUD.h>
@@ -60,7 +60,7 @@
       MXMPointAnnotation *ann = [[MXMPointAnnotation alloc] init];
       ann.coordinate = CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude);
       ann.title = poi.nameMap.Default;
-      ann.subtitle = [poi.floor.name stringByAppendingString:@"层"];
+      ann.subtitle = [NSString stringWithFormat:@"Floor %@", poi.floor.name];
       ann.floorId = poi.floor.floorId;
       [anns addObject:ann];
     }

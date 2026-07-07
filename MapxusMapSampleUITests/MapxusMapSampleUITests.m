@@ -3,7 +3,7 @@
 //  MapxusMapSampleUITests
 //
 //  Created by Chenghao Guo on 2018/7/18.
-//  Copyright © 2018年 MAPHIVE TECHNOLOGY LIMITED. All rights reserved.
+//  Copyright © 2018 MAPHIVE TECHNOLOGY LIMITED. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

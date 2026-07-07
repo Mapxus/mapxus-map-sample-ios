@@ -9,8 +9,8 @@
 #import "MXMPulleyViewController.h"
 #import "MXMPassThroughScrollView.h"
 
-static CGFloat kMXMDefaultCollapsedHeight = 68.0f; //默认收起大小
-static CGFloat kMXMDefaultPartialRevealHeight = 264.0f; //默认部分展开大小
+static CGFloat kMXMDefaultCollapsedHeight = 68.0f; // Default collapsed height.
+static CGFloat kMXMDefaultPartialRevealHeight = 264.0f; // Default partial reveal height.
 
 static CGFloat kMXMBounceOverflowMargin = 20.0f;
 static CGFloat kMXMDefaultDimmingOpacity = 0.5f;
@@ -19,23 +19,23 @@ static CGFloat kMXMDefaultShadowOpacity = 0.1f;
 static CGFloat kMXMDefaultShadowRadius = 3.0f;
 
 @interface MXMPulleyViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate, MXMPassThroughScrollViewDelegate>
-@property (nonatomic, assign) CGPoint lastDragTargetContentOffSet; //记录上次滑动位置
+@property (nonatomic, assign) CGPoint lastDragTargetContentOffSet; // Stores the previous drag target offset.
 @property (nonatomic, assign) BOOL isAnimatingDrawerPosition;
 
-@property (nonatomic, strong) UIPanGestureRecognizer *pan; //滑动手势
-@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer; //点击手势，用于蒙层点击
+@property (nonatomic, strong) UIPanGestureRecognizer *pan; // Pan gesture.
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer; // Tap gesture used by the dimming overlay.
 
-@property (nonatomic, strong) UIView *primaryContentContainer; //主要内容容器视图
-@property (nonatomic, strong) UIView *drawerContentContainer; //抽屉内容容器视图
-@property (nonatomic, strong) MXMPassThroughScrollView *drawerScrollView; //抽屉滚动视图
-@property (nonatomic, strong) UIView *drawerShadowView; //阴影
+@property (nonatomic, strong) UIView *primaryContentContainer; // Primary content container view.
+@property (nonatomic, strong) UIView *drawerContentContainer; // Drawer content container view.
+@property (nonatomic, strong) MXMPassThroughScrollView *drawerScrollView; // Drawer scroll view.
+@property (nonatomic, strong) UIView *drawerShadowView; // Shadow view.
 
-@property (nonatomic, strong) UIVisualEffectView *drawerBackgroundVisualEffectView; //毛玻璃效果
+@property (nonatomic, strong) UIVisualEffectView *drawerBackgroundVisualEffectView; // Blur effect view.
 
-@property (nonatomic, strong) UIView *backgroundDimmingView; //黑色蒙层
+@property (nonatomic, strong) UIView *backgroundDimmingView; // Dimming overlay view.
 
-@property (nonatomic, strong, readwrite) UIViewController<MXMPulleyPrimaryDelegate> *primaryContentViewController; //主视图VC
-@property (nonatomic, strong, readwrite) UIViewController<MXMPulleyDrawerDelegate> *drawerContentViewController; //抽屉视图VC
+@property (nonatomic, strong, readwrite) UIViewController<MXMPulleyPrimaryDelegate> *primaryContentViewController; // Primary view controller.
+@property (nonatomic, strong, readwrite) UIViewController<MXMPulleyDrawerDelegate> *drawerContentViewController; // Drawer view controller.
 
 @property (nonatomic, strong) NSSet <NSNumber *> *supportedPostions;
 @end
@@ -219,7 +219,7 @@ static CGFloat kMXMDefaultShadowRadius = 3.0f;
         [self.drawerContentViewController drawerDraggingProgress:p.floatValue];
     }
     
-    //蒙层颜色变化
+    // Update dimming overlay color.
     if ((scrollView.contentOffset.y - [self p_bottomSafeArea]) > ([self partialRevealDrawerHeight] - lowestStop)) {
         CGFloat progress;
         CGFloat fullRevealHeight = self.drawerScrollView.bounds.size.height;
@@ -278,7 +278,7 @@ static CGFloat kMXMDefaultShadowRadius = 3.0f;
 
 #pragma mark - MXMDrawerScrollViewDelegate
 - (void)drawerScrollViewDidScroll:(UIScrollView *)scrollView {
-    //当drawer中的scroll view 的contentOffset.y 为 0时，触发drawerScrollView滚动
+    // Start scrolling the drawer scroll view when the drawer content offset reaches zero.
     if (CGPointEqualToPoint(scrollView.contentOffset, CGPointZero)) {
         self.shouldScrollDrawerScrollView = YES;
         [scrollView setScrollEnabled:NO];
@@ -387,7 +387,7 @@ static CGFloat kMXMDefaultShadowRadius = 3.0f;
 
 - (void)setCurrentPosition:(MXMPulleyPosition)currentPosition {
     _currentPosition = currentPosition;
-    //通知外部位置变化
+    // Notify external listeners that the drawer position changed.
     [_drawerContentViewController drawerPositionDidChange:self];
 }
 
@@ -396,7 +396,7 @@ static CGFloat kMXMDefaultShadowRadius = 3.0f;
         if ([_drawerContentViewController respondsToSelector:@selector(supportPulleyPosition)]) {
             _supportedPostions = [_drawerContentViewController supportPulleyPosition];
         }
-        if (!_supportedPostions) { //外层未返回，使用默认
+        if (!_supportedPostions) { // Use the default positions when the delegate does not provide any.
             NSArray *array = @[@(MXMPulleyPositionOpen), @(MXMPulleyPositionClosed), @(MXMPulleyPositionCollapsed), @(MXMPulleyPositionPartiallyRevealed)];
             _supportedPostions = [NSSet setWithArray:array];
         }
@@ -483,7 +483,7 @@ static CGFloat kMXMDefaultShadowRadius = 3.0f;
         }
     }
     
-    //取最小值
+    // Use the minimum drawer stop.
     CGFloat lowestStop = [[drawerStops valueForKeyPath:@"@min.floatValue"] floatValue];
     CGFloat distanceFromBottomOfView = lowestStop + lastDragTargetContentOffSet.y;
     CGFloat currentClosestStop = lowestStop;

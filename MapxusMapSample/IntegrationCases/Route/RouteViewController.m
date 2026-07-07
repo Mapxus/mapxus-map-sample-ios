@@ -350,7 +350,7 @@
       self.isEndOfNavigation = YES;
       self.currentResponse = nil;
       [self.painter cleanRoute];
-      [self navigationAction:self.goButton]; // 模拟按下
+      [self navigationAction:self.goButton]; // Simulate a button tap.
     } else if (distance < 3 && (isSameSite || isSameOutdoor)) {
       [self showAlertTitle:@"Warning" message:@"You have arrived at the waypoint."];
     } else {

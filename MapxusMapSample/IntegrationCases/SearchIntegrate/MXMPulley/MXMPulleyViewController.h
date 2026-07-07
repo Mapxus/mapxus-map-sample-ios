@@ -12,13 +12,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, MXMPulleyPosition) {
-    /// 不显示滑动页
+    /// Hide the drawer page.
     MXMPulleyPositionClosed,
-    /// 收起滑动页
+    /// Collapse the drawer page.
     MXMPulleyPositionCollapsed,
-    /// 展示部分滑动页
+    /// Partially reveal the drawer page.
     MXMPulleyPositionPartiallyRevealed,
-    /// 全部展示滑动页
+    /// Fully reveal the drawer page.
     MXMPulleyPositionOpen,
 };
 

@@ -3,7 +3,7 @@
 //  healthCare
 //
 //  Created by GuoChenghao on 16/7/18.
-//  Copyright © 2016年 WideVision. All rights reserved.
+//  Copyright © 2016 WideVision. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

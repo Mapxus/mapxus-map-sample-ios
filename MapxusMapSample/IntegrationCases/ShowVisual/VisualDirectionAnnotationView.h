@@ -3,7 +3,7 @@
 //  MapxusMapSample
 //
 //  Created by Chenghao Guo on 2018/12/20.
-//  Copyright © 2018年 MAPHIVE TECHNOLOGY LIMITED. All rights reserved.
+//  Copyright © 2018 MAPHIVE TECHNOLOGY LIMITED. All rights reserved.
 //
 
 #import <Mapbox/Mapbox.h>

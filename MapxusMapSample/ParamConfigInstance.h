@@ -51,12 +51,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *routeStylePoint3_floorId;
 
 
-@property (strong, nonatomic) ParamConfigSearchNearby *search_nearby;       //搜索附近建筑
-@property (strong, nonatomic) ParamConfigAreaBbox *specified_area;      //指定区域内搜索建筑和 指定矩形区域内*POI*搜寻
-@property (strong, nonatomic) ParamConfigAreaBbox *rectangular_area_bbox;       //矩形区域*POI*搜索的bbox：
+@property (strong, nonatomic) ParamConfigSearchNearby *search_nearby;       // Search nearby buildings.
+@property (strong, nonatomic) ParamConfigAreaBbox *specified_area;      // Search buildings in a specified area and POIs in a specified rectangular area.
+@property (strong, nonatomic) ParamConfigAreaBbox *rectangular_area_bbox;       // Bounding box for rectangular POI search.
 
 @property (strong, nonatomic) NSMutableArray<ParamConfigPolygon *> *polygons;       //polygons
-@property (strong, nonatomic) NSMutableArray<ParamConfigDrawingMarker *> *drawing_markers;      //按楼层绘制标注
+@property (strong, nonatomic) NSMutableArray<ParamConfigDrawingMarker *> *drawing_markers;      // Draw markers by floor.
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
