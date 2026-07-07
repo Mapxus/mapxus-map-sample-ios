@@ -19,7 +19,7 @@ target 'MapxusMapSample' do
   pod 'MapxusVisualSDK'#,:path => '../mapxus-visual-sdk-ios'
   pod 'MapxusComponentKit'#,:path => '../mapxus-component-kit-ios'
 
-  pod 'ProgressHUD'
+  pod 'ProgressHUD', '2.70'
   pod 'IQKeyboardManager'
   #  pod 'MLeaksFinder'
   

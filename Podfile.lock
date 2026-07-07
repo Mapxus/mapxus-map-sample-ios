@@ -1,31 +1,31 @@
 PODS:
-  - AFNetworking/NSURLSession (4.0.4):
+  - AFNetworking/NSURLSession (4.0.5):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/PrivacyResources (4.0.4)
-  - AFNetworking/Reachability (4.0.4):
+  - AFNetworking/PrivacyResources (4.0.5)
+  - AFNetworking/Reachability (4.0.5):
     - AFNetworking/PrivacyResources
-  - AFNetworking/Security (4.0.4):
+  - AFNetworking/Security (4.0.5):
     - AFNetworking/PrivacyResources
-  - AFNetworking/Serialization (4.0.4):
+  - AFNetworking/Serialization (4.0.5):
     - AFNetworking/PrivacyResources
-  - IQKeyboardManager (6.5.11)
-  - MapxusBaseSDK (8.4.0):
-    - AFNetworking/NSURLSession (~> 4.0.4)
-    - AFNetworking/Reachability (~> 4.0.4)
-    - AFNetworking/Security (~> 4.0.4)
-    - AFNetworking/Serialization (~> 4.0.4)
+  - IQKeyboardManager (6.5.19)
+  - MapxusBaseSDK (8.7.0):
+    - AFNetworking/NSURLSession (~> 4.0.5)
+    - AFNetworking/Reachability (~> 4.0.5)
+    - AFNetworking/Security (~> 4.0.5)
+    - AFNetworking/Serialization (~> 4.0.5)
     - Secp256k1 (~> 1.0.0)
     - YYModel (~> 1.0.6)
-  - MapxusComponentKit (8.4.0):
-    - MapxusMapSDK (= 8.4.0)
-  - MapxusMapSDK (8.4.0):
-    - MapxusBaseSDK (= 8.4.0)
+  - MapxusComponentKit (8.7.0):
+    - MapxusMapSDK (= 8.7.0)
+  - MapxusMapSDK (8.7.0):
+    - MapxusBaseSDK (= 8.7.0)
     - MapxusRenderSDK (= 5.13.0)
   - MapxusRenderSDK (5.13.0)
-  - MapxusVisualSDK (8.4.0):
-    - MapxusBaseSDK (= 8.4.0)
+  - MapxusVisualSDK (8.7.0):
+    - MapxusBaseSDK (= 8.7.0)
   - ProgressHUD (2.70)
   - Secp256k1 (1.0.0)
   - YYModel (1.0.6)
@@ -36,7 +36,7 @@ DEPENDENCIES:
   - MapxusComponentKit
   - MapxusMapSDK
   - MapxusVisualSDK
-  - ProgressHUD
+  - ProgressHUD (= 2.70)
 
 SPEC REPOS:
   https://github.com/Mapxus/mapxusSpecs.git:
@@ -53,17 +53,17 @@ SPEC REPOS:
     - ProgressHUD
 
 SPEC CHECKSUMS:
-  AFNetworking: f5fafa33b848d7eba5c0c340e5408bac32d7294e
-  IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
-  MapxusBaseSDK: b1d176ad5fd20a618ba22943e7345303a8b75f45
-  MapxusComponentKit: b97bb539f048ff8c79a19cf5a2f39c97356f30a6
-  MapxusMapSDK: b8d594a2886874e52f95e5a9d6dcd5fdbf44017b
+  AFNetworking: 835ebc2040310ad1794392552ae096271f31c8ff
+  IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
+  MapxusBaseSDK: bae748f4946e633abaefffbee6e1e6bac3b3b0c0
+  MapxusComponentKit: 29bb0aabcb4bd9bfa9a34971c2d071e8b562ceb7
+  MapxusMapSDK: d9cb4b3234855b4bf67f6d7f9ca107eb00cacd1b
   MapxusRenderSDK: 9afa40a07888b84ffe8ccb03b53958fb9e670def
-  MapxusVisualSDK: 0c43d14de3d3a6ed4b40d69d5bced33ea6e1024a
+  MapxusVisualSDK: f9bd29032c9cffdc6e820a5e52ee125d2da3682c
   ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
   Secp256k1: a42f2df74fee1df5620391b47c829d66d83c35b6
   YYModel: 30b7632ef7764dd1b40ae0875740e71c4393445f
 
-PODFILE CHECKSUM: ca94a6607596db5ad6d1ae255258ed26625b7ada
+PODFILE CHECKSUM: 17ce579034d063f309e06cf3cf5b975410bfad5e
 
 COCOAPODS: 1.16.2

@@ -7,7 +7,7 @@
 //
 
 #import <IQKeyboardManager/IQKeyboardManager.h>
-#import <ProgressHUD/ProgressHUD.h>
+#import <ProgressHUD.h>
 #import "RouteLineSettingViewController.h"
 #import "Macro.h"
 
