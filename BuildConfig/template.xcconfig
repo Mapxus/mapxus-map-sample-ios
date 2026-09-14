@@ -1,0 +1,26 @@
+//
+//  sample.xcconfig
+//  MapxusMapSample
+//
+//  Copy this file and rename it for your build configuration, then replace
+//  the placeholder values below with your own app and SDK credentials.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BUNDLE_ID = your.bundle.id
+
+APP_NAME = Mapxus Map Sample
+
+MAPXUS_KEY = @"your_mapxus_key"
+
+MAPXUS_SECRET = @"your_mapxus_secret"
+
+PARAM_CONFIG_FILE = @"paramConfig.template"
+
+GOOGLE_MAPS_API_KEY = your_google_maps_api_key
+
+MAPBOX_ACCESS_TOKEN = your_mapbox_access_token
+
+#include "mapxus.common.xcconfig"

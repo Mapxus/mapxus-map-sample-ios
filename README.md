@@ -6,29 +6,34 @@
 
 ## How to run
 
-To create a build configuration file, select the "File > New File…" menu item (⌘n), scroll down to the section labeled "Other", and select the Configuration Settings File template. Next, save it somewhere in your project directory, making sure to add it to your desired targets.
-
-![](./readme_img/WX20211117-101553.png)
-
-Customizing App information like below.
+First, copy the sample build configuration file and create your own local configuration file, for example:
 
 ```
-// your.xcconfig
+BuildConfig/template.xcconfig -> BuildConfig/your.xcconfig
+```
 
+Then replace the placeholder values in your copied `.xcconfig` file:
+
+```
 BUNDLE_ID = your.bundle.id
-
 APP_NAME = Mapxus Map Sample
 
-MAPXUS_KEY = @"your apiKey"
-
-MAPXUS_SECRET = @"your secret"
-
+MAPXUS_KEY = @"your_mapxus_key"
+MAPXUS_SECRET = @"your_mapxus_secret"
 PARAM_CONFIG_FILE = @"paramConfig_mapxus"
 
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) MAPXUS_KEY='$(MAPXUS_KEY)' MAPXUS_SECRET='$(MAPXUS_SECRET)' PARAM_CONFIG_FILE='$(PARAM_CONFIG_FILE)'
+GOOGLE_MAPS_API_KEY = your_google_maps_api_key
+MAPBOX_ACCESS_TOKEN = your_mapbox_access_token
+
+MAPXUS_API_KEY = your_mapxus_api_key
+MAPXUS_API_SECRET = your_mapxus_api_secret
+
+#include "mapxus.common.xcconfig"
 ```
 
-Once you’ve created an xcconfig file, you can assign it to one or more build configurations for its associated targets.
+`BuildConfig/template.xcconfig` is only a template. Do not commit real keys, secrets, or tokens.
+
+Once you’ve created an xcconfig file, assign it to one or more build configurations for its associated targets in Xcode.
 
 ![](./readme_img/WX20211116-181657.png)
 
@@ -148,25 +153,38 @@ Now, you can start experiencing mapxus map.
      * Click on a map blank to trigger the `-mapView:didSingleTappedOnMapBlank:onFloor:inBuilding:` callback method.
      * Press and hold the map to trigger the `-mapView:didLongPressedAtCoordinate:onFloor:inBuilding:` callback method.
      
-6. Indoor scene switching event listener
+  6. Indoor scene switching event listener
   
-   file name：SceneChangedEventListeningViewController
+     file name：SceneChangedEventListeningViewController
   
-   summary：Listener for indoor scene switching events.
+     summary：Listener for indoor scene switching events.
   
-   detail：
+     detail：
   
-   * Triggers the `-mapView:didChangeFloor:atBuilding:` callback method when switching to an indoor scene.
+     * Triggers the `-mapView:didChangeFloor:atBuilding:` callback method when switching to an indoor scene.
   
-7. Get in or leave indoor scene event listener
+  7. Get in or leave indoor scene event listener
   
-   file name：IndoorSceneInAndOutListeningViewController
+     file name：IndoorSceneInAndOutListeningViewController
   
-   summary：Listener for get in indoor or leave indoor scene.
+     summary：Listener for get in indoor or leave indoor scene.
   
-   detail：
+     detail：
   
-   * Triggers the `-mapView:doorMapWithIn:building:floor:` method when entering or exiting the indoor scene.
+     * Triggers the `-mapView:doorMapWithIn:building:floor:` method when entering or exiting the indoor scene.
+
+  8. Base map switching case
+
+     file name：BaseMapChangeCaseViewController
+
+     summary：Switch among different outdoor base map styles.
+
+     detail：
+
+     * Configure the mapview network protocol before creating the map.
+     * Create a MapxusMap instance and switch outdoor base map styles by calling `setMapStyleWithName:`.
+     * Switch among Google, LandsD, Mapbox, OneMap and OSM base map styles from the selector.
+     * Update the map center when switching to a base map style that uses a different default region.
   
 * Map Editing
 

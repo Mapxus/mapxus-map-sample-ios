@@ -10,6 +10,7 @@
 #import <MapxusBaseSDK/MapxusBaseSDK.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <AFNetworking/AFNetworkReachabilityManager.h>
+#import "MapxusMapSample-Swift.h"
 
 @interface AppDelegate () <MXMServiceDelegate>
 
@@ -20,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [MapViewNetworkProtocolConfigurator configureIfNeeded];
     [IQKeyboardManager sharedManager].enable = YES;
     // Creating a Mapxus Core Service shared instance
     MXMMapServices *services = [MXMMapServices sharedServices];

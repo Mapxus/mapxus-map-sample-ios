@@ -1,0 +1,11 @@
+//
+//  common.xcconfig
+//  MapxusMap
+//
+//  Created by chenghao guo on 2021/1/20.
+//  Copyright © 2021 MAPHIVE TECHNOLOGY LIMITED. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) MAPXUS_KEY='$(MAPXUS_KEY)' MAPXUS_SECRET='$(MAPXUS_SECRET)' PARAM_CONFIG_FILE='$(PARAM_CONFIG_FILE)'

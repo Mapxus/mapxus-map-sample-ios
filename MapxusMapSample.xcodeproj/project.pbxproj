@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		52873AF62936084300D27143 /* ParamConfigInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 52873AF52936084300D27143 /* ParamConfigInstance.m */; };
+		891CB6DC304A72C300C0A7E9 /* BaseMapChangeCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CB6DB304A72C300C0A7E9 /* BaseMapChangeCaseViewController.swift */; };
+		891CB6DD304A72C300C0A7E9 /* MapboxURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CB6DA304A72C300C0A7E9 /* MapboxURLProtocol.swift */; };
+		891CB6DE304A72C300C0A7E9 /* GoogleMapURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CB6D9304A72C300C0A7E9 /* GoogleMapURLProtocol.swift */; };
+		891CB741305161CF00C0A7E9 /* paramConfig.template.json in Resources */ = {isa = PBXBuildFile; fileRef = 891CB738305161CF00C0A7E9 /* paramConfig.template.json */; };
+		891CB747305242BF00C0A7E9 /* MapViewNetworkProtocolConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CB746305242BE00C0A7E9 /* MapViewNetworkProtocolConfigurator.swift */; };
 		892FE04A2C87F50400C6EB66 /* SearchCategoryInBoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892FE0492C87F50400C6EB66 /* SearchCategoryInBoundViewController.m */; };
 		892FE04D2C87F51C00C6EB66 /* SearchCategoryInBoundParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892FE04C2C87F51C00C6EB66 /* SearchCategoryInBoundParamViewController.m */; };
 		892FE0502C88006C00C6EB66 /* SearchCategoryInBoundResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892FE04F2C88006C00C6EB66 /* SearchCategoryInBoundResultViewController.m */; };
@@ -24,7 +29,6 @@
 		89B3CFEF2A40371A00CE9351 /* BoxLengthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3CFEE2A40371A00CE9351 /* BoxLengthViewController.m */; };
 		89B3D0102A4056F200CE9351 /* SelectedBuildingOutlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3D00F2A4056F100CE9351 /* SelectedBuildingOutlineViewController.m */; };
 		89B3D0132A417C0E00CE9351 /* SwitchingModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3D0122A417C0E00CE9351 /* SwitchingModelViewController.m */; };
-		89D401E72D7FD2CA009B68C6 /* paramConfig_mapxus.json in Resources */ = {isa = PBXBuildFile; fileRef = 52873AF72936102100D27143 /* paramConfig_mapxus.json */; };
 		89D92FD12B2FE9910035218E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 89D92FD02B2FE9910035218E /* PrivacyInfo.xcprivacy */; };
 		89E998BD2B624C16008374EF /* TestLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E998BC2B624C16008374EF /* TestLocationManager.m */; };
 		89FBDED72CE2F630002577A6 /* RoutePainterSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FBDED62CE2F630002577A6 /* RoutePainterSettingViewController.m */; };
@@ -148,7 +152,6 @@
 /* Begin PBXFileReference section */
 		52873AF42936084300D27143 /* ParamConfigInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParamConfigInstance.h; sourceTree = "<group>"; };
 		52873AF52936084300D27143 /* ParamConfigInstance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParamConfigInstance.m; sourceTree = "<group>"; };
-		52873AF72936102100D27143 /* paramConfig_mapxus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = paramConfig_mapxus.json; sourceTree = "<group>"; };
 		59F4ABE352B03EF49E072948 /* Pods_MapxusMapSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapxusMapSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6761E476883A8A50EAEF788B /* Pods-MapxusMapSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapxusMapSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapxusMapSample/Pods-MapxusMapSample.debug.xcconfig"; sourceTree = "<group>"; };
 		8905A9AD2C216D9700ED7D65 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -157,6 +160,14 @@
 		8905A9B02C216DA000ED7D65 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8905A9B12C216DA000ED7D65 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		8905A9B22C216DA000ED7D65 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		891CB6D9304A72C300C0A7E9 /* GoogleMapURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapURLProtocol.swift; sourceTree = "<group>"; };
+		891CB6DA304A72C300C0A7E9 /* MapboxURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxURLProtocol.swift; sourceTree = "<group>"; };
+		891CB6DB304A72C300C0A7E9 /* BaseMapChangeCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMapChangeCaseViewController.swift; sourceTree = "<group>"; };
+		891CB6DF304A72C500C0A7E9 /* MapxusMapSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapxusMapSample-Bridging-Header.h"; sourceTree = "<group>"; };
+		891CB733305161CF00C0A7E9 /* mapxus.common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = mapxus.common.xcconfig; sourceTree = "<group>"; };
+		891CB738305161CF00C0A7E9 /* paramConfig.template.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = paramConfig.template.json; sourceTree = "<group>"; };
+		891CB739305161CF00C0A7E9 /* template.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = template.xcconfig; sourceTree = "<group>"; };
+		891CB746305242BE00C0A7E9 /* MapViewNetworkProtocolConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewNetworkProtocolConfigurator.swift; sourceTree = "<group>"; };
 		892FE0482C87F50400C6EB66 /* SearchCategoryInBoundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCategoryInBoundViewController.h; sourceTree = "<group>"; };
 		892FE0492C87F50400C6EB66 /* SearchCategoryInBoundViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchCategoryInBoundViewController.m; sourceTree = "<group>"; };
 		892FE04B2C87F51C00C6EB66 /* SearchCategoryInBoundParamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCategoryInBoundParamViewController.h; sourceTree = "<group>"; };
@@ -403,6 +414,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		891CB6D8304A727700C0A7E9 /* BaseMapChange */ = {
+			isa = PBXGroup;
+			children = (
+				891CB6D9304A72C300C0A7E9 /* GoogleMapURLProtocol.swift */,
+				891CB6DA304A72C300C0A7E9 /* MapboxURLProtocol.swift */,
+				891CB6DB304A72C300C0A7E9 /* BaseMapChangeCaseViewController.swift */,
+				891CB6DF304A72C500C0A7E9 /* MapxusMapSample-Bridging-Header.h */,
+				891CB746305242BE00C0A7E9 /* MapViewNetworkProtocolConfigurator.swift */,
+			);
+			path = BaseMapChange;
+			sourceTree = "<group>";
+		};
+		891CB73A305161CF00C0A7E9 /* BuildConfig */ = {
+			isa = PBXGroup;
+			children = (
+				891CB733305161CF00C0A7E9 /* mapxus.common.xcconfig */,
+				891CB738305161CF00C0A7E9 /* paramConfig.template.json */,
+				891CB739305161CF00C0A7E9 /* template.xcconfig */,
+			);
+			path = BuildConfig;
+			sourceTree = "<group>";
+		};
 		892FE0362C85BDE200C6EB66 /* SearchCategoryInBound */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,6 +655,7 @@
 		D6408DA2212FF7A200582558 /* MapInteraction */ = {
 			isa = PBXGroup;
 			children = (
+				891CB6D8304A727700C0A7E9 /* BaseMapChange */,
 				89FBDED22CE2EFC8002577A6 /* RouterPainterSetting */,
 				89B3CFF02A40373000CE9351 /* IndoorControls */,
 				89B3D00D2A4054F400CE9351 /* MapAppearance */,
@@ -770,6 +804,7 @@
 		D684BC5A20FED921004E85D9 = {
 			isa = PBXGroup;
 			children = (
+				891CB73A305161CF00C0A7E9 /* BuildConfig */,
 				8961AAE72BB72EFA00B90F93 /* CHANGELOG.md */,
 				89D92FD02B2FE9910035218E /* PrivacyInfo.xcprivacy */,
 				D684BC6520FED921004E85D9 /* MapxusMapSample */,
@@ -801,7 +836,6 @@
 				D684BC6720FED921004E85D9 /* AppDelegate.m */,
 				D6B510C924C533BF0084D813 /* Param.h */,
 				D695842B24C7E07D00466372 /* Macro.h */,
-				52873AF72936102100D27143 /* paramConfig_mapxus.json */,
 				52873AF42936084300D27143 /* ParamConfigInstance.h */,
 				52873AF52936084300D27143 /* ParamConfigInstance.m */,
 				D684BCEE20FF8A16004E85D9 /* FeaturesList */,
@@ -1009,7 +1043,7 @@
 				TargetAttributes = {
 					D684BC6220FED921004E85D9 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1160;
+						LastSwiftMigration = 2660;
 					};
 					D684BC7A20FED922004E85D9 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1050,12 +1084,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89D401E72D7FD2CA009B68C6 /* paramConfig_mapxus.json in Resources */,
 				D684BD9E20FF8A69004E85D9 /* LaunchScreen.storyboard in Resources */,
 				D684BD9F20FF8A69004E85D9 /* Main.storyboard in Resources */,
 				89D92FD12B2FE9910035218E /* PrivacyInfo.xcprivacy in Resources */,
 				D6B510A424C00E050084D813 /* CreateMapByXibViewController.xib in Resources */,
 				D684BDA220FF8AC5004E85D9 /* Localizable.strings in Resources */,
+				891CB741305161CF00C0A7E9 /* paramConfig.template.json in Resources */,
 				D684BD9420FF8A19004E85D9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1121,13 +1155,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MapxusMapSample/Pods-MapxusMapSample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MapxusMapSample/Pods-MapxusMapSample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1220,6 +1250,7 @@
 				D66421FA24CC328F0078404B /* SearchIntegratePOIDetailBuildingCell.m in Sources */,
 				D6B5109C24C00CDB0084D813 /* CreateMapByCodeViewController.m in Sources */,
 				893C37122A3024D30058561A /* SearchVenueGlobalViewController.m in Sources */,
+				891CB747305242BF00C0A7E9 /* MapViewNetworkProtocolConfigurator.swift in Sources */,
 				893C37202A3071CE0058561A /* VenueIDCell.m in Sources */,
 				D695842E24C7F97800466372 /* CategoryIncludeInSceneViewController.m in Sources */,
 				D695843424C805AE00466372 /* SearchPOIInSceneParamViewController.m in Sources */,
@@ -1259,6 +1290,9 @@
 				D6B510C824C52C840084D813 /* FocusOnIndoorSceneParamViewController.m in Sources */,
 				D684BD6720FF8A19004E85D9 /* Feature.m in Sources */,
 				D684BD6620FF8A19004E85D9 /* MenuViewController.m in Sources */,
+				891CB6DC304A72C300C0A7E9 /* BaseMapChangeCaseViewController.swift in Sources */,
+				891CB6DD304A72C300C0A7E9 /* MapboxURLProtocol.swift in Sources */,
+				891CB6DE304A72C300C0A7E9 /* GoogleMapURLProtocol.swift in Sources */,
 				D6B510BF24C156210084D813 /* ClickEventListeningViewController.m in Sources */,
 				D66421FD24CC32AE0078404B /* SearchIntegratePOIDetailBaseCell.m in Sources */,
 				D684BD8420FF8A19004E85D9 /* SearchPOINearbyViewController.m in Sources */,
@@ -1485,7 +1519,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MapxusMapSample/MapInteraction/BaseMapChange/MapxusMapSample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1519,7 +1553,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MapxusMapSample/MapInteraction/BaseMapChange/MapxusMapSample-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -6,29 +6,34 @@
 
 ## 怎么运行
 
-要创建一个构建配置文件，选择 "File > New File…" 菜单项（⌘n），向下滚动到标有 "Other" 的部分，并选择 "Configuration Settings File"。接下来，把它保存在你的项目目录的某个地方，确保把它添加到你想要的 Target 中。
-
-![](./readme_img/WX20211117-101553.png)
-
-在生成的文件中填入以下的内容，并按需修改变量值。
+首先复制示例构建配置文件，创建你自己的本地配置文件，例如：
 
 ```
-// your.xcconfig
+BuildConfig/template.xcconfig -> BuildConfig/your.xcconfig
+```
 
+然后在复制出来的 `.xcconfig` 文件中替换占位值：
+
+```
 BUNDLE_ID = your.bundle.id
-
 APP_NAME = Mapxus Map Sample
 
-MAPXUS_KEY = @"your apiKey"
-
-MAPXUS_SECRET = @"your secret"
-
+MAPXUS_KEY = @"your_mapxus_key"
+MAPXUS_SECRET = @"your_mapxus_secret"
 PARAM_CONFIG_FILE = @"paramConfig_mapxus"
 
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) MAPXUS_KEY='$(MAPXUS_KEY)' MAPXUS_SECRET='$(MAPXUS_SECRET)' PARAM_CONFIG_FILE='$(PARAM_CONFIG_FILE)'
+GOOGLE_MAPS_API_KEY = your_google_maps_api_key
+MAPBOX_ACCESS_TOKEN = your_mapbox_access_token
+
+MAPXUS_API_KEY = your_mapxus_api_key
+MAPXUS_API_SECRET = your_mapxus_api_secret
+
+#include "mapxus.common.xcconfig"
 ```
 
-一旦你创建了一个 xcconfig 文件，你可以把它分配给一个或多个相关目标的构建配置。
+`BuildConfig/template.xcconfig` 仅作为模板使用，请不要提交真实的 Key、Secret 或 Token。
+
+创建好 xcconfig 文件后，在 Xcode 中将它分配给一个或多个相关 Target 的 Build Configuration。
 
 ![](./readme_img/WX20211116-181657.png)
 
@@ -167,6 +172,19 @@ pod install
      详述：
 
      * 进出室内场景时，触发`-mapView:indoorMapWithIn:building:floor:`方法
+
+  8. 底图切换案例
+
+     文件名：BaseMapChangeCaseViewController
+
+     简介：在不同室外底图样式之间切换
+
+     详述：
+
+     * 创建地图前配置 mapview 网络协议
+     * 创建 MapxusMap 实例，并通过调用 `setMapStyleWithName:` 切换室外底图样式
+     * 通过顶部选择器在 Google、LandsD、Mapbox、OneMap 和 OSM 底图样式之间切换
+     * 切换到使用不同默认区域的底图样式时，同步更新地图中心点
 
 * 地图上绘制
 

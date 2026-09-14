@@ -26,6 +26,16 @@
 
 static NSString * const reuseIdentifier = @"Cell";
 
++ (Class)viewControllerClassWithName:(NSString *)className
+{
+    Class pageClass = NSClassFromString(className);
+    if (!pageClass) {
+        NSString *moduleName = [[[NSBundle mainBundle] infoDictionary][@"CFBundleExecutable"] stringByReplacingOccurrencesOfString:@"-" withString:@"_"];
+        pageClass = NSClassFromString([NSString stringWithFormat:@"%@.%@", moduleName, className]);
+    }
+    return [pageClass isSubclassOfClass:[UIViewController class]] ? pageClass : Nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -99,6 +109,10 @@ static NSString * const reuseIdentifier = @"Cell";
                                               imageName:@"IndoorSceneInAndOutListening"
                                                   title:NSLocalizedString(@"Get in or leave indoor scene event listener", nil)
                                                subTitle:NSLocalizedString(@"Listener for get in indoor or leave indoor scene.", nil)],
+                        [Feature createWithPageClassName:@"BaseMapChangeCaseViewController"
+                                               imageName:@"MapAppearance"
+                                                   title:NSLocalizedString(@"Base map switching case", nil)
+                                                subTitle:NSLocalizedString(@"Switch among different outdoor base map styles.", nil)],
                      ],
                      @[[Feature createWithPageClassName:@"IndoorMarkerViewController"
                                               imageName:@"IndoorMarker"
@@ -252,7 +266,12 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     Feature *m = self.dataList[indexPath.row];
-    UIViewController *page = (UIViewController *)[[NSClassFromString(m.pageClassName) alloc] init];
+    Class pageClass = [[self class] viewControllerClassWithName:m.pageClassName];
+    if (!pageClass) {
+        NSLog(@"Failed to create page: %@", m.pageClassName);
+        return;
+    }
+    UIViewController *page = (UIViewController *)[[pageClass alloc] init];
     [page setTitle:m.title];
     [self.navigationController pushViewController:page animated:YES];
 }

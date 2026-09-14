@@ -19,11 +19,15 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>202607.07.1139</string>
+	<string>202609.14.1030</string>
+	<key>GoogleMapsAPIKey</key>
+	<string>$(GOOGLE_MAPS_API_KEY)</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MapboxAccessToken</key>
+	<string>$(MAPBOX_ACCESS_TOKEN)</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Show your Location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

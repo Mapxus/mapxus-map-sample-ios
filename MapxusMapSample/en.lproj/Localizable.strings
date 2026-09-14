@@ -58,6 +58,9 @@
 "Get in or leave indoor scene event listener" = "Get in or leave indoor scene event listener";
 "Listener for get in indoor or leave indoor scene." = "Listener for get in indoor or leave indoor scene.";
 
+"Base map switching case" = "Base map switching case";
+"Switch among different outdoor base map styles." = "Switch among different outdoor base map styles.";
+
 //==============================================================
 
 "Drawing markers by floor" = "Drawing markers by floor";

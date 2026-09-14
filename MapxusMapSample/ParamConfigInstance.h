@@ -38,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *poiId;
 @property (assign, nonatomic) CLLocationDegrees center_latitude;
 @property (assign, nonatomic) CLLocationDegrees center_longitude;
+@property (assign, nonatomic) CLLocationDegrees singapore_center_latitude;
+@property (assign, nonatomic) CLLocationDegrees singapore_center_longitude;
 @property (strong, nonatomic) NSString *sharedFloorId;
 @property (strong, nonatomic) NSString *sharedFloorIds;
 

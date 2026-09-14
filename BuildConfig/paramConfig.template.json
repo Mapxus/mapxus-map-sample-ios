@@ -9,6 +9,8 @@
     "poiId" : "9598328",
     "center_latitude" : "22.370787",
     "center_longitude" : "114.111375",
+    "singapore_center_latitude" : "1.3602607",
+    "singapore_center_longitude" : "103.989759",
     "sharedFloorId":"6e9ee05d47084b26acf576b81c06153c",
     "sharedFloorIds":"6e9ee05d47084b26acf576b81c06153c",
 
@@ -24,31 +26,31 @@
     "polygons" : [
         {
             "latitude" : "22.370860",
-            "longitude" : "114.111155",
+            "longitude" : "114.111155"
         },
         {
             "latitude" : "22.371031",
-            "longitude" : "114.111280",
+            "longitude" : "114.111280"
         },
         {
             "latitude" : "22.370941",
-            "longitude" : "114.111481",
+            "longitude" : "114.111481"
         },
         {
             "latitude" : "22.370873",
-            "longitude" : "114.111423",
+            "longitude" : "114.111423"
         },
         {
             "latitude" : "22.370816",
-            "longitude" : "114.111512",
+            "longitude" : "114.111512"
         },
         {
             "latitude" : "22.370703",
-            "longitude" : "114.111449",
+            "longitude" : "114.111449"
         },
         {
             "latitude" : "22.370860",
-            "longitude" : "114.111155",
+            "longitude" : "114.111155"
         }
     ],
     "drawing_markers" : [
@@ -56,35 +58,35 @@
             "title" : "室外测试点",
             "subtitle" : "lat:22.370779,lon:114.111341",
             "latitude" : "22.370779",
-            "longitude" : "114.111341",
+            "longitude" : "114.111341"
         },
         {
             "title" : "室内测试点",
             "subtitle" : "L1层",
             "floorId" : "2cdd6174730d4431b1aa730eda596ed4",
             "latitude" : "22.371147",
-            "longitude" : "114.111073",
+            "longitude" : "114.111073"
         },
         {
             "title" : "室内测试点",
             "subtitle" : "L2层",
             "floorId" : "36e4546eb75a48ddbbf3518d6e762f28",
             "latitude" : "22.370561",
-            "longitude" : "114.111290",
+            "longitude" : "114.111290"
         },
         {
             "title" : "室内测试点",
             "subtitle" : "L3层",
             "floorId" : "82b062bbe06048f5bb30bf0d7dd993c2",
             "latitude" : "22.371006",
-            "longitude" : "114.111675",
+            "longitude" : "114.111675"
         },
         {
             "title" : "室内测试点",
             "subtitle" : "L4层",
             "floorId" : "c049184d8a02452d91550ed6d41a4279",
             "latitude" : "22.370606",
-            "longitude" : "114.111830",
+            "longitude" : "114.111830"
         }
     ],
     
@@ -92,18 +94,18 @@
         "min_latitude" : "22.292540",
         "min_longitude" : "114.158608",
         "max_latitude" : "22.310600",
-        "max_longitude" : "114.172422",
+        "max_longitude" : "114.172422"
     },
     
     "search_nearby" : {
         "latitude" : "22.370787",
-        "longitude" : "114.111375",
+        "longitude" : "114.111375"
     },
     
     "rectangular_area_bbox" : {
         "min_latitude" : "22.292540",
         "min_longitude" : "114.158608",
         "max_latitude" : "22.310600",
-        "max_longitude" : "114.172422",
-    },
+        "max_longitude" : "114.172422"
+    }
 }

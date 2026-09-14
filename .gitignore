@@ -62,11 +62,10 @@ fastlane_build/
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
-*.xcconfig
 .env*
 *.p8
+BuildConfig/local/
 
 # Bundler
 .bundle
 vendor/
-BuildConfig

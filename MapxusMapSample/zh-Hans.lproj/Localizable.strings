@@ -58,6 +58,9 @@
 "Get in or leave indoor scene event listener" = "事件交互（监听进出室内场景）";
 "Listener for get in indoor or leave indoor scene." = "监听进出室内场景事件。";
 
+"Base map switching case" = "底图切换案例";
+"Switch among different outdoor base map styles." = "在不同室外底图样式之间切换。";
+
 //==============================================================
 
 "Drawing markers by floor" = "按楼层绘制标注";
