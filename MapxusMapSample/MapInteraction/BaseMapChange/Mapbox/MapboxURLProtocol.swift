@@ -43,7 +43,7 @@ final class MapboxURLProtocol: URLProtocol {
     override func startLoading() {
         isCancelled = false
         
-        guard let mutableRequest = makeMutableRequest() else {
+        guard let mutableRequest = (request as NSURLRequest).mutableCopy() as? NSMutableURLRequest else {
             fail(with: Self.makeError(code: -1, message: "Request creation failed"))
             return
         }
@@ -92,10 +92,6 @@ final class MapboxURLProtocol: URLProtocol {
     private var accessToken: String? {
         // Build configuration exposes the token through the app's Info.plist.
         Bundle.main.object(forInfoDictionaryKey: Constants.accessTokenInfoPlistKey) as? String
-    }
-    
-    private func makeMutableRequest() -> NSMutableURLRequest? {
-        (request as NSURLRequest).mutableCopy() as? NSMutableURLRequest
     }
     
     private func appendAccessTokenIfNeeded(to request: NSMutableURLRequest) {

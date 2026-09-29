@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '13.0'
+platform :ios, '15.0'
 
 # Commencing with version v6.5.0, the Mapxus SDKs along with their dependent libraries will be transitioned to a
 # private repository located at 'https://github.com/Mapxus/mapxusSpecs.git'. To guarantee the successful download
@@ -33,4 +33,14 @@ target 'MapxusMapSample' do
     # Pods for testing
   end
   
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 15.0
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+      end
+    end
+  end
 end

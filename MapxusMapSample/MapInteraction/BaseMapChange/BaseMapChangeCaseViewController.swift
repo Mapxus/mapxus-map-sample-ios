@@ -11,7 +11,8 @@ import Mapbox
 import MapxusMapSDK
 
 final class BaseMapChangeCaseViewController: UIViewController, MGLMapViewDelegate {
-    
+    // MARK: - Configuration
+
     private enum Constants {
         static let defaultCoordinate = CLLocationCoordinate2D(
             latitude: ParamConfigInstance.shared().info.center_latitude,
@@ -35,32 +36,88 @@ final class BaseMapChangeCaseViewController: UIViewController, MGLMapViewDelegat
     private struct StyleOption {
         let title: String
         let resourceName: String
-        let centerCoordinate: CLLocationCoordinate2D?
+        let centerCoordinate: CLLocationCoordinate2D
+        let googleMapType: GoogleMapURLProtocol.MapType?
     }
-    
+
     private var mapView: MGLMapView!
     private var mapxusMap: MapxusMap!
     private let styleSelectorScrollView = UIScrollView()
     private let styleSelectorStackView = UIStackView()
     private var styleButtons: [UIButton] = []
-    private var selectedStyleIndex = 1
+    private var selectedStyleIndex = 0
+    private var appliedStyleIndex: Int?
+    private let attributionCoordinator = GoogleViewportAttributionCoordinator()
     private let styleOptions: [StyleOption] = [
-        StyleOption(title: "Google", resourceName: "mapxus_v8_googlemap", centerCoordinate: Constants.defaultCoordinate),
-        StyleOption(title: "LandsD", resourceName: "mapxus_v8_landsd", centerCoordinate: Constants.defaultCoordinate),
-        StyleOption(title: "Mapbox", resourceName: "mapxus_v8_mapbox", centerCoordinate: Constants.defaultCoordinate),
-        StyleOption(title: "OneMap", resourceName: "mapxus_v8_onemap", centerCoordinate: Constants.singaporeCoordinate),
-        StyleOption(title: "OSM", resourceName: "mapxus_v8", centerCoordinate: Constants.defaultCoordinate)
+        StyleOption(
+            title: "OSM",
+            resourceName: "mapxus_v8",
+            centerCoordinate: Constants.defaultCoordinate,
+            googleMapType: nil
+        ),
+        StyleOption(
+            title: "LandsD",
+            resourceName: "mapxus_v8_landsd_en",
+            centerCoordinate: Constants.defaultCoordinate,
+            googleMapType: nil
+        ),
+        StyleOption(
+            title: "Mapbox",
+            resourceName: "mapxus_v8_mapbox",
+            centerCoordinate: Constants.defaultCoordinate,
+            googleMapType: nil
+        ),
+        StyleOption(
+            title: "OneMap",
+            resourceName: "mapxus_v8_onemap",
+            centerCoordinate: Constants.singaporeCoordinate,
+            googleMapType: nil
+        ),
+        StyleOption(
+            title: "Google Roadmap",
+            resourceName: "mapxus_v8_googlemap_roadmap",
+            centerCoordinate: Constants.defaultCoordinate,
+            googleMapType: .roadmap
+        ),
+        StyleOption(
+            title: "Google Satellite",
+            resourceName: "mapxus_v8_googlemap_satellite",
+            centerCoordinate: Constants.defaultCoordinate,
+            googleMapType: .satellite
+        )
     ]
-    
+
+    // MARK: - View Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setupStyleSelector()
         setupMapView()
-        setupLayout()
-        setupMapxusMap()
+        mapxusMap = MapxusMap(mapView: mapView, configuration: MXMConfiguration())
         applyStyle(at: selectedStyleIndex)
     }
-    
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        attributionCoordinator.viewportDidChange()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if isMovingFromParent || navigationController?.isBeingDismissed == true {
+            attributionCoordinator.stop(clearAttribution: true)
+            GoogleMapURLProtocol.deactivate()
+        }
+    }
+
+    deinit {
+        attributionCoordinator.stop(clearAttribution: true)
+        GoogleMapURLProtocol.deactivate()
+    }
+
+    // MARK: - View Setup
+
     private func setupMapView() {
         mapView = MGLMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -68,22 +125,13 @@ final class BaseMapChangeCaseViewController: UIViewController, MGLMapViewDelegat
         mapView.zoomLevel = Constants.defaultZoomLevel
         // Regardless of whether the callback method of MGLMapViewDelegate is implemented or not, the delegate must be set.
         mapView.delegate = self
-    }
-    
-    private func setupMapxusMap() {
-        let configuration = MXMConfiguration()
-        mapxusMap = MapxusMap(mapView: mapView, configuration: configuration)
-    }
-    
-    private func setupLayout() {
-        view.addSubview(mapView)
+        view.insertSubview(mapView, at: 0)
         NSLayoutConstraint.activate([
             mapView.topAnchor.constraint(equalTo: view.topAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-        setupStyleSelector()
     }
     
     private func setupStyleSelector() {
@@ -124,8 +172,15 @@ final class BaseMapChangeCaseViewController: UIViewController, MGLMapViewDelegat
     private func makeStyleButton(title: String, tag: Int) -> UIButton {
         let button = UIButton(type: .system)
         button.tag = tag
+        var configuration = UIButton.Configuration.plain()
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 6, leading: 12, bottom: 6, trailing: 12)
+        configuration.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { attributes in
+            var attributes = attributes
+            attributes.font = .systemFont(ofSize: 13, weight: .semibold)
+            return attributes
+        }
+        button.configuration = configuration
         button.setTitle(title, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 13, weight: .semibold)
         button.layer.cornerRadius = Constants.buttonCornerRadius
         button.layer.masksToBounds = true
         button.widthAnchor.constraint(greaterThanOrEqualToConstant: Constants.buttonMinWidth).isActive = true
@@ -133,19 +188,61 @@ final class BaseMapChangeCaseViewController: UIViewController, MGLMapViewDelegat
         styleSelectorStackView.addArrangedSubview(button)
         return button
     }
-    
+
+    // MARK: - Style Selection
+
     private func applyStyle(at index: Int) {
         guard styleOptions.indices.contains(index) else { return }
-        
+        guard appliedStyleIndex != index else { return }
+
         let option = styleOptions[index]
         selectedStyleIndex = index
-        mapxusMap.setMapStyleWithName(option.resourceName)
-        if let centerCoordinate = option.centerCoordinate {
-            mapView.setCenter(centerCoordinate, animated: true)
-        }
         updateStyleButtons()
+
+        mapView.centerCoordinate = option.centerCoordinate
+        mapView.zoomLevel = Constants.defaultZoomLevel
+
+        if let mapType = option.googleMapType {
+            GoogleMapURLProtocol.setMapType(mapType)
+        } else {
+            GoogleMapURLProtocol.deactivate()
+        }
+        attributionCoordinator.attach(mapView: mapView, mapxusMap: mapxusMap, mapType: option.googleMapType)
+
+        appliedStyleIndex = index
+        mapxusMap.setMapStyleWithName(option.resourceName)
     }
-    
+
+    // MARK: - MGLMapViewDelegate
+
+    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
+        guard mapView === self.mapView else { return }
+        attributionCoordinator.styleDidLoad()
+    }
+
+    func mapViewRegionIsChanging(_ mapView: MGLMapView) {
+        guard mapView === self.mapView else { return }
+        attributionCoordinator.viewportDidChange()
+    }
+
+    func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {
+        guard mapView === self.mapView else { return }
+        attributionCoordinator.viewportDidChange()
+    }
+
+    func mapViewDidFailLoadingMap(_ mapView: MGLMapView, withError error: Error) {
+        guard mapView === self.mapView else { return }
+        appliedStyleIndex = nil
+        showError(error)
+    }
+
+    private func showError(_ error: Error) {
+        guard presentedViewController == nil else { return }
+        let alert = UIAlertController(title: "Map Error", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+
     private func updateStyleButtons() {
         for (index, button) in styleButtons.enumerated() {
             let isSelected = index == selectedStyleIndex
